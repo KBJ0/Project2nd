@@ -80,7 +80,7 @@ public class UserController {
     public ResultDto<Integer> deleteUser(@RequestParam("name = userSeq") Long userSeq) {
         int result = service.deleteUser(userSeq);
 
-                // 서비스에서 던진 에러 처리하기
+        // 서비스에서 던진 에러 처리하기
 
         return ResultDto.<Integer>builder()
                 .statusCode(HttpStatus.OK)

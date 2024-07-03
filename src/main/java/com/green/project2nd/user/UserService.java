@@ -1,4 +1,6 @@
 package com.green.project2nd.user;
+
+
 import com.green.project2nd.user.datacheck.Const;
 import com.green.project2nd.user.model.*;
 import com.green.project2nd.user.userexception.*;
@@ -117,4 +119,36 @@ public class UserService {
     public UserEntity getDetailUserInfo(Long userSeq) {
         return mapper.getDetailUserInfo(userSeq);
     }
+
+    public String duplicatedCheck(String str, int num) {   // 1 : 이메일, 2 : 닉네임
+        log.info("str : {}", str);
+        switch (num) {
+            case 1 -> str = mapper.checkEmail(str);
+            case 2 -> str = mapper.checkNickname(str);
+            default -> throw new RuntimeException("에러발생");
+        }
+        return str;
+    };
+
+    public String updateUserPic(UpdateUserPicReq p) {
+        String fileName = customFileUtils.makeRandomFileName(p.getPic());
+        p.setPicName(fileName);
+        mapper.updateUserPic(p);
+
+        try {
+            String Path = String.format("user/%d", p.getUserSeq());
+            String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, Path);
+            customFileUtils.deleteFolder(delAbsoluteFolderPath);
+
+
+            customFileUtils.makeFolders(Path);
+            String filePath = String.format("%s/%s", Path, fileName);
+            customFileUtils.transferTo(p.getPic(), filePath);
+
+        } catch (Exception e) {
+            throw new RuntimeException(ERROR_Message);  // 에러 처리하기
+        }
+        return fileName;
+    }
+
 }

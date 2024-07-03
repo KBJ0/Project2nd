@@ -2,6 +2,7 @@ package com.green.project2nd.party.exception;
 import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.common.myexception.*;
+import com.green.project2nd.party.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.annotation.Order;
 import org.springframework.dao.DataIntegrityViolationException;
