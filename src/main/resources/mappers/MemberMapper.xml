@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.member.MemberMapper">
+
+    <insert id="postMember" keyProperty="memberSeq" useGeneratedKeys="true">
+        INSERT INTO party_member
+        SET member_party_seq = #{memberPartySeq}
+        , member_user_seq = #{memberUserSeq}
+    </insert>
+
+    <select id="getMember">
+        SELECT
+            member_seq AS memberSeq, member_user_seq AS memberUserSeq
+            , member_role AS memberRole, member_gb AS memberGb
+        FROM party_member
+        WHERE member_party_seq = #{memberPartySeq}
+    </select>
+    <select id="getMemberDetail">
+        SELECT
+            member_seq AS memberSeq, member_user_seq AS memberUserSeq
+            , member_role AS memberRole, member_gb AS memberGb
+        FROM party_member
+        WHERE member_party_seq = #{memberPartySeq}
+        AND member_user_seq = #{memberUserSeq}
+    </select>
+
+    <update id="updateMember">
+        UPDATE party_member
+        SET member_role = #{memberRole}
+        WHERE member_party_seq = #{memberPartySeq}
+        AND  member_user_seq = #{memberUserSeq}
+    </update>
+    <update id="updateMemberGb">
+        UPDATE party_member
+        SET member_gb = CASE
+        WHEN member_gb = 1 THEN 0 ELSE 1 END
+        WHERE member_party_seq = #{memberPartySeq}
+        AND  member_user_seq = #{memberUserSeq}
+    </update>
+
+    <delete id ="deleteMember">
+        DELETE from party_member
+        WHERE member_party_seq = #{memberPartySeq}
+        AND  member_user_seq = #{memberUserSeq}
+    </delete>
+
+</mapper>

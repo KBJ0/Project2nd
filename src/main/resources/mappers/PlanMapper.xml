@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.plan.PlanMapper">
+    <insert id="postPlan" keyProperty="plan_seq" useGeneratedKeys="true">
+        INSERT INTO plan_master
+        SET plan_party_seq = #{planPartySeq},
+            plan_start_dt = #{planStartDt},
+            plan_start_time = #{planStartTime},
+            plan_title = #{planTitle},
+            plan_contents = #{planContents}
+    </insert>
+    
+    <update id="patchPlan">
+        UPDATE plan_master
+        <set>
+        <if test="plan_start_dt!=null and plan_start_dt!=''">
+            plan_start_dt = #{planStartDt},
+        </if>
+        <if test="plan_start_time!=null and plan_start_time!=''">
+            plan_start_time = #{planStartTime},
+        </if>
+        <if test="plan_title!=null and plan_start_title!=''">
+            plan_title = #{planTitle},
+        </if>
+        <if test="plan_contents!=null and plan_start_contents!=''">
+            plan_contents = #{planContents}
+        </if>
+        </set>
+        WHERE plan_seq = #{planSeq}
+    </update>
+    
+    <select id="getPlanAll">
+        SELECT plan_seq AS planSeq, plan_party_seq AS planPartySeq, plan_start_dt AS planStartDt,
+            plan_start_time AS planStartTime, plan_title AS planTitle, plan_contents AS planContents
+        FROM plan_master
+        WHERE plan_party_seq = #{planPartySeq}
+    </select>
+
+    <select id="getPlan">
+        SELECT plan_seq AS planSeq, plan_party_seq AS planPartySeq, plan_start_dt AS planStartDt,
+            plan_start_time AS planStartTime, plan_title AS planTitle, plan_contents AS planContents
+        FROM plan_master
+        WHERE plan_seq = #{planSeq}
+    </select>
+    
+    <delete id="deletePlan">
+        DELETE
+        FROM plan_master
+        WHERE plan_seq = #{planSeq}
+    </delete>
+</mapper>

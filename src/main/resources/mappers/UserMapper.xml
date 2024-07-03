@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.user.UserMapper">
+    <insert id="postSignUp" keyProperty="userSeq" useGeneratedKeys="true">
+        INSERT INTO user_master
+        SET user_email = #{userEmail}
+        , user_pw = #{userPw}
+        , user_name = #{userName}
+        , user_addr = #{userAddr}
+        , user_nickname = #{userNickname}
+        , user_fav = #{userFav}
+        , user_birth = #{userBirth}
+        , user_gender = #{userGender}
+        , user_phone = #{userPhone}
+        , user_intro = #{userIntro}
+        , user_pic = #{userPic}
+    </insert>
+
+    <select id="getSimpleUserInfo">
+        SELECT user_seq AS userSeq, user_email AS userEmail, user_pw AS userPw
+        , user_nickname AS userNickname, user_pic AS userPic
+        , input_dt AS inputDt, update_dt AS updateDt
+        FROM user_master
+        WHERE user_email = #{userEmail}
+    </select>
+
+    <select id="getDetailUserInfo">
+        SELECT user_seq AS userSeq, user_email AS userEmail, user_pw AS userPw
+        , user_name AS userName, user_nickname AS userNickname
+        , user_addr AS userAddr, user_fav AS userFav, user_birth AS userBirth
+        , user_gender AS userGender, user_phone AS userPhone,
+        user_intro AS userIntro, user_gb AS userGB, user_pic AS userPic
+        FROM user_master
+        WHERE user_seq = #{userSeq}
+    </select>
+
+
+    
+    
+
+
+
+    <update id="patchPassword">
+        UPDATE user_master
+        SET user_pw = #{newPw}
+        WHERE user_seq = #{userSeq}
+    </update>
+
+    <update id="updateUserPic">
+        UPDATE user_master
+        SET user_pic = #{picName}
+        WHERE user_seq = #{userSeq}
+    </update>
+    
+    <delete id="deleteUser">
+        DELETE
+        FROM user_master
+        WHERE user_seq = #{userSeq}
+    </delete>
+
+    <select id="checkEmail">
+        SELECT user_email AS userEmail
+        FROM user_master
+        WHERE user_email = #{userEmail}
+    </select>
+
+    <select id="checkNickname">
+        SELECT user_nickname AS userNickname
+        FROM user_master
+        WHERE user_nickname = #{userNickname}
+    </select>
+
+
+
+</mapper>

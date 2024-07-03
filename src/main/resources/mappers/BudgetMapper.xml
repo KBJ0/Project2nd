@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.budget.BudgetMapper">
+    <insert id="postBudget" keyProperty="budget_seq" useGeneratedKeys="true">
+        INSERT INTO party_budget
+        SET budget_party_seq = #{budgetPartySeq},
+            budget_member_seq = #{budgetMemberSeq},
+            budget_gb = #{budgetGb},
+            budget_amount = #{budget_amount},
+            budget_dt = #{budgetDt},
+            budget_text = #{budgetText},
+            budget_pic = #{budgetPic},
+            budget_posted_member = #{budgetPostedMember}
+    </insert>
+
+    <update id="patchBudget">
+        UPDATE party_budget
+        <set>
+            <if test="budget_member_seq!=null and budget_member_seq!='' and budget_member_seq >0">
+                budget_member_seq = #{budgetMemberSeq},
+            </if>
+            <if test="budget_gb!=null and budget_gb!='' and budget_gb >0">
+                budget_gb = #{budgetGb},
+            </if>
+            <if test="budget_amount!=null and budget_amount!='' and budget_amount >0">
+                budget_amount = #{budget_amount},
+            </if>
+            <if test="budget_dt!=null and budget_dt!=''">
+                budget_dt = #{budgetDt},
+            </if>
+            <if test="budget_text!=null and budget_text!=''">
+                budget_text = #{budgetText},
+            </if>
+            <if test="budget_dt!=null and budget_dt!=''">
+                budget_dt = #{budgetDt},
+            </if>
+
+            <if test="budget_posted_member!=null and budget_posted_member!='' and budget_posted_member > 0">
+                budget_posted_member = #{budgetPostedMember}
+            </if>
+        </set>
+        WHERE budget_seq = #{budgetSeq}
+    </update>
+
+    <select id="getBudget">
+        SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,
+            budget_gb AS budgetGb, budget_amount AS budget_amount, budget_dt AS budgetDt, budget_text AS budgetText,
+            budget_pic AS budgetPic, budget_posted_member AS budgetPostedMember
+        FROM party_budget
+    </select>
+
+
+
+
+
+</mapper>

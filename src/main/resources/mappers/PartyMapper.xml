@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.party.PartyMapper">
+
+    <insert id="postParty" keyProperty="partySeq" useGeneratedKeys="true">
+        INSERT INTO party_master
+        SET party_name = #{partyName}
+        , party_genre = #{partyGenre}
+        , party_location = #{partyLocation}
+        , party_min_age = #{partyMinAge}
+        , party_max_age = #{partyMaxAge}
+        , party_gender = #{partyGender}
+        , party_maximum = #{partyMaximum}
+        , party_intro = #{partyIntro}
+        , party_join_form = #{partyJoinForm}
+        , party_pic = #{partyPic}
+    </insert>
+
+
+    <select id="getParty">
+        SELECT
+            party_seq AS partySeq, party_name AS partyName, party_genre AS partyGenre, party_location AS partyLocation
+            , party_min_age AS partyMinAge, party_max_age AS partyMaxAge, party_gender AS partyGender
+            , party_maximum AS partyMaximum, party_join_gb AS partyJoinGb, party_intro AS partyIntro
+            , party_join_form AS partyJoinForm, party_pic AS partyPic
+        FROM party_master
+    </select>
+    <select id="getPartyDetail">
+        SELECT
+            party_name AS partyName, party_genre AS partyGenre, party_location AS partyLocation
+            , party_min_age AS partyMinAge, party_max_age AS partyMaxAge, party_gender AS partyGender
+            , party_maximum AS partyMaximum, party_join_gb AS partyJoinGb, party_intro AS partyIntro
+            , party_join_form AS partyJoinForm, party_pic AS partyPic
+        FROM party_master
+        WHERE party_seq = #{partySeq}
+    </select>
+
+    <update id="updateParty">
+        UPDATE party_master
+        SET party_name = #{partyName}
+        , party_genre = #{partyGenre}
+        , party_location = #{partyLocation}
+        , party_min_age = #{partyMinAge}
+        , party_max_age = #{partyMaxAge}
+        , party_gender = #{partyGender}
+        , party_maximum = #{partyMaximum}
+        , party_intro = #{partyIntro}
+        , party_join_form = #{partyJoinForm}
+        , party_pic = #{partyPic}
+        WHERE party_seq = #{partySeq}
+    </update>
+    <update id="updatePartyAuthGb">
+        UPDATE pet
+        SET pet_name = #{petName},
+        pet_category = #{petCategory},
+        pet_image = #{petImage},
+        pet_icon = #{petIcon},
+        pet_back_color = #{petBackColor}
+        WHERE pet_id = #{petId}
+    </update>
+
+    <delete id ="deleteParty">
+        DELETE from pet
+        WHERE pet_id = #{petId}
+    </delete>
+
+</mapper>

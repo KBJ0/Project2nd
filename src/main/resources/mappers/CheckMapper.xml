@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.common.CheckMapper">
+    <select id="checkPartySeq">
+        SELECT party_seq
+        FROM party_master
+        WHERE party_seq = #{partySeq}
+    </select>
+
+    <select id="checkMemberPartySeq">
+        SELECT member_party_seq
+        FROM party_member
+        WHERE member_party_seq = #{memberPartySeq}
+    </select>
+    <select id="checkMemberUserSeq">
+        SELECT member_user_seq
+        FROM party_member
+        WHERE member_user_seq = #{memberUserSeq}
+    </select>
+
+    <select id="checkJoinPartySeq">
+        SELECT join_party_seq
+        FROM party_join
+        WHERE join_party_seq = #{joinPartySeq}
+    </select>
+    <select id="checkUserPartySeq">
+        SELECT join_user_seq
+        FROM party_join
+        WHERE join_user_seq = #{joinUserSeq}
+    </select>
+
+
+</mapper>
