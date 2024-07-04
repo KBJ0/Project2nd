@@ -51,8 +51,35 @@
         FROM party_budget
     </select>
 
+    <delete id="deleteBudget">
+        DELETE
+        FROM party_budget
+        WHERE budget_seq = #{budgetSeq}
+        AND budget_dt LIKE #{month}
+    </delete>
 
+    <select id="getBudgetPic">
+        SELECT budget_pic AS budgetPic
+        FROM party_budget
+        WHERE budget_seq = #{budgetSeq}
+    </select>
 
-
+    <select id="getBudgetMember">
+        SELECT COUNT(B.member_seq) AS memberSum, COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
+                (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END))
+        FROM party_budget A
+        JOIN party_member B
+        ON A.budget_party_seq = B.member_party_seq
+        WHERE B.member_party_seq = #{partySeq}
+        AND A.budget_dt LIKE #{month}
+    </select>
+    
+    <select id="getBudgetMonthly">
+        SELECT SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) AS depositSum, SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS withdrawSum,
+                SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS Sum
+        FROM party_budget
+        WHERE budget_party_seq = #{budgetPartySeq}
+        AND budget_dt LIKE #{month}
+    </select>
 
 </mapper>
