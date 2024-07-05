@@ -10,6 +10,7 @@ public class GetPlanRes {
     private long plan_seq;
     private String planStartDt;
     private String planStartTime;
+    private int planCompleted;
     private String planTitle;
     private String planContents;
 }

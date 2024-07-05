@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.project2nd.budget.BudgetMapper">
+
     <insert id="postBudget" keyProperty="budget_seq" useGeneratedKeys="true">
         INSERT INTO party_budget
         SET budget_party_seq = #{budgetPartySeq},
@@ -18,13 +19,13 @@
     <update id="patchBudget">
         UPDATE party_budget
         <set>
-            <if test="budget_member_seq!=null and budget_member_seq!='' and budget_member_seq >0">
+            <if test="budget_member_seq!=null and budget_member_seq!='' and budget_member_seq > 0">
                 budget_member_seq = #{budgetMemberSeq},
             </if>
-            <if test="budget_gb!=null and budget_gb!='' and budget_gb >0">
+            <if test="budget_gb!=null and budget_gb!='' and budget_gb > 0">
                 budget_gb = #{budgetGb},
             </if>
-            <if test="budget_amount!=null and budget_amount!='' and budget_amount >0">
+            <if test="budget_amount!=null and budget_amount!='' and budget_amount > 0">
                 budget_amount = #{budget_amount},
             </if>
             <if test="budget_dt!=null and budget_dt!=''">
@@ -35,10 +36,6 @@
             </if>
             <if test="budget_dt!=null and budget_dt!=''">
                 budget_dt = #{budgetDt},
-            </if>
-
-            <if test="budget_posted_member!=null and budget_posted_member!='' and budget_posted_member > 0">
-                budget_posted_member = #{budgetPostedMember}
             </if>
         </set>
         WHERE budget_seq = #{budgetSeq}
@@ -66,7 +63,7 @@
 
     <select id="getBudgetMember">
         SELECT COUNT(B.member_seq) AS memberSum, COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
-                (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END))
+                (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
         FROM party_budget A
         JOIN party_member B
         ON A.budget_party_seq = B.member_party_seq
@@ -76,7 +73,7 @@
     
     <select id="getBudgetMonthly">
         SELECT SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) AS depositSum, SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS withdrawSum,
-                SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS Sum
+                SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS sum
         FROM party_budget
         WHERE budget_party_seq = #{budgetPartySeq}
         AND budget_dt LIKE #{month}
