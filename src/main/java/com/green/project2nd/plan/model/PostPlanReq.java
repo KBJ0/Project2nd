@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PostPlanReq {
-    @JsonIgnore private long plan_seq;
+    @JsonIgnore private long planSeq;
     private long planPartySeq;
     private String planStartDt;
     private String planStartTime;

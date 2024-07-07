@@ -22,8 +22,8 @@ public class PlanService {
         return mapper.patchPlan(p);
     };
 
-    public List<GetPlanRes> getPlanAll(){
-        return mapper.getPlanAll();
+    public List<GetPlanRes> getPlanAll(long planPartySeq){
+        return mapper.getPlanAll(planPartySeq);
     };
 
     public GetPlanRes getPlan(long planSeq){

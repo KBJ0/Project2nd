@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PatchPlanReq {
-    private long plan_seq;
+    private long planSeq;
     private String planStartDt;
     private String planStartTime;
     private String planTitle;

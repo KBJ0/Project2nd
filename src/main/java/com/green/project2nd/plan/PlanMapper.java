@@ -10,7 +10,7 @@ import java.util.List;
 public interface PlanMapper {
     int postPlan(PostPlanReq p);
     int patchPlan(PatchPlanReq p);
-    List<GetPlanRes> getPlanAll();
+    List<GetPlanRes> getPlanAll(long planPartySeq);
     GetPlanRes getPlan(long planSeq);
     int deletePlan(long planSeq);
     int postPlanJoin(TogglePlanJoinReq p);

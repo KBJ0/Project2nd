@@ -44,10 +44,10 @@ public class PlanController {
                 build();
     }
 
-    @GetMapping
+    @GetMapping("{plan_party_seq}")
     @Operation(summary = "모임 일정 전체 조회" , description = "등록되어 있는 일정 전체 출력")
-    public ResultDto<List<GetPlanRes>> getPlanAll(){
-        List<GetPlanRes> result = service.getPlanAll();
+    public ResultDto<List<GetPlanRes>> getPlanAll(@PathVariable(name = "plan_party_seq") long planPartySeq){
+        List<GetPlanRes> result = service.getPlanAll(planPartySeq);
 
         return ResultDto.<List<GetPlanRes>>builder().
                 statusCode(HttpStatus.OK).
@@ -55,9 +55,9 @@ public class PlanController {
                 resultData(result).
                 build();
     }
-    @GetMapping("{planSeq}")
+    @GetMapping("/party/{plan_seq}")
     @Operation(summary = "모임 일정 상세 조회" , description = "등록되어 있는 한 개의 일정 상세 출력")
-    public ResultDto<GetPlanRes> getPlan(@RequestParam(name="plan_seq") @PathVariable long planSeq){
+    public ResultDto<GetPlanRes> getPlan(@PathVariable(name="plan_seq") long planSeq){
         GetPlanRes result = service.getPlan(planSeq);
 
         return ResultDto.<GetPlanRes>builder().
@@ -67,9 +67,9 @@ public class PlanController {
                 build();
     }
 
-    @DeleteMapping("{planSeq}")
+    @DeleteMapping("{plan_seq}")
     @Operation(summary = "모임 일정 삭제" , description = "등록했던 일정 삭제 (모임장)")
-    public ResultDto<Integer> deletePlan(@RequestParam(name="plan_seq") @PathVariable long planSeq){
+    public ResultDto<Integer> deletePlan(@PathVariable(name="plan_seq") long planSeq){
         int result = service.deletePlan(planSeq);
 
         return ResultDto.<Integer>builder().

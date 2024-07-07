@@ -17,5 +17,4 @@ public class PostBudgetReq {
     private String budgetDt;
     private String budgetText;
     private String budgetPic;
-    private long budgetPostedMember;
 }

@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class GetPlanRes {
-    private long plan_seq;
+    private long planSeq;
     private String planStartDt;
     private String planStartTime;
     private int planCompleted;

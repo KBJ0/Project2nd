@@ -25,16 +25,16 @@ public class BudgetService {
         return mapper.getBudget(p);
     }
 
-    public int deleteBudget(long budgetSeq){
-        return mapper.deleteBudget(budgetSeq);
-    }
-
     public String getBudgetPic(long budgetSeq){
         return mapper.getBudgetPic(budgetSeq);
     };
 
-    public GetBudgetMemberRes getBudgetMember(long budgetSeq){
-        return mapper.getBudgetMember(budgetSeq);
+    public int deleteBudget(long budgetSeq){
+        return mapper.deleteBudget(budgetSeq);
+    }
+
+    public GetBudgetMemberRes getBudgetMember(GetBudgetReq p){
+        return mapper.getBudgetMember(p);
     }
 
     public GetBudgetMonthlyRes getBudgetMonthly(GetBudgetReq p){

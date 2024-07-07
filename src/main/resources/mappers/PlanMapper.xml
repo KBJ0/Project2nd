@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.project2nd.plan.PlanMapper">
-    <insert id="postPlan" keyProperty="plan_seq" useGeneratedKeys="true">
+    <insert id="postPlan" keyProperty="planSeq" useGeneratedKeys="true">
         INSERT INTO plan_master
         SET plan_party_seq = #{planPartySeq},
             plan_start_dt = #{planStartDt},
@@ -15,16 +15,16 @@
     <update id="patchPlan">
         UPDATE plan_master
         <set>
-        <if test="plan_start_dt!=null and plan_start_dt!=''">
+        <if test="planStartDt!=null and planStartDt!=''">
             plan_start_dt = #{planStartDt},
         </if>
-        <if test="plan_start_time!=null and plan_start_time!=''">
+        <if test="planStartTime!=null and planStartTime!=''">
             plan_start_time = #{planStartTime},
         </if>
-        <if test="plan_title!=null and plan_start_title!=''">
+        <if test="planTitle!=null and planTitle!=''">
             plan_title = #{planTitle},
         </if>
-        <if test="plan_contents!=null and plan_start_contents!=''">
+        <if test="planContents!=null and planContents!=''">
             plan_contents = #{planContents}
         </if>
         </set>

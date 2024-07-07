@@ -10,8 +10,8 @@ public interface BudgetMapper {
     int postBudget(PostBudgetReq p);
     int patchBudget(PatchBudgetReq p);
     List<GetBudgetRes> getBudget(GetBudgetReq p);
-    int deleteBudget(long budgetSeq);
     String getBudgetPic(long budgetSeq);
-    GetBudgetMemberRes getBudgetMember(long budgetSeq);
+    int deleteBudget(long budgetSeq);
+    GetBudgetMemberRes getBudgetMember(GetBudgetReq p);
     GetBudgetMonthlyRes getBudgetMonthly(GetBudgetReq p);
 }

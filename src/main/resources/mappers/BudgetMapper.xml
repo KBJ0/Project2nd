@@ -4,37 +4,36 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.project2nd.budget.BudgetMapper">
 
-    <insert id="postBudget" keyProperty="budget_seq" useGeneratedKeys="true">
+    <insert id="postBudget" keyProperty="budgetSeq" useGeneratedKeys="true">
         INSERT INTO party_budget
         SET budget_party_seq = #{budgetPartySeq},
             budget_member_seq = #{budgetMemberSeq},
             budget_gb = #{budgetGb},
-            budget_amount = #{budget_amount},
+            budget_amount = #{budgetAmount},
             budget_dt = #{budgetDt},
             budget_text = #{budgetText},
-            budget_pic = #{budgetPic},
-            budget_posted_member = #{budgetPostedMember}
+            budget_pic = #{budgetPic}
     </insert>
 
     <update id="patchBudget">
         UPDATE party_budget
         <set>
-            <if test="budget_member_seq!=null and budget_member_seq!='' and budget_member_seq > 0">
+            <if test="budgetMemberSeq!=null and budgetMemberSeq!='' and budgetMemberSeq > 0">
                 budget_member_seq = #{budgetMemberSeq},
             </if>
-            <if test="budget_gb!=null and budget_gb!='' and budget_gb > 0">
+            <if test="budgetGb!=null and budgetGb!='' and budgetGb > 0">
                 budget_gb = #{budgetGb},
             </if>
-            <if test="budget_amount!=null and budget_amount!='' and budget_amount > 0">
-                budget_amount = #{budget_amount},
+            <if test="budgetAmount!=null and budgetAmount!='' and budgetAmount > 0">
+                budget_amount = #{budgetAmount},
             </if>
-            <if test="budget_dt!=null and budget_dt!=''">
+            <if test="budgetDt!=null and budgetDt!=''">
                 budget_dt = #{budgetDt},
             </if>
-            <if test="budget_text!=null and budget_text!=''">
+            <if test="budgetText!=null and budgetText!=''">
                 budget_text = #{budgetText},
             </if>
-            <if test="budget_dt!=null and budget_dt!=''">
+            <if test="budgetDt!=null and budgetDt!=''">
                 budget_dt = #{budgetDt},
             </if>
         </set>
@@ -42,18 +41,14 @@
     </update>
 
     <select id="getBudget">
-        SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,
-            budget_gb AS budgetGb, budget_amount AS budget_amount, budget_dt AS budgetDt, budget_text AS budgetText,
-            budget_pic AS budgetPic, budget_posted_member AS budgetPostedMember
-        FROM party_budget
+        SELECT A.budget_seq AS budgetSeq, A.budget_party_seq AS budgetPartySeq, A.budget_member_seq AS budgetMemberSeq,
+            A.budget_gb AS budgetGb, B.CD_GB_NM AS cdNm, A.budget_amount AS budgetAmount, A.budget_dt AS budgetDt, A.budget_text AS budgetText,
+            A.budget_pic AS budgetPic, A.budget_posted_member AS budgetPostedMember
+        FROM party_budget A
+        JOIN common_cd B
+        ON A.budget_gb = B.cd_gb
+        WHERE A.budget_party_seq = #{budgetPartySeq}
     </select>
-
-    <delete id="deleteBudget">
-        DELETE
-        FROM party_budget
-        WHERE budget_seq = #{budgetSeq}
-        AND budget_dt LIKE #{month}
-    </delete>
 
     <select id="getBudgetPic">
         SELECT budget_pic AS budgetPic
@@ -61,13 +56,19 @@
         WHERE budget_seq = #{budgetSeq}
     </select>
 
+    <delete id="deleteBudget">
+        DELETE
+        FROM party_budget
+        WHERE budget_seq = #{budgetSeq}
+    </delete>
+
     <select id="getBudgetMember">
         SELECT COUNT(B.member_seq) AS memberSum, COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
                 (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
         FROM party_budget A
         JOIN party_member B
         ON A.budget_party_seq = B.member_party_seq
-        WHERE B.member_party_seq = #{partySeq}
+        WHERE A.budget_party_seq = #{budgetPartySeq}
         AND A.budget_dt LIKE #{month}
     </select>
     

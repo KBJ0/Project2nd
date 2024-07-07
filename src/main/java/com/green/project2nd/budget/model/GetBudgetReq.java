@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 public class GetBudgetReq {
     private long budgetPartySeq;
-    private int monthReq = 12;
+    private String monthReq;
     @JsonIgnore
-    private String month = "'2024-" + String.format("%02d", monthReq) + "%'";
+    private String month = "'2024-" + monthReq + "%'";
 }
