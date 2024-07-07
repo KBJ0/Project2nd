@@ -33,12 +33,4 @@ public class PlanService {
     public int deletePlan(long planSeq) {
         return mapper.deletePlan(planSeq);
     }
-
-    public int postPlanJoin(TogglePlanJoinReq p) {
-        return mapper.postPlanJoin(p);
-    }
-
-    public int deletePlanJoin(TogglePlanJoinReq p) {
-        return mapper.deletePlanJoin(p);
-    }
 }

@@ -13,6 +13,4 @@ public interface PlanMapper {
     List<GetPlanRes> getPlanAll(long planPartySeq);
     GetPlanRes getPlan(long planSeq);
     int deletePlan(long planSeq);
-    int postPlanJoin(TogglePlanJoinReq p);
-    int deletePlanJoin(TogglePlanJoinReq p);
 }
