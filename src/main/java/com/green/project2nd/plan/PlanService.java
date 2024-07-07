@@ -14,31 +14,31 @@ import java.util.List;
 public class PlanService {
     private final PlanMapper mapper;
 
-    public int postPlan(PostPlanReq p){
+    public int postPlan(PostPlanReq p) {
         return mapper.postPlan(p);
-    };
+    }
 
-    public int patchPlan(PatchPlanReq p){
+    public int patchPlan(PatchPlanReq p) {
         return mapper.patchPlan(p);
-    };
+    }
 
-    public List<GetPlanRes> getPlanAll(long planPartySeq){
+    public List<GetPlanRes> getPlanAll(long planPartySeq) {
         return mapper.getPlanAll(planPartySeq);
-    };
+    }
 
-    public GetPlanRes getPlan(long planSeq){
+    public GetPlanRes getPlan(long planSeq) {
         return mapper.getPlan(planSeq);
-    };
+    }
 
-    public int deletePlan(long planSeq){
+    public int deletePlan(long planSeq) {
         return mapper.deletePlan(planSeq);
-    };
+    }
 
-    public int postPlanJoin(TogglePlanJoinReq p){
+    public int postPlanJoin(TogglePlanJoinReq p) {
         return mapper.postPlanJoin(p);
-    };
+    }
 
-    public int deletePlanJoin(TogglePlanJoinReq p){
+    public int deletePlanJoin(TogglePlanJoinReq p) {
         return mapper.deletePlanJoin(p);
-    };
+    }
 }

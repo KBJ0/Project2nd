@@ -13,31 +13,32 @@ import java.util.List;
 public class BudgetService {
     private final BudgetMapper mapper;
 
-    public int postBudget(PostBudgetReq p){
+    public int postBudget(PostBudgetReq p) {
         return mapper.postBudget(p);
     }
 
-    public int patchBudget(PatchBudgetReq p){
+    public int patchBudget(PatchBudgetReq p) {
         return mapper.patchBudget(p);
     }
 
-    public List<GetBudgetRes> getBudget(GetBudgetReq p){
+    public List<GetBudgetRes> getBudget(GetBudgetReq p) {
         return mapper.getBudget(p);
     }
 
-    public String getBudgetPic(long budgetSeq){
+    public String getBudgetPic(long budgetSeq) {
         return mapper.getBudgetPic(budgetSeq);
-    };
+    }
 
-    public int deleteBudget(long budgetSeq){
+
+    public int deleteBudget(long budgetSeq) {
         return mapper.deleteBudget(budgetSeq);
     }
 
-    public GetBudgetMemberRes getBudgetMember(GetBudgetReq p){
+    public GetBudgetMemberRes getBudgetMember(GetBudgetReq p) {
         return mapper.getBudgetMember(p);
     }
 
-    public GetBudgetMonthlyRes getBudgetMonthly(GetBudgetReq p){
+    public GetBudgetMonthlyRes getBudgetMonthly(GetBudgetReq p) {
         return mapper.getBudgetMonthly(p);
     }
 
