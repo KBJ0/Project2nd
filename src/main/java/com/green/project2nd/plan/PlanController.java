@@ -2,7 +2,6 @@ package com.green.project2nd.plan;
 
 import com.green.project2nd.common.ResultDto;
 import com.green.project2nd.plan.model.*;
-import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

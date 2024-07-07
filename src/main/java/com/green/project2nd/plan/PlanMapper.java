@@ -1,8 +1,6 @@
 package com.green.project2nd.plan;
 
-import com.green.project2nd.plan.model.*;
-import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
-import org.apache.ibatis.annotations.Mapper;
+import com.green.project2nd.plan.model.*;import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 

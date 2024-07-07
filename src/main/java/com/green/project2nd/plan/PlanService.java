@@ -1,7 +1,6 @@
 package com.green.project2nd.plan;
 
 import com.green.project2nd.plan.model.*;
-import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
