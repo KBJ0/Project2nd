@@ -14,6 +14,7 @@
         FROM party_member
         WHERE member_party_seq = #{memberPartySeq}
     </select>
+
     <select id="checkMemberUserSeq">
         SELECT member_user_seq
         FROM party_member
@@ -25,11 +26,45 @@
         FROM party_join
         WHERE join_party_seq = #{joinPartySeq}
     </select>
+
     <select id="checkUserPartySeq">
         SELECT join_user_seq
         FROM party_join
         WHERE join_user_seq = #{joinUserSeq}
     </select>
 
+    <select id="checkBudgetPartySeq">
+        SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = #{budgetPartySeq}
+    </select>
 
+    <select id="checkBudgetSeq">
+        SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = #{budgetSeq}
+    </select>
+
+    <select id="checkPlanSeq">
+        SELECT plan_seq
+        FROM plan_master
+        GROUP BY plan_seq
+        HAVING plan_seq = #{planSeq}
+    </select>
+
+    <select id="checkPlanPartySeq">
+        SELECT plan_party_seq
+        FROM plan_master
+        GROUP BY plan_party_seq
+        HAVING plan_party_seq = #{planPartySeq}
+    </select>
+
+    <select id="checkPlanJoin">
+        SELECT plmember_seq
+        FROM plan_member
+        WHERE plmember_plan_seq = #{plmemberPlanSeq}
+        AND plmember_member_seq = #{plmemberMemberSeq}
+    </select>
 </mapper>

@@ -52,6 +52,14 @@
         FROM plan_master
         WHERE plan_seq = #{planSeq}
     </select>
+
+    <select id="getPlanMember">
+        SELECT A.plan_seq AS planSeq, B.plmember_member_seq AS plmemberMemberSeq
+        FROM plan_master A
+        JOIN plan_member B
+        ON A.plan_seq = B.plmember_plan_seq
+        WHERE A.plan_seq = #{planSeq}
+    </select>
     
     <delete id="deletePlan">
         DELETE

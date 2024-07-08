@@ -13,7 +13,7 @@
     <delete id="deletePlanJoin">
         DELETE
         FROM plan_member
-        WHERE plmember_seq = #{plmemberSeq}
+        WHERE plmember_plan_seq = #{plmemberPlanSeq}
         AND plmember_member_seq = #{plmemberMemberSeq}
     </delete>
 </mapper>

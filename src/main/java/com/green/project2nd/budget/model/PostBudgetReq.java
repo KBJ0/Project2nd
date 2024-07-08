@@ -16,5 +16,5 @@ public class PostBudgetReq {
     private int budgetAmount;
     private String budgetDt;
     private String budgetText;
-    private String budgetPic;
+    @JsonIgnore private String budgetPic;
 }

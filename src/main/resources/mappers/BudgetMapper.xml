@@ -44,13 +44,11 @@
     </update>
 
     <select id="getBudget">
-        SELECT A.budget_seq AS budgetSeq, A.budget_party_seq AS budgetPartySeq, A.budget_member_seq AS budgetMemberSeq,
-            A.budget_gb AS budgetGb, B.CD_GB_NM AS cdNm, A.budget_amount AS budgetAmount, A.budget_dt AS budgetDt, A.budget_text AS budgetText,
-            A.budget_pic AS budgetPic, A.budget_posted_member AS budgetPostedMember
-        FROM party_budget A
-        JOIN common_cd B
-        ON A.budget_gb = B.cd_gb
-        WHERE A.budget_party_seq = #{budgetPartySeq}
+        SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,
+            budget_gb AS budgetGb, budget_amount AS budgetAmount, budget_dt AS budgetDt, budget_text AS budgetText,
+            budget_pic AS budgetPic
+        FROM party_budget
+        WHERE budget_party_seq = #{budgetPartySeq}
     </select>
 
     <select id="getBudgetPic">

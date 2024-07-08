@@ -8,7 +8,7 @@ import java.util.List;
 public interface BudgetMapper {
     int postBudget(PostBudgetReq p);
     int patchBudget(PatchBudgetReq p);
-    List<GetBudgetRes> getBudget(GetBudgetReq p);
+    List<GetBudgetRes> getBudget(long budgetPartySeq, String month);
     GetBudgetPicRes getBudgetPic(long budgetSeq);
     long deleteBudget(long budgetSeq);
     GetBudgetMemberRes getBudgetMember(long budgetPartySeq, String month);

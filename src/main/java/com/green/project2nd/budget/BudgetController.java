@@ -12,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+import static com.green.project2nd.budget.exception.ConstMessage.*;
+
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -23,11 +25,12 @@ public class BudgetController {
     @PostMapping
     @Operation(summary = "회계 내역 등록" , description = "회비 입출금 내역 등록 (모임장 or 회계 담당 멤버)")
     public ResultDto<Integer> postBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PostBudgetReq p) {
+        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
         int result = service.postBudget(budgetPic, p);
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(POST_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -35,23 +38,24 @@ public class BudgetController {
     @PatchMapping()
     @Operation(summary = "회계 내역 수정" , description = "회비 입출금 내역 수정 (모임장 or 회계 담당 멤버)")
     public ResultDto<Integer> patchBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PatchBudgetReq p) {
+        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
         int result = service.patchBudget(budgetPic,p);
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(PATCH_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
 
     @GetMapping
-    @Operation(summary = "월 별 회계 내역 조회" , description = "월 별 회비 입출금 내역 조회")
-    public ResultDto<List<GetBudgetRes>> getBudget(@RequestBody GetBudgetReq p) {
-        List<GetBudgetRes> result = service.getBudget(p);
+    @Operation(summary = "월 별 회계 내역 조회" , description = "월 별 회비 입출금 내역 조회\n month 값은 '07', '12'와 같이 입력")
+    public ResultDto<List<GetBudgetRes>> getBudget(@RequestParam long budgetPartySeq, @RequestParam String month) {
+        List<GetBudgetRes> result = service.getBudget(budgetPartySeq, month);
 
         return ResultDto.<List<GetBudgetRes>>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -63,45 +67,43 @@ public class BudgetController {
 
         return ResultDto.<GetBudgetPicRes>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
 
-    @DeleteMapping("{budget_seq}")
+    @DeleteMapping
     @Operation(summary = "회계 내역 삭제" , description = "회비 입출금 내역 삭제 (모임장 or 회계 담당 멤버)")
-    public ResultDto<Long> deleteBudget(@PathVariable(name = "budget_seq") long budgetSeq) {
+    public ResultDto<Long> deleteBudget(@RequestParam(name = "budget_seq") long budgetSeq) {
         long result = service.deleteBudget(budgetSeq);
 
         return ResultDto.<Long>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(DELETE_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
 
     @GetMapping("/member")
-    @Operation(summary = "멤버 별 회비 입금 내역 조회" , description = "모임 멤버들의 회비 입금 통계")
+    @Operation(summary = "멤버 별 회비 입금 내역 조회" , description = "모임 멤버들의 회비 입금 통계\n month 값은 '07', '12'와 같이 입력")
     public ResultDto<GetBudgetMemberRes> getBudgetMember(@RequestParam long budgetPartySeq, @RequestParam String month) {
-        log.info("seq : {}, month : {}", budgetPartySeq, month);
         GetBudgetMemberRes result = service.getBudgetMember(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMemberRes>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
 
     @GetMapping("/month")
-    @Operation(summary = "월 별 정산 내역 출력" , description = "월 별 입금, 출금 합계 및 통계 출력")
+    @Operation(summary = "월 별 정산 내역 출력" , description = "월 별 입금, 출금 합계 및 통계 출력\n month 값은 '07', '12'와 같이 입력")
     public ResultDto<GetBudgetMonthlyRes> getBudgetMonthly(@RequestParam long budgetPartySeq, @RequestParam String month) {
-        log.info("seq : {}, month : {}", budgetPartySeq, month);
         GetBudgetMonthlyRes result = service.getBudgetMonthly(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMonthlyRes>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }

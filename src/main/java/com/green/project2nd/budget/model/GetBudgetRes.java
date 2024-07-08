@@ -12,7 +12,6 @@ public class GetBudgetRes {
     private long budgetPartySeq;
     private long budgetMemberSeq;
     private int budgetGb;
-    private String cdNm;
     private int budgetAmount;
     private String budgetDt;
     private String budgetText;
