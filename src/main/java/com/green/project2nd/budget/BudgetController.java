@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class BudgetController {
 
     @PostMapping
     @Operation(summary = "회계 내역 등록" , description = "회비 입출금 내역 등록 (모임장 or 회계 담당 멤버)")
-    public ResultDto<Integer> postBudget(@RequestBody PostBudgetReq p) {
-        int result = service.postBudget(p);
+    public ResultDto<Integer> postBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PostBudgetReq p) {
+        int result = service.postBudget(budgetPic, p);
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
@@ -33,8 +34,8 @@ public class BudgetController {
 
     @PatchMapping()
     @Operation(summary = "회계 내역 수정" , description = "회비 입출금 내역 수정 (모임장 or 회계 담당 멤버)")
-    public ResultDto<Integer> patchBudget(@RequestBody PatchBudgetReq p) {
-        int result = service.patchBudget(p);
+    public ResultDto<Integer> patchBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PatchBudgetReq p) {
+        int result = service.patchBudget(budgetPic,p);
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
@@ -57,10 +58,10 @@ public class BudgetController {
 
     @GetMapping("{budget_seq}")
     @Operation(summary = "회계 사진 조회" , description = "회비 출금 내역 기록용 사진 조회")
-    public ResultDto<String> getBudgetPic(@PathVariable(name = "budget_seq") long budgetSeq) {
-        String result = service.getBudgetPic(budgetSeq);
+    public ResultDto<GetBudgetPicRes> getBudgetPic(@PathVariable(name = "budget_seq") long budgetSeq) {
+        GetBudgetPicRes result = service.getBudgetPic(budgetSeq);
 
-        return ResultDto.<String>builder().
+        return ResultDto.<GetBudgetPicRes>builder().
                 statusCode(HttpStatus.OK).
                 resultMsg(HttpStatus.OK.toString()).
                 resultData(result).
@@ -69,10 +70,10 @@ public class BudgetController {
 
     @DeleteMapping("{budget_seq}")
     @Operation(summary = "회계 내역 삭제" , description = "회비 입출금 내역 삭제 (모임장 or 회계 담당 멤버)")
-    public ResultDto<Integer> deleteBudget(@PathVariable(name = "budget_seq") long budgetSeq) {
-        int result = service.deleteBudget(budgetSeq);
+    public ResultDto<Long> deleteBudget(@PathVariable(name = "budget_seq") long budgetSeq) {
+        long result = service.deleteBudget(budgetSeq);
 
-        return ResultDto.<Integer>builder().
+        return ResultDto.<Long>builder().
                 statusCode(HttpStatus.OK).
                 resultMsg(HttpStatus.OK.toString()).
                 resultData(result).
@@ -81,9 +82,9 @@ public class BudgetController {
 
     @GetMapping("/member")
     @Operation(summary = "멤버 별 회비 입금 내역 조회" , description = "모임 멤버들의 회비 입금 통계")
-    public ResultDto<GetBudgetMemberRes> getBudgetMember(@RequestBody GetBudgetReq p) {
-        GetBudgetMemberRes result = service.getBudgetMember(p);
-        log.info("p:{}", p);
+    public ResultDto<GetBudgetMemberRes> getBudgetMember(@RequestParam long budgetPartySeq, @RequestParam String month) {
+        log.info("seq : {}, month : {}", budgetPartySeq, month);
+        GetBudgetMemberRes result = service.getBudgetMember(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMemberRes>builder().
                 statusCode(HttpStatus.OK).
@@ -94,8 +95,9 @@ public class BudgetController {
 
     @GetMapping("/month")
     @Operation(summary = "월 별 정산 내역 출력" , description = "월 별 입금, 출금 합계 및 통계 출력")
-    public ResultDto<GetBudgetMonthlyRes> getBudgetMonthly(@RequestBody GetBudgetReq p) {
-        GetBudgetMonthlyRes result = service.getBudgetMonthly(p);
+    public ResultDto<GetBudgetMonthlyRes> getBudgetMonthly(@RequestParam long budgetPartySeq, @RequestParam String month) {
+        log.info("seq : {}, month : {}", budgetPartySeq, month);
+        GetBudgetMonthlyRes result = service.getBudgetMonthly(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMonthlyRes>builder().
                 statusCode(HttpStatus.OK).
