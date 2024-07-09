@@ -76,3 +76,21 @@ file:
 #      enabled: true
 #  server:
 #    port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:log4jdbc:mariadb://192.168.0.144:3306/db_odd_second_2
+    username: odd_second_2
+    password: cache
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        cache.use_second_level_cache: false
+
+file:
+  directory: /home/download
