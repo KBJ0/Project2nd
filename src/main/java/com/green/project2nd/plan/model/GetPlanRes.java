@@ -11,6 +11,7 @@ public class GetPlanRes {
     private String planStartDt;
     private String planStartTime;
     private int planCompleted;
+    private String cdNm;
     private String planTitle;
     private String planContents;
 }

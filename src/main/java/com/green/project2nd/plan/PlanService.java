@@ -16,6 +16,7 @@ public class PlanService {
     private final PlanExceptionHandler check;
 
     public int postPlan(PostPlanReq p) {
+        check.exceptionAll(p);
         return mapper.postPlan(p);
     }
 

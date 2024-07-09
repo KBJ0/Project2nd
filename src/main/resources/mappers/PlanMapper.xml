@@ -39,18 +39,25 @@
     </update>
     
     <select id="getPlanAll">
-        SELECT plan_seq AS planSeq, plan_party_seq AS planPartySeq, plan_start_dt AS planStartDt,
-                plan_start_time AS planStartTime, plan_completed AS planCompleted,
-                plan_title AS planTitle, plan_contents AS planContents
-        FROM plan_master
+        SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
+                A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
+                A.plan_title AS planTitle, A.plan_contents AS planContents
+        FROM plan_master A
+        JOIN common_cd B
+        ON A.plan_completed = B.cd_gb
         WHERE plan_party_seq = #{planPartySeq}
+        AND B.cd_main = 'PC'
     </select>
 
     <select id="getPlan">
-        SELECT plan_seq AS planSeq, plan_party_seq AS planPartySeq, plan_start_dt AS planStartDt,
-            plan_start_time AS planStartTime, plan_title AS planTitle, plan_contents AS planContents
-        FROM plan_master
+        SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
+                A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
+                A.plan_title AS planTitle, A.plan_contents AS planContents
+        FROM plan_master A
+        JOIN common_cd B
+        ON A.plan_completed = B.cd_gb
         WHERE plan_seq = #{planSeq}
+        AND B.cd_main = 'PC'
     </select>
 
     <select id="getPlanMember">

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.green.project2nd.budget.exception.ConstMessage.NULL_ERROR_MESSAGE;
+import static com.green.project2nd.plan.exception.ConstMessage.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -29,7 +29,7 @@ public class PlanController {
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(POST_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -42,7 +42,7 @@ public class PlanController {
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(PATCH_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -54,7 +54,7 @@ public class PlanController {
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(PATCH_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -66,7 +66,7 @@ public class PlanController {
 
         return ResultDto.<List<GetPlanRes>>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -78,7 +78,7 @@ public class PlanController {
 
         return ResultDto.<GetPlanRes>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -90,7 +90,7 @@ public class PlanController {
 
         return ResultDto.<List<GetPlanMemberRes>>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }
@@ -102,7 +102,7 @@ public class PlanController {
 
         return ResultDto.<Integer>builder().
                 statusCode(HttpStatus.OK).
-                resultMsg(HttpStatus.OK.toString()).
+                resultMsg(DELETE_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
     }

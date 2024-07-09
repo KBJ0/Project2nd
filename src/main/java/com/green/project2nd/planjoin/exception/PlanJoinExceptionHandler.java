@@ -5,6 +5,8 @@ import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import static com.green.project2nd.planjoin.exception.ConstMessage.*;
+
 @RequiredArgsConstructor
 @RestControllerAdvice(basePackages = "com.green.project2nd.planjoin")
 public class PlanJoinExceptionHandler {
@@ -12,13 +14,14 @@ public class PlanJoinExceptionHandler {
 
     public void exception(TogglePlanJoinReq p) {
         if(mapper.checkPlanJoin(p) == 1) {
-            throw new NullPointerException();
+            throw new RuntimeException(ERROR_MESSAGE_1);
         }
     }
 
     public void exception2(TogglePlanJoinReq p){
         if(mapper.checkPlanJoin(p) == 0) {
-            throw new NullPointerException();
+            throw new NullPointerException(NULL_ERROR_MESSAGE);
         }
     }
+
 }
