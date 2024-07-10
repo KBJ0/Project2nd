@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.review.ReviewMapper">
+
+    <insert id="postReview" keyProperty="reviewSeq" useGeneratedKeys="true">
+        INSERT INTO review_master
+        (review_plan_seq, review_plmember_seq, review_title, review_contents , review_rating)
+        VALUES
+        (#{reviewPlanSeq}, #{reviewPlmemberSeq}, #{reviewTitle}, #{reviewContents}, #{reviewRating})
+    </insert>
+
+    <insert id="postReviewPics">
+        INSERT INTO review_pic
+        (review_pic_review_seq, review_pic_file)
+        VALUES
+        <foreach item="pic" collection="fileNames" separator=",">
+            (#{reviewSeq}, #{pic})
+        </foreach>
+    </insert>
+
+    <select id="getReviewAll">
+        SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , A.review_title as reviewTitle
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , (SELECT A.USER_NAME FROM user_master A JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        <where>
+            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','') LIKE '%#{search}%'</if>
+            <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
+                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE '%#{search}%'</if>
+            <if test="search == 3">D.user_name LIKE '%#{search}%'</if>
+        </where>
+        ORDER BY review_seq DESC
+        LIMIT #{startIdx}, #{size}
+    </select>
+
+    <select id="getReviewUser">
+        SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , A.review_title as reviewTitle
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , (SELECT A.USER_NAME FROM user_master A JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        <where>
+            <if test="1 == 1">D.user_seq = #{userSeq}</if>
+            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','') LIKE '%#{search}%'</if>
+            <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
+                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE '%#{search}%'</if>
+            <if test="search == 3">D.user_name LIKE '%#{search}%'</if>
+        </where>
+        ORDER BY review_seq DESC
+        LIMIT #{startIdx}, #{size}
+    </select>
+
+    <select id="getPics">
+        SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = #{reviewSeq}
+    </select>
+
+    <update id="patchReview">
+        UPDATE review_master
+        SET review_title = #{reviewTitle}
+        , review_contents = #{reviewContents}
+        , review_rating = #{reviewRating}
+        WHERE review_seq = #{reviewSeq}
+    </update>
+
+    <delete id="deleteReview">
+        DELETE FROM review_master
+        WHERE review_seq = #{reviewSeq}
+    </delete>
+
+    <delete id="deleteReviewPics">
+        DELETE FROM review_pic
+        WHERE review_pic_review_seq = #{reviewSeq}
+    </delete>
+
+    <delete id="deleteReviewFavs">
+        DELETE FROM review_fav
+        WHERE review_fav_review_seq = #{reviewSeq}
+    </delete>
+
+</mapper>
