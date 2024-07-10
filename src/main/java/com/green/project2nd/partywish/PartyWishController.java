@@ -1,8 +1,11 @@
 package com.green.project2nd.partywish;
 
+
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.partywish.model.PartyWishToggleReq;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,7 @@ public class PartyWishController {
     private final PartyWishService service;
 
     @GetMapping
+    @Operation(summary = "관심모임 찜" , description = "관심모임 찜")
     public ResultDto<Integer> togglePartyWish(@ParameterObject @ModelAttribute PartyWishToggleReq p) {
         int result = service.togglePartyWish(p);
 

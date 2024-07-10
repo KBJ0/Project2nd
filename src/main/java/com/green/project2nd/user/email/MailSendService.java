@@ -3,6 +3,7 @@ package com.green.project2nd.user.email;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.green.project2nd.user.UserMapper;
+import com.green.project2nd.user.datacheck.Const;
 import com.green.project2nd.user.model.FindPasswordReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +15,14 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.security.SecureRandom;
+
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Random;
 
 import static com.green.project2nd.user.datacheck.Const.tempPassword;
-import static com.green.project2nd.user.userexception.ConstUser.*;
+import static com.green.project2nd.user.userexception.ConstMessage.*;
 
 
 @Service
