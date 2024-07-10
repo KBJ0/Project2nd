@@ -11,8 +11,11 @@ public class GetPartyRes {
     private int partyMinAge;
     private int partyMaxAge;
     private int partyGender;
+    //스웨거 보내기용
+    private int partyNowMem;
     private int partyMaximum;
     private String partyIntro;
     private String partyJoinForm;
+    private String partyAuthGb;
     private String partyPic;
 }

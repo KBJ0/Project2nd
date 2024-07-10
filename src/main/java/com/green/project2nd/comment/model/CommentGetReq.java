@@ -9,7 +9,7 @@ import lombok.Setter;
 
 public class CommentGetReq extends Paging {
     private long commentBoardSeq;
-    private int page;
+    private Integer page;
 
     public CommentGetReq(long commentBoardSeq, Integer page, Integer size) {
         super(page,size);

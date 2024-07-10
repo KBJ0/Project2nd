@@ -22,9 +22,20 @@ public class PartyController {
     private final PartyService service;
 
     @PostMapping
-    @Operation(summary = "모임 생성" , description = "모임 등록" )
-    public ResultDto<PostPartyRes> postParty(@RequestPart MultipartFile partyPic, @RequestPart PostPartyReq p) {
+    @Operation(summary = "모임 생성+(생성자=멤버 모임장으로 추가)" , description = "모임 등록" )
+    public ResultDto<PostPartyRes> postParty(@RequestPart(required = false) MultipartFile partyPic
+                                            , @RequestPart PostPartyReq p) throws Exception{
         return service.postParty(partyPic, p);
+    }
+
+
+
+    @GetMapping("location")
+    @Operation(summary = "지역 불러오기" , description = "모임 불러오기")
+    public ResultDto<List<GetPartyLocationRes>> getPartyLocation(@RequestParam(name = "cd") String cd
+                                         ,@RequestParam(name = "cd_gb") String cdGb) {
+        if(cdGb == null){cdGb="00";}
+        return service.getPartyLocation(cd,cdGb);
     }
 
     @GetMapping
@@ -39,29 +50,53 @@ public class PartyController {
         return service.getPartyDetail(partySeq);
     }
 
-    //사진 수정할 경우 어떻게 처리할지 프론트랑 의뇬 필요함
-    //기본적으로 프론트에서 사진을 띄우고, 백에게 해당 코드 주는 것으로 작성함.
-    @PatchMapping
+    @GetMapping("/mine")
+    @Operation(summary = "나의 모임들 불러오기(내가 모임장인 것은 제외)" , description = "나의 모임들 불러오기(내가 모임장인 것은 제외)")
+    public ResultDto<List<GetPartyRes2>> getPartyMine(@RequestParam long userSeq
+            , @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
+        GetPartyReq2 req2 = new GetPartyReq2(page, size);
+        req2.setUserSeq(userSeq);
+        return service.getPartyMine(req2);
+    }
+
+    @GetMapping("/leader")
+    @Operation(summary = "내가 모임장인 모임들 불러오기" , description = "내가 모임장인 모임들 불러오기")
+    public ResultDto<List<GetPartyRes2>> getPartyLeader(@RequestParam long userSeq
+            , @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
+        GetPartyReq2 req2 = new GetPartyReq2(page, size);
+        req2.setUserSeq(userSeq);
+        return service.getPartyLeader(req2);
+    }
+
+
+
+    @PatchMapping()
     @Operation(summary = "모임 수정" , description = "모임 수정")
-    public ResultDto<UpdatePartyRes> updateParty(@RequestPart MultipartFile partyPic, @RequestPart UpdatePartyReq p) {
+    public ResultDto<UpdatePartyRes> updateParty(@RequestPart(required = false) MultipartFile partyPic
+                                                , @RequestPart UpdatePartyReq p) throws Exception{
         return service.updateParty(partyPic, p);
     }
-    //관리자가 모임 등록을 승인해주는 코드,관리자가 누군지 추가하고 권한줘야함.
-    //모임이 만들어지면 신청자를 모임장을 설정해줘야함(member작성하고 작업해야함.)
-    //partyAuthGb 설정 했으면 해당주석들 지우기.(+코드)
+    //관리자가 모임 등록을 승인해주는 코드,관리자가 누군지 추가하고 권한줘야함. 현재는 모임장이 모임 생성 승인가능ㅋㅋ
     @PatchMapping("/authGb")
     @Operation(summary = "모임 생성 승인" , description = "0:미승인, 1:승인")
     public ResultDto<Integer> updatePartyAuthGb(@RequestParam(name = "party_seq") Long partySeq,
-                                                @RequestParam(name = "party_auth_gb") int partyAuthGb) {
-        return service.updatePartyAuthGb(partySeq, partyAuthGb);
+                                                @RequestParam(name = "user_seq") Long userSeq) {
+        return service.updatePartyAuthGb(partySeq, userSeq);
     }
 
-    //권한 설정 해줘야함(DB조회 or 토큰방식)
-    @DeleteMapping
-    @Operation(summary = "모임 삭제" , description = "모임 삭제")
-    public ResultDto<Integer> deleteParty(@RequestParam(name ="party_seq") Long partySeq
-            , @RequestParam(name ="member_role") String memberRole){
-        return service.deleteParty(partySeq,memberRole);
+    @PatchMapping("/authGb2")
+    @Operation(summary = "모임 삭제(휴먼,복구 기능은 X)" , description = "모임 삭제")
+    public ResultDto<Integer> updatePartyForGb2(@RequestParam(name ="party_seq") Long partySeq
+            , @RequestParam(name = "user_seq") Long userSeq){
+        return service.updatePartyForGb2(partySeq,userSeq);
     }
+
+//    // 모임안의 정보를 순서대로 다 지워야함. 아직 미추가함.
+//    @DeleteMapping
+//    @Operation(summary = "모임 삭제" , description = "모임 삭제")
+//    public ResultDto<Integer> deleteParty(@RequestParam(name ="party_seq") Long partySeq
+//            , @RequestParam(name = "user_seq") Long userSeq){
+//        return service.deleteParty(partySeq,userSeq);
+//    }
 
 }

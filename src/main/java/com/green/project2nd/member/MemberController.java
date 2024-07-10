@@ -2,15 +2,17 @@ package com.green.project2nd.member;
 
 
 import com.green.project2nd.common.model.ResultDto;
-import com.green.project2nd.member.model.*;
+import com.green.project2nd.member.model.GetMemberRes;
+import com.green.project2nd.member.model.UpdateMemberReq;
+import com.green.project2nd.member.model.UpdateMemberRes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-import static com.green.project2nd.user.userexception.ConstMessage.p;
 
 
 @Slf4j
@@ -21,12 +23,12 @@ import static com.green.project2nd.user.userexception.ConstMessage.p;
 public class MemberController {
     private final MemberService service;
 
-    @PostMapping("/{party_seq}")
-    @Operation(summary = "멤버 등록" , description = "모임 등록" )
-    public ResultDto<Integer> postMember(@PathVariable("party_seq") Long memberPartySeq,
-                                         @RequestParam(name = "member_user_seq") Long memberUserSeq) {
-        return service.postMember(memberPartySeq, memberUserSeq);
-    }
+//    @PostMapping("/{party_seq}")
+//    @Operation(summary = "멤버 등록" , description = "모임 등록" )
+//    public ResultDto<Integer> postMember(@PathVariable("party_seq") Long memberPartySeq,
+//                                         @RequestParam(name = "member_user_seq") Long memberUserSeq) {
+//        return service.postMember(memberPartySeq, memberUserSeq);
+//    }
 
     @GetMapping("/{party_seq}")
     @Operation(summary = "멤버들 불러오기" , description = "모임 불러오기")
@@ -41,24 +43,33 @@ public class MemberController {
     }
 
     @PatchMapping("/{party_seq}")
-    @Operation(summary = "멤버 권한 수정" , description = "모임 수정")
+    @Operation(summary = "멤버 역할 수정(미사용. 세분화에서 필요.)" , description = "모임 수정")
     public ResultDto<UpdateMemberRes> updateMember(@PathVariable("party_seq") Long memberPartySeq,
                                                    @RequestBody UpdateMemberReq p){
         return service.updateMember(memberPartySeq, p);
     }
 
     @PatchMapping("/gb/{party_seq}")
-    @Operation(summary = "멤" , description = "0:미승인, 1:승인")
+    @Operation(summary = "멤버 권한 수정" , description = "0:미승인, 1:승인")
     public ResultDto<UpdateMemberRes> updateMemberGb(@PathVariable(name = "party_seq") Long memberPartySeq,
-                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq) {
+                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq){
         return service.updateMemberGb(memberPartySeq, memberUserSeq);
     }
-
-    @DeleteMapping("/{party_seq}")
-    @Operation(summary = "모임 삭제" , description = "모임 삭제")
-    public ResultDto<Integer> deleteMember(@PathVariable(name = "party_seq") Long memberPartySeq,
-                                           @RequestParam(name = "member_user_seq") Long memberUserSeq){
-        return service.deleteMember(memberPartySeq, memberUserSeq);
+    @PatchMapping("/gb2/{party_seq}")
+    @Operation(summary = "멤버 권한 수정" , description = "0:미승인, 1:승인")
+    public ResultDto<UpdateMemberRes> updateMemberGb2(@PathVariable(name = "party_seq") Long memberPartySeq,
+                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq,
+                                                     @RequestParam(name = "member_leader_user_seq") Long memberLeaderUserSeq) {
+        return service.updateMemberGb2(memberPartySeq, memberUserSeq, memberLeaderUserSeq);
     }
+
+
+
+//    @DeleteMapping("/{party_seq}")
+//    @Operation(summary = "모든 멤버 삭제" , description = "모임 삭제")
+//    public ResultDto<Integer> deleteMember(@PathVariable(name = "party_seq") Long memberPartySeq,
+//                                           @RequestParam(name = "member_user_seq") Long memberUserSeq){
+//        return service.deleteMember(memberPartySeq, memberUserSeq);
+//    }
 
 }

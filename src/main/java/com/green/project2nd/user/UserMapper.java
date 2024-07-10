@@ -1,7 +1,6 @@
 package com.green.project2nd.user;
 
 import com.green.project2nd.user.model.*;
-
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -12,18 +11,23 @@ public interface UserMapper {
 
     UserEntity getDetailUserInfo(Long userSeq);
 
-
-
-
-
-    int patchPassword(PatchPasswordReq p);
+    int patchPassword(UpdatePasswordReq p);
 
     int deleteUser(Long userSeq);
 
-    String checkEmail(String userEmail);
-    String checkNickname(String userNickname);
+    int duplicatedCheckEmail(String userEmail);
+    int duplicatedCheckNickname(String userNickname);
+    int checkEmail(String userEmail);
 
-    int updateUserPic(UpdateUserPicReq p);
+    void updateUserPic(UpdateUserPicReq p);
+
+    int updateUserInfo(UpdateUserInfoReq p);
+
+    String findUserId(FindUserReq p);
+
+    void checkAuthNum(String email);
+    int setPassword(FindPasswordReq p);
+    int emailExists(String email);
 
 }
 

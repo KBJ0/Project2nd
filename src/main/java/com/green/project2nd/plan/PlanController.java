@@ -1,6 +1,6 @@
 package com.green.project2nd.plan;
 
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.plan.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

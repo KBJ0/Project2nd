@@ -1,9 +1,8 @@
 package com.green.project2nd.partywish;
 
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.partywish.model.PartyWishToggleReq;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;

@@ -37,7 +37,7 @@
                 budget_pic = #{budgetPic},
             </if>
             <if test="budgetDt!=null and budgetDt!=''">
-                budget_dt = #{budgetDt},
+                budget_dt = #{budgetDt}
             </if>
         </set>
         WHERE budget_seq = #{budgetSeq}

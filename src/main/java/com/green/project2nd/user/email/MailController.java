@@ -1,6 +1,6 @@
 package com.green.project2nd.user.email;
 
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.user.model.FindPasswordReq;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

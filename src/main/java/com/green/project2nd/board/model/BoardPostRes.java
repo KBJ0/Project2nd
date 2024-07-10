@@ -1,6 +1,7 @@
 package com.green.project2nd.board.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.green.project2nd.planjoin;
 
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static com.green.project2nd.planjoin.exception.ConstMessage.*;
 

@@ -27,21 +27,42 @@
     </select>
 
     <select id="getDetailUserInfo">
-        SELECT user_seq AS userSeq, user_email AS userEmail, user_pw AS userPw
-        , user_name AS userName, user_nickname AS userNickname
-        , user_addr AS userAddr, user_fav AS userFav, user_birth AS userBirth
-        , user_gender AS userGender, user_phone AS userPhone,
-        user_intro AS userIntro, user_gb AS userGB, user_pic AS userPic
-        FROM user_master
-        WHERE user_seq = #{userSeq}
+        SELECT A.user_seq AS userSeq, A.user_email AS userEmail, A.user_name AS userName
+        , A.user_nickname AS userNickname
+        , A.user_addr AS userAddr, A.user_fav AS userFav, A.user_birth AS userBirth
+        , A.user_gender AS userGender, B.CD_GB_NM AS userGenderNm, user_phone AS userPhone,
+        user_intro AS userIntro, user_gb AS userGb, C.CD_GB_NM AS userEmailAuthStatus
+        , user_pic AS userPic
+        FROM user_master A
+        JOIN (SELECT CD_GB, CD_GB_NM FROM common_cd WHERE CD = 'US-00') B
+        JOIN (SELECT CD_GB, CD_GB_NM FROM common_cd WHERE CD = 'US-01') C
+        ON A.user_gender = B.CD_GB AND A.user_gb = C.CD_GB
+        WHERE user_seq = #{userSeq};
     </select>
 
 
+    <update id="updateUserInfo">
+        UPDATE user_master
+        <set>
+            <if test="userNickname != null and userNickname !=''">
+                user_nickname = #{userNickname},
+            </if>
+            <if test="userAddr != null and userAddr !=''">
+                user_addr = #{userAddr},
+            </if>
+            <if test="userFav != null and userFav !=''">
+                user_fav = #{userFav},
+            </if>
+            <if test="userPhone != null and userPhone !=''">
+                user_phone = #{userPhone},
+            </if>
+            <if test="userIntro != null and userIntro !=''">
+                user_intro = #{userIntro}
+            </if>
+            WHERE user_seq = #{userSeq}
+        </set>
+    </update>
     
-    
-
-
-
     <update id="patchPassword">
         UPDATE user_master
         SET user_pw = #{newPw}
@@ -54,22 +75,52 @@
         WHERE user_seq = #{userSeq}
     </update>
     
-    <delete id="deleteUser">
-        DELETE
-        FROM user_master
-        WHERE user_seq = #{userSeq}
-    </delete>
+    <update id="deleteUser">
+        UPDATE user_master
+        SET user_state = 2
+        WHERE user_seq = #{userSeq} AND user_state = 1
+    </update>
+
+    <update id="checkAuthNum">
+        UPDATE user_master
+        SET user_gb = 2
+        WHERE user_email = #{userEmail}
+    </update>
 
     <select id="checkEmail">
-        SELECT user_email AS userEmail
+        SELECT user_gb
         FROM user_master
-        WHERE user_email = #{userEmail}
+        WHERE user_email = #{userEmail};
     </select>
 
-    <select id="checkNickname">
-        SELECT user_nickname AS userNickname
+    <update id="setPassword">
+        UPDATE user_master
+        SET user_pw = #{setPw}
+        WHERE user_email = #{userEmail}
+    </update>
+
+    <select id="duplicatedCheckEmail">
+        SELECT COUNT(user_email)
+        FROM user_master
+        WHERE user_email = #{userEmail};
+    </select>
+
+    <select id="duplicatedCheckNickname">
+        SELECT COUNT(user_nickname)
         FROM user_master
         WHERE user_nickname = #{userNickname}
+    </select>
+
+    <select id="findUserId">
+        SELECT user_email
+        FROM user_master
+        WHERE user_name = #{userName} AND user_phone = #{userPhone} AND user_birth = #{userBirth}
+    </select>
+
+    <select id="emailExists">
+        SELECT COUNT(user_email)
+        FROM user_master
+        WHERE user_email = #{email}
     </select>
 
 

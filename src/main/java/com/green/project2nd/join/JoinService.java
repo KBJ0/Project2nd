@@ -1,16 +1,12 @@
 package com.green.project2nd.join;
 
 
-import com.green.project2nd.join.exception.JoinExceptionHandler;
 import com.green.project2nd.common.model.ResultDto;
+import com.green.project2nd.join.exception.JoinExceptionHandler;
 import com.green.project2nd.join.model.GetJoinRes;
 import com.green.project2nd.join.model.PostJoinReq;
 import com.green.project2nd.join.model.UpdateJoinGbReq;
 import com.green.project2nd.join.model.UpdateJoinReq;
-import com.green.project2nd.member.model.GetMemberRes;
-import com.green.project2nd.member.model.PostMemberReq;
-import com.green.project2nd.member.model.UpdateMemberReq;
-import com.green.project2nd.member.model.UpdateMemberRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

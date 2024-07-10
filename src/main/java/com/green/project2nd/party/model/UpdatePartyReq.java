@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class UpdatePartyReq {
+    private long userSeq;
     private long partySeq;
     private String partyName;
     private String partyGenre;

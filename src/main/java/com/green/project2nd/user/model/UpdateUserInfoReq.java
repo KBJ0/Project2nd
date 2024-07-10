@@ -6,9 +6,11 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UpdateUserInfoReq {
-    private String nickName;
+    private String userNickname;
     private String userAddr;
     private String userFav;
     private String userPhone;
     private String userIntro;
+
+    private long userSeq;
 }

@@ -5,7 +5,7 @@ import com.green.project2nd.comment.model.CommentDeleteReq;
 import com.green.project2nd.comment.model.CommentGetRes;
 import com.green.project2nd.comment.model.CommentPatchReq;
 import com.green.project2nd.comment.model.CommentPostReq;
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

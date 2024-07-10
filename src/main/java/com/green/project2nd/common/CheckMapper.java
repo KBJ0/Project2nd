@@ -5,10 +5,20 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CheckMapper {
+    int checkPartyLeader(Long partySeq, Long userSeq);
+
     int checkPartySeq(Long partySeq);
+
+    int checkUserSeq(Long userSeq);
+    int checkPartyName(String partyName);
+
+    int checkJoinApplicationOfUser(Long partySeq, Long userSeq);
 
     int checkMemberPartySeq(Long memberPartySeq);
     int checkMemberUserSeq(Long memberUserSeq);
+
+    int checkMemberForPartySeqAndUserSeq(Long partySeq, Long userSeq);
+    int checkPartyNowMem(Long partySeq);
 
     int checkJoinPartySeq(Long joinPartySeq);
     int checkUserPartySeq(Long joinUserSeq);
@@ -20,4 +30,8 @@ public interface CheckMapper {
     int checkPlanPartySeq(long planPartySeq);
 
     int checkPlanJoin(TogglePlanJoinReq p);
+
+
+
+
 }

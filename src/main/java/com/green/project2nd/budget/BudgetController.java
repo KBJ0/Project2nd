@@ -1,7 +1,7 @@
 package com.green.project2nd.budget;
 
 import com.green.project2nd.budget.model.*;
-import com.green.project2nd.common.ResultDto;
+import com.green.project2nd.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

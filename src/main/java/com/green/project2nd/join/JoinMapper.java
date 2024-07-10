@@ -4,7 +4,6 @@ import com.green.project2nd.join.model.GetJoinRes;
 import com.green.project2nd.join.model.PostJoinReq;
 import com.green.project2nd.join.model.UpdateJoinGbReq;
 import com.green.project2nd.join.model.UpdateJoinReq;
-import com.green.project2nd.member.model.GetMemberRes;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
