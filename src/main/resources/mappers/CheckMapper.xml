@@ -10,19 +10,16 @@
         LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
         WHERE A.user_seq = #{userSeq}
     </select>
-
+    <select id="checkPartySeq">
+        SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = #{partySeq}
+    </select>
     <select id="checkUserSeq">
         SELECT COUNT(user_seq)
         FROM user_master
         WHERE user_seq = #{userSeq}
     </select>
-
-    <select id="checkPartySeq">
-        SELECT party_seq
-        FROM party_master
-        WHERE party_seq = #{partySeq}
-    </select>
-
     <select id="checkPartyName">
         SELECT COUNT(party_name)
         FROM party_master
@@ -36,19 +33,12 @@
         AND join_user_seq = #{userSeq}
     </select>
 
-    <select id="checkMemberPartySeq">
-        SELECT member_party_seq
-        FROM party_member
-        WHERE member_party_seq = #{memberPartySeq}
-    </select>
-
     <select id="checkMemberForPartySeqAndUserSeq">
         SELECT COUNT(member_party_seq)
         FROM party_member
         WHERE member_party_seq = #{partySeq}
         AND member_user_seq = #{userSeq}
     </select>
-
     <select id="checkPartyNowMem">
         SELECT CASE WHEN COUNT(B.member_party_seq) = A.party_maximum THEN 1
         ELSE 0 END AS isEqual
@@ -66,47 +56,40 @@
         FROM party_member
         WHERE member_user_seq = #{memberUserSeq}
     </select>
-
     <select id="checkJoinPartySeq">
         SELECT join_party_seq
         FROM party_join
         WHERE join_party_seq = #{joinPartySeq}
     </select>
-
     <select id="checkUserPartySeq">
         SELECT join_user_seq
         FROM party_join
         WHERE join_user_seq = #{joinUserSeq}
     </select>
-
     <select id="checkBudgetPartySeq">
         SELECT budget_party_seq
         FROM party_budget
         GROUP BY budget_party_seq
         HAVING budget_party_seq = #{budgetPartySeq}
     </select>
-
     <select id="checkBudgetSeq">
         SELECT budget_seq
         FROM party_budget
         GROUP BY budget_seq
         HAVING budget_seq = #{budgetSeq}
     </select>
-
     <select id="checkPlanSeq">
         SELECT plan_seq
         FROM plan_master
         GROUP BY plan_seq
         HAVING plan_seq = #{planSeq}
     </select>
-
     <select id="checkPlanPartySeq">
         SELECT plan_party_seq
         FROM plan_master
         GROUP BY plan_party_seq
         HAVING plan_party_seq = #{planPartySeq}
     </select>
-
     <select id="checkPlanJoin">
         SELECT plmember_seq
         FROM plan_member

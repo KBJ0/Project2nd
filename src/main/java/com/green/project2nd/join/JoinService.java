@@ -28,8 +28,8 @@ public class JoinService {
         return ResultDto.resultDto("SU", " 모임 가입신청을 하였습니다");
     }
 
-    public ResultDto<List<GetJoinRes>> getJoin(Long joinPartySeq, Long joinUserSeq) {
-        check.exceptionLeader(joinPartySeq,joinUserSeq);
+    public ResultDto<List<GetJoinRes>> getJoin(Long joinPartySeq, Long leaderUserSeq) {
+        check.exceptionLeader(joinPartySeq,leaderUserSeq);
         return ResultDto.resultDto("SU", " 모임 신청서들을 불러옵니다.", mapper.getJoin(joinPartySeq));
 
     }
@@ -48,7 +48,7 @@ public class JoinService {
     public ResultDto<Integer> updateJoinGb(Long joinPartySeq, UpdateJoinGbReq p) {
         p.setJoinPartySeq(joinPartySeq);
         check.exception(joinPartySeq, p);
-        int result = mapper.updateJoinGb(p);
+        mapper.updateJoinGb(p);
         //신청서 거절
         if(p.getJoinGb()==2){return ResultDto.resultDto("SU", " 신청서를 거절하였습니다. (2:거절)");}
 

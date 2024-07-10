@@ -23,47 +23,47 @@ public class JoinExceptionHandler {
 
     //C
     public void exception(Long partySeq,PostJoinReq p) {
-        exception(partySeq);
+        exceptionParty(partySeq);
         exceptionUser(p.getJoinUserSeq());
+        // 이미 있는 유저인 경우 휴면된 신청서를 가져와야함 if ()
         if (mapper.checkJoinApplicationOfUser(partySeq,p.getJoinUserSeq()) != 0) {
-            throw new MsgException("RE,이미 신청한 모임입니다.");}
-    }
-    // R1
-    public void exceptionLeader(Long partySeq, Long userSeq) {
-        exception(partySeq);
-        exceptionUser(userSeq);
-        if (mapper.checkPartyLeader(partySeq, userSeq) != 1){
-            throw new MsgException("RE,권한이 없는 유저입니다.");
-        }
+            throw new MsgException("JE04,이미 신청한 모임입니다.");}
     }
     // U2
     public void exceptionMember(Long partySeq, Long userSeq) {
         if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
-
             memberMapper.updateMemberGb(partySeq,userSeq);
-
             throw new MsgException("SU,신청서를 승인하였습니다. (1: 멤버등록)");}
-    }
-    //R2 D U1
-    public void exception(Long partySeq,Long userSeq) {
-        exception(partySeq);
-        if (mapper.checkJoinApplicationOfUser(partySeq, userSeq) == 0) {throw new MsgException("RE,존재하지 않는 신청서입니다.");}
     }
     //U2
     public void exception(Long partySeq, UpdateJoinGbReq p) {
         exception(partySeq, p.getJoinUserSeq());
+        exceptionLeader(partySeq, p.getLeaderUserSeq());
         if (mapper.checkPartyNowMem(partySeq) == 1){
-            throw new MsgException("RE,승인이 실패되였습니다. (모임인원수가 최대입니다)");
+            throw new MsgException("JE06,승인이 실패되었습니다. (모임인원수가 최대입니다)");
         }
     }
+    //R2 U1
+    public void exception(Long partySeq,Long userSeq) {
+        exceptionParty(partySeq);
+        exceptionUser(userSeq);
+        if (mapper.checkJoinApplicationOfUser(partySeq, userSeq) == 0) {throw new MsgException("JE04,존재하지 않는 신청서입니다.");}
+    }
 
-    public void exception(Long partySeq) {
+    public void exceptionParty(Long partySeq) {
         if (partySeq == null || partySeq == 0) {throw new NullReqValue();}
-        if (mapper.checkPartySeq(partySeq) == 0) {throw new MsgException("RE,존재하지 않는 모임입니다.");}
+        if (mapper.checkPartySeq(partySeq) == 0) {throw new MsgException("JE02,존재하지 않는 모임입니다.");}
     }
     public void exceptionUser(Long userSeq) {
         if (userSeq == null || userSeq == 0) {throw new NullReqValue();}
-        if (mapper.checkUserSeq(userSeq) == 0) {throw new MsgException("RE,존재하지 않는 유저입니다.");}
+        if (mapper.checkUserSeq(userSeq) == 0) {throw new MsgException("JE01,존재하지 않는 유저입니다.");}
+    }
+    // R1
+    public void exceptionLeader(Long partySeq, Long userSeq) {
+        exceptionParty(partySeq);
+        exceptionUser(userSeq);
+        if (mapper.checkPartyLeader(partySeq, userSeq) != 1){
+            throw new MsgException("JE03,권한이 없는 유저입니다.");}
     }
 
 
@@ -83,26 +83,26 @@ public class JoinExceptionHandler {
     @ExceptionHandler(NullReqValue.class)
     public ResultDto<String> handleNullReqValue(NullReqValue ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("NRV", "정보를 제대로 입력해주세요.");
+        return ResultDto.resultDto("JE00", "정보를 제대로 입력해주세요.");
     }
 
     //2.런타임
     @ExceptionHandler(RuntimeException.class)
     public ResultDto<String> handleRuntimeException(RuntimeException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("RE", "(join) 처리할 수 없는 요청입니다.");
+        return ResultDto.resultDto("JE99", "(join) 처리할 수 없는 요청입니다.");
     }
     //3.널포인트
     @ExceptionHandler(NullPointerException.class)
     public ResultDto<String> handleNullPointerException(NullPointerException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("NPE", "(join) 정보가 없습니다.");
+        return ResultDto.resultDto("JE00", "(join) 정보가 없습니다.");
     }
     //4.Exception
     @ExceptionHandler(Exception.class)
     public ResultDto<String> handleException(Exception ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("EX", "(join) 서버에러입니다.");
+        return ResultDto.resultDto("JE99", "(join) 서버에러입니다.");
     }
 
 

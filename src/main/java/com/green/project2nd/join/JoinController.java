@@ -35,8 +35,8 @@ public class JoinController {
     @GetMapping("/{join_party_seq}")
     @Operation(summary = "신청서들 불러오기" , description = "신청서들 불러오기")
     public ResultDto<List<GetJoinRes>> getJoin(@PathVariable("join_party_seq") Long joinPartySeq,
-                                               @RequestParam(name = "join_user_seq") Long joinUserSeq) {
-        return service.getJoin(joinPartySeq,joinUserSeq);
+                                               @RequestParam(name = "leader_user_seq") Long leaderUserSeq) {
+        return service.getJoin(joinPartySeq,leaderUserSeq);
     }
     @GetMapping("/detail/{join_party_seq}")
     @Operation(summary = "신청서 하나 불러오기" , description = "신청서 하나 불러오기")
@@ -61,7 +61,7 @@ public class JoinController {
     @DeleteMapping("/{join_party_seq}")
     @Operation(summary = "신청서 삭제" , description = "모임 삭제")
     public ResultDto<Integer> deleteJoin(@PathVariable(name = "join_party_seq") Long joinPartySeq,
-                                           @RequestParam(name = "join_user_seq") Long joinUserSeq){
+                                         @RequestParam(name = "join_user_seq") Long joinUserSeq){
         return service.deleteJoin(joinPartySeq, joinUserSeq);
     }
 

@@ -27,7 +27,7 @@ public class MemberService {
 //    }
 
     public ResultDto<List<GetMemberRes>> getMember(Long memberPartySeq) {
-        check.exceptionMember(memberPartySeq);
+        check.exceptionParty(memberPartySeq);
         return ResultDto.resultDto("SU", " 멤버들 불러오기.", mapper.getMember(memberPartySeq));
     }
 
@@ -44,22 +44,19 @@ public class MemberService {
         return ResultDto.resultDto("SU", "멤버 권한 수정.");
     }
 
-    public ResultDto<UpdateMemberRes> updateMemberGb(Long memberPartySeq, Long memberUserSeq) {
-        check.exception(memberPartySeq, memberUserSeq);
-        mapper.updateMemberGb(memberPartySeq, memberUserSeq);
-        int check = mapper.checkMemberGb(memberPartySeq,memberUserSeq);
-        //0 = 활성화, 1는 비활성화
-        if (check == 1) {
-            return ResultDto.resultDto("SU", "멤버 차단 완료.");
-        }
-        return ResultDto.resultDto("SU", "멤버 차단 해지 완료.");
-    }
+//    public ResultDto<UpdateMemberRes> updateMemberGb(Long memberPartySeq, Long memberUserSeq) {
+//        check.exception(memberPartySeq, memberUserSeq);
+//        mapper.updateMemberGb(memberPartySeq, memberUserSeq);
+//        if (mapper.checkMemberGb(memberPartySeq,memberUserSeq) == 0) {
+//            return ResultDto.resultDto("SU", "멤버 차단 완료.");
+//        }
+//        return ResultDto.resultDto("SU", "멤버 차단 해지 완료.");
+//    }
 
-    public ResultDto<UpdateMemberRes> updateMemberGb2(Long memberPartySeq, Long memberUserSeq, Long memberLeaderUserSeq) {
+    public ResultDto<UpdateMemberRes> updateMemberGb(Long memberPartySeq, Long memberUserSeq, Long memberLeaderUserSeq) {
         check.exception(memberPartySeq, memberUserSeq);
         check.exceptionLeader(memberPartySeq, memberLeaderUserSeq);
         mapper.updateMemberGb(memberPartySeq, memberUserSeq);
-        //0 = 활성화, 1는 비활성화
         if (mapper.checkMemberGb(memberPartySeq, memberUserSeq) == 0) {
             return ResultDto.resultDto("SU", "멤버 차단 완료.");
         }

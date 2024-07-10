@@ -8,5 +8,6 @@ public class UpdateJoinGbReq {
     @JsonIgnore
     private Long joinPartySeq;
     private Long joinUserSeq;
+    private Long leaderUserSeq;
     private int joinGb;
 }
