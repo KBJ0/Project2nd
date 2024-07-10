@@ -27,7 +27,7 @@ public class PartyController {
                                             , @RequestPart PostPartyReq p) throws Exception{
         return service.postParty(partyPic, p);
     }
-
+    //123123
 
 
     @GetMapping("location")
