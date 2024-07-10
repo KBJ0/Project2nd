@@ -30,21 +30,21 @@ public class MemberController {
 //        return service.postMember(memberPartySeq, memberUserSeq);
 //    }
 
-    @GetMapping("/{party_seq}")
+    @GetMapping("/{partySeq}")
     @Operation(summary = "멤버들 불러오기" , description = "멤버들 불러오기")
-    public ResultDto<List<GetMemberRes>> getMember(@PathVariable("party_seq") Long memberPartySeq) {
+    public ResultDto<List<GetMemberRes>> getMember(@PathVariable("partySeq") Long memberPartySeq) {
         return service.getMember(memberPartySeq);
     }
-    @GetMapping("/detail/{party_seq}")
+    @GetMapping("/detail/{partySeq}")
     @Operation(summary = "멤버 한명 불러오기" , description = "멤버 한명 불러오기")
-    public ResultDto<GetMemberRes> getMemberDetail(@PathVariable("party_seq") Long memberPartySeq,
-                                                 @RequestParam(name = "member_user_seq") Long memberUserSeq) {
+    public ResultDto<GetMemberRes> getMemberDetail(@PathVariable("partySeq") Long memberPartySeq,
+                                                 @RequestParam(name = "memberUserSeq") Long memberUserSeq) {
         return service.getMemberDetail(memberPartySeq, memberUserSeq);
     }
 
-    @PatchMapping("/{party_seq}")
+    @PatchMapping("/{partySeq}")
     @Operation(summary = "멤버 역할 수정(미구현. 멤버 세분화 필요함.)" , description = "멤버 역할 수정")
-    public ResultDto<UpdateMemberRes> updateMember(@PathVariable("party_seq") Long memberPartySeq,
+    public ResultDto<UpdateMemberRes> updateMember(@PathVariable("partySeq") Long memberPartySeq,
                                                    @RequestBody UpdateMemberReq p){
         return service.updateMember(memberPartySeq, p);
     }
@@ -55,11 +55,11 @@ public class MemberController {
 //                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq){
 //        return service.updateMemberGb(memberPartySeq, memberUserSeq);
 //    }
-    @PatchMapping("/gb/{party_seq}")
+    @PatchMapping("/gb/{partySeq}")
     @Operation(summary = "멤버 권한 수정" , description = "0:미승인, 1:승인")
-    public ResultDto<UpdateMemberRes> updateMemberGb(@PathVariable(name = "party_seq") Long memberPartySeq,
-                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq,
-                                                     @RequestParam(name = "member_leader_user_seq") Long memberLeaderUserSeq) {
+    public ResultDto<UpdateMemberRes> updateMemberGb(@PathVariable(name = "partySeq") Long memberPartySeq,
+                                                     @RequestParam(name = "memberUserSeq") Long memberUserSeq,
+                                                     @RequestParam(name = "memberLeaderUserSeq") Long memberLeaderUserSeq) {
         return service.updateMemberGb(memberPartySeq, memberUserSeq, memberLeaderUserSeq);
     }
 

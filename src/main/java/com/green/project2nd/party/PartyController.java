@@ -33,7 +33,7 @@ public class PartyController {
     @GetMapping("location")
     @Operation(summary = "지역 불러오기" , description = "모임 불러오기")
     public ResultDto<List<GetPartyLocationRes>> getPartyLocation(@RequestParam(name = "cd") String cd
-                                         ,@RequestParam(name = "cd_gb") String cdGb) {
+                                         ,@RequestParam(name = "cdGb") String cdGb) {
         if(cdGb == null){cdGb="00";}
         return service.getPartyLocation(cd,cdGb);
     }
@@ -46,7 +46,7 @@ public class PartyController {
 
     @GetMapping("/detail")
     @Operation(summary = "모임 하나 불러오기" , description = "모임 불러오기")
-    public ResultDto<GetPartyRes> getPartyDetail(@RequestParam(name = "party_seq") Long partySeq) {
+    public ResultDto<GetPartyRes> getPartyDetail(@RequestParam(name = "partySeq") Long partySeq) {
         return service.getPartyDetail(partySeq);
     }
 
@@ -79,15 +79,15 @@ public class PartyController {
     //관리자가 모임 등록을 승인해주는 코드,관리자가 누군지 추가하고 권한줘야함. 현재는 모임장이 모임 생성 승인가능ㅋㅋ
     @PatchMapping("/authGb")
     @Operation(summary = "모임 생성 승인" , description = "0:미승인, 1:승인")
-    public ResultDto<Integer> updatePartyAuthGb(@RequestParam(name = "party_seq") Long partySeq,
-                                                @RequestParam(name = "user_seq") Long userSeq) {
+    public ResultDto<Integer> updatePartyAuthGb(@RequestParam(name = "partySeq") Long partySeq,
+                                                @RequestParam(name = "userSeq") Long userSeq) {
         return service.updatePartyAuthGb(partySeq, userSeq);
     }
 
     @PatchMapping("/authGb2")
     @Operation(summary = "모임 삭제(휴먼,복구 기능은 X)" , description = "모임 삭제")
-    public ResultDto<Integer> updatePartyForGb2(@RequestParam(name ="party_seq") Long partySeq
-            , @RequestParam(name = "user_seq") Long userSeq){
+    public ResultDto<Integer> updatePartyForGb2(@RequestParam(name ="partySeq") Long partySeq
+            , @RequestParam(name = "userSeq") Long userSeq){
         return service.updatePartyForGb2(partySeq,userSeq);
     }
 
