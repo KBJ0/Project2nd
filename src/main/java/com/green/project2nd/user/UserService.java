@@ -22,6 +22,7 @@ public class UserService {
     private final UserMapper mapper;
     private final CustomFileUtils customFileUtils;
 
+    int i;
 
     @Transactional
     public Long postSignUp(MultipartFile userPic, SignUpReq p) {
