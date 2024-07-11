@@ -50,14 +50,14 @@ public class JoinService {
         check.exception(joinPartySeq, p);
         mapper.updateJoinGb(p);
         //신청서 거절
-        if(p.getJoinGb()==2){return ResultDto.resultDto(1, " 신청서를 거절하였습니다. (2:거절)");}
+        if(p.getJoinGb()==2){return ResultDto.resultDto(1, " 신청서를 거절하였습니다.");}
 
         //이미 있는 유저는 멤버의 권한을 exceptionMember에서 확인하고 수정함.
         check.exceptionMember(joinPartySeq,p.getJoinUserSeq());
 
         //없는 멤버는 등록함.
         mapper.postMember(joinPartySeq,p.getJoinUserSeq());
-        return ResultDto.resultDto(1, " 신청서를 승인하였습니다. (1: 멤버등록)");
+        return ResultDto.resultDto(1, " 신청서를 승인하였습니다.");
     }
 
     public ResultDto<Integer> deleteJoin(Long joinPartySeq, Long joinUserSeq) {

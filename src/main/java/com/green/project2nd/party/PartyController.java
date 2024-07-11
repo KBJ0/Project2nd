@@ -54,6 +54,7 @@ public class PartyController {
     @Operation(summary = "나의 모임들 불러오기(내가 모임장인 것은 제외)" , description = "나의 모임들 불러오기(내가 모임장인 것은 제외)")
     public ResultDto<List<GetPartyRes2>> getPartyMine(@RequestParam long userSeq
             , @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
+        if(page <= 0){page = 1;}
         GetPartyReq2 req2 = new GetPartyReq2(page, size);
         req2.setUserSeq(userSeq);
         return service.getPartyMine(req2);
@@ -63,6 +64,7 @@ public class PartyController {
     @Operation(summary = "내가 모임장인 모임들 불러오기" , description = "내가 모임장인 모임들 불러오기")
     public ResultDto<List<GetPartyRes2>> getPartyLeader(@RequestParam long userSeq
             , @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
+        if(page <= 0){page = 1;}
         GetPartyReq2 req2 = new GetPartyReq2(page, size);
         req2.setUserSeq(userSeq);
         return service.getPartyLeader(req2);

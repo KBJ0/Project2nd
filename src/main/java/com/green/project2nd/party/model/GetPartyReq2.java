@@ -2,10 +2,12 @@ package com.green.project2nd.party.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class GetPartyReq2 {
+    @Schema(example = "1", description = "유저 PK")
     private long userSeq;
     private int page;
     @JsonIgnore

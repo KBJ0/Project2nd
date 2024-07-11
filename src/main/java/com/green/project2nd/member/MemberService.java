@@ -28,12 +28,12 @@ public class MemberService {
 
     public ResultDto<List<GetMemberRes>> getMember(Long memberPartySeq) {
         check.exceptionParty(memberPartySeq);
-        return ResultDto.resultDto(1, " 멤버들 불러오기.", mapper.getMember(memberPartySeq));
+        return ResultDto.resultDto(1, " 멤버들의 정보를 불러왔습니다.", mapper.getMember(memberPartySeq));
     }
 
     public ResultDto<GetMemberRes> getMemberDetail(Long memberPartySeq, Long memberUserSeq) {
         check.exception(memberPartySeq, memberUserSeq);
-        return ResultDto.resultDto(1, "멤버 한명 불러오기."
+        return ResultDto.resultDto(1, "멤버 한명의 정보를 불러왔습니다."
                 , mapper.getMemberDetail(memberPartySeq, memberUserSeq));
     }
 
@@ -41,7 +41,7 @@ public class MemberService {
         check.exception(memberPartySeq, p);
         p.setMemberPartySeq(memberPartySeq);
         mapper.updateMember(p);
-        return ResultDto.resultDto(1, "멤버 권한 수정.");
+        return ResultDto.resultDto(1, "멤버 권한을 수정하였습니다.");
     }
 
 //    public ResultDto<UpdateMemberRes> updateMemberGb(Long memberPartySeq, Long memberUserSeq) {
@@ -58,9 +58,9 @@ public class MemberService {
         check.exceptionLeader(memberPartySeq, memberLeaderUserSeq);
         mapper.updateMemberGb(memberPartySeq, memberUserSeq);
         if (mapper.checkMemberGb(memberPartySeq, memberUserSeq) == 0) {
-            return ResultDto.resultDto(1, "멤버 차단 완료.");
+            return ResultDto.resultDto(1, "해당 멤버를 차단하였습니다.");
         }
-        return ResultDto.resultDto(1, "멤버 차단 해지 완료.");
+        return ResultDto.resultDto(1, "해당 멤버의 차단을 해지하였습니다.");
     }
 
 //    public ResultDto<Integer> deleteMember(Long memberPartySeq, Long memberUserSeq) {
