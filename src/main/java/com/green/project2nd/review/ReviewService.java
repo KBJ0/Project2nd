@@ -58,6 +58,7 @@ public class ReviewService {
     }
 
     public List<GetReviewAllRes> getReviewAll(GetReviewAllReq p) {
+        log.info("data {}", p);
         return mapper.getReviewAll(p);
     }
 

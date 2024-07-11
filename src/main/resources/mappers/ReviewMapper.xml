@@ -41,10 +41,10 @@
         JOIN party_master E
         ON C.member_party_seq = E.party_seq
         <where>
-            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','') LIKE '%#{search}%'</if>
+            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
-                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE '%#{search}%'</if>
-            <if test="search == 3">D.user_name LIKE '%#{search}%'</if>
+                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE  concat('%',#{searchData},'%')</if>
+            <if test="search == 3">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
         LIMIT #{startIdx}, #{size}
@@ -74,11 +74,10 @@
         JOIN party_master E
         ON C.member_party_seq = E.party_seq
         <where>
-            <if test="1 == 1">D.user_seq = #{userSeq}</if>
-            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','') LIKE '%#{search}%'</if>
+            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
-                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE '%#{search}%'</if>
-            <if test="search == 3">D.user_name LIKE '%#{search}%'</if>
+                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE  concat('%',#{searchData},'%')</if>
+            <if test="search == 3">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
         LIMIT #{startIdx}, #{size}

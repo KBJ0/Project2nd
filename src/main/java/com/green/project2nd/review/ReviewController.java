@@ -6,8 +6,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.Null;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -97,13 +99,21 @@ public class ReviewController {
                             "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
                             "<p> 2 : 실패, ResultMsg</p>"
     )
-    public ResultDto<List<GetReviewAllRes>> getReviewAll(@Nullable @RequestParam(name = "search") Integer search
-                                                        ,@Nullable @RequestParam(name = "page", defaultValue = "1") Integer page
-                                                        ,@Nullable @RequestParam(name = "size", defaultValue = "10") Integer size) {
+    public ResultDto<List<GetReviewAllRes>> getReviewAll(
+            @Nullable @RequestParam(name = "page") Integer page
+            , @Nullable @RequestParam(name = "size") Integer size
+            , @Nullable @RequestParam(name = "search") Integer search
+            , @Nullable @RequestParam(name = "searchData") String searchData
+    ) {
         if(search == null) {
             search = 0;
         }
-        GetReviewAllReq p = new GetReviewAllReq(page, size, search);
+
+        if(searchData == null) {
+            searchData = "";
+        }
+
+        GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
         List<GetReviewAllRes> result = service.getReviewAll(p);
 
         if(result == null) {
@@ -127,6 +137,7 @@ public class ReviewController {
                             "<p> 2 : 실패, ResultMsg</p>"
     )
     public ResultDto<List<GetReviewUserRes>> getReviewUser(@Nullable @RequestParam(name = "search") Integer search
+            , @Nullable @RequestParam(name = "searchData") String searchData
             , @Nullable @RequestParam(name = "page", defaultValue = "1") Integer page
             , @Nullable @RequestParam(name = "size", defaultValue = "10") Integer size
             , @RequestParam(name = "userSeq") long userSeq) {
@@ -138,7 +149,7 @@ public class ReviewController {
             search = 0;
         }
 
-        GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq);
+        GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
 
         List<GetReviewUserRes> result = service.getReviewUser(p);
 
