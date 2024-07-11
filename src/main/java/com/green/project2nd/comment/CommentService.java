@@ -16,34 +16,32 @@ import java.util.List;
 public class CommentService {
     private final CommentMapper mapper;
 
+
     public long postBoardComment(CommentPostReq p) {
-
         long res = mapper.postBoardComment(p);
-        if(res == 0) {
+        if (res == 0) {
             return 2;
         }
         return res;
     }
+
     public int deleteBoardComment(CommentDeleteReq p) {
-
         int res = mapper.deleteBoardComment(p);
-
-        if(res == 0) {
+        if (res == 0) {
             return 2;
         }
         return res;
     }
+
     public int patchBoardComment(CommentPatchReq p) {
-
         int res = mapper.patchBoardComment(p);
-
-        if(res == 0) {
+        if (res == 0) {
             return 2;
         }
         return res;
     }
-    public List<CommentGetRes> getBoardComment (long board_seq) {
-        List<CommentGetRes> list = mapper.getBoardComment(board_seq);
-        return list;
+
+    public List<CommentGetRes> getBoardComment(long boardSeq) {
+        return mapper.getBoardComment(boardSeq);
     }
 }

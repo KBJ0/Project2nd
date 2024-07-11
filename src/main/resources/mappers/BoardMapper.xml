@@ -18,6 +18,11 @@
             (#{boardSeq}, #{fileName})
         </foreach>
     </insert>
+    <delete id="deleteBoard">
+        DELETE FROM party_board_master
+        WHERE board_party_seq = #{boardPartySeq}
+        AND board_member_seq = #{boardMemberSeq}
+    </delete>
 
 
 </mapper>

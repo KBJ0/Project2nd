@@ -24,20 +24,19 @@ public class CommentController {
 
     @PostMapping
     @Operation(summary = "댓글 등록")
-    ResultDto<Long>postComment(@RequestBody CommentPostReq p) {
+    public ResultDto<Long> postComment(@RequestBody CommentPostReq p) {
         long result = service.postBoardComment(p);
-
         return ResultDto.<Long>builder()
                 .statusCode(HttpStatus.OK)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
     }
+
     @DeleteMapping
     @Operation(summary = "댓글 삭제")
-    ResultDto<Integer> deleteComment(@RequestBody CommentDeleteReq p) {
+    public ResultDto<Integer> deleteComment(@RequestBody CommentDeleteReq p) {
         int result = service.deleteBoardComment(p);
-
         return ResultDto.<Integer>builder()
                 .statusCode(HttpStatus.OK)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
@@ -47,24 +46,24 @@ public class CommentController {
 
     @PatchMapping
     @Operation(summary = "댓글 수정")
-    ResultDto<Integer> patchComment(@ModelAttribute@ParameterObject CommentPatchReq p) {
+    public ResultDto<Integer> patchComment(@ModelAttribute @ParameterObject CommentPatchReq p) {
         int result = service.patchBoardComment(p);
-
         return ResultDto.<Integer>builder()
                 .statusCode(HttpStatus.OK)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
     }
-    @GetMapping
-    @Operation(summary = "댓글 조회(페이지 변경)")
-    ResultDto<List<CommentGetRes>> getComment(@RequestParam(name = "board_seq") long board_seq) {
-        List<CommentGetRes> list = service.getBoardComment(board_seq);
 
+    @GetMapping
+    @Operation(summary = "댓글 조회")
+    public ResultDto<List<CommentGetRes>> getComment(@RequestParam(name = "boardSeq") long boardSeq) {
+        List<CommentGetRes> list = service.getBoardComment(boardSeq);
         return ResultDto.<List<CommentGetRes>>builder()
                 .statusCode(HttpStatus.OK)
                 .resultMsg("")
                 .resultData(list)
                 .build();
     }
+
 }
