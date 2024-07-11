@@ -22,4 +22,7 @@ public class PatchPlanReq {
 
     @Schema(example = "단체 회식", description = "일정 내용")
     private String planContents;
+
+    @Schema(example = "대구광역시 중구 1길", description = "모임 장소")
+    private String planLocation;
 }

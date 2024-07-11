@@ -45,7 +45,7 @@
 
     <select id="getBudget">
         SELECT A.budget_seq AS budgetSeq, A.budget_party_seq AS budgetPartySeq, A.budget_member_seq AS budgetMemberSeq,
-            A.budget_gb AS budgetGb, B.CD_GB_NM AS cdNm, A.budget_amount AS budgetAmount, A.budget_dt AS budgetDt,
+            A.budget_gb AS budgetGb, B.cd_gb_nm AS cdNm, A.budget_amount AS budgetAmount, A.budget_dt AS budgetDt,
             A.budget_text AS budgetText, A.budget_pic AS budgetPic
         FROM party_budget A
         JOIN common_cd B

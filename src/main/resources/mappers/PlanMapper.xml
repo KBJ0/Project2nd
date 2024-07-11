@@ -9,7 +9,8 @@
             plan_start_dt = #{planStartDt},
             plan_start_time = #{planStartTime},
             plan_title = #{planTitle},
-            plan_contents = #{planContents}
+            plan_contents = #{planContents},
+            plan_location = #{planLocation}
     </insert>
     
     <update id="patchPlan">
@@ -25,7 +26,10 @@
             plan_title = #{planTitle},
         </if>
         <if test="planContents!=null and planContents!=''">
-            plan_contents = #{planContents}
+            plan_contents = #{planContents},
+        </if>
+        <if test="planLocation!=null and planLocation!=''">
+            plan_location = #{planLocation}
         </if>
         </set>
         WHERE plan_seq = #{planSeq}
@@ -41,7 +45,7 @@
     <select id="getPlanAll">
         SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
                 A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
-                A.plan_title AS planTitle, A.plan_contents AS planContents
+                A.plan_title AS planTitle, A.plan_contents AS planContents, A.plan_location as planLocation
         FROM plan_master A
         JOIN common_cd B
         ON A.plan_completed = B.cd_gb
@@ -52,7 +56,7 @@
     <select id="getPlan">
         SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
                 A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
-                A.plan_title AS planTitle, A.plan_contents AS planContents
+                A.plan_title AS planTitle, A.plan_contents AS planContents, A.plan_location AS planLocation
         FROM plan_master A
         JOIN common_cd B
         ON A.plan_completed = B.cd_gb

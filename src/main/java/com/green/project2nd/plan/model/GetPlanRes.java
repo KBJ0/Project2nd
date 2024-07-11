@@ -14,4 +14,5 @@ public class GetPlanRes {
     private String cdNm;
     private String planTitle;
     private String planContents;
+    private String planLocation;
 }
