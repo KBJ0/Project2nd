@@ -50,6 +50,7 @@
         LIMIT #{startIdx}, #{size}
     </select>
 
+
     <select id="getReviewUser">
         SELECT A.review_seq as reviewSeq
         , A.review_plan_seq as reviewPlanSeq

@@ -1,6 +1,7 @@
 package com.green.project2nd.review.model;
 
 import com.green.project2nd.common.model.Paging;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 

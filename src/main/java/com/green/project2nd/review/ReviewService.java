@@ -19,7 +19,7 @@ public class ReviewService {
     private String path = "review/";
 
     @Transactional
-    public PostReviewRes postReview(List<MultipartFile> pics, PostReviewReq p) {
+    public PostReviewRes postReview(List<MultipartFile> pics, PostReviewReq p) throws Exception{
         mapper.postReview(p);
 
         if(pics == null) {
@@ -37,7 +37,7 @@ public class ReviewService {
     }
 
     @Transactional
-    public List<String> patchReview(List<MultipartFile> pics, PatchReviewReq p) {
+    public List<String> patchReview(List<MultipartFile> pics, PatchReviewReq p) throws Exception{
         mapper.deleteReviewPics(p.getReviewSeq());
         mapper.patchReview(p);
         customFileUtils.deleteFolder(path + p.getReviewSeq());
@@ -65,24 +65,20 @@ public class ReviewService {
         return mapper.getReviewUser(p);
     }
 
-
-    public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) {
+    public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) throws Exception {
         PostReviewPicDto ppic = PostReviewPicDto.builder()
                 .reviewSeq(reviewSeq)
                 .build();
-        try {
-            customFileUtils.makeFolders(path);
-            for(MultipartFile pic : pics) {
-                String fileName = customFileUtils.makeRandomFileName(pic);
-                String target = String.format("%s/%s", path, fileName);
-                customFileUtils.transferTo(pic, target);
-                ppic.getFileNames().add(fileName);
-            }
-            mapper.postReviewPics(ppic);
-        } catch(Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("사진 등록 오류");
+
+        customFileUtils.makeFolders(path);
+        for(MultipartFile pic : pics) {
+            String fileName = customFileUtils.makeRandomFileName(pic);
+            String target = String.format("%s/%s", path, fileName);
+            customFileUtils.transferTo(pic, target);
+            ppic.getFileNames().add(fileName);
         }
+        mapper.postReviewPics(ppic);
+
         return ppic;
     }
 }

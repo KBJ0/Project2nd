@@ -7,14 +7,14 @@ import lombok.Data;
 
 @Data
 public class Paging {
-    @Schema(defaultValue = "1")
+    @Schema(description = "페이지 번호")
     private Integer page;
-    @Schema(defaultValue = "10")
+    @Schema(description = "보여줄 내용 수")
     private Integer size;
 
     public Paging(Integer page, Integer size) {
-        this.page = page == 0 ? GlobalConst.PAGE_NUM : page;
-        this.size = size == 0 ? GlobalConst.SIZE_NUM : size;
+        this.page = page == null ? GlobalConst.PAGE_NUM : page;
+        this.size = size == null ? GlobalConst.SIZE_NUM : size;
         this.startIdx = this.page - 1 < 0 ? 0 : (this.page - 1) * this.size;
     }
     @JsonIgnore
