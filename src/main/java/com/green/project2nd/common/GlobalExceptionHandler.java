@@ -12,6 +12,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResultDto<String> handleRuntimeException(RuntimeException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("HttpStatus.INTERNAL_SERVER_ERROR", "RuntimeException : 처리할 수 없는 요청입니다.");
+        return ResultDto.resultDto(2, "RuntimeException : 처리할 수 없는 요청입니다.");
     }
 }

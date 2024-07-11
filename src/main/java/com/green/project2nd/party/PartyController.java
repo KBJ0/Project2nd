@@ -32,10 +32,10 @@ public class PartyController {
 
     @GetMapping("location")
     @Operation(summary = "지역 불러오기" , description = "모임 불러오기")
-    public ResultDto<List<GetPartyLocationRes>> getPartyLocation(@RequestParam(name = "cd") String cd
+    public ResultDto<List<GetPartyLocationRes>> getPartyLocation(@RequestParam(name = "cdSub") String cdSub
                                          ,@RequestParam(name = "cdGb") String cdGb) {
-        if(cdGb == null){cdGb="00";}
-        return service.getPartyLocation(cd,cdGb);
+        if(cdGb == null || cdGb.isEmpty()){cdGb="00";}
+        return service.getPartyLocation(cdSub,cdGb);
     }
 
     @GetMapping

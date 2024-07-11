@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class GetPartyLocationRes {
-    private String cd;
+    private String csSub;
     private String cdGb;
     private String cdGbNm;
 }

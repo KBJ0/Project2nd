@@ -10,8 +10,8 @@ public interface PartyMapper {
     int postParty(PostPartyReq p);
     int postMemberForPostParty(PostPartyReq p);
 
-    List<GetPartyLocationRes> getPartyLocation(String cd, String cdGb);
-    List<GetPartyLocationRes> getPartyLocationAll(String cd);
+    List<GetPartyLocationRes> getPartyLocation(String cdSub, String cdGb);
+    List<GetPartyLocationRes> getPartyLocationAll(String cdSub);
     List<GetPartyRes> getParty();
     GetPartyRes getPartyDetail(Long partySeq);
 

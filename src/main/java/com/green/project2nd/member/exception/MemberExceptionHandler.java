@@ -24,7 +24,7 @@ public class MemberExceptionHandler {
         exceptionParty(memberPartySeq);
         exceptionUser(memberUserSeq);
 
-        if (mapper.checkMemberForPartySeqAndUserSeq(memberPartySeq,memberUserSeq) == 0){throw new MsgException("ME04,존재하지 않는 멤버입니다.");}
+        if (mapper.checkMemberForPartySeqAndUserSeq(memberPartySeq,memberUserSeq) == 0){throw new MsgException("2,존재하지 않는 멤버입니다.");}
     }
     // U1
     public void exception(Long memberPartySeq, UpdateMemberReq p) {
@@ -34,18 +34,18 @@ public class MemberExceptionHandler {
     public void exceptionLeader(Long memberPartySeq, Long memberLeaderUserSeq) {
         exception(memberPartySeq,memberLeaderUserSeq);
         if (mapper.checkPartyLeader(memberPartySeq, memberLeaderUserSeq) != 1){
-            throw new MsgException("ME03,권한이 없는 유저입니다.");
+            throw new MsgException("2,권한이 없는 유저입니다.");
         }
     }
     // R1
     public void exceptionParty(Long memberPartySeq) {
         if (memberPartySeq == null || memberPartySeq == 0) {throw new NullReqValue();}
-        if (mapper.checkPartySeq(memberPartySeq) == 0) {throw new MsgException("ME02,존재하지 않는 모임입니다.");}
+        if (mapper.checkPartySeq(memberPartySeq) == 0) {throw new MsgException("2,존재하지 않는 모임입니다.");}
     }
 
     public void exceptionUser(Long memberUserSeq) {
         if (memberUserSeq == null || memberUserSeq == 0) {throw new NullReqValue();}
-        if (mapper.checkUserSeq(memberUserSeq) == 0) {throw new MsgException("ME01,존재하지 않는 유저입니다.");}
+        if (mapper.checkUserSeq(memberUserSeq) == 0) {throw new MsgException("2,존재하지 않는 유저입니다.");}
     }
 
     // C1
@@ -60,7 +60,7 @@ public class MemberExceptionHandler {
         ex.printStackTrace();
         String msg = ex.getMessage();
         String[] parts = msg.split(",", 2);
-        String code = parts[0];
+        int code = Integer.parseInt(parts[0]);
         String resultMsg = parts[1];
         ResultDto<String> result = ResultDto.resultDto(code, resultMsg);
         return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -70,26 +70,26 @@ public class MemberExceptionHandler {
     @ExceptionHandler(NullReqValue.class)
     public ResultDto<String> handleNullReqValue(NullReqValue ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("ME00", "정보를 제대로 입력해주세요.");
+        return ResultDto.resultDto(2, "정보를 제대로 입력해주세요.");
     }
 
     //2.런타임
     @ExceptionHandler(RuntimeException.class)
     public ResultDto<String> handleRuntimeException(RuntimeException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("ME00", "(member) 처리할 수 없는 요청입니다.");
+        return ResultDto.resultDto(2, "(member) 처리할 수 없는 요청입니다.");
     }
     //3.널포인트
     @ExceptionHandler(NullPointerException.class)
     public ResultDto<String> handleNullPointerException(NullPointerException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("ME99", "(member) 정보가 없습니다.");
+        return ResultDto.resultDto(2, "(member) 정보가 없습니다.");
     }
     //4.Exception
     @ExceptionHandler(Exception.class)
     public ResultDto<String> handleException(Exception ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto("ME99", "(member) 서버에러입니다.");
+        return ResultDto.resultDto(2, "(member) 서버에러입니다.");
     }
 
 

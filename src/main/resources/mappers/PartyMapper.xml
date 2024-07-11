@@ -27,16 +27,16 @@
         , member_gb = 1
     </insert>
 
-    <select id="getPartyLocationAll">
-        SELECT cd_sub AS csSub, cd_gb AS cdGb, cd_gb_nm AS cdGbNm
-        FROM common_cd
-        WHERE cd = #{cd}
-    </select>
     <select id="getPartyLocation">
         SELECT cd_sub AS csSub, cd_gb AS cdGb, cd_gb_nm AS cdGbNm
         FROM common_cd
-        WHERE cd = #{cd}
+        WHERE cd_sub = #{cdSub}
         AND cd_gb = #{cdGb}
+    </select>
+    <select id="getPartyLocationAll">
+        SELECT cd_sub AS csSub, cd_gb AS cdGb, cd_gb_nm AS cdGbNm
+        FROM common_cd
+        WHERE cd_sub = #{cdSub}
     </select>
 
     <select id="getParty">
