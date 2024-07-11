@@ -65,7 +65,7 @@
     
     <update id="patchPassword">
         UPDATE user_master
-        SET user_pw = #{newPw}
+        SET user_pw = #{userNewPw}
         WHERE user_seq = #{userSeq}
     </update>
 

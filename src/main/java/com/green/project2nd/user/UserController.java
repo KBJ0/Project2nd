@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -64,28 +63,33 @@ public class UserController {
             long result = service.postSignUp(userPic, p);
 
             return ResultDto.<Long>builder()
-                    .statusCode(HttpStatus.OK)
+                    .code(SUCCESS)
                     .resultMsg(SUCCESS_Message)
                     .resultData(result)
                     .build();
         } catch (PwCheckException pe) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(PASSWORD_CHECK_MESSAGE)
-                    .resultData(-3L).build();   // 비밀번호 확인 불일치
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(PASSWORD_CHECK_MESSAGE)
+                    .build();   // 비밀번호 확인 불일치
         } catch (EmailRegexException ee) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(EMAIL_REGEX_MESSAGE)
-                    .resultData(-6L).build();   // 이메일 형식
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(EMAIL_REGEX_MESSAGE)
+                    .build();   // 이메일 형식
         } catch (NicknameRegexException ne) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(NICKNAME_REGEX_MESSAGE)
-                    .resultData(-5L).build();   // 닉네임 형식
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(NICKNAME_REGEX_MESSAGE)
+                    .build();   // 닉네임 형식
         } catch (DuplicationException de) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(EMAIL_DUPLICATION_MESSAGE)
-                    .resultData(-2L).build();   // 이메일 중복
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(EMAIL_DUPLICATION_MESSAGE)
+                    .build();   // 이메일 중복
         } catch (BirthDateException be) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(BIRTHDATE_MESSAGE)
-                    .resultData(-7L).build();   // 생년월일 형식
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(BIRTHDATE_MESSAGE)
+                    .build();   // 생년월일 형식
+        } catch (FileException e) {
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(FILE_ERROR_MESSAGE)
+                    .build();   // 파일 에러
         } catch (RuntimeException r) {
-            return ResultDto.<Long>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(NICKNAME_DUPLICATION_MESSAGE)
-                    .resultData(-1L).build();   // 닉네임 중복
+            return ResultDto.<Long>builder().code(FAILURE).resultMsg(NICKNAME_DUPLICATION_MESSAGE)
+                    .build();   // 닉네임 중복
+        } catch (Exception e) {
+            return ResultDto.<Long>builder().code(ERROR).resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
@@ -98,20 +102,23 @@ public class UserController {
     @ApiResponse(
             description =
                     "<p> ResponseCode 응답 코드 </p> " +
-                            "<p>  유저 PK, 유저 닉네임, 유저 프로필 사진 : 성공</p> " +
-                            "<p>  null (비회원가입 or 아이디 틀림 or 비밀번호 틀림) : 실패  </p> "
+                            "<p>  1 : 성공 -> 유저 PK, 유저 닉네임, 유저 프로필 사진, 토큰 </p> " +
+                            "<p>  2 : 실패 -> (비회원가입 or 아이디 틀림 or 비밀번호 틀림) </p> " +
+                            "<p>  3 : 에러 "
     )
     public ResultDto<SignInRes> postSignIn(HttpServletResponse res, @RequestBody SignInReq p) {
         try {
             SignInRes result = service.postSignIn(res, p);
 
             return ResultDto.<SignInRes>builder()
-                    .statusCode(HttpStatus.OK)
+                    .code(SUCCESS)
                     .resultMsg(SUCCESS_Message)
                     .resultData(result)
                     .build();
         } catch (LoginException le) {      // 아이디 or 비번 확인 or 비회원가입
-            return ResultDto.<SignInRes>builder().statusCode(HttpStatus.NOT_FOUND).resultMsg(le.getMessage()).build();
+            return ResultDto.<SignInRes>builder().code(FAILURE).resultMsg(le.getMessage()).build();
+        } catch (Exception e) {
+            return ResultDto.<SignInRes>builder().code(ERROR).resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
     @GetMapping("access-token")
@@ -119,34 +126,49 @@ public class UserController {
         Map<String, String> map = service.getAccessToken(req);
 
         return ResultDto.<Map<String, String>>builder()
-                .statusCode(HttpStatus.OK)
+                .code(1)
                 .resultMsg("Access Token 발급")
                 .resultData(map)
                 .build();
     }
 
     @PatchMapping("/update/pw")
-    @Operation(summary = "비밀번호 변경" , description = "비밀번호 변경")
+    @Operation(summary = "비밀번호 변경" , description =
+            "<strong > 유저 비밀번호 변경 </strong> <p></p>" +
+            "<p><strong> userEmail</strong> : 유저 이메일 (long) </p>" +
+            "<p><strong> userPw</strong> : 유저 비밀번호 (String) </p>" +
+            "<p><strong> userNewPw</strong> : 유저 새로운 비밀번호 (String) </p>" +
+            "<p><strong> userPwCheck</strong> : 유저 새로운 비밀번호 확인 (String) </p>"
+    )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p> " +
+                            "<p>  1 : 성공 </p> " +
+                            "<p>  null (비회원가입 or 아이디 틀림 or 비밀번호 틀림) : 실패  </p> "
+    )
     public ResultDto<Integer> patchPassword(@RequestBody UpdatePasswordReq p) {
 
         try {
             int result = service.patchPassword(p);
             return ResultDto.<Integer>builder()
-                    .statusCode(HttpStatus.OK)
+                    .code(SUCCESS)
                     .resultMsg(SUCCESS_Message)
                     .resultData(result)
                     .build();
         } catch (IdCheckException re) {
             return ResultDto.<Integer>builder()
-                    .statusCode(HttpStatus.NOT_FOUND)
-                    .resultMsg(FAILURE_Message)
-                    .resultData(0)
+                    .code(FAILURE)
+                    .resultMsg(re.getMessage())
                     .build();
         } catch (PwCheckException pe) {
             return ResultDto.<Integer>builder()
-                    .statusCode(HttpStatus.BAD_REQUEST)
-                    .resultMsg(ERROR_Message)
-                    .resultData(-1)
+                    .code(FAILURE)
+                    .resultMsg(PASSWORD_CHECK_MESSAGE)
+                    .build();
+        } catch (Exception e) {
+            return ResultDto.<Integer>builder()
+                    .code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE)
                     .build();
         }
     }
@@ -154,86 +176,178 @@ public class UserController {
     @PatchMapping("{userSeq}")
     @Operation(summary = "유저 탈퇴" , description = "유저 탈퇴")
     public ResultDto<Integer> deleteUser(@PathVariable("userSeq") Long userSeq) {
-        int result = service.deleteUser(userSeq);
-
-        // 서비스에서 던진 에러 처리하기
-
-        return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
-                .resultMsg(result == 1 ? SUCCESS_Message : FAILURE_Message)
-                .resultData(result)
-                .build();
+        try {
+            int result = service.deleteUser(userSeq);
+            return ResultDto.<Integer>builder()
+                    .code(SUCCESS)
+                    .resultMsg(SUCCESS_Message)
+                    .resultData(result)
+                    .build();
+        } catch (FileException fe) {
+            return ResultDto.<Integer>builder()
+                    .code(FAILURE)
+                    .resultMsg(fe.getMessage())
+                    .build();
+        } catch (Exception e) {
+            return ResultDto.<Integer>builder()
+                    .code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE)
+                    .build();
+        }
     }
 
     @GetMapping("{userSeq}")
     @Operation(summary = "마이페이지" , description = "마이페이지")
     public ResultDto<UserEntity> getDetailUserInfo(@PathVariable("userSeq") Long userSeq) {
-        UserEntity result = service.getDetailUserInfo(userSeq);
-
-        return ResultDto.<UserEntity>builder()
-                .statusCode(HttpStatus.OK)
-                .resultMsg(SUCCESS_Message)
-                .resultData(result)
-                .build();
+        try {
+            UserEntity result = service.getDetailUserInfo(userSeq);
+            return ResultDto.<UserEntity>builder()
+                    .code(SUCCESS)
+                    .resultMsg(SUCCESS_Message)
+                    .resultData(result)
+                    .build();
+        } catch (RuntimeException re) {
+            return ResultDto.<UserEntity>builder()
+                    .code(FAILURE)
+                    .resultMsg(FAILURE_Message)
+                    .build();
+        } catch (Exception e) {
+            return ResultDto.<UserEntity>builder()
+                    .code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE)
+                    .build();
+        }
     }
 
     @GetMapping("/duplicated")
-    @Operation(summary = "이메일, 닉네임 중복체크" , description = "이메일, 닉네임 중복체크 (1 : 이메일, 2 : 닉네임)")
+    @Operation(summary = "이메일, 닉네임 중복체크" , description =
+    "<strong > 이메일, 닉네임 중복체크 (1 : 이메일, 2 : 닉네임) </strong> <p></p>" +
+            "<p><strong> str</strong> : 체크할 이메일 or 닉네임 (long) </p>" +
+            "<p><strong> num</strong> : 1 : 이메일, 2 : 닉네임 (MultipartFile) </p>"
+            )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p> " +
+                            "<p>  1 : 성공 -> 중복 입니다 or 중복이 아님 </p> " +
+                            "<p>  2 : 실패 (입력값을 제대로 입력) </p> " +
+                            "<p>  3 : 에러 </p> "
+    )
     public ResultDto<Integer> duplicatedCheck(String str, int num) {
         log.info("str : {}", str);
         try {
             int result = service.duplicatedCheck(str, num);
             return ResultDto.<Integer>builder()
-                    .statusCode(HttpStatus.OK)
-                    .resultMsg(result == 1 ? "중복O" : "중복X")
+                    .code(SUCCESS)
+                    .resultMsg(result == SUCCESS ? IS_DUPLICATE : IS_NOT_DUPLICATE)
                     .resultData(result)
                     .build();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException ie) {
             return ResultDto.<Integer>builder()
-                    .statusCode(HttpStatus.BAD_REQUEST)
-                    .resultMsg(ERROR_Message)
+                    .code(FAILURE)
+                    .resultMsg(ie.getMessage())
                     .build();
+        } catch (Exception e) {
+            return ResultDto.<Integer>builder().code(ERROR).resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
     @PatchMapping(value = "pic", consumes = "multipart/form-data")
-    @Operation(summary = "유저 프로필 변경" , description = "유저 프로필 변경")
+    @Operation(summary = "유저 프로필 사진 변경" , description =
+            "<strong > 유저 프로필 사진 변경 </strong> <p></p>" +
+            "<p><strong> userSeq</strong> : 유저 PK (long) </p>" +
+            "<p><strong> pic</strong> : 유저 프로필 사진 (MultipartFile) </p>"
+    )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p> " +
+                            "<p>  1 : 성공 -> 변경된 사진 파일명 </p> " +
+                            "<p>  2 : 실패 </p> " +
+                            "<p>  3 : 에러 </p> "
+    )
     public ResultDto<String> updateUserPic(@ModelAttribute UpdateUserPicReq p) {
         try {
             String result = service.updateUserPic(p);
             return ResultDto.<String>builder()
-                    .statusCode(HttpStatus.OK)
+                    .code(SUCCESS)
                     .resultMsg(SUCCESS_Message)
                     .resultData(result)
                     .build();
+        } catch (FileException e) {
+            return ResultDto.<String>builder().code(FAILURE).resultMsg(e.getMessage()).build();
         } catch (Exception e) {
-            return ResultDto.<String>builder().statusCode(HttpStatus.BAD_REQUEST).resultMsg(ERROR_Message).build();
+            return ResultDto.<String>builder().code(ERROR).resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
     @PatchMapping("/update/myInfo")
-    @Operation(summary = "유저 정보 수정" , description = "유저 정보 수정")
+    @Operation(summary = "유저 정보 수정" , description =
+            "<strong > 유저 정보 수정 </strong> <p></p>" +
+            "<p><strong> userNickname</strong> : 유저 닉네임 (String) </p>" +
+            "<p><strong> userAddr</strong> : 유저 주소 (String) </p>" +
+            "<p><strong> userFav</strong> : 유저 관심모임 (String) </p>" +
+            "<p><strong> userPhone</strong> : 유저 전화번호 (String) </p>" +
+            "<p><strong> userIntro</strong> : 유저 자기소개 (String) </p>"
+    )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p> " +
+                            "<p>  1 : 성공 </p> " +
+                            "<p>  2 : 실패 </p> " +
+                            "<p>  3 : 에러 </p> "
+    )
     public ResultDto<Integer> updateUserInfo(@RequestBody UpdateUserInfoReq p) {
-        int result = service.updateUserInfo(p);
-
-        return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
-                .resultMsg(result == 1 ? SUCCESS_Message : FAILURE_Message)
-                .resultData(result)
-                .build();
+        try {
+            int result = service.updateUserInfo(p);
+            return ResultDto.<Integer>builder()
+                    .code(SUCCESS)
+                    .resultMsg(SUCCESS_Message)
+                    .resultData(result)
+                    .build();
+        } catch (RuntimeException re) {
+            return ResultDto.<Integer>builder()
+                    .code(FAILURE)
+                    .resultMsg(re.getMessage())
+                    .build();
+        } catch (Exception e) {
+            return ResultDto.<Integer>builder()
+                    .code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE)
+                    .build();
+        }
     }
 
     @PostMapping("/findid")
-    @Operation(summary = "아이디 찾기" , description = "아이디 찾기")
+    @Operation(summary = "아이디 찾기" , description =
+            "<strong > 유저 아이디 찾기 </strong> <p></p>" +
+            "<p><strong> userName</strong> : 유저 이름 (String) </p>" +
+            "<p><strong> userPhone</strong> : 유저 전화번호 (String) </p>" +
+            "<p><strong> userBirth</strong> : 유저 생년월일 (Date) </p>"
+    )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p> " +
+                            "<p>  1 : 성공 -> 유저 이메일 </p> " +
+                            "<p>  2 : 실패 -> (비회원가입 or 아이디 틀림 or 비밀번호 틀림) </p> " +
+                            "<p>  3 : 에러 </p> "
+    )
     public ResultDto<String> findUserId(@RequestBody FindUserReq p) {
-        String result = service.findUserId(p);
-
-        return ResultDto.<String>builder()
-                .statusCode(HttpStatus.OK)
-                .resultMsg(result == null ? FAILURE_Message : SUCCESS_Message)
-                .resultData(result)
-                .build();
+        try {
+            String result = service.findUserId(p);
+            return ResultDto.<String>builder()
+                    .code(SUCCESS)
+                    .resultMsg(SUCCESS_Message)
+                    .resultData(result)
+                    .build();
+        } catch (RuntimeException re) {
+            return ResultDto.<String>builder()
+                    .code(FAILURE)
+                    .resultMsg(re.getMessage())
+                    .build();
+        } catch (Exception e) {
+            return ResultDto.<String>builder()
+                    .code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE)
+                    .build();
+        }
     }
-
-
 }

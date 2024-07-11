@@ -5,6 +5,8 @@ public class ConstMessage {
     public static final String SUCCESS_Message = "성공";
     public static final String FAILURE_Message = "실패";
     public static final String ERROR_Message = "에러";
+    public static final String ADMIN_CONTACT_MESSAGE = "관리자에게 문의하세요";
+    public static final String FILE_ERROR_MESSAGE = "파일 오류";
     public static final String ID_INPUT_MESSAGE = "이메일은 필수값.";
     public static final String PW_INPUT_MESSAGE = "비밀번호는 필수값";
     public static final String NAME_INPUT_MESSAGE = "이름은 필수값";
@@ -27,8 +29,12 @@ public class ConstMessage {
     public static final String AUTH_CODE_EXPIRED = "인증번호 유효시간 만료";
     public static final String AUTH_CODE_INCORRECT = "인증번호 틀림";
     public static final String BIRTHDATE_MESSAGE = "생년월일 형식 안 맞음";
-    public static final String o = "d";
-    public static final String p = "d";
-    public static final String q = "d";
+    public static final String INPUT_VALIDATION_MESSAGE = "입력값을 제대로 입력";
+    public static final String IS_DUPLICATE = "중복임";
+    public static final String IS_NOT_DUPLICATE = "중복 아님";
+
+    public static final int SUCCESS = 1;
+    public static final int FAILURE = 2;
+    public static final int ERROR = 3;
 
 }

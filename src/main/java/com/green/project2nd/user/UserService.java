@@ -18,7 +18,6 @@ import com.green.project2nd.user.model.UserEntity;
 
 import com.green.project2nd.user.userexception.DuplicationException;
 import com.green.project2nd.user.userexception.LoginException;
-import com.green.project2nd.user.userexception.NotFoundException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,10 +29,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.green.project2nd.user.datacheck.Const.isValidEmail;
+import static com.green.project2nd.user.datacheck.Const.isValidNickname;
 import static com.green.project2nd.user.userexception.ConstMessage.*;
 
 
@@ -51,14 +51,14 @@ public class UserService {
 
 
     @Transactional
-    public Long postSignUp(MultipartFile userPic, SignUpReq p) {
+    public Long postSignUp(MultipartFile userPic, SignUpReq p) throws Exception {
         if(!p.getUserPw().equals(p.getUserPwCheck())) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
-        if(!com.green.project2nd.user.datacheck.Const.isValidEmail(p.getUserEmail())) {
+        if(!isValidEmail(p.getUserEmail())) {
             throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
         }
-        if(!com.green.project2nd.user.datacheck.Const.isValidNickname(p.getUserNickname())) {
+        if(!isValidNickname(p.getUserNickname())) {
             throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
         }
         if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
@@ -67,16 +67,11 @@ public class UserService {
         if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
             throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
         }
-        log.info("p.getUserBirth() : {}", p.getUserBirth());
-        log.info("String.valueOf(p.getUserBirth()) : {}", String.valueOf(p.getUserBirth()));
         if(Const.isValidDate(p.getUserBirth())) {
             throw new BirthDateException(BIRTHDATE_MESSAGE);
         } else {
             Const.convertToDate(p.getUserBirth());
         }
-
-
-        // 생년월일 체크
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);
@@ -94,9 +89,9 @@ public class UserService {
             String target = String.format("%s/%s", path, saveFileName);
             customFileUtils.transferTo(userPic, target);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("파일 저장 오류"); //구체적 예외처리 하기
+        } catch (FileException fe) {
+            fe.printStackTrace();
+            throw new FileException(FILE_ERROR_MESSAGE); //구체적 예외처리 하기
         }
         return p.getUserSeq();
     }
@@ -106,7 +101,7 @@ public class UserService {
 
         if(user == null || !(p.getUserEmail().equals(user.getUserEmail()))
                 || !(BCrypt.checkpw(p.getUserPw(), user.getUserPw()))) {
-            throw new LoginException(ConstMessage.LOGIN_MESSAGE);
+            throw new LoginException(LOGIN_MESSAGE);
         }
         MyUser myUser = MyUser.builder()
                 .userId(user.getUserSeq())
@@ -116,13 +111,10 @@ public class UserService {
         String accessToken = jwtTokenProvider.generateAccessToken(myUser);
         String refreshToken = jwtTokenProvider.generateRefreshToken(myUser);
 
-        // refreshToken은 보안 쿠키를 이용해서 처리 (프론트가 따로 작업을 하지 않아도 아래 cookie 값은 항상 넘어온다.)
-        // 쿠키에 담는 부분
         int refreshTokenMaxAge = appProperties.getJwt().getRefreshTokenCookieMaxAge();
         cookieUtils.deleteCookie(res, "refresh-token");
         log.info("appProperties.getJwt().getRefreshTokenCookieName() : {}", appProperties.getJwt().getRefreshTokenCookieName());
         cookieUtils.setCookie(res, appProperties.getJwt().getRefreshTokenCookieName(), refreshToken, refreshTokenMaxAge);
-
 
         return SignInRes.builder()
                 .userNickname(user.getUserNickname())
@@ -157,49 +149,47 @@ public class UserService {
 
         if(user == null) {
             throw new IdCheckException(ID_CHECK_MESSAGE);
-        } else if (!(BCrypt.checkpw(p.getUpw(), user.getUserPw()))) {
+        } else if (!(BCrypt.checkpw(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE); // 예외처리 세분화 하기
         }
-        if(!p.getNewPw().equals(p.getUserPwCheck())) {
-            throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
-        }
-
-        String newPassword = BCrypt.hashpw(p.getNewPw(), BCrypt.gensalt());
-        p.setNewPw(newPassword);
+        String newPassword = BCrypt.hashpw(p.getUserNewPw(), BCrypt.gensalt());
+        p.setUserNewPw(newPassword);
         p.setUserSeq(user.getUserSeq());
         return mapper.patchPassword(p);
-
     }
 
+    @Transactional
     public int deleteUser(Long userSeq) {
         try {
             String midPath = String.format("user/%d", userSeq);
             String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, midPath);
             customFileUtils.deleteFolder(delAbsoluteFolderPath);
 
-        } catch (Exception e) {
-            throw new RuntimeException(ERROR_Message);    // 구체적인 에러로 수정
+        } catch (FileException fe) {
+            throw new FileException(FILE_ERROR_MESSAGE);
         }
         return mapper.deleteUser(userSeq);
     }
 
     public UserEntity getDetailUserInfo(Long userSeq) {
-        return mapper.getDetailUserInfo(userSeq);
-
+        UserEntity userEntity = mapper.getDetailUserInfo(userSeq);
+        if(userEntity == null) {
+            throw new RuntimeException(FAILURE_Message);
+        }
+        return userEntity;
     }
 
     public int duplicatedCheck(String str, int num) {   // 1 : 이메일, 2 : 닉네임
         switch (num) {
             case 1 -> num = mapper.duplicatedCheckEmail(str);
             case 2 -> num = mapper.duplicatedCheckNickname(str);
-            default -> throw new RuntimeException(ERROR_Message);
+            default -> throw new IllegalArgumentException(INPUT_VALIDATION_MESSAGE);
         }
         return num;
     }
 
-    public String updateUserPic(UpdateUserPicReq p) {
-        p.setUserSeq(authenticationFacade.getLoginUserId());
-
+    @Transactional
+    public String updateUserPic(UpdateUserPicReq p) throws Exception {
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);
@@ -209,23 +199,31 @@ public class UserService {
             String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, Path);
             customFileUtils.deleteFolder(delAbsoluteFolderPath);
 
-
             customFileUtils.makeFolders(Path);
             String filePath = String.format("%s/%s", Path, fileName);
             customFileUtils.transferTo(p.getPic(), filePath);
 
-        } catch (Exception e) {
-            throw new RuntimeException(ERROR_Message);  // 에러 처리하기
+        } catch (FileException fe) {
+            throw new FileException(FILE_ERROR_MESSAGE);  // 에러 처리하기
         }
         return fileName;
     }
 
     public int updateUserInfo(UpdateUserInfoReq p) {
-        return mapper.updateUserInfo(p);
+        p.setUserSeq(authenticationFacade.getLoginUserId());
+
+        int result = mapper.updateUserInfo(p);
+        if(result == 0) {
+            throw new RuntimeException(FAILURE_Message);
+        }
+        return result;
     }
 
     public String findUserId(FindUserReq p) {
-        return mapper.findUserId(p);
+        String userEmail = mapper.findUserId(p);
+        if(userEmail == null) {
+            throw new RuntimeException(FAILURE_Message);
+        }
+        return userEmail;
     }
-
 }

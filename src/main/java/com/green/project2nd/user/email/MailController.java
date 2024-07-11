@@ -43,23 +43,20 @@ public class MailController {
         switch (Checked) {
             case AUTH_CODE_EXPIRED -> {
                 return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.NOT_FOUND)
+                .code(2)
                 .resultMsg(AUTH_CODE_EXPIRED)
-                .resultData(-1)
                 .build();
             }
             case SUCCESS_Message -> {
                 return ResultDto.<Integer>builder()
-                        .statusCode(HttpStatus.OK)
+                        .code(1)
                         .resultMsg(SUCCESS_Message)
-                        .resultData(1)
                         .build();
             }
             case AUTH_CODE_INCORRECT -> {
                 return ResultDto.<Integer>builder()
-                        .statusCode(HttpStatus.BAD_REQUEST)
+                        .code(2)
                         .resultMsg(AUTH_CODE_INCORRECT)
-                        .resultData(0)
                         .build();
             }
             default -> throw new NullPointerException(ERROR_Message);
@@ -72,8 +69,8 @@ public class MailController {
         int result = mailService.setPassword(p);
 
         return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
-                .resultMsg(result == 1? SUCCESS_Message : FAILURE_Message)
+                .code(1)
+                .resultMsg(SUCCESS_Message)
                 .resultData(result)
                 .build();
     }

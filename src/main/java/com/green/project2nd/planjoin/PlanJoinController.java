@@ -27,7 +27,7 @@ public class PlanJoinController {
         }
         int result = service.postPlanJoin(p);
         return ResultDto.<Integer>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(POST_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -42,7 +42,7 @@ public class PlanJoinController {
         int result = service.deletePlanJoin(p);
 
         return ResultDto.<Integer>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(DELETE_SUCCESS_MESSAGE).
                 resultData(result).
                 build();

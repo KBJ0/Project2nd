@@ -11,9 +11,9 @@ public class UpdatePasswordReq {
     @Schema(example = "abc123@naver.com", description = "유저 이메일")
     private String userEmail;
     @Schema(example = "abcd1234!", description = "유저 비밀번호")
-    private String upw;
+    private String userPw;
     @Schema(example = "1234abcd!", description = "유저 새 비밀번호")
-    private String newPw;
+    private String userNewPw;
     @Schema(example = "1234abcd!", description = "유저 새 비밀번호 확인")
     private String userPwCheck;
 

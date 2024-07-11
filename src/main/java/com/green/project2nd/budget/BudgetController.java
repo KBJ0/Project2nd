@@ -29,7 +29,7 @@ public class BudgetController {
         int result = service.postBudget(budgetPic, p);
 
         return ResultDto.<Integer>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(POST_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -42,7 +42,7 @@ public class BudgetController {
         int result = service.patchBudget(budgetPic,p);
 
         return ResultDto.<Integer>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(PATCH_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -54,7 +54,7 @@ public class BudgetController {
         List<GetBudgetRes> result = service.getBudget(budgetPartySeq, month);
 
         return ResultDto.<List<GetBudgetRes>>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -66,7 +66,7 @@ public class BudgetController {
         GetBudgetPicRes result = service.getBudgetPic(budgetSeq);
 
         return ResultDto.<GetBudgetPicRes>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -78,7 +78,7 @@ public class BudgetController {
         long result = service.deleteBudget(budgetSeq);
 
         return ResultDto.<Long>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(DELETE_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -90,7 +90,7 @@ public class BudgetController {
         GetBudgetMemberRes result = service.getBudgetMember(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMemberRes>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();
@@ -102,7 +102,7 @@ public class BudgetController {
         GetBudgetMonthlyRes result = service.getBudgetMonthly(budgetPartySeq, month);
 
         return ResultDto.<GetBudgetMonthlyRes>builder().
-                statusCode(HttpStatus.OK).
+                code(1).
                 resultMsg(GET_SUCCESS_MESSAGE).
                 resultData(result).
                 build();

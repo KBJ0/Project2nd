@@ -28,7 +28,7 @@ public class CommentController {
         long result = service.postBoardComment(p);
 
         return ResultDto.<Long>builder()
-                .statusCode(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
@@ -39,7 +39,7 @@ public class CommentController {
         int result = service.deleteBoardComment(p);
 
         return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
@@ -51,7 +51,7 @@ public class CommentController {
         int result = service.patchBoardComment(p);
 
         return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
@@ -62,7 +62,7 @@ public class CommentController {
         List<CommentGetRes> list = service.getBoardComment(board_seq);
 
         return ResultDto.<List<CommentGetRes>>builder()
-                .statusCode(HttpStatus.OK)
+                .code(1)
                 .resultMsg("")
                 .resultData(list)
                 .build();
