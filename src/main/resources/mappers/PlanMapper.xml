@@ -8,9 +8,9 @@
         SET plan_party_seq = #{planPartySeq},
             plan_start_dt = #{planStartDt},
             plan_start_time = #{planStartTime},
+            plan_location = #{planLocation},
             plan_title = #{planTitle},
-            plan_contents = #{planContents},
-            plan_location = #{planLocation}
+            plan_contents = #{planContents}
     </insert>
     
     <update id="patchPlan">
@@ -22,14 +22,14 @@
         <if test="planStartTime!=null and planStartTime!=''">
             plan_start_time = #{planStartTime},
         </if>
+        <if test="planLocation!=null and planLocation!=''">
+            plan_location = #{planLocation},
+        </if>
         <if test="planTitle!=null and planTitle!=''">
             plan_title = #{planTitle},
         </if>
         <if test="planContents!=null and planContents!=''">
-            plan_contents = #{planContents},
-        </if>
-        <if test="planLocation!=null and planLocation!=''">
-            plan_location = #{planLocation}
+            plan_contents = #{planContents}
         </if>
         </set>
         WHERE plan_seq = #{planSeq}
@@ -44,8 +44,8 @@
     
     <select id="getPlanAll">
         SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
-                A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
-                A.plan_title AS planTitle, A.plan_contents AS planContents, A.plan_location as planLocation
+                DATE_FORMAT(A.plan_start_time, "%h:%m") AS planStartTime, A.plan_completed AS planCompleted,
+                A.plan_location as planLocation, B.cd_gb_nm AS cdNm, A.plan_title AS planTitle, A.plan_contents AS planContents
         FROM plan_master A
         JOIN common_cd B
         ON A.plan_completed = B.cd_gb
@@ -55,8 +55,8 @@
 
     <select id="getPlan">
         SELECT A.plan_seq AS planSeq, A.plan_party_seq AS planPartySeq, A.plan_start_dt AS planStartDt,
-                A.plan_start_time AS planStartTime, A.plan_completed AS planCompleted, B.CD_GB_NM AS cdNm,
-                A.plan_title AS planTitle, A.plan_contents AS planContents, A.plan_location AS planLocation
+        ATE_FORMAT(A.plan_start_time, "%h:%m") AS planStartTime, A.plan_completed AS planCompleted,
+        A.plan_location as planLocation, B.cd_gb_nm AS cdNm, A.plan_title AS planTitle, A.plan_contents AS planContents
         FROM plan_master A
         JOIN common_cd B
         ON A.plan_completed = B.cd_gb
