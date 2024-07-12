@@ -44,8 +44,8 @@ app:
     secret: DaeguGreenArtAcademyClass502RoomForSpringBootFightingsdkfjslkjflksajdffdskljdkdjfkasdfiagfddfdfddd
     header-schema-name: authorization
     token-type: Bearer
-    access-token-expiry: 30000
-    # 1800000 : 30분
+    access-token-expiry: 600000
+    # 1800000 (ms) : 30분
 
     # RT(Refresh-Token) - 만료시간(ms) - 15일
     refresh-token-cookie-name: refresh-token

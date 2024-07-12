@@ -190,6 +190,7 @@ public class UserService {
 
     @Transactional
     public String updateUserPic(UpdateUserPicReq p) throws Exception {
+//        p.setUserSeq(authenticationFacade.getLoginUserId());
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);

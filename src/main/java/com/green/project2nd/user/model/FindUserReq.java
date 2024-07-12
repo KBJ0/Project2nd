@@ -12,5 +12,5 @@ public class FindUserReq {
     @Schema(example = "01012345678", description = "유저 전화번호")
     private String userPhone;
     @Schema(example = "2024-01-01", description = "유저 생년월일")
-    private Date userBirth;
+    private String userBirth;
 }
