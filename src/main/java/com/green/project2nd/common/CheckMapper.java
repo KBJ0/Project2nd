@@ -18,11 +18,11 @@ public interface CheckMapper {
 
 
     //예림
-    int checkBudgetPartySeq(long budgetPartySeq);
-    int checkBudgetSeq(long budgetSeq);
-    int checkPlanSeq(long planSeq);
-    int checkPlanPartySeq(long planPartySeq);
-    int checkPlanJoin(TogglePlanJoinReq p);
+    Integer checkBudgetPartySeq(Long budgetPartySeq);
+    Integer checkBudgetSeq(Long budgetSeq);
+    Integer checkPlanSeq(Long planSeq);
+    Integer checkPlanPartySeq(Long planPartySeq);
+    Integer checkPlanJoin(TogglePlanJoinReq p);
 
 
 

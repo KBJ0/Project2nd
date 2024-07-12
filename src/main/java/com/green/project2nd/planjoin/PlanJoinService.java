@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -16,10 +15,10 @@ public class PlanJoinService {
     public int postPlanJoin(TogglePlanJoinReq p){
         check.exception(p);
         return mapper.postPlanJoin(p);
-    };
+    }
 
     public int deletePlanJoin(TogglePlanJoinReq p){
         check.exception2(p);
         return mapper.deletePlanJoin(p);
-    };
+    }
 }

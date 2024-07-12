@@ -16,7 +16,7 @@ public class PatchBudgetReq {
     @Schema(example = "1", description = "모임 멤버 PK 값")
     private long budgetMemberSeq;
 
-    @Schema(example = "입금 / 출금", description = "입금 or 출금 여부")
+    @Schema(example = "1(입금) / 2(출금)", description = "입금 or 출금 여부")
     private int budgetGb;
 
     @Schema(example = "50000", description = "금액")

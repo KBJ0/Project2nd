@@ -18,14 +18,14 @@ public class BudgetExceptionHandler {
         }
     }
 
-    public void exception(long budgetPartySeq) {
-        if(mapper.checkBudgetPartySeq(budgetPartySeq) == 0) {
+    public void exception(Long budgetPartySeq) {
+        if(mapper.checkBudgetPartySeq(budgetPartySeq) == null) {
             throw new NullPointerException(NULL_ERROR_MESSAGE);
         }
     }
 
-    public void exception2(long budgetSeq){
-        if(mapper.checkBudgetPartySeq(budgetSeq) == 0) {
+    public void exception2(Long budgetSeq){
+        if(mapper.checkBudgetSeq(budgetSeq) == null ) {
             throw new NullPointerException(NULL_ERROR_MESSAGE);
         }
     }
