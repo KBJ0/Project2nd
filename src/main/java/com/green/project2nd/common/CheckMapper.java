@@ -1,6 +1,6 @@
 package com.green.project2nd.common;
 
-
+import com.green.project2nd.planjoin.model.TogglePlanJoinReq;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -18,11 +18,11 @@ public interface CheckMapper {
 
 
     //예림
-    int checkBudgetPartySeq(long budgetPartySeq);
-    int checkBudgetSeq(long budgetSeq);
-    int checkPlanSeq(long planSeq);
-    int checkPlanPartySeq(long planPartySeq);
-
+    Integer checkBudgetPartySeq(Long budgetPartySeq);
+    Integer checkBudgetSeq(Long budgetSeq);
+    Integer checkPlanSeq(Long planSeq);
+    Integer checkPlanPartySeq(Long planPartySeq);
+    Integer checkPlanJoin(TogglePlanJoinReq p);
 
 
 
