@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 
 public class BoardDeleteReq {
-    private long boardPartySeq;
-    private long boardMemberSeq;
+    private long boardSeq;
 }

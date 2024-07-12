@@ -2,6 +2,7 @@ package com.green.project2nd.board;
 
 
 import com.green.project2nd.board.model.BoardDeleteReq;
+import com.green.project2nd.board.model.BoardPatchReq;
 import com.green.project2nd.board.model.BoardPostReq;
 import com.green.project2nd.board.model.BoardPostRes;
 import com.green.project2nd.common.model.ResultDto;
@@ -44,6 +45,13 @@ public class BoardController {
                 .resultData(result)
                 .build();
     }
+    @PatchMapping
+    @Operation(summary = "게시글 수정")
+    public ResultDto<BoardPatchReq> patchBoard(@RequestBody BoardPatchReq p) {
+        return null;
+    }
+
+
 //  @GetMapping
   //  @Operation(summary = "게시글 조회")
  //   public ResultDto<List<BoardGetRes>> getBoard(@ModelAttribute@ParameterObject BoardGetReq p) {

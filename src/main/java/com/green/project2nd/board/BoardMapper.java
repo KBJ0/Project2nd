@@ -10,6 +10,8 @@ import java.util.List;
 public interface BoardMapper {
     int postBoard(BoardPostReq p);
     int postBoardPics(BoardPicPostDto p);
-    int deleteBoard(BoardDeleteReq p);
-    List<BoardGetRes> getBoard(BoardGetReq p);
+    int deleteBoardPics(long boardSeq);
+    int deleteBoard(long boardSeq);
+    int patchBoard(BoardPatchReq p);
+    List<BoardGetRes> getBoard(long boardSeq);
 }

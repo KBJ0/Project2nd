@@ -1,5 +1,6 @@
 package com.green.project2nd.board.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,9 @@ import lombok.Setter;
 @Setter
 
 public class BoardPostReq {
+    @JsonIgnore
+    private long boardSeq;
+
     private long boardPartySeq;
     private long boardMemberSeq;
     private String boardTitle;
