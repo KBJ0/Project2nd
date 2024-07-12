@@ -16,16 +16,16 @@ public class PatchBudgetReq {
     @Schema(example = "1", description = "모임 멤버 PK 값")
     private long budgetMemberSeq;
 
-    @Schema(example = "1(입금) / 2(출금)", description = "입금 or 출금 여부")
+    @Schema(example = "1(입금) / 2(출금)", description = "(선택) 입금 or 출금 여부")
     private int budgetGb;
 
-    @Schema(example = "50000", description = "금액")
+    @Schema(example = "50000", description = "(선택) 금액")
     private int budgetAmount;
 
-    @Schema(example = "24-07-23", description = "입출금 날짜")
+    @Schema(example = "24-07-23", description = "(선택) 입출금 날짜")
     private String budgetDt;
 
-    @Schema(example = "회비 입금", description = "입출금 상세 내역")
+    @Schema(example = "회비 입금", description = "(선택) 입출금 상세 내역")
     private String budgetText;
 
     @JsonIgnore private String budgetPic;

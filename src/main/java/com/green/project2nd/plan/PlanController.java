@@ -29,7 +29,7 @@ public class PlanController {
     }
 
     @PatchMapping
-    @Operation(summary = "모임 일정 수정" , description = "등록했던 일정 내용 수정 (모임장)")
+    @Operation(summary = "모임 일정 수정" , description = "등록했던 일정 내용 수정 (모임장)\n 수정할 부분만 입력해도 가능")
     public ResultDto<Integer> patchPlan(@RequestBody PatchPlanReq p){
         if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
         service.patchPlan(p);

@@ -30,7 +30,7 @@ public class BudgetController {
     }
 
     @PatchMapping()
-    @Operation(summary = "회계 내역 수정" , description = "회비 입출금 내역 수정 (모임장 or 회계 담당 멤버)")
+    @Operation(summary = "회계 내역 수정" , description = "회비 입출금 내역 수정 (모임장 or 회계 담당 멤버)\n 수정할 부분만 입력해도 가능")
     public ResultDto<Integer> patchBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PatchBudgetReq p) {
         if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
         service.patchBudget(budgetPic, p);

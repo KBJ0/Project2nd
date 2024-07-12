@@ -27,7 +27,7 @@ public class PostBudgetReq {
     @Schema(example = "24-07-23", description = "입출금 날짜")
     private String budgetDt;
 
-    @Schema(example = "회비 입금", description = "입출금 상세 내역")
+    @Schema(example = "회비 입금", description = "(선택) 입출금 상세 내역")
     private String budgetText;
 
     @JsonIgnore private String budgetPic;
