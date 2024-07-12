@@ -7,12 +7,12 @@
     <insert id="postBudget" keyProperty="budgetSeq" useGeneratedKeys="true">
         INSERT INTO party_budget
         SET budget_party_seq = #{budgetPartySeq},
-            budget_member_seq = #{budgetMemberSeq},
-            budget_gb = #{budgetGb},
-            budget_amount = #{budgetAmount},
-            budget_dt = #{budgetDt},
-            budget_text = #{budgetText},
-            budget_pic = #{budgetPic}
+        budget_member_seq = #{budgetMemberSeq},
+        budget_gb = #{budgetGb},
+        budget_amount = #{budgetAmount},
+        budget_dt = #{budgetDt},
+        budget_text = #{budgetText},
+        budget_pic = #{budgetPic}
     </insert>
 
     <update id="patchBudget">
@@ -44,14 +44,10 @@
     </update>
 
     <select id="getBudget">
-        SELECT A.budget_seq AS budgetSeq, A.budget_party_seq AS budgetPartySeq, A.budget_member_seq AS budgetMemberSeq,
-            A.budget_gb AS budgetGb, B.cd_gb_nm AS cdNm, A.budget_amount AS budgetAmount, A.budget_dt AS budgetDt,
-            A.budget_text AS budgetText, A.budget_pic AS budgetPic
-        FROM party_budget A
-        JOIN common_cd B
-        ON A.budget_gb = B.cd_gb
-        WHERE A.budget_party_seq = #{budgetPartySeq}
-        AND B.cd_main = 'BU'
+        SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,
+        budget_gb AS budgetGb, F_COMMON_CD(BUDGET_GB, 'BU-01') AS cdNm, budget_amount AS budgetAmount, budget_dt AS budgetDt,
+        budget_text AS budgetText, budget_pic AS budgetPic
+        FROM party_budget
     </select>
 
     <select id="getBudgetPic">
@@ -68,17 +64,17 @@
 
     <select id="getBudgetMember">
         SELECT COUNT(B.member_seq) AS memberSum, COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
-                (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
+        (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
         FROM party_budget A
         JOIN party_member B
         ON A.budget_party_seq = B.member_party_seq
         WHERE A.budget_party_seq = #{budgetPartySeq}
         AND A.budget_dt LIKE '2024-${month}%'
     </select>
-    
+
     <select id="getBudgetMonthly">
         SELECT SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) AS depositSum, SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS withdrawSum,
-                SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS sum
+        SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS sum
         FROM party_budget
         WHERE budget_party_seq = #{budgetPartySeq}
         AND budget_dt LIKE '2024-${month}%'
