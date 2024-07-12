@@ -57,13 +57,24 @@ public class ReviewService {
         return mapper.deleteReview(reviewSeq);
     }
 
-    public List<GetReviewAllRes> getReviewAll(GetReviewAllReq p) {
-        log.info("data {}", p);
-        return mapper.getReviewAll(p);
+    public GetReviewAllPageRes getReviewAll(GetReviewAllReq p) {
+        List<GetReviewAllRes> res = mapper.getReviewAll(p);
+        GetReviewAllPageRes pageRes = new GetReviewAllPageRes(
+                res
+                , mapper.getTotalElements(p.getSearch(),p.getSearchData(), 0)
+                , p.getSize()
+        );
+        return pageRes;
     }
 
-    public List<GetReviewUserRes> getReviewUser(GetReviewUserReq p) {
-        return mapper.getReviewUser(p);
+    public GetReviewUserPageRes getReviewUser(GetReviewUserReq p) {
+        List<GetReviewUserRes> res = mapper.getReviewUser(p);
+        GetReviewUserPageRes pageRes = new GetReviewUserPageRes(
+                res
+                , mapper.getTotalElements(p.getSearch(),p.getSearchData(), p.getUserSeq())
+                , p.getSize()
+        );
+        return pageRes;
     }
 
     public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) throws Exception {

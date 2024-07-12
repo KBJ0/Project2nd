@@ -14,6 +14,7 @@ public interface ReviewMapper {
     void deleteReviewFavs(long reviewSeq);
     List<GetReviewAllRes> getReviewAll(GetReviewAllReq p);
     List<GetReviewUserRes> getReviewUser(GetReviewUserReq p);
+    long getTotalElements(int search, String searchData, long userSeq);
     void patchReview(PatchReviewReq p);
     List<String> getPics(long reviewSeq);
 }

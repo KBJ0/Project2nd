@@ -30,7 +30,7 @@
         , A.input_dt as inputDt
         , E.party_seq as partySeq
         , E.party_name as partyName
-        , (SELECT A.USER_NAME FROM user_master A JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') AS president
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
         FROM review_master A
         JOIN plan_member B
         ON A.review_plmember_seq = B.plmember_seq
@@ -40,11 +40,13 @@
         ON C.member_user_seq = D.user_seq
         JOIN party_master E
         ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
         <where>
-            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
-                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE  concat('%',#{searchData},'%')</if>
-            <if test="search == 3">D.user_name LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
         LIMIT #{startIdx}, #{size}
@@ -63,7 +65,7 @@
         , A.input_dt as inputDt
         , E.party_seq as partySeq
         , E.party_name as partyName
-        , (SELECT A.USER_NAME FROM user_master A JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') AS president
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
         FROM review_master A
         JOIN plan_member B
         ON A.review_plmember_seq = B.plmember_seq
@@ -73,11 +75,14 @@
         ON C.member_user_seq = D.user_seq
         JOIN party_master E
         ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
         <where>
-            <if test="search == 1">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 2">(SELECT A.USER_NAME FROM user_master A
-                JOIN party_member B ON A.user_seq = B.member_user_seq WHERE B.member_role = '1') LIKE  concat('%',#{searchData},'%')</if>
-            <if test="search == 3">D.user_name LIKE concat('%',#{searchData},'%')</if>
+            <if test="1==1">D.user_seq = #{userSeq}</if>
+            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
         LIMIT #{startIdx}, #{size}
@@ -87,6 +92,28 @@
         SELECT review_pic_file as reviewPicFile
         FROM review_pic
         WHERE review_pic_review_seq = #{reviewSeq}
+    </select>
+
+    <select id="getTotalElements">
+        SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+        <where>
+            <if test="userSeq != 0">D.user_seq = #{userSeq}</if>
+            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
+        </where>
     </select>
 
     <update id="patchReview">
