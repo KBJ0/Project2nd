@@ -114,7 +114,7 @@ public class ReviewController {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
         }
 
-        if(size < 0 || size != null) {
+        if(size < 0 && size != null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
         }
 
@@ -159,7 +159,7 @@ public class ReviewController {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
         }
 
-        if(size < 0 || size != null) {
+        if(size < 0 && size != null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
         }
 
