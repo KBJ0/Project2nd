@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ReviewMapper {
-    int postReview(PostReviewReq p);
+    void postReview(PostReviewReq p);
     void postReviewPics(PostReviewPicDto p);
     int deleteReview(long reviewSeq);
     void deleteReviewPics(long reviewSeq);
