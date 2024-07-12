@@ -6,10 +6,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Nullable;
-import jakarta.validation.constraints.Null;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -112,8 +110,12 @@ public class ReviewController {
             searchData = "";
         }
 
-        if(page < 0 || size < 0) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈나 페이지는 자연수로 입력해주세요.");
+        if(page < 0 && page != null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
+        }
+
+        if(size < 0 || size != null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
         }
 
         GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
@@ -153,8 +155,12 @@ public class ReviewController {
             searchData = "";
         }
 
-        if(page < 0 || size < 0) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈나 페이지는 자연수로 입력해주세요.");
+        if(page < 0 && page != null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
+        }
+
+        if(size < 0 || size != null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
         }
 
         GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
