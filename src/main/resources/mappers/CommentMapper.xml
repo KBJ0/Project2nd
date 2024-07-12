@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.comment.CommentMapper">
+    <select id="getBoardComment">
+        SELECT comment_seq AS commentSeq, comment_board_seq AS commentBoardSeq,
+        comment_member_seq AS commentMemberSeq, comment_contents AS commentContents,
+        input_dt AS inputDt, update_dt AS updateDt
+        FROM party_board_comment
+        WHERE comment_board_seq = #{boardSeq}
+        ORDER BY input_dt DESC
+    </select>
+
+    <insert id="postBoardComment">
+        INSERT INTO party_board_comment
+        SET comment_board_seq = #{commentBoardSeq},
+        comment_member_seq = #{commentMemberSeq},
+        comment_contents = #{commentContents},
+        input_dt = NOW()
+    </insert>
+
+    <update id="patchBoardComment">
+        UPDATE party_board_comment
+        SET comment_contents = #{commentContents},
+        update_dt = NOW()
+        WHERE
+        comment_seq = #{commentSeq}
+        AND comment_member_seq = #{commentMemberSeq}
+    </update>
+
+    <delete id="deleteBoardComment">
+        DELETE FROM party_board_comment
+        WHERE
+        comment_seq = #{commentSeq}
+        AND comment_member_seq = #{commentMemberSeq}
+    </delete>
+
+</mapper>
