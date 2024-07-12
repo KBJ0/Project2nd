@@ -95,7 +95,7 @@
 
     <update id="setPassword">
         UPDATE user_master
-        SET user_pw = #{setPw}
+        SET user_pw = #{userSetPw}
         WHERE user_email = #{userEmail}
     </update>
 

@@ -5,6 +5,6 @@ import static com.green.project2nd.user.userexception.ConstMessage.NOT_FOUND_MES
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String msg) {
-        super(NOT_FOUND_MESSAGE);
+        super(msg);
     }
 }

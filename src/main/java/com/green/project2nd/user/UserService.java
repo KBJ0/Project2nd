@@ -52,8 +52,16 @@ public class UserService {
 
     @Transactional
     public Long postSignUp(MultipartFile userPic, SignUpReq p) throws Exception {
+        if(userPic == null || userPic.isEmpty()) {
+            throw new FileException(PIC_INPUT_MESSAGE);
+        }
         if(!p.getUserPw().equals(p.getUserPwCheck())) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
+        }
+        if(Const.isValidDate(p.getUserBirth())) {
+            throw new BirthDateException(BIRTHDATE_MESSAGE);
+        } else {
+            Const.convertToDate(p.getUserBirth());
         }
         if(!isValidEmail(p.getUserEmail())) {
             throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
@@ -67,11 +75,6 @@ public class UserService {
         if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
             throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
         }
-        if(Const.isValidDate(p.getUserBirth())) {
-            throw new BirthDateException(BIRTHDATE_MESSAGE);
-        } else {
-            Const.convertToDate(p.getUserBirth());
-        }
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);
@@ -80,9 +83,6 @@ public class UserService {
 
         int result = mapper.postSignUp(p);
 
-        if(userPic == null) {
-            return null;    // 예외처리 하기
-        }
         try {
             String path = String.format("user/%d", p.getUserSeq());
             customFileUtils.makeFolders(path);
@@ -210,7 +210,7 @@ public class UserService {
     }
 
     public int updateUserInfo(UpdateUserInfoReq p) {
-        p.setUserSeq(authenticationFacade.getLoginUserId());
+//        p.setUserSeq(authenticationFacade.getLoginUserId());
 
         int result = mapper.updateUserInfo(p);
         if(result == 0) {

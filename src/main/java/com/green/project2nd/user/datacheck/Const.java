@@ -25,7 +25,7 @@ public class Const {
 //        return birth.matches(BIRTHDATE_REGEX);
 //    }
 
-    private static final String DATE_FORMAT = "YYYY-MM-DD";
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
     public static boolean isValidDate(String dateStr) {
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
         sdf.setLenient(false); // 유연하지 않은 분석을 설정하여 정확한 날짜를 요구

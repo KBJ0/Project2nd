@@ -15,7 +15,7 @@ public class EmailConfig {
         mailSender.setHost("smtp.naver.com");   // 이메일 전송에 사용할 SMTP 서버 호스트를 설정
         mailSender.setPort(465);// 465로 포트를 지정
         mailSender.setUsername("hajju0617");//네이버 ID
-        mailSender.setPassword("");//네이버 비밀번호
+        mailSender.setPassword("zgxfcd!0236");//네이버 비밀번호
 
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.transport.protocol", "smtp");

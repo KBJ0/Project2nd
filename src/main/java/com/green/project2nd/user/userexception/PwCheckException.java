@@ -5,6 +5,6 @@ import static com.green.project2nd.user.userexception.ConstMessage.PASSWORD_CHEC
 
 public class PwCheckException extends RuntimeException{
     public PwCheckException(String msg) {
-        super(PASSWORD_CHECK_MESSAGE);
+        super(msg);
     }
 }

@@ -5,6 +5,6 @@ import static com.green.project2nd.user.userexception.ConstMessage.ID_CHECK_MESS
 
 public class IdCheckException extends RuntimeException {
     public IdCheckException(String msg) {
-        super(ID_CHECK_MESSAGE);
+        super(msg);
     }
 }

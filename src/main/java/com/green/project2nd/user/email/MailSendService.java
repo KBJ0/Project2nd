@@ -3,8 +3,8 @@ package com.green.project2nd.user.email;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.green.project2nd.user.UserMapper;
-import com.green.project2nd.user.datacheck.Const;
 import com.green.project2nd.user.model.FindPasswordReq;
+import com.green.project2nd.user.model.SimpleInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mindrot.jbcrypt.BCrypt;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.security.SecureRandom;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -50,9 +49,8 @@ public class MailSendService {
         try {
             timeCheckInstance = om.readValue(str, TimeCheckInstance.class);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            return TRY_AGAIN_MESSAGE;
         }
-
         Duration diff = Duration.between(timeCheckInstance.getNowTest(), now);
         if(diff.toSeconds() > 60) {
             log.info("diff.toSeconds() : {}", diff.toSeconds());
@@ -73,8 +71,6 @@ public class MailSendService {
         authNumber = Integer.parseInt(randomNumber);
     }
 
-
-
     public String joinEmail(String email) {
         if (mapper.emailExists(email) == 0) {
             return UNREGISTERED_EMAIL_MESSAGE;
@@ -85,24 +81,28 @@ public class MailSendService {
         makeRandomNumber();
         String setFrom = "hajju0617@naver.com"; // email-config에 설정한 자신의 이메일 주소
         String toMail = email;
-        String title = "이메일 인증."; // 이메일 제목
+        String title = "이메일 인증.";
         String content =
                 "안녕하세요." + 	//html 형식으로 작성 !
                         "<br><br>" +
                         "인증 번호는 " + authNumber + "입니다." +
                         "<br>" +
-                        "해당 인증번호를 입력해주세요"; //이메일 내용 삽입
+                        "해당 인증번호를 입력해주세요";
         mailSend(setFrom, toMail, title, content);
 
         return Integer.toString(authNumber);
     }
 
+
     public int setPassword(FindPasswordReq p) {
+        SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
+        if(user == null) {
+            return 0;
+        }
         String temp = tempPassword(10);
 
         String hashPw = BCrypt.hashpw(temp, BCrypt.gensalt());
-        p.setSetPw(hashPw);
-
+        p.setUserSetPw(hashPw);
 
         String setFrom = "hajju0617@naver.com"; // email-config에 설정한 자신의 이메일 주소를 입력
         String toMail = p.getUserEmail();
@@ -138,7 +138,7 @@ public class MailSendService {
             String json = om.writeValueAsString(now);
             redisUtil.setData(Integer.toString(authNumber), json);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException();
         }
 //        redisUtil.setDataExpire(Integer.toString(authNumber),toMail/*받는 사람 이메일*/,60);
 //

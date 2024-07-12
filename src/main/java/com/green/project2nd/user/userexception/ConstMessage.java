@@ -5,8 +5,9 @@ public class ConstMessage {
     public static final String SUCCESS_Message = "성공";
     public static final String FAILURE_Message = "실패";
     public static final String ERROR_Message = "에러";
+    public static final String TRY_AGAIN_MESSAGE = "나중에 다시 시도";
     public static final String ADMIN_CONTACT_MESSAGE = "관리자에게 문의하세요";
-    public static final String FILE_ERROR_MESSAGE = "파일 오류";
+    public static final String FILE_ERROR_MESSAGE = "파일을 첨부하지 않았거나 처리 도중 오류발생";
     public static final String ID_INPUT_MESSAGE = "이메일은 필수값.";
     public static final String PW_INPUT_MESSAGE = "비밀번호는 필수값";
     public static final String NAME_INPUT_MESSAGE = "이름은 필수값";

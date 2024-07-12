@@ -12,5 +12,5 @@ public class FindPasswordReq {
     private String userEmail;
 
     @JsonIgnore
-    private String setPw;
+    private String userSetPw;
 }
