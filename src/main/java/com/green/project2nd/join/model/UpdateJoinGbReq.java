@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class UpdateJoinGbReq {
     @JsonIgnore
+    @Schema(example = "1", description = "모임 PK")
     private Long joinPartySeq;
     @Schema(example = "2", description = "유저 PK")
     private Long joinUserSeq;

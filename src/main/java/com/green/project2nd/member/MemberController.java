@@ -6,6 +6,7 @@ import com.green.project2nd.member.model.GetMemberRes;
 import com.green.project2nd.member.model.UpdateMemberReq;
 import com.green.project2nd.member.model.UpdateMemberRes;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,19 +32,41 @@ public class MemberController {
 //    }
 
     @GetMapping("/{partySeq}")
-    @Operation(summary = "멤버들 불러오기" , description = "멤버들 불러오기")
+    @Operation(summary = "멤버들 정보 불러오기", description =
+            "<strong> 입력한 모임의 모든 멤버의 정보를 불러옵니다</strong><p></p>" +
+                    "<p><strong> memberPartySeq      </strong> : 모임 PK (long) </p>" )
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p>" +
+                    "<p> 1 : 성공 </p>" +
+                    "<p> 2 : 실패 </p>")
     public ResultDto<List<GetMemberRes>> getMember(@PathVariable("partySeq") Long memberPartySeq) {
         return service.getMember(memberPartySeq);
     }
+
     @GetMapping("/detail/{partySeq}")
-    @Operation(summary = "멤버 한명 불러오기" , description = "멤버 한명 불러오기")
+    @Operation(summary = "멤버 한명 정보 불러오기", description =
+            "<strong> 입력한 모임의 지정한 멤버의 정보를 불러옵니다</strong><p></p>" +
+                    "<p><strong> memberPartySeq      </strong> : 모임 PK (long) </p>"+
+                    "<p><strong> memberUserSeq      </strong> : 멤버 PK (long) </p>" )
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p>" +
+                    "<p> 1 : 성공 </p>" +
+                    "<p> 2 : 실패 </p>")
     public ResultDto<GetMemberRes> getMemberDetail(@PathVariable("partySeq") Long memberPartySeq,
                                                  @RequestParam(name = "memberUserSeq") Long memberUserSeq) {
         return service.getMemberDetail(memberPartySeq, memberUserSeq);
     }
 
     @PatchMapping("/{partySeq}")
-    @Operation(summary = "멤버 역할 수정(미구현. 멤버 세분화 필요함.)" , description = "멤버 역할 수정")
+    @Operation(summary = "멤버 역할 수정(*미사용* 멤버 세분하가 필요해요.)", description =
+            "<strong> 멤버의 역할을 수정합니다. (memberRole 1 = 모임장, 2= 모임원)</strong><p></p>" +
+                    "<p><strong> memberPartySeq      </strong> : 모임 PK (long) </p>" +
+                    "<p><strong> memberUserSeq      </strong> : 수정할 멤버 PK (long) </p>" +
+                    "<p><strong> memberRole      </strong> : 멤버역할 (int) </p>" )
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p>" +
+                    "<p> 1 : 성공 </p>" +
+                    "<p> 2 : 실패 </p>")
     public ResultDto<UpdateMemberRes> updateMember(@PathVariable("partySeq") Long memberPartySeq,
                                                    @RequestBody UpdateMemberReq p){
         return service.updateMember(memberPartySeq, p);
@@ -56,7 +79,15 @@ public class MemberController {
 //        return service.updateMemberGb(memberPartySeq, memberUserSeq);
 //    }
     @PatchMapping("/gb/{partySeq}")
-    @Operation(summary = "멤버 권한 수정" , description = "0:미승인, 1:승인")
+    @Operation(summary = "멤버 권한 수정" , description =
+                "<strong> 멤버 권한을 수정합니다. (수정시 모임에서 비활성화 됨.)</strong><p></p>" +
+                        "<p><strong> memberPartySeq      </strong> : 모임 PK (long) </p>" +
+                        "<p><strong> memberUserSeq      </strong> : 수정할 멤버 PK (long) </p>" +
+                        "<p><strong> memberLeaderUserSeq      </strong> : 멤버장 PK (long) </p>" )
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p>" +
+                    "<p> 1 : 성공 </p>" +
+                    "<p> 2 : 실패 </p>")
     public ResultDto<UpdateMemberRes> updateMemberGb(@PathVariable(name = "partySeq") Long memberPartySeq,
                                                      @RequestParam(name = "memberUserSeq") Long memberUserSeq,
                                                      @RequestParam(name = "memberLeaderUserSeq") Long memberLeaderUserSeq) {

@@ -1,18 +1,22 @@
 package com.green.project2nd.party.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
-import lombok.Data;
+import java.util.List;
 
-@Data
+@Getter
 public class GetPartyRes2 {
-    private long partySeq;
-    private String userName;
-    private String partyName;
-    private String partyAuthGb;
+    @Schema(example = "10", description = "총 레코드 수") private final int TotalElements;
+    @Schema(example = "2", description = "총 페이지 수") private final int TotalPages ;
 
-    //스웨거 보내기용
-    private int partyNowMem;
-    private int partyMaximum;
 
-    private String partyPic;
+    public GetPartyRes2(int TotalElements, int TotalPages , List<GetPartyRes2List> list) {
+        this.TotalElements = TotalElements;
+        this.TotalPages = TotalPages;
+        this.list = list;
+    }
+    @Schema(example = "모임 데이터값", description = "모임 데이터값")
+    private final List<GetPartyRes2List> list;
+
 }

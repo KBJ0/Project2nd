@@ -26,7 +26,9 @@ public class PostPartyReq {
 
 
     @JsonIgnore private long partySeq;
-    @JsonIgnore private String partyPic;
+    @JsonIgnore
+    @Schema(example = "모임 사진", description = "사진 파일 이름")
+    private String partyPic;
 
 
 }

@@ -21,5 +21,6 @@ public class UpdatePartyReq {
     @Schema(example = "나이와 자기소개 작성필수", description = "가입양식")private String partyJoinForm;
 
     @JsonIgnore
+    @Schema(example = "모임 사진", description = "사진 파일 이름")
     private String partyPic;
 }
