@@ -48,6 +48,7 @@
         budget_gb AS budgetGb, F_COMMON_CD(BUDGET_GB, 'BU-01') AS cdNm, budget_amount AS budgetAmount, budget_dt AS budgetDt,
         budget_text AS budgetText, budget_pic AS budgetPic
         FROM party_budget
+        AND budget_dt LIKE '2024-${month}%'
     </select>
 
     <select id="getBudgetPic">

@@ -59,11 +59,14 @@
     </select>
 
     <select id="getPlanMember">
-        SELECT A.plan_seq AS planSeq, B.plmember_member_seq AS plmemberMemberSeq
-        FROM plan_master A
-        JOIN plan_member B
-        ON plan_seq = B.plmember_plan_seq
-        WHERE plan_seq = #{planSeq}
+        SELECT A.plmember_plan_seq AS planSeq, C.user_name AS userName
+        FROM plan_member A
+        JOIN party_member B
+        ON A.plmember_member_seq = B.member_seq
+        JOIN user_master C
+        ON B.member_user_seq = C.user_seq
+        WHERE A.plmember_plan_seq = #{plmemberPlanSeq}
+        ORDER BY C.user_name
     </select>
 
     <delete id="deletePlan">

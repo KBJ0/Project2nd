@@ -7,7 +7,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,8 +37,7 @@ public class PlanController {
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> postPlan(@RequestBody PostPlanReq p) {
         if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
-        service.postPlan(p);
-        return ResultDto.resultDto(HttpStatus.OK, 1, POST_SUCCESS_MESSAGE);
+        return service.postPlan(p);
     }
 
     @PatchMapping
@@ -57,9 +55,7 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> patchPlan(@RequestBody PatchPlanReq p){
-        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
-        service.patchPlan(p);
-        return ResultDto.resultDto(HttpStatus.OK, 1, PATCH_SUCCESS_MESSAGE);
+        return service.patchPlan(p);
     }
 
     @PatchMapping("{plan_seq}")
@@ -72,8 +68,7 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> patchPlanCompleted(@PathVariable(name="plan_seq") long planSeq){
-        service.patchPlanCompleted(planSeq);
-        return ResultDto.resultDto(HttpStatus.OK, 1, PATCH_SUCCESS_MESSAGE);
+        return service.patchPlanCompleted(planSeq);
     }
 
     @GetMapping
@@ -86,7 +81,7 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<List<GetPlanRes>> getPlanAll(@RequestParam(name = "plan_party_seq") long planPartySeq){
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getPlanAll(planPartySeq));
+        return service.getPlanAll(planPartySeq);
     }
 
     @GetMapping("{plan_seq}")
@@ -99,7 +94,7 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<GetPlanRes> getPlan(@PathVariable(name="plan_seq") long planSeq){
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getPlan(planSeq));
+        return service.getPlan(planSeq);
     }
 
     @GetMapping("/member")
@@ -112,7 +107,7 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<List<GetPlanMemberRes>> getPlanMember(@RequestParam long planSeq){
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getPlanMember(planSeq));
+        return service.getPlanMember(planSeq);
     }
 
     @DeleteMapping
@@ -125,7 +120,6 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> deletePlan(@RequestParam(name="plan_seq") long planSeq){
-        service.deletePlan(planSeq);
-        return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
+        return service.deletePlan(planSeq);
     }
 }
