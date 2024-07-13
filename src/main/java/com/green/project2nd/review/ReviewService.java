@@ -56,7 +56,7 @@ public class ReviewService {
         mapper.deleteReviewFavs(reviewSeq);
         return mapper.deleteReview(reviewSeq);
     }
-
+/*
     public GetReviewAllPageRes getReviewAll(GetReviewAllReq p) {
         List<GetReviewAllRes> res = mapper.getReviewAll(p);
         GetReviewAllPageRes pageRes = new GetReviewAllPageRes(
@@ -77,6 +77,8 @@ public class ReviewService {
         return pageRes;
     }
 
+
+ */
     public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) throws Exception {
         PostReviewPicDto ppic = PostReviewPicDto.builder()
                 .reviewSeq(reviewSeq)

@@ -11,6 +11,7 @@ import java.util.List;
 
 
 @Mapper
+
 public interface CommentMapper {
     long postBoardComment(CommentPostReq p);
     int deleteBoardComment(CommentDeleteReq p);

@@ -15,4 +15,5 @@ public class GlobalExceptionHandler {
         ex.printStackTrace();
         return ResultDto.resultDto(HttpStatus.BAD_GATEWAY,2, "RuntimeException : 처리할 수 없는 요청입니다.");
     }
+
 }

@@ -6,11 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class CommentGetRes {
+public class CommentPatchReq {
     private long commentSeq;
-    private long commentBoardSeq;
     private long commentMemberSeq;
     private String commentContents;
-    private String inputDt;
-    private String updateDt;
+
 }

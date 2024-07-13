@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.planjoin.PlanJoinMapper">
+
+    <insert id="postPlanJoin">
+        INSERT INTO plan_member
+        SET plmember_plan_seq = #{plmemberPlanSeq},
+        plmember_member_seq = #{plmemberMemberSeq}
+    </insert>
+
+    <delete id="deletePlanJoin">
+        DELETE
+        FROM plan_member
+        WHERE plmember_plan_seq = #{plmemberPlanSeq}
+        AND plmember_member_seq = #{plmemberMemberSeq}
+    </delete>
+</mapper>

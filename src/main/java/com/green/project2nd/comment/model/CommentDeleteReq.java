@@ -9,4 +9,3 @@ public class CommentDeleteReq {
     private Long commentSeq;
     private Long commentMemberSeq;
 }
-

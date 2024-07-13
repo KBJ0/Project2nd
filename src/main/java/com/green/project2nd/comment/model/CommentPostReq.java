@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class CommentGetRes {
-    private long commentSeq;
+public class CommentPostReq {
+    //@JsonIgnore
+    //private long comment_seq;
+
     private long commentBoardSeq;
     private long commentMemberSeq;
     private String commentContents;
-    private String inputDt;
-    private String updateDt;
 }
