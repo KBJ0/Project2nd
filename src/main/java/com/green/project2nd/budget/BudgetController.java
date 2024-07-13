@@ -27,7 +27,7 @@ public class BudgetController {
     @Operation(summary = "회계 내역 등록" , description =
             "<strong> 회비 입출금 내역 등록 (모임장 or 회계 담당 멤버) </strong> <p></p>\n" +
             "<p><strong> budgetPartySeq</strong> : 모임 마스터 PK 값 (long) </p>\n"+
-            "<p><strong> budgetMemberSeq/strong> : 모임 멤버 PK 값 (long) </p>\n"+
+            "<p><strong> budgetMemberSeq</strong> : 모임 멤버 PK 값 (long) </p>\n"+
             "<p><strong> budgetGb</strong> : 입금 or 출금 여부 (long) </p>\n" +
             "<p><strong> budgetAmount</strong> : 금액 (int) </p>\n" +
             "<p><strong> budgetDt</strong> : 입출금 날짜 (String) </p>\n" +
