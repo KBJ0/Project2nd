@@ -1507,3 +1507,647 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 |9                 |Vidovik   |
 |------------------|----------|
 [0;39m 
+[2024-07-14 00:34:13 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-14 00:34:13 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-14 01:21:34 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.11 with PID 17100 (C:\Users\corhw\Desktop\예림\공부\Project2nd_f\build\classes\java\main started by corhw in C:\Users\corhw\Desktop\예림\공부\Project2nd_f)[0;39m 
+[2024-07-14 01:21:34 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-14 01:21:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-14 01:21:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-14 01:21:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-14 01:21:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-14 01:21:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1989 ms[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6671e57[0;39m 
+[2024-07-14 01:21:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-14 01:21:37 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 063095b3-6d72-4216-847b-cc2ecc5f04c6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43e34942, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f555348, org.springframework.security.web.context.SecurityContextHolderFilter@229be336, org.springframework.security.web.header.HeaderWriterFilter@21075802, org.springframework.web.filter.CorsFilter@71f4b1ac, org.springframework.security.web.authentication.logout.LogoutFilter@d99045a, com.green.project2nd.security.jwt.JwtAuthenticationFilter@27bb6cdb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dcf7857, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@471561a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1528c0a6, org.springframework.security.web.session.SessionManagementFilter@643fd0e6, org.springframework.security.web.access.ExceptionTranslationFilter@705670e1, org.springframework.security.web.access.intercept.AuthorizationFilter@7749686e][0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-14 01:21:37 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 4.225 seconds (process running for 4.812)[0;39m 
+[2024-07-14 01:21:38 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:21:38 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:21:38 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 3 ms[0;39m 
+[2024-07-14 01:21:39 [33mWARN [0;39m boundedElastic-1] [org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator] [36mRedis health check failed[0;39m 
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1795)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1726)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1528)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1508)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1469)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1505)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1216)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1091)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:118)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:67)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:350)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:215)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:112)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:112)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1724)
+	... 16 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-07-14 01:22:10 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:22:10 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:22:10 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:22:10 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:22:11 [32mINFO [0;39m http-nio-8080-exec-8] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 736 ms[0;39m 
+[2024-07-14 01:24:09 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:24:09 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = 1001
+ {executed in 2 msec}[0;39m 
+[2024-07-14 01:24:09 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------|
+|budget_seq |
+|-----------|
+|1001       |
+|-----------|
+[0;39m 
+[2024-07-14 01:24:09 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. DELETE
+        FROM party_budget
+        WHERE budget_seq = 1001
+ {executed in 2 msec}[0;39m 
+[2024-07-14 01:24:22 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:24:22 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = 1001
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:24:22 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------|
+|budget_seq |
+|-----------|
+|-----------|
+[0;39m 
+[2024-07-14 01:24:26 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:24:26 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = 1001
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:24:26 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|-----------|
+|budget_seq |
+|-----------|
+|-----------|
+[0;39m 
+[2024-07-14 01:24:55 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:25:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-14 01:25:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-14 01:25:52 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.11 with PID 12872 (C:\Users\corhw\Desktop\예림\공부\Project2nd_f\build\classes\java\main started by corhw in C:\Users\corhw\Desktop\예림\공부\Project2nd_f)[0;39m 
+[2024-07-14 01:25:52 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-14 01:25:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-14 01:25:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1797 ms[0;39m 
+[2024-07-14 01:25:54 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-14 01:25:55 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@694cbecd[0;39m 
+[2024-07-14 01:25:55 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-14 01:25:55 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: db9f0ba9-2f75-4133-ac41-bb7eb7d36d58
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-14 01:25:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@24dc6ad1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bf138e3, org.springframework.security.web.context.SecurityContextHolderFilter@7db2ba7, org.springframework.security.web.header.HeaderWriterFilter@2d93548f, org.springframework.web.filter.CorsFilter@7d06ab02, org.springframework.security.web.authentication.logout.LogoutFilter@5fe192c8, com.green.project2nd.security.jwt.JwtAuthenticationFilter@73138688, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17104186, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61fdf240, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@485f37c9, org.springframework.security.web.session.SessionManagementFilter@3acd69f4, org.springframework.security.web.access.ExceptionTranslationFilter@b6343f8, org.springframework.security.web.access.intercept.AuthorizationFilter@f401c5d][0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 4.004 seconds (process running for 4.57)[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m RMI TCP Connection(3)-192.168.43.85] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m RMI TCP Connection(3)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:25:56 [32mINFO [0;39m RMI TCP Connection(3)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-14 01:25:57 [33mWARN [0;39m boundedElastic-1] [org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator] [36mRedis health check failed[0;39m 
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1795)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1726)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1528)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1508)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1469)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1505)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1216)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1091)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:118)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:67)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:350)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:215)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:112)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:112)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1724)
+	... 16 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-07-14 01:26:02 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.11 with PID 12872 (C:\Users\corhw\Desktop\예림\공부\Project2nd_f\build\classes\java\main started by corhw in C:\Users\corhw\Desktop\예림\공부\Project2nd_f)[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-14 01:27:00 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 553 ms[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Starting...[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@131bacfb[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Start completed.[0;39m 
+[2024-07-14 01:27:01 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: e392ceb5-780c-4ac1-86ac-716c425205c2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56f9f72e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@248ca203, org.springframework.security.web.context.SecurityContextHolderFilter@62e1fd09, org.springframework.security.web.header.HeaderWriterFilter@21ffe764, org.springframework.web.filter.CorsFilter@5d4abe5f, org.springframework.security.web.authentication.logout.LogoutFilter@624208aa, com.green.project2nd.security.jwt.JwtAuthenticationFilter@586d5696, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1532121, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f4922a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@638d8a50, org.springframework.security.web.session.SessionManagementFilter@49233380, org.springframework.security.web.access.ExceptionTranslationFilter@369aa975, org.springframework.security.web.access.intercept.AuthorizationFilter@6c4a5670][0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 1.082 seconds (process running for 69.611)[0;39m 
+[2024-07-14 01:27:01 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-14 01:31:22 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown initiated...[0;39m 
+[2024-07-14 01:31:22 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m 
+[2024-07-14 01:31:27 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.11 with PID 3180 (C:\Users\corhw\Desktop\예림\공부\Project2nd_f\build\classes\java\main started by corhw in C:\Users\corhw\Desktop\예림\공부\Project2nd_f)[0;39m 
+[2024-07-14 01:31:27 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-14 01:31:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-14 01:31:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-14 01:31:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-14 01:31:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-14 01:31:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-14 01:31:29 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 2433 ms[0;39m 
+[2024-07-14 01:31:30 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-14 01:31:30 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48f7b800[0;39m 
+[2024-07-14 01:31:30 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-14 01:31:30 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: c36843c3-34ed-41ab-bde3-09a93db59975
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6998650c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43bd1445, org.springframework.security.web.context.SecurityContextHolderFilter@2773154b, org.springframework.security.web.header.HeaderWriterFilter@36f76928, org.springframework.web.filter.CorsFilter@767c819b, org.springframework.security.web.authentication.logout.LogoutFilter@4f5a17d7, com.green.project2nd.security.jwt.JwtAuthenticationFilter@48b56984, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54be44ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52aa4ddd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69f48a11, org.springframework.security.web.session.SessionManagementFilter@22c8c12b, org.springframework.security.web.access.ExceptionTranslationFilter@7ff84eee, org.springframework.security.web.access.intercept.AuthorizationFilter@33d32b99][0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-14 01:31:31 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 5.275 seconds (process running for 6.686)[0;39m 
+[2024-07-14 01:31:32 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:31:32 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-14 01:31:32 [32mINFO [0;39m RMI TCP Connection(2)-192.168.43.85] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 3 ms[0;39m 
+[2024-07-14 01:31:32 [33mWARN [0;39m boundedElastic-1] [org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator] [36mRedis health check failed[0;39m 
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1795)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Assembly trace from producer [reactor.core.publisher.MonoSubscribeOnCallable] :
+	reactor.core.publisher.Mono.subscribeOn(Mono.java:4618)
+	org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator.getConnection(RedisReactiveHealthIndicator.java:57)
+Error has been observed at the following site(s):
+	*__Mono.subscribeOn ⇢ at org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator.getConnection(RedisReactiveHealthIndicator.java:57)
+	|_     Mono.flatMap ⇢ at org.springframework.boot.actuate.data.redis.RedisReactiveHealthIndicator.doHealthCheck(RedisReactiveHealthIndicator.java:52)
+Original Stack Trace:
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1795)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1726)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1528)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1508)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1469)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1505)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1216)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1091)
+		at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:118)
+		at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:67)
+		at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+		at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+		at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+		at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+		at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:350)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:215)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:112)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:112)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1724)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1528)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1508)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1469)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1505)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1216)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:1091)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:118)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:67)
+	at reactor.core.publisher.MonoCallableOnAssembly.call(MonoCallableOnAssembly.java:91)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:228)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-07-14 01:31:43 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:31:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:31:43 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|budget_party_seq |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-14 01:31:43 [33mWARN [0;39m http-nio-8080-exec-1] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1064-42000: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND budget_dt LIKE '2024-07%'' at line 5[0;39m 
+[2024-07-14 01:31:43 [31mERROR[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,
+        budget_gb AS budgetGb, F_COMMON_CD(BUDGET_GB, 'BU-01') AS cdNm, budget_amount AS budgetAmount, budget_dt AS budgetDt,
+        budget_text AS budgetText, budget_pic AS budgetPic
+        FROM party_budget
+        AND budget_dt LIKE '2024-07%'
+ {FAILED after 1 msec}[0;39m 
+java.sql.SQLSyntaxErrorException: (conn=414) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND budget_dt LIKE '2024-07%'' at line 5
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:289)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:172)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:915)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:854)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:773)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:697)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:93)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:276)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	at jdk.proxy2/jdk.proxy2.$Proxy109.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy4/jdk.proxy4.$Proxy114.getBudget(Unknown Source)
+	at com.green.project2nd.budget.BudgetService.getBudget(BudgetService.java:91)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
+	at com.green.project2nd.budget.BudgetService$$SpringCGLIB$$0.getBudget(<generated>)
+	at com.green.project2nd.budget.BudgetController.getBudget(BudgetController.java:72)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.green.project2nd.security.jwt.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:41)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-07-14 01:31:43 [33mWARN [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=414) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND budget_dt LIKE '2024-07%'' at line 5<EOL><EOL>### The error may exist in file [C:\Users\corhw\Desktop\예림\공부\Project2nd_f\build\resources\main\mappers\BudgetMapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: SELECT budget_seq AS budgetSeq, budget_party_seq AS budgetPartySeq, budget_member_seq AS budgetMemberSeq,         budget_gb AS budgetGb, F_COMMON_CD(BUDGET_GB, 'BU-01') AS cdNm, budget_amount AS budgetAmount, budget_dt AS budgetDt,         budget_text AS budgetText, budget_pic AS budgetPic         FROM party_budget         AND budget_dt LIKE '2024-07%'<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: (conn=414) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND budget_dt LIKE '2024-07%'' at line 5<EOL>; bad SQL grammar []][0;39m 
+[2024-07-14 01:33:17 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:33:17 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = 11244
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:33:17 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------|
+|budget_party_seq |
+|-----------------|
+|-----------------|
+[0;39m 
+[2024-07-14 01:33:46 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:33:46 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:33:46 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------|
+|budget_seq |
+|-----------|
+|2          |
+|-----------|
+[0;39m 
+[2024-07-14 01:33:46 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq AS budgetSeq, budget_pic AS budgetPic
+        FROM party_budget
+        WHERE budget_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:33:46 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------|-----------|
+|budget_seq |budget_pic |
+|-----------|-----------|
+|2          |random.jpg |
+|-----------|-----------|
+[0;39m 
+[2024-07-14 01:33:55 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:33:55 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_seq
+        FROM party_budget
+        GROUP BY budget_seq
+        HAVING budget_seq = 222265656878564
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:33:55 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------|
+|budget_seq |
+|-----------|
+|-----------|
+[0;39m 
+[2024-07-14 01:34:23 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:34:23 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-14 01:34:23 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------|
+|budget_party_seq |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-14 01:34:23 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) AS depositSum, SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS withdrawSum,
+        SUM(CASE WHEN budget_gb = 1 THEN budget_amount END) + SUM(CASE WHEN budget_gb = 2 THEN budget_amount * (-1) END) AS sum
+        FROM party_budget
+        WHERE budget_party_seq = 1
+        AND budget_dt LIKE '2024-07%'
+ {executed in 15 msec}[0;39m 
+[2024-07-14 01:34:23 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------|------------|-------|
+|depositsum |withdrawsum |sum    |
+|-----------|------------|-------|
+|[null]     |-74047      |[null] |
+|-----------|------------|-------|
+[0;39m 
+[2024-07-14 01:34:57 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:35:11 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-14 01:35:11 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = 1223
+ {executed in 1 msec}[0;39m 
+[2024-07-14 01:35:11 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------|
+|budget_party_seq |
+|-----------------|
+|-----------------|
+[0;39m 
+[2024-07-14 01:35:40 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-14 01:35:40 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 

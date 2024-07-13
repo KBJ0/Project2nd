@@ -5,5 +5,4 @@ public interface ConstMessage {
      String DELETE_SUCCESS_MESSAGE = "일정 참가 취소가 정상적으로 완료되었습니다.";
      String ERROR_MESSAGE_1 = "해당 값이 이미 존재합니다.";
      String NULL_ERROR_MESSAGE = "해당 값이 존재하지 않습니다.";
-     String RUNTIME_ERROR = "코드 에러입니다.";
 }

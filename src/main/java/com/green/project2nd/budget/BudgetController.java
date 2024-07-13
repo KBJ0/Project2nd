@@ -38,9 +38,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> postBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PostBudgetReq p) {
-        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
-        service.postBudget(budgetPic, p);
-        return ResultDto.resultDto(HttpStatus.OK, 1, POST_SUCCESS_MESSAGE);
+        return service.postBudget(budgetPic, p);
     }
 
     @PatchMapping
@@ -58,9 +56,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> patchBudget(@RequestPart(required = false) MultipartFile budgetPic, @RequestPart PatchBudgetReq p) {
-        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
-        service.patchBudget(budgetPic, p);
-        return ResultDto.resultDto(HttpStatus.OK, 1, PATCH_SUCCESS_MESSAGE);
+        return service.patchBudget(budgetPic, p);
     }
 
     @GetMapping
@@ -73,7 +69,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<List<GetBudgetRes>> getBudget(@RequestParam long budgetPartySeq, @RequestParam String month) {
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getBudget(budgetPartySeq, month));
+        return service.getBudget(budgetPartySeq, month);
     }
 
     @GetMapping("{budget_seq}")
@@ -86,7 +82,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<GetBudgetPicRes> getBudgetPic(@PathVariable(name = "budget_seq") long budgetSeq) {
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getBudgetPic(budgetSeq));
+        return service.getBudgetPic(budgetSeq);
     }
 
     @DeleteMapping
@@ -99,8 +95,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Long> deleteBudget(@RequestParam(name = "budget_seq") long budgetSeq) {
-        service.deleteBudget(budgetSeq);
-        return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
+        return service.deleteBudget(budgetSeq);
     }
 
     @GetMapping("/member")
@@ -113,7 +108,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<GetBudgetMemberRes> getBudgetMember(@RequestParam long budgetPartySeq, @RequestParam String month) {
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getBudgetMember(budgetPartySeq, month));
+        return service.getBudgetMember(budgetPartySeq, month);
     }
 
     @GetMapping("/month")
@@ -126,7 +121,7 @@ public class BudgetController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<GetBudgetMonthlyRes> getBudgetMonthly(@RequestParam long budgetPartySeq, @RequestParam String month) {
-        return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, service.getBudgetMonthly(budgetPartySeq, month));
+        return service.getBudgetMonthly(budgetPartySeq, month);
     }
 
 }

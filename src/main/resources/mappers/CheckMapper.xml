@@ -72,6 +72,12 @@
         GROUP BY budget_party_seq
         HAVING budget_party_seq = #{budgetPartySeq}
     </select>
+    <select id="checkBudgetMemberSeq">
+        SELECT budget_member_seq
+        FROM party_budget
+        WHERE budget_party_seq = #{budgetPartySeq}
+        AND budget_member_seq = #{budgetMemberSeq}
+    </select>
     <select id="checkBudgetSeq">
         SELECT budget_seq
         FROM party_budget

@@ -13,16 +13,16 @@ public class PostBudgetReq {
     @JsonIgnore private long budgetSeq;
 
     @Schema(example = "1", description = "모임 마스터 PK 값")
-    private long budgetPartySeq;
+    private Long budgetPartySeq;
 
     @Schema(example = "1", description = "모임 멤버 PK 값")
-    private long budgetMemberSeq;
+    private Long budgetMemberSeq;
 
     @Schema(example = "1(입금) / 2(출금)", description = "입금 or 출금 여부")
-    private int budgetGb;
+    private Integer budgetGb;
 
     @Schema(example = "50000", description = "금액")
-    private int budgetAmount;
+    private Integer budgetAmount;
 
     @Schema(example = "24-07-23", description = "입출금 날짜")
     private String budgetDt;

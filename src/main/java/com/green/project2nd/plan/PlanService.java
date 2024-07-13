@@ -21,7 +21,7 @@ public class PlanService {
 
     public ResultDto<Integer> postPlan(PostPlanReq p) {
         if (checkMapper.checkPlanPartySeq(p.getPlanPartySeq()) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 모임이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PARTY);
         } else if (p.getPlanPartySeq() == null || p.getPlanStartDt() == null || p.getPlanStartTime() == null ||
                 p.getPlanTitle() == null || p.getPlanContents() == null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NULL_ERROR_MESSAGE);
@@ -33,7 +33,7 @@ public class PlanService {
 
     public ResultDto<Integer> patchPlan(PatchPlanReq p) {
         if (checkMapper.checkPlanSeq(p.getPlanSeq()) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 일정이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PLAN);
         } else {
             mapper.patchPlan(p);
             return ResultDto.resultDto(HttpStatus.OK, 1, PATCH_SUCCESS_MESSAGE);
@@ -42,7 +42,7 @@ public class PlanService {
 
     public ResultDto<Integer> patchPlanCompleted(long planSeq) {
         if (checkMapper.checkPlanSeq(planSeq) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 일정이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PLAN);
         } else {
             mapper.patchPlanCompleted(planSeq);
             return ResultDto.resultDto(HttpStatus.OK, 1, PATCH_SUCCESS_MESSAGE);
@@ -51,7 +51,7 @@ public class PlanService {
 
     public ResultDto<List<GetPlanRes>> getPlanAll(long planPartySeq) {
         if (checkMapper.checkPlanPartySeq(planPartySeq) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 모임이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PARTY);
         } else {
             return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getPlanAll(planPartySeq));
         }
@@ -59,7 +59,7 @@ public class PlanService {
 
     public ResultDto<GetPlanRes> getPlan(long planSeq) {
         if (checkMapper.checkPlanSeq(planSeq) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 일정이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PLAN);
         } else {
             return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getPlan(planSeq));
         }
@@ -67,7 +67,7 @@ public class PlanService {
 
     public ResultDto<List<GetPlanMemberRes>> getPlanMember(long planSeq) {
         if (checkMapper.checkPlanSeq(planSeq) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 일정이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PLAN);
         } else {
             return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getPlanMember(planSeq));
         }
@@ -75,7 +75,7 @@ public class PlanService {
 
     public ResultDto<Integer> deletePlan(long planSeq) {
         if (checkMapper.checkPlanSeq(planSeq) == null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "해당 일정이 존재하지 않습니다.");
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PLAN);
         } else {
             mapper.deletePlan(planSeq);
             return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
