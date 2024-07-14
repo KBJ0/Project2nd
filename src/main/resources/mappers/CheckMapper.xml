@@ -73,10 +73,10 @@
         HAVING budget_party_seq = #{budgetPartySeq}
     </select>
     <select id="checkBudgetMemberSeq">
-        SELECT budget_member_seq
-        FROM party_budget
-        WHERE budget_party_seq = #{budgetPartySeq}
-        AND budget_member_seq = #{budgetMemberSeq}
+        SELECT member_seq
+        FROM party_member
+        WHERE member_party_seq = #{memberPartySeq}
+        AND member_seq = #{memberSeq}
     </select>
     <select id="checkBudgetSeq">
         SELECT budget_seq
