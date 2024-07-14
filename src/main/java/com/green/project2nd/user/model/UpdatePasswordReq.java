@@ -19,5 +19,5 @@ public class UpdatePasswordReq {
 
 
     @JsonIgnore
-    private Long userSeq;
+    private long userSeq;
 }

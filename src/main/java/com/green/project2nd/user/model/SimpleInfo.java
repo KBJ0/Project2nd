@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public class SimpleInfo {
 
-    private Long userSeq;
+    private long userSeq;
 
     private String userEmail;
 
