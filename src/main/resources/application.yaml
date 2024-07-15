@@ -87,3 +87,14 @@ spring:
 
 file:
   directory: /home/download
+
+---
+spring:
+  config:
+    activate:
+      on-profile: tdd
+  datasource:
+    url: jdbc:log4jdbc:mariadb://localhost:3306/project2nd
+  sql:
+    init:
+      mode: always

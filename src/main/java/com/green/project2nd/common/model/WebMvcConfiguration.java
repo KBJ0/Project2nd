@@ -23,7 +23,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("pic/**")//주소값이 들어오면 아래쪽 uploadPath로 매핑
+        registry.addResourceHandler("/pic/**")//주소값이 들어오면 아래쪽 uploadPath로 매핑
                 .addResourceLocations("file:" + uploadPath );
         registry.addResourceHandler("/**") // 모든 요청
                 .addResourceLocations("classpath:/static/**")//url과 같은 이름의 파일 필요

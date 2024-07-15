@@ -50,6 +50,7 @@
         FROM party_budget
         WHERE budget_party_seq = #{budgetPartySeq}
         AND budget_dt LIKE '2024-${month}%'
+        ORDER BY budget_dt
     </select>
 
     <select id="getBudgetPic">
