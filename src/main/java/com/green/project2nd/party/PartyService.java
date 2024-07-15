@@ -46,8 +46,13 @@ public class PartyService {
         }
         return ResultDto.resultDto(HttpStatus.OK,1,"지역들을 불러왔습니다.",mapper.getPartyLocationAll(cdSub));
     }
+
     public ResultDto<List<GetPartyRes>> getParty() {
-        return ResultDto.resultDto(HttpStatus.OK,1, "모임들을 불러왔습니다.", mapper.getParty());
+        List<GetPartyRes> result = mapper.getParty();
+
+
+
+        return ResultDto.resultDto(HttpStatus.OK,1, "모임들을 불러왔습니다.", result);
     }
     public ResultDto<GetPartyRes> getPartyDetail(Long partySeq) {
         check.exception(partySeq);
