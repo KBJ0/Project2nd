@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
@@ -43,7 +44,8 @@ public class UserController {
             "<p><strong> userBirth</strong> : 유저 생년월일(String) </p>" +
             "<p><strong> userGender</strong> : 유저 성별(int) </p>" +
             "<p><strong> userPhone</strong> : 유저 전화번호(String)  </p>" +
-            "<p><strong> userIntro</strong> : 유저 자기소개(String) (NULL 허용) </p>"
+            "<p><strong> userIntro</strong> : 유저 자기소개(String) (NULL 허용) </p>" +
+            "<p><strong> userPic</strong> : 유저 프로필 사진(String) </p>"
     )
     @ApiResponse(
             description =
@@ -58,7 +60,7 @@ public class UserController {
                             "<p>   : 중복된 닉네임</p> " +
                             "<p> 3 : 관리자에게 문의하세요</p> "
     )
-    public ResultDto<Long> postSignUp(@RequestPart(value = "userPic") MultipartFile userPic, @RequestPart(value = "p") SignUpReq p) {
+    public ResultDto<Long> postSignUp(@RequestPart(value = "userPic") MultipartFile userPic, @Valid @RequestPart(value = "p") SignUpReq p) {
 
         try {
             long result = service.postSignUp(userPic, p);
@@ -73,14 +75,14 @@ public class UserController {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(PASSWORD_CHECK_MESSAGE)
                     .build();   // 비밀번호 확인 불일치
-        } catch (EmailRegexException ee) {
-            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-                    .resultMsg(EMAIL_REGEX_MESSAGE)
-                    .build();   // 이메일 형식
-        } catch (NicknameRegexException ne) {
-            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-                    .resultMsg(NICKNAME_REGEX_MESSAGE)
-                    .build();   // 닉네임 형식
+//        } catch (EmailRegexException ee) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(EMAIL_REGEX_MESSAGE)
+//                    .build();   // 이메일 형식
+//        } catch (NicknameRegexException ne) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(NICKNAME_REGEX_MESSAGE)
+//                    .build();   // 닉네임 형식
         } catch (DuplicationException de) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(EMAIL_DUPLICATION_MESSAGE)
