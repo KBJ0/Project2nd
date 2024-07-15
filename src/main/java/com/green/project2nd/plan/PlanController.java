@@ -36,7 +36,6 @@ public class PlanController {
                     "<p>  2 : 실패, ResultMsg </p> " +
                     "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
     public ResultDto<Integer> postPlan(@RequestBody PostPlanReq p) {
-        if (p == null) throw new NullPointerException(NULL_ERROR_MESSAGE);
         return service.postPlan(p);
     }
 
