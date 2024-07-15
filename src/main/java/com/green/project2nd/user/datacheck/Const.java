@@ -13,7 +13,8 @@ public class Const {
         return nickname.matches(NICKNAME_REGEX);
     }
 
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9]{6,12}@[a-z]{3,7}\\.(com|net|org){1}$";
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9]{6,15}@[a-z]{3,7}\\.(com|net|org){1}$";
+
 
     public static boolean isValidEmail(String email) {
         return email.matches(EMAIL_REGEX);

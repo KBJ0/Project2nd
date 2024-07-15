@@ -150,7 +150,7 @@ public class UserService {
         if(user == null) {
             throw new IdCheckException(ID_CHECK_MESSAGE);
         } else if (!(BCrypt.checkpw(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
-            throw new PwCheckException(PASSWORD_CHECK_MESSAGE); // 예외처리 세분화 하기
+            throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
         String newPassword = BCrypt.hashpw(p.getUserNewPw(), BCrypt.gensalt());
         p.setUserNewPw(newPassword);
