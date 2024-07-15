@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SignInRes {
     @Schema(example = "1", description = "유저 PK 값")
-    private Long userSeq;
+    private long userSeq;
     @Schema(example = "닉네임123", description = "유저 닉네임")
     private String userNickname;
     @Schema(example = "asdfqwer123.jpg", description = "유저 프로필 사진")

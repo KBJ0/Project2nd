@@ -81,6 +81,12 @@
         WHERE user_seq = #{userSeq} AND user_state = 1
     </update>
 
+    <select id="userExists">
+        SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = #{userSeq}
+    </select>
+
     <update id="checkAuthNum">
         UPDATE user_master
         SET user_gb = 2
@@ -122,6 +128,8 @@
         FROM user_master
         WHERE user_email = #{email}
     </select>
+
+
 
 
 

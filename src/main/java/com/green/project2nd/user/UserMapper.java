@@ -10,11 +10,12 @@ public interface UserMapper {
 
     SimpleInfo getSimpleUserInfo(String userEmail);
 
-    UserEntity getDetailUserInfo(Long userSeq);
+    UserEntity getDetailUserInfo(long userSeq);
 
     int patchPassword(UpdatePasswordReq p);
 
-    int deleteUser(Long userSeq);
+    int deleteUser(long userSeq);
+    int userExists(long userSeq);
 
     int duplicatedCheckEmail(String userEmail);
     int duplicatedCheckNickname(String userNickname);

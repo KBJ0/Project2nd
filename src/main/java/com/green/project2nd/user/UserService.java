@@ -159,7 +159,11 @@ public class UserService {
     }
 
     @Transactional
-    public int deleteUser(Long userSeq) {
+    public int deleteUser(long userSeq) {
+        int result = mapper.userExists(userSeq);
+        if(result == 0) {
+            throw new NotFoundException(NOT_FOUND_MESSAGE);
+        }
         try {
             String midPath = String.format("user/%d", userSeq);
             String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, midPath);
@@ -171,7 +175,7 @@ public class UserService {
         return mapper.deleteUser(userSeq);
     }
 
-    public UserEntity getDetailUserInfo(Long userSeq) {
+    public UserEntity getDetailUserInfo(long userSeq) {
         UserEntity userEntity = mapper.getDetailUserInfo(userSeq);
         if(userEntity == null) {
             throw new RuntimeException(FAILURE_Message);

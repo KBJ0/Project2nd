@@ -121,11 +121,8 @@ public class UserController {
             SignInRes result = service.postSignIn(res, p);
 
             return ResultDto.<SignInRes>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
-                    .build();
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result).build();
         } catch (LoginException le) {      // 아이디 or 비번 확인 or 비회원가입
             return ResultDto.<SignInRes>builder().status(HttpStatus.NOT_FOUND).code(FAILURE)
                     .resultMsg(le.getMessage()).build();
@@ -166,29 +163,20 @@ public class UserController {
         try {
             int result = service.patchPassword(p);
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
-                    .build();
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result).build();
         } catch (IdCheckException re) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(FAILURE)
-                    .resultMsg(re.getMessage())
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(re.getMessage()).build();
         } catch (PwCheckException pe) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(FAILURE)
-                    .resultMsg(PASSWORD_CHECK_MESSAGE)
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(PASSWORD_CHECK_MESSAGE).build();
         } catch (Exception e) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .code(ERROR)
-                    .resultMsg(ADMIN_CONTACT_MESSAGE)
-                    .build();
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR).code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
@@ -207,27 +195,24 @@ public class UserController {
                             "<p>  2 : 실패 </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<Integer> deleteUser(@PathVariable("userSeq") Long userSeq) {
+    public ResultDto<Integer> deleteUser(@PathVariable("userSeq") long userSeq) {
         try {
             int result = service.deleteUser(userSeq);
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
-                    .build();
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result).build();
+        } catch (NotFoundException ne) {
+            return ResultDto.<Integer>builder()
+                    .status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(ne.getMessage()).build();
         } catch (FileException fe) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.NOT_FOUND)
-                    .code(FAILURE)
-                    .resultMsg(fe.getMessage())
-                    .build();
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR).code(FAILURE)
+                    .resultMsg(fe.getMessage()).build();
         } catch (Exception e) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(ERROR)
-                    .resultMsg(ADMIN_CONTACT_MESSAGE)
-                    .build();
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR).code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
@@ -254,27 +239,20 @@ public class UserController {
                             "<p>  2 : 실패 </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<UserEntity> getDetailUserInfo(@PathVariable("userSeq") Long userSeq) {
+    public ResultDto<UserEntity> getDetailUserInfo(@PathVariable("userSeq") long userSeq) {
         try {
             UserEntity result = service.getDetailUserInfo(userSeq);
             return ResultDto.<UserEntity>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
-                    .build();
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result).build();
         } catch (RuntimeException re) {
             return ResultDto.<UserEntity>builder()
-                    .status(HttpStatus.NOT_FOUND)
-                    .code(FAILURE)
-                    .resultMsg(FAILURE_Message)
-                    .build();
+                    .status(HttpStatus.NOT_FOUND).code(FAILURE)
+                    .resultMsg(FAILURE_Message).build();
         } catch (Exception e) {
             return ResultDto.<UserEntity>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(ERROR)
-                    .resultMsg(ADMIN_CONTACT_MESSAGE)
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
@@ -296,17 +274,13 @@ public class UserController {
         try {
             int result = service.duplicatedCheck(str, num);
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(result == SUCCESS ? IS_DUPLICATE : IS_NOT_DUPLICATE)
-                    .resultData(result)
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(result == SUCCESS ? IS_DUPLICATE : IS_NOT_DUPLICATE).resultData(result)
                     .build();
         } catch (IllegalArgumentException ie) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(FAILURE)
-                    .resultMsg(ie.getMessage())
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(ie.getMessage()).build();
         } catch (Exception e) {
             return ResultDto.<Integer>builder().status(HttpStatus.BAD_REQUEST).code(ERROR)
                     .resultMsg(ADMIN_CONTACT_MESSAGE).build();
@@ -330,11 +304,8 @@ public class UserController {
         try {
             String result = service.updateUserPic(p);
             return ResultDto.<String>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
-                    .build();
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result).build();
         } catch (FileException e) {
             return ResultDto.<String>builder().status(HttpStatus.INTERNAL_SERVER_ERROR).code(FAILURE)
                     .resultMsg(e.getMessage()).build();
@@ -364,23 +335,17 @@ public class UserController {
         try {
             int result = service.updateUserInfo(p);
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result)
                     .build();
         } catch (RuntimeException re) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.NOT_FOUND)
-                    .code(FAILURE)
-                    .resultMsg(re.getMessage())
-                    .build();
+                    .status(HttpStatus.NOT_FOUND).code(FAILURE)
+                    .resultMsg(re.getMessage()).build();
         } catch (Exception e) {
             return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(ERROR)
-                    .resultMsg(ADMIN_CONTACT_MESSAGE)
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 
@@ -402,23 +367,17 @@ public class UserController {
         try {
             String result = service.findUserId(p);
             return ResultDto.<String>builder()
-                    .status(HttpStatus.OK)
-                    .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
-                    .resultData(result)
+                    .status(HttpStatus.OK).code(SUCCESS)
+                    .resultMsg(SUCCESS_Message).resultData(result)
                     .build();
         } catch (RuntimeException re) {
             return ResultDto.<String>builder()
-                    .status(HttpStatus.NOT_FOUND)
-                    .code(FAILURE)
-                    .resultMsg(re.getMessage())
-                    .build();
+                    .status(HttpStatus.NOT_FOUND).code(FAILURE)
+                    .resultMsg(re.getMessage()).build();
         } catch (Exception e) {
             return ResultDto.<String>builder()
-                    .status(HttpStatus.BAD_REQUEST)
-                    .code(ERROR)
-                    .resultMsg(ADMIN_CONTACT_MESSAGE)
-                    .build();
+                    .status(HttpStatus.BAD_REQUEST).code(ERROR)
+                    .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
     }
 }
