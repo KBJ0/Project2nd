@@ -84,7 +84,6 @@ public class ReviewController {
 
         return ResultDto.resultDto(HttpStatus.OK,1,"삭제 완료(result = 영향받은 행 수)", result);
     }
-    /*
        @GetMapping
        @Operation(summary = "리뷰 조회", description =
                "<strong> 전체 리뷰 조회 </strong><p></p>" +
@@ -175,7 +174,7 @@ public class ReviewController {
            }
            return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 조회 완료", result);
        }
-    */
+
     @PatchMapping
     @Operation(summary = "리뷰 수정", description =
             "<strong> 유저 리뷰 수정 (PostMan으로 테스트)</strong><p></p>" +
