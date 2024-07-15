@@ -63,12 +63,12 @@ public class UserService {
         } else {
             Const.convertToDate(p.getUserBirth());
         }
-        if(!isValidEmail(p.getUserEmail())) {
-            throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
-        }
-        if(!isValidNickname(p.getUserNickname())) {
-            throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
-        }
+//        if(!isValidEmail(p.getUserEmail())) {
+//            throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
+//        }
+//        if(!isValidNickname(p.getUserNickname())) {
+//            throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
+//        }
         if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
             throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
         }
