@@ -1,8 +1,8 @@
 spring:
   application:
     name: Project2nd
-#  config:
-#    import: optional:file:.env
+  config:
+    import: optional:file:.env  # file : 파일 import, .env : 파일명
 #
 #
 #  jackson:
@@ -11,14 +11,18 @@ spring:
 
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mariadb://192.168.0.144:3306/db_odd_second_2
-    username: odd_second_2
-    password: cache
+    url: ${DEFAULT.DB_URL}    # .env 변수 사용 ${변수명}
+    username: ${DEFAULT.DB_USERNAME}
+    password: ${DEFAULT.DB_PASSWORD}
 
   servlet:
     multipart:
       max-file-size: 30MB
       max-request-size: 50MB
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 mybatis:
   mapper-locations: mappers/**/*.xml
@@ -36,46 +40,39 @@ springdoc:
     disabled: true
 
 file:
-  directory: D:\2024-1\download\project2nd/
+  directory: ${DEFAULT.FILE_DIRECTORY}
 
 
-#app:
-#  jwt:
-#
-#    secret: DaeguGreenArtAcademyClass502RoomForSpringBootFightingsdkfjslkjflksajdffdskljdkdjfkasdfiagfddfdfddd
-#
-#
-#    header-schema-name: authorization
-#
-#
-#    token-type: Bearer
-#
-#
-#
-#    access-token-expiry: 30000
-#    # 1800000 : 30분
-#
-#    # RT(Refresh-Token) - 만료시간(ms) - 15일
-#    refresh-token-expiry: 1296000000
-#
-#management:
-#  endpoint:
-#    health:
-#      show-details: always
-#
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  info:
-#    java:
-#      enabled: true
-#    os:
-#      enabled: true
-#    env:
-#      enabled: true
-#  server:
-#    port: 8080
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    header-schema-name: authorization
+    token-type: Bearer
+    access-token-expiry: 600000
+    # 1800000 (ms) : 30분
+
+    # RT(Refresh-Token) - 만료시간(ms) - 15일
+    refresh-token-cookie-name: refresh-token
+    refresh-token-expiry: 1296000000
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
+  server:
+    port: 8080
 
 ---
 spring:
@@ -83,9 +80,9 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:log4jdbc:mariadb://192.168.0.144:3306/db_odd_second_2
-    username: odd_second_2
-    password: cache
+    url: ${PROD.DB_URL}
+    username: ${PROD.DB_USERNAME}
+    password: ${PROD.DB_PASSWORD}
   jpa:
     open-in-view: false
     properties:
@@ -93,4 +90,15 @@ spring:
         cache.use_second_level_cache: false
 
 file:
-  directory: /home/download
+  directory: ${PROD.FILE_DIRECTORY}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: tdd
+  datasource:
+    url: jdbc:log4jdbc:mariadb://localhost:3306/project2nd
+  sql:
+    init:
+      mode: always

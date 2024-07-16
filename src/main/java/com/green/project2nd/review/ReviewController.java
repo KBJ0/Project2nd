@@ -84,94 +84,96 @@ public class ReviewController {
 
         return ResultDto.resultDto(HttpStatus.OK,1,"삭제 완료(result = 영향받은 행 수)", result);
     }
+       @GetMapping
+       @Operation(summary = "리뷰 조회", description =
+               "<strong> 전체 리뷰 조회 </strong><p></p>" +
+                       "<p><strong> search </strong> : 검색어 구분값 (int) 1:전체 2:모임명 3:모임장명 4: 작성자명 (디폴트값 : 1)</p>" +
+                       "<p><strong> searchData </strong> : 검색어 (String) (NULL 허용)" +
+                       "<p><strong> page   </strong> : 페이지 번호 (Integer) (NULL 허용, 디폴트값 : 1)</p>" +
+                       "<p><strong> size   </strong> : 페이지별 게시글 수 (Integer) (NULL 허용, 디폴트값 : 10)</p>"
+       )
+       @ApiResponse(
+               description =
+                       "<p> ResponseCode 응답 코드 </p>" +
+                               "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
+                               "<p> 2 : 실패, ResultMsg</p>"
+       )
 
-    @GetMapping
-    @Operation(summary = "리뷰 조회", description =
-            "<strong> 전체 리뷰 조회 </strong><p></p>" +
-                    "<p><strong> search </strong> : 검색어 구분값 (int) 1:전체 2:모임명 3:모임장명 4: 작성자명 (디폴트값 : 1)</p>" +
-                    "<p><strong> searchData </strong> : 검색어 (String) (NULL 허용)" +
-                    "<p><strong> page   </strong> : 페이지 번호 (Integer) (NULL 허용, 디폴트값 : 1)</p>" +
-                    "<p><strong> size   </strong> : 페이지별 게시글 수 (Integer) (NULL 허용, 디폴트값 : 10)</p>"
-    )
-    @ApiResponse(
-            description =
-                    "<p> ResponseCode 응답 코드 </p>" +
-                            "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
-                            "<p> 2 : 실패, ResultMsg</p>"
-    )
-    public ResultDto<GetReviewAllPageRes> getReviewAll(
-            @Nullable @RequestParam(name = "page") Integer page
-            , @Nullable @RequestParam(name = "size") Integer size
-            , @RequestParam(name = "search", defaultValue = "1") Integer search
-            , @Nullable @RequestParam(name = "searchData") String searchData
-    ) {
+       public ResultDto<GetReviewAllPageRes> getReviewAll(
+               @Nullable @RequestParam(name = "page") Integer page
+               , @Nullable @RequestParam(name = "size") Integer size
+               , @RequestParam(name = "search", defaultValue = "1") Integer search
+               , @Nullable @RequestParam(name = "searchData") String searchData
+       ) {
 
-        if(searchData == null) {
-            searchData = "";
-        }
+           if(searchData == null) {
+               searchData = "";
+           }
 
-        if(page < 0 && page != null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
-        }
+           if(page < 0 && page != null) {
+               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
+           }
 
-        if(size < 0 && size != null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
-        }
+           if(size < 0 && size != null) {
+               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
+           }
 
-        GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
-        GetReviewAllPageRes result = service.getReviewAll(p);
+           GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
+           GetReviewAllPageRes result = service.getReviewAll(p);
 
-        if(result == null) {
-            return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "리뷰 조회 실패(검색 결과값 : 0)");
-        }
-        return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 조회 완료", result);
-    }
+           if(result == null) {
+               return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "리뷰 조회 실패(검색 결과값 : 0)");
+           }
+           return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 조회 완료", result);
+       }
 
-    @GetMapping("/user")
-    @Operation(summary = "내가 적은 리뷰 검색", description =
-            "<strong> 마이페이지 내가 적은 리뷰 </strong><p></p>" +
-                    "<p><strong> userSeq   </strong> : 유저 PK (Integer) </p>" +
-                    "<p><strong> search </strong> : 검색어 구분값 (int) 1:전체 2:모임명 3:모임장명 4: 작성자명</p>" +
-                    "<p><strong> searchData </strong> : 검색어 (String) (NULL 허용)" +
-                    "<p><strong> page   </strong> : 페이지 번호 (Integer) (NULL 허용, 디폴트값 : 1)</p>" +
-                    "<p><strong> size   </strong> : 페이지별 게시글 수 (Integer) (NULL 허용, 디폴트값 : 10)</p>"
-    )
-    @ApiResponse(
-            description =
-                    "<p> ResponseCode 응답 코드 </p>" +
-                            "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
-                            "<p> 2 : 실패, ResultMsg</p>"
-    )
-    public ResultDto<GetReviewUserPageRes> getReviewUser(@RequestParam(name = "search", defaultValue = "1") Integer search
-            , @Nullable @RequestParam(name = "searchData") String searchData
-            , @Nullable @RequestParam(name = "page", defaultValue = "1") Integer page
-            , @Nullable @RequestParam(name = "size", defaultValue = "10") Integer size
-            , @RequestParam(name = "userSeq") long userSeq) {
-        if(userSeq == 0) {  //userSeq 예외처리
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "유저 PK가 전달되지 않았습니다.");
-        }
 
-        if(searchData == null) {
-            searchData = "";
-        }
 
-        if(page < 0 && page != null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
-        }
+       @GetMapping("/user")
+       @Operation(summary = "내가 적은 리뷰 검색", description =
+               "<strong> 마이페이지 내가 적은 리뷰 </strong><p></p>" +
+                       "<p><strong> userSeq   </strong> : 유저 PK (Integer) </p>" +
+                       "<p><strong> search </strong> : 검색어 구분값 (int) 1:전체 2:모임명 3:모임장명 4: 작성자명</p>" +
+                       "<p><strong> searchData </strong> : 검색어 (String) (NULL 허용)" +
+                       "<p><strong> page   </strong> : 페이지 번호 (Integer) (NULL 허용, 디폴트값 : 1)</p>" +
+                       "<p><strong> size   </strong> : 페이지별 게시글 수 (Integer) (NULL 허용, 디폴트값 : 10)</p>"
+       )
+       @ApiResponse(
+               description =
+                       "<p> ResponseCode 응답 코드 </p>" +
+                               "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
+                               "<p> 2 : 실패, ResultMsg</p>"
+       )
+       public ResultDto<GetReviewUserPageRes> getReviewUser(@RequestParam(name = "search", defaultValue = "1") Integer search
+               , @Nullable @RequestParam(name = "searchData") String searchData
+               , @Nullable @RequestParam(name = "page", defaultValue = "1") Integer page
+               , @Nullable @RequestParam(name = "size", defaultValue = "10") Integer size
+               , @RequestParam(name = "userSeq") long userSeq) {
+           if(userSeq == 0) {  //userSeq 예외처리
+               return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "유저 PK가 전달되지 않았습니다.");
+           }
 
-        if(size < 0 && size != null) {
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
-        }
+           if(searchData == null) {
+               searchData = "";
+           }
 
-        GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
+           if(page < 0 && page != null) {
+               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
+           }
 
-        GetReviewUserPageRes result = service.getReviewUser(p);
+           if(size < 0 && size != null) {
+               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
+           }
 
-        if(result == null) {
-            return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "리뷰 조회 실패(검색 결과값 : 0)");
-        }
-        return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 조회 완료", result);
-    }
+           GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
+
+           GetReviewUserPageRes result = service.getReviewUser(p);
+
+           if(result == null) {
+               return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "리뷰 조회 실패(검색 결과값 : 0)");
+           }
+           return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 조회 완료", result);
+       }
 
     @PatchMapping
     @Operation(summary = "리뷰 수정", description =

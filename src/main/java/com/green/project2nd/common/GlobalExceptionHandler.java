@@ -13,6 +13,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResultDto<String> handleRuntimeException(RuntimeException ex) {
         ex.printStackTrace();
-        return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "RuntimeException : 처리할 수 없는 요청입니다.");
+        return ResultDto.resultDto(HttpStatus.BAD_GATEWAY,2, "RuntimeException : 처리할 수 없는 요청입니다.");
     }
+
 }

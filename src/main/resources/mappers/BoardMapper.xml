@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.board.BoardMapper">
+
+    <insert id="postBoard" useGeneratedKeys="true" keyProperty="boardSeq">
+        INSERT INTO party_board_master
+        SET board_party_seq = #{boardPartySeq}
+        ,board_member_seq = #{boardMemberSeq}
+        ,board_title = #{boardTitle}
+        ,board_contents = #{boardContents}
+    </insert>
+
+    <insert id="postBoardPics">
+        INSERT INTO party_board_pic (board_pic_board_seq, board_pic_file, input_dt)
+        VALUES
+        <foreach collection="fileNames" item="fileName" separator=",">
+            (#{boardSeq}, #{fileName}, current_timestamp())
+        </foreach>
+
+    </insert>
+    <delete id="deleteBoard">
+        DELETE FROM party_board_master WHERE board_seq = #{boardSeq}
+    </delete>
+    <delete id="deleteBoardPic">
+        DELETE FROM party_board_pic WHERE board_pic_board_seq = #{boardSeq}
+    </delete>
+
+
+</mapper>

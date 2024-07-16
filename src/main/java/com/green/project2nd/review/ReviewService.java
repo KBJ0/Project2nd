@@ -77,6 +77,8 @@ public class ReviewService {
         return pageRes;
     }
 
+
+
     public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) throws Exception {
         PostReviewPicDto ppic = PostReviewPicDto.builder()
                 .reviewSeq(reviewSeq)
