@@ -60,9 +60,9 @@ public class ReviewService {
     public GetReviewAllPageRes getReviewAll(GetReviewAllReq p) {
         List<GetReviewAllRes> res = mapper.getReviewAll(p);
         GetReviewAllPageRes pageRes = new GetReviewAllPageRes(
-                res
-                , mapper.getTotalElements(p.getSearch(),p.getSearchData(), 0)
+                mapper.getTotalElements(p.getSearch(),p.getSearchData(), 0)
                 , p.getSize()
+                , res
         );
         return pageRes;
     }
@@ -70,14 +70,12 @@ public class ReviewService {
     public GetReviewUserPageRes getReviewUser(GetReviewUserReq p) {
         List<GetReviewUserRes> res = mapper.getReviewUser(p);
         GetReviewUserPageRes pageRes = new GetReviewUserPageRes(
-                res
-                , mapper.getTotalElements(p.getSearch(),p.getSearchData(), p.getUserSeq())
+                mapper.getTotalElements(p.getSearch(),p.getSearchData(), p.getUserSeq())
                 , p.getSize()
+                , res
         );
         return pageRes;
     }
-
-
 
     public PostReviewPicDto postPics(long reviewSeq, List<MultipartFile> pics, String path) throws Exception {
         PostReviewPicDto ppic = PostReviewPicDto.builder()

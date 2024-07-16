@@ -4,9 +4,9 @@
 
     <insert id="postReview" keyProperty="reviewSeq" useGeneratedKeys="true">
         INSERT INTO review_master
-        (review_plan_seq, review_plmember_seq, review_title, review_contents , review_rating)
+        (review_plan_seq, review_plmember_seq, review_contents , review_rating)
         VALUES
-        (#{reviewPlanSeq}, #{reviewPlmemberSeq}, #{reviewTitle}, #{reviewContents}, #{reviewRating})
+        (#{reviewPlanSeq}, #{reviewPlmemberSeq}, #{reviewContents}, #{reviewRating})
     </insert>
 
     <insert id="postReviewPics">
@@ -24,7 +24,6 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
-        , A.review_title as reviewTitle
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -49,7 +48,9 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        LIMIT #{startIdx}, #{size}
+        <if test="startIdx != 0 and size != 0">
+            LIMIT #{startIdx}, #{size}
+        </if>
     </select>
 
 
@@ -59,7 +60,6 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
-        , A.review_title as reviewTitle
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -85,7 +85,9 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        LIMIT #{startIdx}, #{size}
+        <if test="startIdx != 0 and size != 0">
+            LIMIT #{startIdx}, #{size}
+        </if>
     </select>
 
     <select id="getPics">
@@ -118,8 +120,7 @@
 
     <update id="patchReview">
         UPDATE review_master
-        SET review_title = #{reviewTitle}
-        , review_contents = #{reviewContents}
+        SET review_contents = #{reviewContents}
         , review_rating = #{reviewRating}
         WHERE review_seq = #{reviewSeq}
     </update>

@@ -9,15 +9,17 @@ import java.util.*;
 @Getter
 @Setter
 public class GetReviewAllPageRes {
-    private List<GetReviewAllRes> list;
     private long totalElements;
     private long totalPages;
-    private int size;
+    private List<GetReviewAllRes> list;
 
-    public GetReviewAllPageRes(List<GetReviewAllRes> list, long totalElements, int size) {
-        this.list = list;
+    public GetReviewAllPageRes(long totalElements, int size, List<GetReviewAllRes> list) {
         this.totalElements = totalElements;
-        this.totalPages = (this.totalElements + size - 1) / size;
-        this.size = size;
+        if(size != 0) {
+            this.totalPages = (this.totalElements + size - 1) / size;
+        } else {
+            this.totalPages = 1;
+        }
+        this.list = list;
     }
 }
