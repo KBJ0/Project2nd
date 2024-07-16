@@ -444,3 +444,37 @@ java.io.FileNotFoundException: class path resource [static/index.html] cannot be
 	at java.base/java.lang.Thread.run(Thread.java:840)
 [2024-07-16 09:56:11 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-16 09:56:11 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-16 10:27:24 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-16 10:27:24 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 4188 (D:\Yerim\BackEnd\Project2nd_f\build\classes\java\main started by Administrator in D:\Yerim\BackEnd\Project2nd_f)[0;39m 
+[2024-07-16 10:27:24 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-16 10:27:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-16 10:27:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1327 ms[0;39m 
+[2024-07-16 10:27:25 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-16 10:27:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3a460cd1[0;39m 
+[2024-07-16 10:27:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-16 10:27:26 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 13cde5ca-6522-4990-b870-b91a6207c7cc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-16 10:27:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-16 10:27:26 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b0b7038, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@699e5c45, org.springframework.security.web.context.SecurityContextHolderFilter@12fdbdde, org.springframework.security.web.header.HeaderWriterFilter@24b9999e, org.springframework.web.filter.CorsFilter@11edc3c0, org.springframework.security.web.authentication.logout.LogoutFilter@16690fe2, com.green.project2nd.security.jwt.JwtAuthenticationFilter@6cea9d6d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2db84cad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18f5eac6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2882196a, org.springframework.security.web.session.SessionManagementFilter@1e529e93, org.springframework.security.web.access.ExceptionTranslationFilter@4501b0, org.springframework.security.web.access.intercept.AuthorizationFilter@3126662a][0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.315 seconds (process running for 3.695)[0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-16 10:27:27 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-16 10:29:11 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-16 10:29:11 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 

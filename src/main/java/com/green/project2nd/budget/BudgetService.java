@@ -38,9 +38,9 @@ public class BudgetService {
         } else if (p.getBudgetAmount() <= 0) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "budgetAmount은 1 이상의 값을 입력하세요.");
         } else {
-            mapper.postBudget(p);
             String saveFileName = customFileUtils.makeRandomFileName(budgetPic);
             p.setBudgetPic(saveFileName);
+            mapper.postBudget(p);
             String path = String.format("budget/%d", p.getBudgetSeq());
             customFileUtils.makeFolders(path);
             String target = String.format("%s/%s", path, saveFileName);
