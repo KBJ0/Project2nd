@@ -83,4 +83,11 @@
         AND budget_dt LIKE '2024-${month}%'
     </select>
 
+    <select id="getMemberList">
+        SELECT member_seq AS memberSeq
+        FROM party_member
+        WHERE member_party_seq = #{memberPartySeq}
+        AND member_gb = 1
+    </select>
+    
 </mapper>
