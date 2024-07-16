@@ -190,7 +190,7 @@ public class ReviewController {
                             "<p> 1 : 성공 (사진 리턴)</p>" +
                             "<p> 2 : 실패, ResultMsg</p>"
     )
-    public ResultDto<List<String>> patchReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics
+    public ResultDto<List<GetReviewPicDto>> patchReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics
                                                          , @RequestPart PatchReviewReq p) {
         if(p.getReviewSeq() == 0) {         //리뷰PK 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "리뷰가 존재하지 않거나 리뷰 PK 값이 전달되지 않았습니다.");
@@ -203,7 +203,7 @@ public class ReviewController {
         }
 
         try {
-            List<String> result = service.patchReview(pics, p);
+            List<GetReviewPicDto> result = service.patchReview(pics, p);
 
             return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 수정 완료", result);
         } catch (Exception e){

@@ -16,5 +16,6 @@ public interface ReviewMapper {
     List<GetReviewUserRes> getReviewUser(GetReviewUserReq p);
     long getTotalElements(int search, String searchData, long userSeq);
     void patchReview(PatchReviewReq p);
-    List<String> getPics(long reviewSeq);
+    List<GetReviewPicDto> getPic(long reviewSeq);
+    List<String> getPicFiles(long reviewSeq);
 }

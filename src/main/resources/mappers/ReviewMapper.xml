@@ -90,10 +90,19 @@
         </if>
     </select>
 
-    <select id="getPics">
+    <select id="getPic">
+        SELECT review_pic_review_seq as reviewPicReviewSeq
+            , review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = #{reviewSeq}
+        ORDER BY review_pic_review_seq desc
+    </select>
+
+    <select id="getPicFiles">
         SELECT review_pic_file as reviewPicFile
         FROM review_pic
         WHERE review_pic_review_seq = #{reviewSeq}
+        ORDER BY review_pic_review_seq desc
     </select>
 
     <select id="getTotalElements">

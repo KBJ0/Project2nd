@@ -37,7 +37,7 @@ public class ReviewService {
     }
 
     @Transactional
-    public List<String> patchReview(List<MultipartFile> pics, PatchReviewReq p) throws Exception{
+    public List<GetReviewPicDto> patchReview(List<MultipartFile> pics, PatchReviewReq p) throws Exception{
         mapper.deleteReviewPics(p.getReviewSeq());
         mapper.patchReview(p);
         customFileUtils.deleteFolder(path + p.getReviewSeq());
@@ -47,7 +47,7 @@ public class ReviewService {
         }
 
         PostReviewPicDto ppic = postPics(p.getReviewSeq(), pics, path+p.getReviewSeq());
-        return mapper.getPics(ppic.getReviewSeq());
+        return mapper.getPic(ppic.getReviewSeq());
     }
 
     @Transactional
@@ -59,6 +59,12 @@ public class ReviewService {
 
     public GetReviewAllPageRes getReviewAll(GetReviewAllReq p) {
         List<GetReviewAllRes> res = mapper.getReviewAll(p);
+
+        for(GetReviewAllRes idx : res) {
+            List<String> pics = mapper.getPicFiles(idx.getReviewSeq());
+            idx.setPics(pics);
+        }
+
         GetReviewAllPageRes pageRes = new GetReviewAllPageRes(
                 mapper.getTotalElements(p.getSearch(),p.getSearchData(), 0)
                 , p.getSize()
@@ -69,6 +75,12 @@ public class ReviewService {
 
     public GetReviewUserPageRes getReviewUser(GetReviewUserReq p) {
         List<GetReviewUserRes> res = mapper.getReviewUser(p);
+
+        for(GetReviewUserRes idx : res) {
+            List<String> pics = mapper.getPicFiles(idx.getReviewSeq());
+            idx.setPics(pics);
+        }
+
         GetReviewUserPageRes pageRes = new GetReviewUserPageRes(
                 mapper.getTotalElements(p.getSearch(),p.getSearchData(), p.getUserSeq())
                 , p.getSize()
