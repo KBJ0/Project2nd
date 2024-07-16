@@ -77,8 +77,11 @@
     
     <update id="deleteUser">
         UPDATE user_master
-        SET user_state = 2
-        WHERE user_seq = #{userSeq} AND user_state = 1
+        SET
+        user_email = CONCAT(user_email, '_', #{userSeq})
+        , user_state = 2
+        WHERE
+        user_seq = #{userSeq} AND user_state = 1;
     </update>
 
     <select id="userExists">
