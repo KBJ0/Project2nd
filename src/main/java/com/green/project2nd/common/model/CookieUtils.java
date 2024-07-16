@@ -56,15 +56,14 @@ public class CookieUtils {
         setCookie(res, name, null, 0);
     }
 
-    public String serialize(Object obj) {   // 객체가 가지고 있는 데이터를 문자열로 변환(암호화)
-                                                     // byte[] -> String -> String
+    public String serialize(Object obj) {
         return Base64.getUrlEncoder().encodeToString(SerializationUtils.serialize(obj));
     }
 
     public <T> T deserialize(Cookie cookie, Class<T> cls) {     // 복호화
         return cls.cast(
                 SerializationUtils.deserialize(
-                        Base64.getUrlDecoder().decode(cookie.getValue())        // String -> byte[] -> Object (decode 반환타입은 byte[])
+                        Base64.getUrlDecoder().decode(cookie.getValue())
                 )
         );
     }
