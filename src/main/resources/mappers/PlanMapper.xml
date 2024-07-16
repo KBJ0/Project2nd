@@ -59,7 +59,7 @@
     </select>
 
     <select id="getPlanMember">
-        SELECT A.plmember_plan_seq AS planSeq, C.user_name AS userName
+        SELECT A.plmember_plan_seq AS planSeq, A.plmember_seq AS plmemberSeq, C.user_seq AS userSeq, C.user_name AS userName
         FROM plan_member A
         JOIN party_member B
         ON A.plmember_member_seq = B.member_seq
