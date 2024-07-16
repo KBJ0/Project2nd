@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class EmailRequestDto {
+public class EmailRequestReq {
     @Email
     @NotEmpty(message = "이메일을 입력해 주세요")
     private String userEmail;

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class EmailCheckDto {
+public class EmailCheckReq {
 
     @Email
     @NotEmpty(message = "이메일을 입력해 주세요")

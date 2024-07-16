@@ -38,7 +38,7 @@ public class MailController {
                             "<p>  2 : 실패  </p> " +
                             "<p>  3 : 에러 "
     )
-    public ResultDto<String> mailSend(@RequestBody @Valid EmailRequestDto emailDto) {
+    public ResultDto<String> mailSend(@RequestBody @Valid EmailRequestReq emailDto) {
         log.info("이메일 인증 이메일 : {}", emailDto.getUserEmail());
         try {
             String str = mailService.joinEmail(emailDto.getUserEmail());
@@ -73,7 +73,7 @@ public class MailController {
                             "<p>  2 : 실패  </p> " +
                             "<p>  3 : 에러 "
     )
-    public ResultDto<Integer> AuthCheck(@RequestBody @Valid EmailCheckDto p){   // 이메일이랑 임의 코드
+    public ResultDto<Integer> AuthCheck(@RequestBody @Valid EmailCheckReq p){   // 이메일이랑 임의 코드
         String Checked = mailService.CheckAuthNum(p.getUserEmail(),p.getAuthNum());
         log.info("Check : {}", Checked);
         log.info("p.getUserEmail() : {}", p.getUserEmail());
