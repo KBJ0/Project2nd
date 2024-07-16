@@ -127,4 +127,12 @@ public class BudgetService {
             return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getBudgetMonthly(budgetPartySeq, month));
         }
     }
+
+    public ResultDto<List<GetMemberListRes>> getMemberList(long memberPartySeq){
+        if (checkMapper.checkBudgetPartySeq(memberPartySeq) == null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PARTY);
+        } else {
+            return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getMemberList(memberPartySeq));
+        }
+    }
 }

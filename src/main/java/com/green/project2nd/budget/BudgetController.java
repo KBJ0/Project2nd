@@ -7,10 +7,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+
+import static com.green.project2nd.budget.exception.ConstMessage.GET_SUCCESS_MESSAGE;
 
 
 @Slf4j
@@ -122,4 +125,16 @@ public class BudgetController {
         return service.getBudgetMonthly(budgetPartySeq, month);
     }
 
+    @GetMapping("/memberlist")
+    @Operation(summary = "모임 멤버 리스트 출력", description =
+            "<strong> 회계 내역 등록 시 선택할 모임 멤버 리스트 출력<p></p>\n" +
+            "<p><strong> memberPartySeq</strong> : 모임 마스터 PK 값 (long) </p>\n")
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p> " +
+            "<p>  1 : 성공 </p> " +
+            "<p>  2 : 실패, ResultMsg </p> " +
+            "<p>  99 : 알 수 없는 오류 발생 실패</p> ")
+    public ResultDto<List<GetMemberListRes>> getMemberList(long memberPartySeq){
+        return service.getMemberList(memberPartySeq);
+    }
 }
