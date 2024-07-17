@@ -707,3 +707,263 @@ This generated password is for development use only. Your security configuration
 [0;39m 
 [2024-07-16 12:04:56 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-16 12:04:56 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 1652 (D:\Yerim\BackEnd\Project2nd_f\build\classes\java\main started by Administrator in D:\Yerim\BackEnd\Project2nd_f)[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-16 12:26:40 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1345 ms[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6814aa07[0;39m 
+[2024-07-16 12:26:41 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-16 12:26:42 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 1b631fd8-636f-4944-98bd-4bc4eb6a40b9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15bec578, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7247de41, org.springframework.security.web.context.SecurityContextHolderFilter@4cbedbe0, org.springframework.security.web.header.HeaderWriterFilter@a15d86f, org.springframework.web.filter.CorsFilter@7e4ccae, org.springframework.security.web.authentication.logout.LogoutFilter@468c350a, com.green.project2nd.security.jwt.JwtAuthenticationFilter@428ab370, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bdb75e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3eec4cc6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10540efe, org.springframework.security.web.session.SessionManagementFilter@66046004, org.springframework.security.web.access.ExceptionTranslationFilter@2b25c934, org.springframework.security.web.access.intercept.AuthorizationFilter@71e2df99][0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-16 12:26:42 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.015 seconds (process running for 3.411)[0;39m 
+[2024-07-16 12:26:43 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.74] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-16 12:26:43 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-16 12:26:43 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:50 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:51 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:51 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 12:26:51 [32mINFO [0;39m http-nio-8080-exec-9] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 553 ms[0;39m 
+[2024-07-16 12:29:02 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-16 12:29:02 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-16 14:55:47 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-16 14:55:47 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 2204 (D:\Yerim\BackEnd\Project2nd_f\build\classes\java\main started by Administrator in D:\Yerim\BackEnd\Project2nd_f)[0;39m 
+[2024-07-16 14:55:47 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-16 14:55:47 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-16 14:55:47 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-16 14:55:48 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1359 ms[0;39m 
+[2024-07-16 14:55:49 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-16 14:55:49 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@25389e0[0;39m 
+[2024-07-16 14:55:49 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-16 14:55:49 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 366a25e2-508b-4fba-96c6-8212766adc04
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-16 14:55:49 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-16 14:55:49 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@115dd730, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@190c8b69, org.springframework.security.web.context.SecurityContextHolderFilter@22c0858c, org.springframework.security.web.header.HeaderWriterFilter@34d5f58f, org.springframework.web.filter.CorsFilter@4ab2380, org.springframework.security.web.authentication.logout.LogoutFilter@7595903f, com.green.project2nd.security.jwt.JwtAuthenticationFilter@19eb873a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13bf7469, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18d4d68f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15bfd2f5, org.springframework.security.web.session.SessionManagementFilter@7062d1c, org.springframework.security.web.access.ExceptionTranslationFilter@68c860ee, org.springframework.security.web.access.intercept.AuthorizationFilter@3d26bfe5][0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.239 seconds (process running for 3.644)[0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-16 14:55:50 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:52 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:55:53 [32mINFO [0;39m http-nio-8080-exec-10] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 661 ms[0;39m 
+[2024-07-16 14:56:08 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:08 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT budget_party_seq
+        FROM party_budget
+        GROUP BY budget_party_seq
+        HAVING budget_party_seq = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-16 14:56:08 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|budget_party_seq |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-16 14:56:08 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.member_seq AS memberSeq, B.user_name AS userName, B.user_nickname AS userNickname
+        FROM party_member A
+        JOIN user_master B
+        ON A.member_user_seq = B.user_seq
+        WHERE member_party_seq = 1
+        AND member_gb = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-16 14:56:08 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|----------|--------------|
+|member_seq |user_name |user_nickname |
+|-----------|----------|--------------|
+|1          |test      |test          |
+|11         |Timothee  |It            |
+|17         |Gale      |Quo Lux       |
+|152        |Reinaldos |Bitchip       |
+|194        |Brent     |Zamit         |
+|403        |Thorstein |Kanlam        |
+|453        |Raddy     |Alphazap      |
+|474        |Ulrich    |Stim          |
+|-----------|----------|--------------|
+[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:21 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:56:22 [32mINFO [0;39m http-nio-8080-exec-10] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 337 ms[0;39m 
+[2024-07-16 14:57:02 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:57:02 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT party_seq
+        FROM party_master
+        WHERE party_seq = 1000
+ {executed in 0 msec}[0;39m 
+[2024-07-16 14:57:02 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|
+|party_seq |
+|----------|
+|----------|
+[0;39m 
+[2024-07-16 14:57:17 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 14:57:17 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT party_seq
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-16 14:57:17 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|
+|party_seq |
+|----------|
+|10        |
+|----------|
+[0;39m 
+[2024-07-16 14:57:17 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO plan_master
+        SET plan_party_seq = 10,
+        plan_start_dt = '24-07-23',
+        plan_start_time = '12:00',
+        plan_location = '대구광역시 중구 1길',
+        plan_title = '정기 모임',
+        plan_contents = '단체 회식'
+ {executed in 6 msec}[0;39m 
+[2024-07-16 14:57:17 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO plan_master
+        SET plan_party_seq = 10,
+        plan_start_dt = '24-07-23',
+        plan_start_time = '12:00',
+        plan_location = '대구광역시 중구 1길',
+        plan_title = '정기 모임',
+        plan_contents = '단체 회식'
+ {executed in 0 msec}[0;39m 
+[2024-07-16 14:57:17 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|1027      |
+|----------|
+[0;39m 
+[2024-07-16 15:06:59 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-16 15:06:59 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 10940 (D:\Yerim\BackEnd\Project2nd_f\build\classes\java\main started by Administrator in D:\Yerim\BackEnd\Project2nd_f)[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-16 16:12:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1481 ms[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3c9df0a2[0;39m 
+[2024-07-16 16:12:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-16 16:12:20 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: d6adfa75-95c0-4433-a3c5-768cbe77a92e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15bfd2f5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a247325, org.springframework.security.web.context.SecurityContextHolderFilter@18d4d68f, org.springframework.security.web.header.HeaderWriterFilter@2c0ac0b, org.springframework.web.filter.CorsFilter@170efacb, org.springframework.security.web.authentication.logout.LogoutFilter@1e50054c, com.green.project2nd.security.jwt.JwtAuthenticationFilter@47cca7bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bc3d930, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@337e41d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ae47c89, org.springframework.security.web.session.SessionManagementFilter@22c0858c, org.springframework.security.web.access.ExceptionTranslationFilter@2c62e76e, org.springframework.security.web.access.intercept.AuthorizationFilter@115dd730][0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-16 16:12:20 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.199 seconds (process running for 3.631)[0;39m 
+[2024-07-16 16:12:21 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-16 16:12:21 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-16 16:12:21 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.74] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:27 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:28 [32mINFO [0;39m http-nio-8080-exec-9] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 585 ms[0;39m 
+[2024-07-16 16:12:36 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-16 16:12:36 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT plan_seq
+        FROM plan_master
+        GROUP BY plan_seq
+        HAVING plan_seq = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-16 16:12:36 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|
+|plan_seq |
+|---------|
+|1        |
+|---------|
+[0;39m 
+[2024-07-16 16:12:36 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.plmember_plan_seq AS planSeq, A.plmember_seq AS plmemberSeq, C.user_seq AS userSeq, C.user_name AS userName
+        FROM plan_member A
+        JOIN party_member B
+        ON A.plmember_member_seq = B.member_seq
+        JOIN user_master C
+        ON B.member_user_seq = C.user_seq
+        WHERE A.plmember_plan_seq = 1
+        ORDER BY C.user_name
+ {executed in 1 msec}[0;39m 
+[2024-07-16 16:12:36 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------------|-------------|---------|----------|
+|plmember_plan_seq |plmember_seq |user_seq |user_name |
+|------------------|-------------|---------|----------|
+|1                 |661          |68       |Elvyn     |
+|------------------|-------------|---------|----------|
+[0;39m 
+[2024-07-16 16:13:45 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-16 16:13:45 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
