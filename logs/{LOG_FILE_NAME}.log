@@ -2558,3 +2558,328 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: com.green.projec
 |1        |
 |---------|
 [0;39m 
+[2024-07-17 15:46:56 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown initiated...[0;39m 
+[2024-07-17 15:46:56 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m 
+[2024-07-17 16:54:55 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5348 (D:\2024-03 moon\backEnd\백업\backUp 0717\build\classes\java\main started by Administrator in D:\2024-03 moon\backEnd\백업\backUp 0717)[0;39m 
+[2024-07-17 16:54:55 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-17 16:54:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-17 16:54:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-17 16:54:56 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-17 16:54:56 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-17 16:54:56 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1204 ms[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@50f2f6eb[0;39m 
+[2024-07-17 16:54:57 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 2.548 seconds (process running for 2.954)[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.121] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.121] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-17 16:54:58 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.121] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-17 16:55:08 [32mINFO [0;39m http-nio-8080-exec-3] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 203 ms[0;39m 
+[2024-07-17 16:57:26 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT comment_seq AS commentSeq, comment_board_seq AS commentBoardSeq,
+        comment_member_seq AS commentMemberSeq, comment_contents AS commentContents,
+        input_dt AS inputDt, update_dt AS updateDt
+        FROM party_board_comment
+        WHERE comment_board_seq = 1
+        limit 0, 15
+ {executed in 1 msec}[0;39m 
+[2024-07-17 16:57:26 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|------------|------------------|-------------------|-----------------|----------------------|----------------------|
+|comment_seq |comment_board_seq |comment_member_seq |comment_contents |input_dt              |update_dt             |
+|------------|------------------|-------------------|-----------------|----------------------|----------------------|
+|723         |1                 |47                 |수정되냐             |2024-07-08 09:31:39.0 |2024-07-11 17:10:22.0 |
+|------------|------------------|-------------------|-----------------|----------------------|----------------------|
+[0;39m 
+[2024-07-17 16:57:26 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT count(*) from party_board_comment
+        WHERE comment_board_seq = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-17 16:57:26 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|1        |
+|---------|
+[0;39m 
+[2024-07-17 17:02:30 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE party_board_comment
+        SET comment_contents = '11',
+        update_dt = NOW()
+        WHERE
+        comment_seq = 1
+        AND comment_member_seq = 1
+ {executed in 6 msec}[0;39m 
+[2024-07-17 17:03:08 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE party_board_comment
+        SET comment_contents = '수정테스트',
+        update_dt = NOW()
+        WHERE
+        comment_seq = 1
+        AND comment_member_seq = 304
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:03:21 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE party_board_comment
+        SET comment_contents = '수정테스트',
+        update_dt = NOW()
+        WHERE
+        comment_seq = 1
+        AND comment_member_seq = 211
+ {executed in 7 msec}[0;39m 
+[2024-07-17 17:08:20 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. DELETE FROM party_board_comment
+        WHERE
+        comment_seq = 1000
+        AND comment_member_seq = 384
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:20:09 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO party_board_comment
+        SET comment_board_seq = 1,
+        comment_member_seq = 1,
+        comment_contents = 'string',
+        input_dt = NOW()
+ {executed in 5 msec}[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        ORDER BY board_seq DESC
+        LIMIT 0, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------|----------------|-----------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------|
+|board_seq |board_party_seq |board_member_seq |board_title        |board_contents                                                                                                                                                                                                                             |board_hit |input_dt              |update_dt |
+|----------|----------------|-----------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------|
+|1008      |52              |333              |string             |string                                                                                                                                                                                                                                     |0         |2024-07-17 15:21:12.0 |[null]    |
+|1002      |1               |1                |string             |string                                                                                                                                                                                                                                     |0         |2024-07-12 13:13:22.0 |[null]    |
+|1001      |1               |1                |string             |string                                                                                                                                                                                                                                     |0         |2024-07-12 13:12:43.0 |[null]    |
+|999       |52              |333              |purus              |Quisque porta volutpat erat.                                                                                                                                                                                                               |61        |2024-07-08 09:31:29.0 |[null]    |
+|998       |74              |363              |nisl ut            |Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.                                                                                                                             |24        |2024-07-08 09:31:29.0 |[null]    |
+|997       |9               |79               |eros               |Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.                                                                              |41        |2024-07-08 09:31:29.0 |[null]    |
+|996       |73              |193              |vulputate          |Proin risus. Praesent lectus.                                                                                                                                                                                                              |54        |2024-07-08 09:31:29.0 |[null]    |
+|995       |38              |197              |convallis          |Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. |96        |2024-07-08 09:31:29.0 |[null]    |
+|994       |28              |394              |nullam varius      |Quisque ut erat.                                                                                                                                                                                                                           |97        |2024-07-08 09:31:29.0 |[null]    |
+|993       |53              |78               |justo pellentesque |Suspendisse potenti.                                                                                                                                                                                                                       |29        |2024-07-08 09:31:29.0 |[null]    |
+|----------|----------------|-----------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT COUNT(*) FROM party_board_master
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|1002     |
+|---------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 1008
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|board_pic_file                           |
+|-----------------------------------------|
+|fc8fb5e9-5ca7-4e78-adc2-bb526e4b6b04.jpg |
+|-----------------------------------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 1002
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 1001
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 999
+ {executed in 5 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 998
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 997
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 996
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 995
+ {executed in 1 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 994
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:27:45 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 993
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:27:45 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:47:13 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. UPDATE party_board_master
+        SET board_hit = board_hit + 1
+        WHERE board_seq = 1
+ {executed in 3 msec}[0;39m 
+[2024-07-17 17:47:13 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        WHERE board_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:13 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|----------|----------------|-----------------|------------|-------------------------------------------------------------------------|----------|----------------------|----------------------|
+|board_seq |board_party_seq |board_member_seq |board_title |board_contents                                                           |board_hit |input_dt              |update_dt             |
+|----------|----------------|-----------------|------------|-------------------------------------------------------------------------|----------|----------------------|----------------------|
+|1         |75              |254              |nisl nunc   |Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. |22        |2024-07-08 09:31:26.0 |2024-07-17 17:47:13.0 |
+|----------|----------------|-----------------|------------|-------------------------------------------------------------------------|----------|----------------------|----------------------|
+[0;39m 
+[2024-07-17 17:47:13 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:13 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:47:21 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. UPDATE party_board_master
+        SET board_hit = board_hit + 1
+        WHERE board_seq = 2
+ {executed in 5 msec}[0;39m 
+[2024-07-17 17:47:21 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        WHERE board_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:21 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|----------------|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+|board_seq |board_party_seq |board_member_seq |board_title |board_contents                                                                                                                                                                           |board_hit |input_dt              |update_dt             |
+|----------|----------------|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+|2         |44              |77               |tristique   |Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. |20        |2024-07-08 09:31:26.0 |2024-07-17 17:47:22.0 |
+|----------|----------------|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+[0;39m 
+[2024-07-17 17:47:21 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:21 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 17:47:25 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. UPDATE party_board_master
+        SET board_hit = board_hit + 1
+        WHERE board_seq = 4
+ {executed in 5 msec}[0;39m 
+[2024-07-17 17:47:25 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        WHERE board_seq = 4
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:25 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------|----------------|-----------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+|board_seq |board_party_seq |board_member_seq |board_title          |board_contents                                                                                                              |board_hit |input_dt              |update_dt             |
+|----------|----------------|-----------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+|4         |53              |321              |convallis morbi odio |Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. |5         |2024-07-08 09:31:26.0 |2024-07-17 17:47:25.0 |
+|----------|----------------|-----------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|----------|----------------------|----------------------|
+[0;39m 
+[2024-07-17 17:47:25 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = 4
+ {executed in 0 msec}[0;39m 
+[2024-07-17 17:47:25 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|---------------|
+|board_pic_file |
+|---------------|
+|---------------|
+[0;39m 
+[2024-07-17 18:26:03 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-17 18:26:03 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
