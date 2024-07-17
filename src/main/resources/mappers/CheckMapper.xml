@@ -67,10 +67,9 @@
         WHERE join_user_seq = #{joinUserSeq}
     </select>
     <select id="checkBudgetPartySeq">
-        SELECT budget_party_seq
-        FROM party_budget
-        GROUP BY budget_party_seq
-        HAVING budget_party_seq = #{budgetPartySeq}
+        SELECT party_seq
+        FROM party_master
+        WHERE party_seq = #{budgetPartySeq}
     </select>
     <select id="checkBudgetMemberSeq">
         SELECT member_seq
@@ -81,8 +80,7 @@
     <select id="checkBudgetSeq">
         SELECT budget_seq
         FROM party_budget
-        GROUP BY budget_seq
-        HAVING budget_seq = #{budgetSeq}
+        WHERE budget_seq = #{budgetSeq}
     </select>
     <select id="checkPlanSeq">
         SELECT plan_seq
