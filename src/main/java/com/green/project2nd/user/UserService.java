@@ -25,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,6 +49,7 @@ public class UserService {
     private final CookieUtils cookieUtils;
     private final AuthenticationFacade authenticationFacade;
     private final AppProperties appProperties;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Transactional
@@ -78,7 +80,7 @@ public class UserService {
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);
-        String hashPw = BCrypt.hashpw(p.getUserPw(), BCrypt.gensalt());
+        String hashPw = passwordEncoder.encode(p.getUserPw());
         p.setUserPw(hashPw);
 
         int result = mapper.postSignUp(p);
@@ -99,10 +101,12 @@ public class UserService {
     public SignInRes postSignIn(HttpServletResponse res, SignInReq p) {
         SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
 
-        if(user == null || !(p.getUserEmail().equals(user.getUserEmail()))
-                || !(BCrypt.checkpw(p.getUserPw(), user.getUserPw()))) {
+        if(user == null || !(p.getUserEmail().equals(user.getUserEmail())) || !(passwordEncoder.matches(p.getUserPw(), user.getUserPw()))) {
             throw new LoginException(LOGIN_MESSAGE);
         }
+
+
+
         MyUser myUser = MyUser.builder()
                 .userId(user.getUserSeq())
                 .role("ROLE_USER")
@@ -120,6 +124,13 @@ public class UserService {
                 .userNickname(user.getUserNickname())
                 .userPic(user.getUserPic())
                 .userSeq(user.getUserSeq())
+                .userBirth(user.getUserBirth())
+                .userName(user.getUserName())
+                .userGender(user.getUserGender())
+                .userEmail(user.getUserEmail())
+                .userAddr(user.getUserAddr())
+                .userPhone(user.getUserPhone())
+                .userGenderNm(user.getUserGenderNm())
                 .accessToken(accessToken)
                 .build();
     }
@@ -149,10 +160,10 @@ public class UserService {
 
         if(user == null) {
             throw new IdCheckException(ID_CHECK_MESSAGE);
-        } else if (!(BCrypt.checkpw(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
+        } else if (!(passwordEncoder.matches(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
-        String newPassword = BCrypt.hashpw(p.getUserNewPw(), BCrypt.gensalt());
+        String newPassword = passwordEncoder.encode(p.getUserNewPw());
         p.setUserNewPw(newPassword);
         p.setUserSeq(user.getUserSeq());
         return mapper.patchPassword(p);
@@ -194,7 +205,12 @@ public class UserService {
 
     @Transactional
     public String updateUserPic(UpdateUserPicReq p) throws Exception {
-//        p.setUserSeq(authenticationFacade.getLoginUserId());
+        try {
+//            p.setUserSeq(authenticationFacade.getLoginUserId());
+        } catch (Exception e) {
+            throw new RuntimeException("비회원입니다");
+        }
+//
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);

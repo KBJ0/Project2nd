@@ -19,10 +19,25 @@
     </insert>
 
     <select id="getSimpleUserInfo">
-        SELECT user_seq AS userSeq, user_email AS userEmail, user_pw AS userPw
-        , user_nickname AS userNickname, user_pic AS userPic
-        , input_dt AS inputDt, update_dt AS updateDt
-        FROM user_master
+        <!--        SELECT user_seq AS userSeq, user_email AS userEmail, user_pw AS userPw-->
+        <!--        , user_nickname AS userNickname, user_pic AS userPic, user_name AS userName, A.user_gender AS userGender`, B.CD_GB_NM AS userGenderNm-->
+        <!--        , user_birth AS userBirth-->
+        <!--        , input_dt AS inputDt, update_dt AS updateDt-->
+        <!--        FROM user_master-->
+        <!--        WHERE user_email = #{userEmail}-->
+        SELECT A.user_seq AS userSeq
+        , A.user_email AS userEmail
+        , A.user_name AS userName
+        , A.user_pw AS userPw
+        , A.user_nickname AS userNickname
+        , A.user_addr AS userAddr
+        , A.user_birth AS userBirth
+        , A.user_gender AS userGender, B.CD_GB_NM AS userGenderNm
+        , user_phone AS userPhone
+        , user_pic AS userPic
+        FROM user_master A
+        JOIN (SELECT CD_GB, CD_GB_NM FROM common_cd WHERE CD = 'US-00') B
+        ON A.user_gender = B.CD_GB
         WHERE user_email = #{userEmail}
     </select>
 

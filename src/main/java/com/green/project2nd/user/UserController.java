@@ -114,7 +114,7 @@ public class UserController {
     @ApiResponse(
             description =
                     "<p> ResponseCode 응답 코드 </p> " +
-                            "<p>  1 : 성공 -> 유저 PK, 유저 닉네임, 유저 프로필 사진, 토큰 </p> " +
+                            "<p>  1 : 성공 -> 유저 PK, 유저 닉네임, 유저 프로필 사진, 유저 성별, 유저 나이, 유저 이름, 이메일,주소,전화번호, 토큰 </p> " +
                             "<p>  2 : 실패 -> (비회원가입 or 아이디 틀림 or 비밀번호 틀림) </p> " +
                             "<p>  3 : 에러 "
     )

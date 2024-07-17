@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Setter
 public class SignInReq {
 
     @Schema(example = "abc123@naver.com", description = "유저 이메일")
