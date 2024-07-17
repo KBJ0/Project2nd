@@ -27,7 +27,6 @@ public class ReviewController {
     "<strong> 유저 리뷰 등록 (PostMan으로 테스트)</strong><p></p>" +
     "<p><strong> reviewPlanSeq      </strong> : 일정 PK (long) </p>" +
     "<p><strong> reviewPlmemberSeq  </strong> : 일정 참가자 PK (long) </p>" +
-    "<p><strong> reviewTitle        </strong> : 리뷰 제목 (String) </p>" +
     "<p><strong> reviewContents     </strong> : 내용 (String) </p>" +
     "<p><strong> reviewRating       </strong> : 별점 (int) </p>"
     )
@@ -39,9 +38,6 @@ public class ReviewController {
     )
     public ResultDto<PostReviewRes> postReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics, @RequestPart PostReviewReq p) {
 
-        if(p.getReviewTitle() == null) {    // 제목 예외처리
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "제목을 입력해주세요.");
-        }
         if(p.getReviewContents() == null) { // 내용 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "내용을 입력해주세요.");
         }
@@ -98,25 +94,27 @@ public class ReviewController {
                                "<p> 1 : 성공 (사진,리뷰내용 List 형식으로 리턴)</p>" +
                                "<p> 2 : 실패, ResultMsg</p>"
        )
-
        public ResultDto<GetReviewAllPageRes> getReviewAll(
-               @Nullable @RequestParam(name = "page") Integer page
-               , @Nullable @RequestParam(name = "size") Integer size
-               , @RequestParam(name = "search", defaultValue = "1") Integer search
+                @RequestParam(name = "search", defaultValue = "1") Integer search
                , @Nullable @RequestParam(name = "searchData") String searchData
+//               , @Nullable @RequestParam(name = "page") Integer page
+//               , @Nullable @RequestParam(name = "size") Integer size
        ) {
 
            if(searchData == null) {
                searchData = "";
            }
 
-           if(page < 0 && page != null) {
-               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
-           }
-
-           if(size < 0 && size != null) {
-               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
-           }
+//           if(page < 0 || page == null) {
+//               page = 0;
+//           }
+//
+//           if(size < 0 || size == null) {
+//               size = 0;
+//           }
+           //나중에 삭제
+           Integer page = 0;
+           Integer size = 0;
 
            GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
            GetReviewAllPageRes result = service.getReviewAll(p);
@@ -146,8 +144,8 @@ public class ReviewController {
        )
        public ResultDto<GetReviewUserPageRes> getReviewUser(@RequestParam(name = "search", defaultValue = "1") Integer search
                , @Nullable @RequestParam(name = "searchData") String searchData
-               , @Nullable @RequestParam(name = "page", defaultValue = "1") Integer page
-               , @Nullable @RequestParam(name = "size", defaultValue = "10") Integer size
+//               , @Nullable @RequestParam(name = "page") Integer page
+//               , @Nullable @RequestParam(name = "size") Integer size
                , @RequestParam(name = "userSeq") long userSeq) {
            if(userSeq == 0) {  //userSeq 예외처리
                return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "유저 PK가 전달되지 않았습니다.");
@@ -157,13 +155,17 @@ public class ReviewController {
                searchData = "";
            }
 
-           if(page < 0 && page != null) {
-               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "페이지는 자연수로 입력해주세요.");
-           }
+//           if(page < 0 || page == null) {
+//               page = 0;
+//           }
+//
+//           if(size < 0 || size == null) {
+//               size = 0;
+//           }
 
-           if(size < 0 && size != null) {
-               return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "사이즈는 자연수로 입력해주세요.");
-           }
+           //나중에 삭제
+           Integer page = 0;
+           Integer size = 0;
 
            GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
 
@@ -179,7 +181,6 @@ public class ReviewController {
     @Operation(summary = "리뷰 수정", description =
             "<strong> 유저 리뷰 수정 (PostMan으로 테스트)</strong><p></p>" +
                     "<p><strong> reviewSeq          </strong> : 리뷰 PK (long) </p>" +
-                    "<p><strong> reviewTitle        </strong> : 리뷰 제목 (String) </p>" +
                     "<p><strong> reviewContents     </strong> : 내용 (String) </p>" +
                     "<p><strong> reviewRating       </strong> : 별점 (int) </p>"
     )
@@ -189,13 +190,10 @@ public class ReviewController {
                             "<p> 1 : 성공 (사진 리턴)</p>" +
                             "<p> 2 : 실패, ResultMsg</p>"
     )
-    public ResultDto<List<String>> patchReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics
+    public ResultDto<List<GetReviewPicDto>> patchReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics
                                                          , @RequestPart PatchReviewReq p) {
         if(p.getReviewSeq() == 0) {         //리뷰PK 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "리뷰가 존재하지 않거나 리뷰 PK 값이 전달되지 않았습니다.");
-        }
-        if(p.getReviewTitle() == null) {    //제목 예외처리
-            return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "제목을 입력해주세요.");
         }
         if(p.getReviewContents() == null) { // 내용 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "내용을 입력해주세요.");
@@ -205,10 +203,11 @@ public class ReviewController {
         }
 
         try {
-            List<String> result = service.patchReview(pics, p);
+            List<GetReviewPicDto> result = service.patchReview(pics, p);
 
             return ResultDto.resultDto(HttpStatus.OK,1, "리뷰 수정 완료", result);
         } catch (Exception e){
+            log.info("e : {}", e);
             return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "파일 업로드 중 오류가 발생했습니다.");
         }
     }

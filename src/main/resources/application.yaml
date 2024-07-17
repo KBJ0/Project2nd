@@ -105,7 +105,7 @@ spring:
     activate:
       on-profile: tdd
   datasource:
-    url: jdbc:log4jdbc:mariadb://localhost:3306/project2nd
+    url: jdbc:log4jdbc:mariadb://localhost:3306/project2nd2
   sql:
     init:
       mode: always
