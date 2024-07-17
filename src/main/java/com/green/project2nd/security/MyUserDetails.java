@@ -14,25 +14,19 @@ import java.util.Collections;
 @NoArgsConstructor
 @Setter
 @Getter
-// 시큐리티에서 로그인 처리를 할 때 사용하는 객체
+
 public class MyUserDetails implements UserDetails { // , OAuth2User
 
-    private MyUser myUser;      // jwt 만들 때 payload 에 담을 데이터를 담은 객체
-
-//    @Builder.Default
-//    private List<String> roles = new ArrayList<>();     // 로그인한 사용자의 권한
+    private MyUser myUser;
 
 
-//    @Override
-//    public Map<String, Object> getAttributes() {
-//        return null;
-//    }
+
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<GrantedAuthority> list = new ArrayList<>();
-//        list.add(new SimpleGrantedAuthority(role));
-//        return list;
+
         return Collections.singletonList(new SimpleGrantedAuthority(myUser.getRole()));
     }
 
@@ -44,7 +38,7 @@ public class MyUserDetails implements UserDetails { // , OAuth2User
     @Override
     public String getUsername() {
         return
-//                myUser == null ? "GUEST" :
+
                 String.valueOf(myUser.getUserId());
     }
 
@@ -68,8 +62,5 @@ public class MyUserDetails implements UserDetails { // , OAuth2User
         return false;
     }
 
-//    @Override
-//    public String getName() {
-//        return null;
-//    }
+
 }
