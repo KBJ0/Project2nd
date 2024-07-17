@@ -1,9 +1,8 @@
 package com.green.project2nd.comment;
 
-import com.green.project2nd.comment.model.CommentDeleteReq;
-import com.green.project2nd.comment.model.CommentGetRes;
-import com.green.project2nd.comment.model.CommentPatchReq;
-import com.green.project2nd.comment.model.CommentPostReq;
+import com.green.project2nd.comment.comment_common.CommentGetPage;
+import com.green.project2nd.comment.model.*;
+import com.green.project2nd.common.GlobalConst;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,10 @@ public class CommentService {
         return res;
     }
 
-    public List<CommentGetRes> getBoardComment(long boardSeq) {
-        return mapper.getBoardComment(boardSeq);
+    public CommentGetPage getBoardComment(CommentGetReq data) {
+        List<CommentGetRes> list = mapper.getBoardComment(data);
+        long totalElements = mapper.getTotalCount(data.getBoardSeq());
+
+        return new CommentGetPage(list, GlobalConst.COMMENT_PAGING_SIZE, totalElements);
     }
 }

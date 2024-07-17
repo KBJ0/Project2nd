@@ -14,4 +14,5 @@ public class BoardPatchReq {
     private String boardContents;
     private List<String> nowFileNames;
     private List<String> deleteFileNames;
+    private int result;
 }

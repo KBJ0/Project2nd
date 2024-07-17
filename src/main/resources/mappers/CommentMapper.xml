@@ -9,7 +9,12 @@
         input_dt AS inputDt, update_dt AS updateDt
         FROM party_board_comment
         WHERE comment_board_seq = #{boardSeq}
-        ORDER BY input_dt DESC
+        limit #{startIdx}, #{size}
+    </select>
+
+    <select id="getTotalCount" resultType="long">
+        SELECT count(*) from party_board_comment
+        WHERE comment_board_seq = #{boardSeq}
     </select>
 
     <insert id="postBoardComment">

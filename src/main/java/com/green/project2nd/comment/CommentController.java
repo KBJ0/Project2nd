@@ -1,10 +1,8 @@
 package com.green.project2nd.comment;
 
 
-import com.green.project2nd.comment.model.CommentDeleteReq;
-import com.green.project2nd.comment.model.CommentGetRes;
-import com.green.project2nd.comment.model.CommentPatchReq;
-import com.green.project2nd.comment.model.CommentPostReq;
+import com.green.project2nd.comment.comment_common.CommentGetPage;
+import com.green.project2nd.comment.model.*;
 import com.green.project2nd.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.green.project2nd.common.GlobalConst.COMMENT_PAGING_SIZE;
 
 @Slf4j
 @RestController
@@ -57,11 +57,13 @@ public class CommentController {
 
     @GetMapping
     @Operation(summary = "댓글 조회")
-    public ResultDto<List<CommentGetRes>> getComment(@RequestParam(name = "boardSeq") long boardSeq) {
-        List<CommentGetRes> list = service.getBoardComment(boardSeq);
-        return ResultDto.<List<CommentGetRes>>builder()
+    public ResultDto<CommentGetPage> getComment(@RequestParam(name = "boardSeq") long boardSeq, Integer page) {
+        CommentGetReq data = new CommentGetReq(boardSeq, page, COMMENT_PAGING_SIZE);
+        CommentGetPage list = service.getBoardComment(data);
+        // List<CommentGetRes> list = service.getBoardComment(boardSeq);
+        return ResultDto.<CommentGetPage>builder()
                 .statusCode(HttpStatus.OK)
-                .resultMsg("")
+                .resultMsg("정상처리 되었습니다")
                 .resultData(list)
                 .build();
     }
