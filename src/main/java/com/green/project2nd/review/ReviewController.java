@@ -97,24 +97,21 @@ public class ReviewController {
        public ResultDto<GetReviewAllPageRes> getReviewAll(
                 @RequestParam(name = "search", defaultValue = "1") Integer search
                , @Nullable @RequestParam(name = "searchData") String searchData
-//               , @Nullable @RequestParam(name = "page") Integer page
-//               , @Nullable @RequestParam(name = "size") Integer size
+               , @Nullable @RequestParam(name = "page") Integer page
+               , @Nullable @RequestParam(name = "size") Integer size
        ) {
 
            if(searchData == null) {
                searchData = "";
            }
 
-//           if(page < 0 || page == null) {
-//               page = 0;
-//           }
-//
-//           if(size < 0 || size == null) {
-//               size = 0;
-//           }
-           //나중에 삭제
-           Integer page = 0;
-           Integer size = 0;
+           if(page == null || page < 0) {
+               page = 0;
+           }
+
+           if(size == null || size < 0) {
+               size = 0;
+           }
 
            GetReviewAllReq p = new GetReviewAllReq(page, size, search, searchData);
            GetReviewAllPageRes result = service.getReviewAll(p);
@@ -144,8 +141,8 @@ public class ReviewController {
        )
        public ResultDto<GetReviewUserPageRes> getReviewUser(@RequestParam(name = "search", defaultValue = "1") Integer search
                , @Nullable @RequestParam(name = "searchData") String searchData
-//               , @Nullable @RequestParam(name = "page") Integer page
-//               , @Nullable @RequestParam(name = "size") Integer size
+               , @Nullable @RequestParam(name = "page") Integer page
+               , @Nullable @RequestParam(name = "size") Integer size
                , @RequestParam(name = "userSeq") long userSeq) {
            if(userSeq == 0) {  //userSeq 예외처리
                return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "유저 PK가 전달되지 않았습니다.");
@@ -155,17 +152,13 @@ public class ReviewController {
                searchData = "";
            }
 
-//           if(page < 0 || page == null) {
-//               page = 0;
-//           }
-//
-//           if(size < 0 || size == null) {
-//               size = 0;
-//           }
+           if(page == null || page < 0) {
+               page = 0;
+           }
 
-           //나중에 삭제
-           Integer page = 0;
-           Integer size = 0;
+           if(size == null || size < 0) {
+               size = 0;
+           }
 
            GetReviewUserReq p = new GetReviewUserReq(page, size, search, userSeq, searchData);
 
