@@ -77,14 +77,25 @@
     </select>
     <select id="getPartyMine">
         SELECT
-            C.party_seq AS partySeq, A.user_name AS userName, C.party_name AS partyName, C.party_auth_gb AS partyAuthGb,
-            COUNT(B.member_party_seq) AS partyNowMem, C.party_maximum AS partyMaximum, C.party_pic AS partyPic
+        C.party_seq AS partySeq,
+        A.user_name AS userName,
+        C.party_name AS partyName,
+        C.party_auth_gb AS partyAuthGb,
+        partyNowMem.partyNowMem,
+        C.party_maximum AS partyMaximum,
+        C.party_pic AS partyPic
         FROM user_master A
         JOIN party_member B ON A.user_seq = B.member_user_seq
         JOIN party_master C ON B.member_party_seq = C.party_seq
-        WHERE B.member_role = 2 AND A.user_seq = #{userSeq}
-        GROUP BY
-            C.party_seq, A.user_name, C.party_name, C.party_auth_gb, C.party_maximum, C.party_pic
+        JOIN (
+        SELECT
+        member_party_seq,
+        COUNT(*) AS partyNowMem
+        FROM party_member
+        GROUP BY member_party_seq
+        ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
+        WHERE B.member_role = 2
+        AND A.user_seq = #{userSeq}
         ORDER BY C.input_dt DESC
         LIMIT #{startIdx}, #{size}
     </select>
@@ -98,14 +109,25 @@
     </select>
     <select id="getPartyLeader">
         SELECT
-            C.party_seq AS partySeq, A.user_name AS userName, C.party_name AS partyName, C.party_auth_gb AS partyAuthGb,
-            COUNT(B.member_party_seq) AS partyNowMem, C.party_maximum AS partyMaximum, C.party_pic AS partyPic
+        C.party_seq AS partySeq,
+        A.user_name AS userName,
+        C.party_name AS partyName,
+        C.party_auth_gb AS partyAuthGb,
+        partyNowMem.partyNowMem,
+        C.party_maximum AS partyMaximum,
+        C.party_pic AS partyPic
         FROM user_master A
         JOIN party_member B ON A.user_seq = B.member_user_seq
         JOIN party_master C ON B.member_party_seq = C.party_seq
-        WHERE B.member_role = 1 AND A.user_seq = #{userSeq}
-        GROUP BY
-            C.party_seq, A.user_name, C.party_name, C.party_auth_gb, C.party_maximum, C.party_pic
+        JOIN (
+        SELECT
+        member_party_seq,
+        COUNT(*) AS partyNowMem
+        FROM party_member
+        GROUP BY member_party_seq
+        ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
+        WHERE B.member_role = 1
+        AND A.user_seq = 1
         ORDER BY C.input_dt DESC
         LIMIT #{startIdx}, #{size}
     </select>
