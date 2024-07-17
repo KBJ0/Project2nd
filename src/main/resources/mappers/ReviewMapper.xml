@@ -48,7 +48,7 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        <if test="startIdx != 0 and size != 0">
+        <if test="size != 0">
             LIMIT #{startIdx}, #{size}
         </if>
     </select>
@@ -85,7 +85,7 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        <if test="startIdx != 0 and size != 0">
+        <if test="size != 0">
             LIMIT #{startIdx}, #{size}
         </if>
     </select>
