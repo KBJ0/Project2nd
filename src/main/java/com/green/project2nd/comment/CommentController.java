@@ -1,8 +1,9 @@
 package com.green.project2nd.comment;
 
 
+import com.green.project2nd.comment.comment_common.CommentGetPage;
 import com.green.project2nd.comment.model.CommentDeleteReq;
-import com.green.project2nd.comment.model.CommentGetRes;
+import com.green.project2nd.comment.model.CommentGetReq;
 import com.green.project2nd.comment.model.CommentPatchReq;
 import com.green.project2nd.comment.model.CommentPostReq;
 import com.green.project2nd.common.model.ResultDto;
@@ -13,7 +14,7 @@ import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import static com.green.project2nd.common.GlobalConst.COMMENT_PAGING_SIZE;
 
 @Slf4j
 @RestController
@@ -24,21 +25,22 @@ public class CommentController {
 
     @PostMapping
     @Operation(summary = "댓글 등록")
-    ResultDto<Long>postComment(@RequestBody CommentPostReq p) {
+    public ResultDto<Long> postComment(@RequestBody CommentPostReq p) {
         long result = service.postBoardComment(p);
-
         return ResultDto.<Long>builder()
+                .status(HttpStatus.OK)
                 .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
     }
+
     @DeleteMapping
     @Operation(summary = "댓글 삭제")
-    ResultDto<Integer> deleteComment(@RequestBody CommentDeleteReq p) {
+    public ResultDto<Integer> deleteComment(@RequestBody CommentDeleteReq p) {
         int result = service.deleteBoardComment(p);
-
         return ResultDto.<Integer>builder()
+                .status(HttpStatus.OK)
                 .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
@@ -47,24 +49,28 @@ public class CommentController {
 
     @PatchMapping
     @Operation(summary = "댓글 수정")
-    ResultDto<Integer> patchComment(@ModelAttribute@ParameterObject CommentPatchReq p) {
+    public ResultDto<Integer> patchComment(@ModelAttribute @ParameterObject CommentPatchReq p) {
         int result = service.patchBoardComment(p);
-
         return ResultDto.<Integer>builder()
+                .status(HttpStatus.OK)
                 .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
     }
-    @GetMapping
-    @Operation(summary = "댓글 조회(페이지 변경)")
-    ResultDto<List<CommentGetRes>> getComment(@RequestParam(name = "board_seq") long board_seq) {
-        List<CommentGetRes> list = service.getBoardComment(board_seq);
 
-        return ResultDto.<List<CommentGetRes>>builder()
+    @GetMapping
+    @Operation(summary = "댓글 조회")
+    public ResultDto<CommentGetPage> getComment(@RequestParam(name = "boardSeq") long boardSeq, Integer page) {
+        CommentGetReq data = new CommentGetReq(boardSeq, page, COMMENT_PAGING_SIZE);
+        CommentGetPage list = service.getBoardComment(data);
+        // List<CommentGetRes> list = service.getBoardComment(boardSeq);
+        return ResultDto.<CommentGetPage>builder()
+                .status(HttpStatus.OK)
                 .code(1)
-                .resultMsg("")
+                .resultMsg("정상처리 되었습니다")
                 .resultData(list)
                 .build();
     }
+
 }

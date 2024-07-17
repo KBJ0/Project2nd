@@ -26,15 +26,24 @@ public class BoardController {
     public ResultDto<BoardPostRes> postBoard(@RequestPart List<MultipartFile> pics, @RequestPart BoardPostReq p) {
         BoardPostRes result = service.postBoard(pics, p);
 
-        return ResultDto.resultDto(HttpStatus.OK,1,HttpStatus.OK.toString(),result);
+        return ResultDto.<BoardPostRes>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg(HttpStatus.OK.toString())
+                .resultData(result)
+                .build();
     }
     @DeleteMapping
     @Operation(summary = "게시글 삭제")
     public ResultDto<Integer> deleteBoard(@RequestBody BoardDeleteReq p ) {
         int result = service.deleteBoard(p);
 
-        return ResultDto.resultDto(HttpStatus.OK,1,result == 1 ? "정상처리" : "실패",result);
-
+        return ResultDto.<Integer>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg(result == 1 ? "정상처리" : "실패")
+                .resultData(result)
+                .build();
     }
 
     @PatchMapping
@@ -43,7 +52,8 @@ public class BoardController {
         int result = service.patchBoard(newPics, p);
         p.setResult(result);
         return ResultDto.<BoardPatchReq>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(p)
                 .build();
@@ -55,7 +65,8 @@ public class BoardController {
         BoardGetReq data = new BoardGetReq(0, page, GlobalConst.PAGING_SIZE);
         BoardGetPage list = service.getBoardList(data);
         return ResultDto.<BoardGetPage>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg("정상처리 되었습니다")
                 .resultData(list)
                 .build();
@@ -65,7 +76,8 @@ public class BoardController {
     public ResultDto<BoardGetRes> getBoard(@PathVariable long boardSeq) {
         BoardGetRes board = service.getBoard(boardSeq);
         return ResultDto.<BoardGetRes>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg("정상처리 되었습니다")
                 .resultData(board)
                 .build();
