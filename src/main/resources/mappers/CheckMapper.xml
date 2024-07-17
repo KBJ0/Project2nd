@@ -87,8 +87,7 @@
     <select id="checkPlanSeq">
         SELECT plan_seq
         FROM plan_master
-        GROUP BY plan_seq
-        HAVING plan_seq = #{planSeq}
+        WHERE plan_seq = #{planSeq}
     </select>
     <select id="checkPlanPartySeq">
         SELECT party_seq
