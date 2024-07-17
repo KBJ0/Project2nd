@@ -1196,3 +1196,229 @@ This generated password is for development use only. Your security configuration
 [2024-07-17 12:41:42 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
 [2024-07-17 12:41:48 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-17 12:41:48 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-17 14:38:51 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-17 14:38:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 3476 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-17 14:38:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-17 14:38:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-17 14:38:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-17 14:38:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-17 14:38:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-17 14:38:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1410 ms[0;39m 
+[2024-07-17 14:38:53 [31mERROR[0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatStarter] [36mError starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in file [D:\KBJ\BackEnd\Project2nd\build\classes\java\main\com\green\project2nd\security\jwt\JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtTokenProviderV2' defined in file [D:\KBJ\BackEnd\Project2nd\build\classes\java\main\com\green\project2nd\security\jwt\JwtTokenProviderV2.class]: Failed to instantiate [com.green.project2nd.security.jwt.JwtTokenProviderV2]: Constructor threw exception[0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStopping service [Tomcat][0;39m 
+[2024-07-17 14:38:53 [33mWARN [0;39m restartedMain] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] [36mException encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server[0;39m 
+[2024-07-17 14:38:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger] [36m
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.[0;39m 
+[2024-07-17 14:38:53 [31mERROR[0;39m restartedMain] [org.springframework.boot.SpringApplication] [36mApplication run failed[0;39m 
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.green.project2nd.Project2ndApplication.main(Project2ndApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:145)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationFilter' defined in file [D:\KBJ\BackEnd\Project2nd\build\classes\java\main\com\green\project2nd\security\jwt\JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtTokenProviderV2' defined in file [D:\KBJ\BackEnd\Project2nd\build\classes\java\main\com\green\project2nd\security\jwt\JwtTokenProviderV2.class]: Failed to instantiate [com.green.project2nd.security.jwt.JwtTokenProviderV2]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4880)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	... 18 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtTokenProviderV2' defined in file [D:\KBJ\BackEnd\Project2nd\build\classes\java\main\com\green\project2nd\security\jwt\JwtTokenProviderV2.class]: Failed to instantiate [com.green.project2nd.security.jwt.JwtTokenProviderV2]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:306)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 59 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.green.project2nd.security.jwt.JwtTokenProviderV2]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:111)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:315)
+	... 73 common frames omitted
+Caused by: io.jsonwebtoken.security.WeakKeyException: The specified key byte array is 56 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the Jwts.SIG.HS256.key() builder (or HS384.key() or HS512.key()) to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at io.jsonwebtoken.security.Keys.hmacShaKeyFor(Keys.java:83)
+	at com.green.project2nd.security.jwt.JwtTokenProviderV2.<init>(JwtTokenProviderV2.java:34)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208)
+	... 75 common frames omitted
+[2024-07-17 14:39:14 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 12328 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-17 14:39:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1323 ms[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@51d0d874[0;39m 
+[2024-07-17 14:39:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-17 14:39:16 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: a5525329-fd6c-4209-96f2-13e7ed1b6384
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65aa208b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49ef9288, org.springframework.security.web.context.SecurityContextHolderFilter@374995da, org.springframework.security.web.header.HeaderWriterFilter@36db6aa4, org.springframework.web.filter.CorsFilter@4fc0660a, org.springframework.security.web.authentication.logout.LogoutFilter@61d67f5a, com.green.project2nd.security.jwt.JwtAuthenticationFilter@4182291b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cef13f1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@369a8965, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25e19b55, org.springframework.security.web.session.SessionManagementFilter@107c509d, org.springframework.security.web.access.ExceptionTranslationFilter@6a71ec11, org.springframework.security.web.access.intercept.AuthorizationFilter@3a92df61][0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 2.969 seconds (process running for 3.368)[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-17 14:39:16 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-17 14:39:17 [32mINFO [0;39m http-nio-8080-exec-3] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 643 ms[0;39m 
+[2024-07-17 14:39:29 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-17 14:39:29 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+            A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+            COUNT(B.member_party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+            A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+            A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = A.party_seq AND B.member_role = 1
+        GROUP BY
+            A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+            A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        ORDER BY A.input_dt DESC
+ {executed in 11 msec}[0;39m 
+[2024-07-17 14:39:29 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|------------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+|party_seq |party_name |party_genre |party_location |partylocation1 |partylocation2 |party_min_age |party_max_age |party_gender |partynowmem |party_maximum |party_join_gb |party_intro |party_join_form |party_auth_gb |party_pic                                 |input_dt            |update_dt           |user_seq |user_name |user_pic                                 |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|------------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+|5         |2-1 5      |1           |1              |null           |null           |1901          |2155          |1            |1           |2             |1             |소개          |가입양식            |0             |f1fedf66-320c-43c7-b314-4da566835291.jpg  |2024-07-17 12:15:41 |null                |2        |test      |57498607-1e4c-4c68-b361-368770ac694f.jpg |
+|4         |10-1 10    |1           |1              |null           |null           |2010          |2022          |1            |1           |2             |1             |소개          |가입양식            |0             |c1fa7b97-2fc4-4678-9252-092896b55af5.webp |2024-07-16 17:28:08 |null                |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|3         |1-3 3      |1           |601            |광주             |광진구            |2010          |2022          |1            |1           |2             |1             |소개          |가입양식            |0             |32af7bfc-5b4d-4dac-a332-1693c45411c0.png  |2024-07-12 16:28:18 |2024-07-15 16:06:01 |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|2         |1-2 2      |1           |111            |서울             |거제시            |2010          |2022          |1            |1           |2             |1             |소개          |가입양식            |0             |af7e1626-f6d7-44fe-a8b1-7619784e2111.png  |2024-07-12 16:28:15 |2024-07-15 16:04:43 |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|1         |1-1 1      |1           |101            |서울             |강남구            |2010          |2022          |1            |1           |2             |1             |소개          |가입양식            |1             |21a166e8-6846-4d15-a9f4-130cc572a469.png  |2024-07-12 16:18:23 |2024-07-15 16:04:40 |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|------------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+[0;39m 
+[2024-07-17 14:39:47 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-17 14:39:47 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-17 14:39:47 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-17 14:39:47 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+            A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+            COUNT(B.member_party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+            A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = 1 AND B.member_role = 1
+        GROUP BY
+            A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+            A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        ORDER BY A.input_dt DESC
+ {executed in 0 msec}[0;39m 
+[2024-07-17 14:39:47 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+|party_seq |party_name |party_genre |party_location |partylocation1 |partylocation2 |party_min_age |party_max_age |party_gender |partynowmem |party_maximum |party_join_gb |party_intro |party_join_form |party_auth_gb |party_pic                                |input_dt            |update_dt           |user_seq |user_name |user_pic                                 |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+|1         |1-1 1      |1           |101            |서울             |강남구            |2010          |2022          |1            |1           |2             |1             |소개          |가입양식            |1             |21a166e8-6846-4d15-a9f4-130cc572a469.png |2024-07-12 16:18:23 |2024-07-15 16:04:40 |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
+[0;39m 
+[2024-07-17 14:40:17 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-17 14:40:17 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
