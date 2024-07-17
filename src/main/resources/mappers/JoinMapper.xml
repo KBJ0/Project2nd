@@ -44,7 +44,7 @@
         INSERT INTO party_member
         SET member_party_seq = #{joinPartySeq}
         , member_user_seq = #{joinUserSeq}
-        , member_role = 1
+        , member_role = 2
         , member_gb = 1
     </insert>
 

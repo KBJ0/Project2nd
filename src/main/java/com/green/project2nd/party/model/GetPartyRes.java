@@ -8,6 +8,7 @@ public class GetPartyRes {
     @Schema(example = "1", description = "모임 PK")private long partySeq;
     @Schema(example = "축구 모임", description = "모임 이름")private String partyName;
     @Schema(example = "스포츠", description = "모임 분야")private String partyGenre;
+    @Schema(example = "0101", description = "모임 지역")private String partyLocation;
     @Schema(example = "서울", description = "모임 지역 시")private String partyLocation1;
     @Schema(example = "강남구", description = "모임 지역 구")private String partyLocation2;
     @Schema(example = "2010", description = "최소년도")private int partyMinAge;
