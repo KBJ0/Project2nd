@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.project2nd.partywish.PartyWishMapper">
+    <insert id="insertPartyWish">
+        INSERT INTO party_wish
+        SET wish_user_seq = #{userSeq}
+          , wish_party_seq = #{partySeq}
+    </insert>
+
+    <delete id="deletePartyWish">
+        DELETE FROM party_wish
+        WHERE wish_user_seq = #{userSeq}
+          AND wish_party_seq = #{partySeq}
+    </delete>
+
+
+</mapper>
