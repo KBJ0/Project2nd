@@ -27,7 +27,8 @@ public class BoardController {
         BoardPostRes result = service.postBoard(pics, p);
 
         return ResultDto.<BoardPostRes>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg(HttpStatus.OK.toString())
                 .resultData(result)
                 .build();
@@ -38,7 +39,8 @@ public class BoardController {
         int result = service.deleteBoard(p);
 
         return ResultDto.<Integer>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(result)
                 .build();
@@ -50,7 +52,8 @@ public class BoardController {
         int result = service.patchBoard(newPics, p);
         p.setResult(result);
         return ResultDto.<BoardPatchReq>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg(result == 1 ? "정상처리" : "실패")
                 .resultData(p)
                 .build();
@@ -62,7 +65,8 @@ public class BoardController {
         BoardGetReq data = new BoardGetReq(0, page, GlobalConst.PAGING_SIZE);
         BoardGetPage list = service.getBoardList(data);
         return ResultDto.<BoardGetPage>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg("정상처리 되었습니다")
                 .resultData(list)
                 .build();
@@ -72,7 +76,8 @@ public class BoardController {
     public ResultDto<BoardGetRes> getBoard(@PathVariable long boardSeq) {
         BoardGetRes board = service.getBoard(boardSeq);
         return ResultDto.<BoardGetRes>builder()
-                .statusCode(HttpStatus.OK)
+                .status(HttpStatus.OK)
+                .code(1)
                 .resultMsg("정상처리 되었습니다")
                 .resultData(board)
                 .build();
