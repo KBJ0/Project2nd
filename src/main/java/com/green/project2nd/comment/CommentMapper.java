@@ -1,10 +1,7 @@
 package com.green.project2nd.comment;
 
 
-import com.green.project2nd.comment.model.CommentDeleteReq;
-import com.green.project2nd.comment.model.CommentGetRes;
-import com.green.project2nd.comment.model.CommentPatchReq;
-import com.green.project2nd.comment.model.CommentPostReq;
+import com.green.project2nd.comment.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,5 +13,6 @@ public interface CommentMapper {
     long postBoardComment(CommentPostReq p);
     int deleteBoardComment(CommentDeleteReq p);
     int patchBoardComment(CommentPatchReq p);
-    List<CommentGetRes> getBoardComment(long boardSeq);
+    List<CommentGetRes> getBoardComment(CommentGetReq data);
+    long getTotalCount(long CommentBoardSeq);
 }

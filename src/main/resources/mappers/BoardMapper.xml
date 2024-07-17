@@ -6,10 +6,9 @@
 
     <insert id="postBoard" useGeneratedKeys="true" keyProperty="boardSeq">
         INSERT INTO party_board_master
-        SET board_party_seq = #{boardPartySeq}
-        ,board_member_seq = #{boardMemberSeq}
-        ,board_title = #{boardTitle}
-        ,board_contents = #{boardContents}
+        (board_party_seq, board_member_seq, board_title, board_contents)
+        VALUES
+        (#{boardPartySeq}, #{boardMemberSeq}, #{boardTitle}, #{boardContents})
     </insert>
 
     <insert id="postBoardPics">
@@ -18,14 +17,66 @@
         <foreach collection="fileNames" item="fileName" separator=",">
             (#{boardSeq}, #{fileName}, current_timestamp())
         </foreach>
-
     </insert>
+
+    <update id="patchBoard">
+        UPDATE party_board_master
+        SET board_title = #{boardTitle},
+        board_contents = #{boardContents}
+        WHERE board_seq = #{boardSeq}
+    </update>
+
+    <select id="getFileNamesByBoardSeq">
+        SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = #{boardSeq}
+    </select>
+
     <delete id="deleteBoard">
         DELETE FROM party_board_master WHERE board_seq = #{boardSeq}
-    </delete>
-    <delete id="deleteBoardPic">
-        DELETE FROM party_board_pic WHERE board_pic_board_seq = #{boardSeq}
+        AND board_member_seq = #{boardMemberSeq}
     </delete>
 
+    <delete id="deleteBoardPics">
+        DELETE FROM party_board_pic WHERE board_pic_board_seq = #{boardSeq}
+        AND board_pic_file = #{fileName}
+    </delete>
+
+    <update id="incrementBoardHit">
+        UPDATE party_board_master
+        SET board_hit = board_hit + 1
+        WHERE board_seq = #{boardSeq}
+    </update>
+
+    <select id="getBoardList">
+        SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        ORDER BY board_seq DESC
+        LIMIT #{startIdx}, #{size}
+    </select>
+
+    <select id="getTotalCount">
+        SELECT COUNT(*) FROM party_board_master
+    </select>
+
+    <select id="getBoard">
+        SELECT
+        board_seq AS boardSeq,
+        board_party_seq AS boardPartySeq,
+        board_member_seq AS boardMemberSeq,
+        board_title AS boardTitle,
+        board_contents AS boardContents,
+        board_hit AS boardHit,
+        input_dt AS inputDt,
+        update_dt AS updateDt
+        FROM party_board_master
+        WHERE board_seq = #{boardSeq}
+    </select>
 
 </mapper>

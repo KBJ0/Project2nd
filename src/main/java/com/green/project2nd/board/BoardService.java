@@ -50,15 +50,24 @@ public class BoardService {
     }
 
     public int deleteBoard(BoardDeleteReq p) {
-        mapper.deleteBoardPics(p.getBoardSeq());
-        return mapper.deleteBoard(p.getBoardSeq());
+        List<String> fileNames = mapper.getFileNamesByBoardSeq(p.getBoardSeq());
+        for (String fileName : fileNames) {
+            mapper.deleteBoardPics(p.getBoardSeq(), fileName);
+        }
+        return mapper.deleteBoard(p.getBoardSeq(), p.getBoardMemberSeq());
     }
 
-    public int boardPatch(List<MultipartFile> newPics, BoardPatchReq p) {
-        mapper.patchBoard(p);
 
-        if(newPics == null || p.getDeleteFileNames() == null) {
-            return mapper.deleteBoard(p.getBoardSeq());}
+    public int patchBoard(List<MultipartFile> newPics, BoardPatchReq p) {
+        int updateCount = mapper.patchBoard(p);
+        if (updateCount == 0) {
+            throw new RuntimeException("수정된 부분이없음");
+        }
+
+        boolean hasChanges = (newPics != null && !newPics.isEmpty()) || (p.getDeleteFileNames() != null && !p.getDeleteFileNames().isEmpty());
+        if (!hasChanges) {
+            return 0;
+        }
 
         BoardPicPostDto dto = BoardPicPostDto.builder().boardSeq(p.getBoardSeq()).
                 fileNames(new ArrayList()).build();
@@ -69,7 +78,7 @@ public class BoardService {
                 for(String fileName : p.getDeleteFileNames()) {
                     String target = String.format("%s/%s" , path, fileName);
                     customFileUtils.deleteFolder(target);
-                    mapper.deleteBoardPics(p.getBoardSeq());
+                    mapper.deleteBoardPics(p.getBoardSeq(), fileName);
                 }
             }
 
@@ -86,7 +95,26 @@ public class BoardService {
             e.printStackTrace();
             throw new RuntimeException("board 수정 오류");
         }
-        return mapper.deleteBoard(p.getBoardSeq());
+        return 1;
 
+    }
+    public BoardGetRes getBoard(long boardSeq) {
+        mapper.incrementBoardHit(boardSeq);
+        BoardGetRes board = mapper.getBoard(boardSeq);
+        List<String> pics = mapper.getFileNamesByBoardSeq(boardSeq);
+        board.setPics(pics);
+        return board;
+    }
+
+    public BoardGetPage getBoardList(BoardGetReq data) {
+        List<BoardGetRes> list = mapper.getBoardList(data);
+        long totalElements = mapper.getTotalCount();
+
+        for (BoardGetRes board : list) {
+            List<String> pics = mapper.getFileNamesByBoardSeq(board.getBoardSeq());
+            board.setPics(pics);
+        }
+
+        return new BoardGetPage(list, data.getSize(), totalElements);
     }
 }
