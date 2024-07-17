@@ -9,5 +9,7 @@ import lombok.ToString;
 @ToString
 public class GetPlanMemberRes {
     private long planSeq;
+    private long plmemberSeq;
+    private long userSeq;
     private String userName;
 }

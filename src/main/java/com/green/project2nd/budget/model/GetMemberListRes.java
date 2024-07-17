@@ -7,4 +7,6 @@ import lombok.Setter;
 @Setter
 public class GetMemberListRes {
     private long memberSeq;
+    private String userName;
+    private String userNickname;
 }
