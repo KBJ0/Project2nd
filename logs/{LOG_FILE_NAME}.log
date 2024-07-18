@@ -9127,3 +9127,1896 @@ This generated password is for development use only. Your security configuration
 |53       |
 |---------|
 [0;39m 
+[2024-07-18 16:59:25 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 16:59:25 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 2 msec}[0;39m 
+[2024-07-18 16:59:25 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic |review_contents |review_rating |input_dt |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 16:59:25 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 2 msec}[0;39m 
+[2024-07-18 16:59:25 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+[0;39m 
+[2024-07-18 16:59:36 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-18 16:59:36 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-18 16:59:38 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-18 16:59:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 1976 (D:\Students\2024_01\backEnd\1\Project2nd\build\classes\java\main started by Administrator in D:\Students\2024_01\backEnd\1\Project2nd)[0;39m 
+[2024-07-18 16:59:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-18 16:59:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-18 16:59:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-18 16:59:39 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1335 ms[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5a472db6[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-18 16:59:40 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 0c3dc7ba-8b2f-4536-b97d-8a01d942961a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-18 16:59:40 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@40707c43, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59fcb5fe, org.springframework.security.web.context.SecurityContextHolderFilter@f8ac03b, org.springframework.security.web.header.HeaderWriterFilter@21a7375a, org.springframework.web.filter.CorsFilter@b5d9c2d, org.springframework.security.web.authentication.logout.LogoutFilter@646593a1, com.green.project2nd.security.jwt.JwtAuthenticationFilter@5410797e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fee3b0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6da13239, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1172af30, org.springframework.security.web.session.SessionManagementFilter@8ebb263, org.springframework.security.web.access.ExceptionTranslationFilter@170efacb, org.springframework.security.web.access.intercept.AuthorizationFilter@2af67c77][0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 2.964 seconds (process running for 3.349)[0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-18 16:59:41 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                               |review_rating |input_dt            |party_seq |party_name    |president |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|526        |1               |2                   |622      |Lemmy     |random.jpg |내용                                                                                                                                                                                                                                                            |5.0           |2024-07-17 10:57:42 |76        |Kazu          |모임장 없음    |
+|524        |1               |1                   |434      |Tremain   |random.jpg |내용수1                                                                                                                                                                                                                                                          |1.0           |2024-07-09 13:06:25 |25        |Thoughtbridge |모임장 없음    |
+|517        |916             |504                 |272      |Artie     |random.jpg |In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.                                                                                                                                                                                      |4.0           |2024-07-08 09:41:17 |20        |Edgepulse     |모임장 없음    |
+|516        |930             |727                 |162      |Dino      |random.jpg |Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. |0.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|515        |774             |763                 |307      |Toddy     |random.jpg |Nunc rhoncus dui vel sem.                                                                                                                                                                                                                                     |3.0           |2024-07-08 09:41:17 |65        |Realfire      |모임장 없음    |
+|514        |457             |849                 |341      |Leonerd   |random.jpg |Curabitur convallis.                                                                                                                                                                                                                                          |2.0           |2024-07-08 09:41:17 |69        |Lazzy         |모임장 없음    |
+|513        |796             |549                 |150      |Bill      |random.jpg |Quisque ut erat. Curabitur gravida nisi at nibh.                                                                                                                                                                                                              |3.0           |2024-07-08 09:41:17 |55        |Zoombeat      |모임장 없음    |
+|512        |797             |622                 |476      |Fonzie    |random.jpg |Integer ac neque.                                                                                                                                                                                                                                             |3.0           |2024-07-08 09:41:17 |57        |Tagchat       |모임장 없음    |
+|511        |370             |626                 |326      |Spike     |random.jpg |Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.                                                                                                                                                       |5.0           |2024-07-08 09:41:17 |38        |Digitube      |모임장 없음    |
+|510        |226             |727                 |162      |Dino      |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.                                 |5.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 526
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|feca2cb1-d735-406f-9099-22b00f345a4d.png |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 524
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|8b26204c-45e8-4819-a936-5d0848c13868.gif |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 517
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 516
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 515
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 514
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 513
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 512
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 511
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 510
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 6 msec}[0;39m 
+[2024-07-18 16:59:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 10, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                 |review_rating |input_dt            |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|509        |998             |982                 |986      |Gardy     |random.jpg |Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.                                                                                   |4.0           |2024-07-08 09:41:17 |44        |Quamba     |모임장 없음    |
+|508        |300             |255                 |676      |Abel      |random.jpg |Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.                                                                                              |5.0           |2024-07-08 09:41:17 |46        |Rhynyx     |모임장 없음    |
+|507        |560             |814                 |332      |Orin      |random.jpg |Quisque porta volutpat erat.                                                                                                                                    |4.0           |2024-07-08 09:41:17 |55        |Zoombeat   |모임장 없음    |
+|506        |673             |131                 |227      |Nikki     |random.jpg |Curabitur convallis.                                                                                                                                            |1.0           |2024-07-08 09:41:17 |38        |Digitube   |모임장 없음    |
+|505        |857             |636                 |328      |Sylvan    |random.jpg |Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. |3.0           |2024-07-08 09:41:17 |29        |Mynte      |모임장 없음    |
+|504        |677             |419                 |89       |Aldo      |random.jpg |Nunc purus. Phasellus in felis. Donec semper sapien a libero.                                                                                                   |3.0           |2024-07-08 09:41:17 |61        |Buzzster   |모임장 없음    |
+|503        |98              |560                 |777      |Melvin    |random.jpg |Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.                    |1.0           |2024-07-08 09:41:17 |69        |Lazzy      |모임장 없음    |
+|502        |516             |740                 |113      |Rex       |random.jpg |Suspendisse accumsan tortor quis turpis. Sed ante.                                                                                                              |2.0           |2024-07-08 09:41:17 |2         |Flashspan  |모임장 없음    |
+|501        |483             |845                 |36       |Si        |random.jpg |Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.            |5.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|500        |263             |745                 |986      |Gardy     |random.jpg |Pellentesque at nulla. Suspendisse potenti.                                                                                                                     |4.0           |2024-07-08 09:41:17 |44        |Quamba     |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 509
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 508
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 507
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 506
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 505
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 504
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 503
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 502
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 501
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 500
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:54 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 6 msec}[0;39m 
+[2024-07-18 16:59:54 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 20, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                                                                          |review_rating |input_dt            |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|499        |320             |719                 |412      |Alberto   |random.jpg |Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.                                                                                                                                                                                                            |1.0           |2024-07-08 09:41:17 |5         |Eazzy      |모임장 없음    |
+|498        |914             |243                 |534      |Ambrosio  |random.jpg |Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.                                                                                                                                                     |1.0           |2024-07-08 09:41:17 |49        |Bubblebox  |모임장 없음    |
+|497        |189             |937                 |402      |Ellerey   |random.jpg |Nam dui.                                                                                                                                                                                                                                                                                                 |2.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|496        |942             |776                 |954      |Colby     |random.jpg |Fusce posuere felis sed lacus.                                                                                                                                                                                                                                                                           |4.0           |2024-07-08 09:41:17 |36        |Kayveo     |모임장 없음    |
+|495        |944             |813                 |9        |Fran      |random.jpg |Duis consequat dui nec nisi volutpat eleifend.                                                                                                                                                                                                                                                           |5.0           |2024-07-08 09:41:17 |7         |Skyndu     |모임장 없음    |
+|494        |691             |359                 |763      |Wendel    |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.                                                                                                                                                                                                    |2.0           |2024-07-08 09:41:17 |36        |Kayveo     |모임장 없음    |
+|493        |994             |391                 |619      |Artemas   |random.jpg |Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. |4.0           |2024-07-08 09:41:17 |33        |Avamba     |모임장 없음    |
+|492        |51              |499                 |456      |Parry     |random.jpg |Suspendisse potenti.                                                                                                                                                                                                                                                                                     |5.0           |2024-07-08 09:41:17 |18        |Edgewire   |모임장 없음    |
+|491        |586             |75                  |307      |Toddy     |random.jpg |Donec semper sapien a libero. Nam dui.                                                                                                                                                                                                                                                                   |0.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|490        |625             |644                 |661      |Welch     |random.jpg |Duis ac nibh.                                                                                                                                                                                                                                                                                            |2.0           |2024-07-08 09:41:17 |77        |Oyope      |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 499
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 498
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 497
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 496
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 495
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 494
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 493
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 492
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 491
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 490
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:57 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 8 msec}[0;39m 
+[2024-07-18 16:59:57 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 20, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                                                                          |review_rating |input_dt            |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|499        |320             |719                 |412      |Alberto   |random.jpg |Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.                                                                                                                                                                                                            |1.0           |2024-07-08 09:41:17 |5         |Eazzy      |모임장 없음    |
+|498        |914             |243                 |534      |Ambrosio  |random.jpg |Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.                                                                                                                                                     |1.0           |2024-07-08 09:41:17 |49        |Bubblebox  |모임장 없음    |
+|497        |189             |937                 |402      |Ellerey   |random.jpg |Nam dui.                                                                                                                                                                                                                                                                                                 |2.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|496        |942             |776                 |954      |Colby     |random.jpg |Fusce posuere felis sed lacus.                                                                                                                                                                                                                                                                           |4.0           |2024-07-08 09:41:17 |36        |Kayveo     |모임장 없음    |
+|495        |944             |813                 |9        |Fran      |random.jpg |Duis consequat dui nec nisi volutpat eleifend.                                                                                                                                                                                                                                                           |5.0           |2024-07-08 09:41:17 |7         |Skyndu     |모임장 없음    |
+|494        |691             |359                 |763      |Wendel    |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.                                                                                                                                                                                                    |2.0           |2024-07-08 09:41:17 |36        |Kayveo     |모임장 없음    |
+|493        |994             |391                 |619      |Artemas   |random.jpg |Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. |4.0           |2024-07-08 09:41:17 |33        |Avamba     |모임장 없음    |
+|492        |51              |499                 |456      |Parry     |random.jpg |Suspendisse potenti.                                                                                                                                                                                                                                                                                     |5.0           |2024-07-08 09:41:17 |18        |Edgewire   |모임장 없음    |
+|491        |586             |75                  |307      |Toddy     |random.jpg |Donec semper sapien a libero. Nam dui.                                                                                                                                                                                                                                                                   |0.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|490        |625             |644                 |661      |Welch     |random.jpg |Duis ac nibh.                                                                                                                                                                                                                                                                                            |2.0           |2024-07-08 09:41:17 |77        |Oyope      |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 499
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 498
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 497
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 496
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 495
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 494
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 493
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 492
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 491
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 490
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 16:59:59 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 7 msec}[0;39m 
+[2024-07-18 16:59:59 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                               |review_rating |input_dt            |party_seq |party_name    |president |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|526        |1               |2                   |622      |Lemmy     |random.jpg |내용                                                                                                                                                                                                                                                            |5.0           |2024-07-17 10:57:42 |76        |Kazu          |모임장 없음    |
+|524        |1               |1                   |434      |Tremain   |random.jpg |내용수1                                                                                                                                                                                                                                                          |1.0           |2024-07-09 13:06:25 |25        |Thoughtbridge |모임장 없음    |
+|517        |916             |504                 |272      |Artie     |random.jpg |In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.                                                                                                                                                                                      |4.0           |2024-07-08 09:41:17 |20        |Edgepulse     |모임장 없음    |
+|516        |930             |727                 |162      |Dino      |random.jpg |Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. |0.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|515        |774             |763                 |307      |Toddy     |random.jpg |Nunc rhoncus dui vel sem.                                                                                                                                                                                                                                     |3.0           |2024-07-08 09:41:17 |65        |Realfire      |모임장 없음    |
+|514        |457             |849                 |341      |Leonerd   |random.jpg |Curabitur convallis.                                                                                                                                                                                                                                          |2.0           |2024-07-08 09:41:17 |69        |Lazzy         |모임장 없음    |
+|513        |796             |549                 |150      |Bill      |random.jpg |Quisque ut erat. Curabitur gravida nisi at nibh.                                                                                                                                                                                                              |3.0           |2024-07-08 09:41:17 |55        |Zoombeat      |모임장 없음    |
+|512        |797             |622                 |476      |Fonzie    |random.jpg |Integer ac neque.                                                                                                                                                                                                                                             |3.0           |2024-07-08 09:41:17 |57        |Tagchat       |모임장 없음    |
+|511        |370             |626                 |326      |Spike     |random.jpg |Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.                                                                                                                                                       |5.0           |2024-07-08 09:41:17 |38        |Digitube      |모임장 없음    |
+|510        |226             |727                 |162      |Dino      |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.                                 |5.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 526
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|feca2cb1-d735-406f-9099-22b00f345a4d.png |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 524
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|8b26204c-45e8-4819-a936-5d0848c13868.gif |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 517
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 516
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 515
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 514
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 513
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 512
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 511
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 510
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:00:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 7 msec}[0;39m 
+[2024-07-18 17:00:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','a','%') 
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 7 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                               |review_rating |input_dt            |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+|526        |1               |2                   |622      |Lemmy     |random.jpg |내용                                                                                                                                                                                                                                                            |5.0           |2024-07-17 10:57:42 |76        |Kazu       |모임장 없음    |
+|516        |930             |727                 |162      |Dino      |random.jpg |Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. |0.0           |2024-07-08 09:41:17 |63        |Photospace |모임장 없음    |
+|515        |774             |763                 |307      |Toddy     |random.jpg |Nunc rhoncus dui vel sem.                                                                                                                                                                                                                                     |3.0           |2024-07-08 09:41:17 |65        |Realfire   |모임장 없음    |
+|514        |457             |849                 |341      |Leonerd   |random.jpg |Curabitur convallis.                                                                                                                                                                                                                                          |2.0           |2024-07-08 09:41:17 |69        |Lazzy      |모임장 없음    |
+|513        |796             |549                 |150      |Bill      |random.jpg |Quisque ut erat. Curabitur gravida nisi at nibh.                                                                                                                                                                                                              |3.0           |2024-07-08 09:41:17 |55        |Zoombeat   |모임장 없음    |
+|512        |797             |622                 |476      |Fonzie    |random.jpg |Integer ac neque.                                                                                                                                                                                                                                             |3.0           |2024-07-08 09:41:17 |57        |Tagchat    |모임장 없음    |
+|510        |226             |727                 |162      |Dino      |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.                                 |5.0           |2024-07-08 09:41:17 |63        |Photospace |모임장 없음    |
+|509        |998             |982                 |986      |Gardy     |random.jpg |Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.                                                                                                                                                                                 |4.0           |2024-07-08 09:41:17 |44        |Quamba     |모임장 없음    |
+|507        |560             |814                 |332      |Orin      |random.jpg |Quisque porta volutpat erat.                                                                                                                                                                                                                                  |4.0           |2024-07-08 09:41:17 |55        |Zoombeat   |모임장 없음    |
+|503        |98              |560                 |777      |Melvin    |random.jpg |Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.                                                                                                                  |1.0           |2024-07-08 09:41:17 |69        |Lazzy      |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 526
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|feca2cb1-d735-406f-9099-22b00f345a4d.png |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 516
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 515
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 514
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 513
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 512
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 510
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 509
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 507
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 503
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:00 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','a','%')
+ {executed in 5 msec}[0;39m 
+[2024-07-18 17:01:00 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|263      |
+|---------|
+[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                               |review_rating |input_dt            |party_seq |party_name    |president |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|526        |1               |2                   |622      |Lemmy     |random.jpg |내용                                                                                                                                                                                                                                                            |5.0           |2024-07-17 10:57:42 |76        |Kazu          |모임장 없음    |
+|524        |1               |1                   |434      |Tremain   |random.jpg |내용수1                                                                                                                                                                                                                                                          |1.0           |2024-07-09 13:06:25 |25        |Thoughtbridge |모임장 없음    |
+|517        |916             |504                 |272      |Artie     |random.jpg |In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.                                                                                                                                                                                      |4.0           |2024-07-08 09:41:17 |20        |Edgepulse     |모임장 없음    |
+|516        |930             |727                 |162      |Dino      |random.jpg |Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. |0.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|515        |774             |763                 |307      |Toddy     |random.jpg |Nunc rhoncus dui vel sem.                                                                                                                                                                                                                                     |3.0           |2024-07-08 09:41:17 |65        |Realfire      |모임장 없음    |
+|514        |457             |849                 |341      |Leonerd   |random.jpg |Curabitur convallis.                                                                                                                                                                                                                                          |2.0           |2024-07-08 09:41:17 |69        |Lazzy         |모임장 없음    |
+|513        |796             |549                 |150      |Bill      |random.jpg |Quisque ut erat. Curabitur gravida nisi at nibh.                                                                                                                                                                                                              |3.0           |2024-07-08 09:41:17 |55        |Zoombeat      |모임장 없음    |
+|512        |797             |622                 |476      |Fonzie    |random.jpg |Integer ac neque.                                                                                                                                                                                                                                             |3.0           |2024-07-08 09:41:17 |57        |Tagchat       |모임장 없음    |
+|511        |370             |626                 |326      |Spike     |random.jpg |Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.                                                                                                                                                       |5.0           |2024-07-08 09:41:17 |38        |Digitube      |모임장 없음    |
+|510        |226             |727                 |162      |Dino      |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.                                 |5.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 526
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|feca2cb1-d735-406f-9099-22b00f345a4d.png |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 524
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|8b26204c-45e8-4819-a936-5d0848c13868.gif |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 517
+        ORDER BY review_pic_review_seq desc
+ {executed in 1 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 516
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 515
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 514
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 513
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 512
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 511
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 510
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:13 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 6 msec}[0;39m 
+[2024-07-18 17:01:13 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic   |review_contents                                                                                                                                                                                                                                               |review_rating |input_dt            |party_seq |party_name    |president |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+|526        |1               |2                   |622      |Lemmy     |random.jpg |내용                                                                                                                                                                                                                                                            |5.0           |2024-07-17 10:57:42 |76        |Kazu          |모임장 없음    |
+|524        |1               |1                   |434      |Tremain   |random.jpg |내용수1                                                                                                                                                                                                                                                          |1.0           |2024-07-09 13:06:25 |25        |Thoughtbridge |모임장 없음    |
+|517        |916             |504                 |272      |Artie     |random.jpg |In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.                                                                                                                                                                                      |4.0           |2024-07-08 09:41:17 |20        |Edgepulse     |모임장 없음    |
+|516        |930             |727                 |162      |Dino      |random.jpg |Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. |0.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|515        |774             |763                 |307      |Toddy     |random.jpg |Nunc rhoncus dui vel sem.                                                                                                                                                                                                                                     |3.0           |2024-07-08 09:41:17 |65        |Realfire      |모임장 없음    |
+|514        |457             |849                 |341      |Leonerd   |random.jpg |Curabitur convallis.                                                                                                                                                                                                                                          |2.0           |2024-07-08 09:41:17 |69        |Lazzy         |모임장 없음    |
+|513        |796             |549                 |150      |Bill      |random.jpg |Quisque ut erat. Curabitur gravida nisi at nibh.                                                                                                                                                                                                              |3.0           |2024-07-08 09:41:17 |55        |Zoombeat      |모임장 없음    |
+|512        |797             |622                 |476      |Fonzie    |random.jpg |Integer ac neque.                                                                                                                                                                                                                                             |3.0           |2024-07-08 09:41:17 |57        |Tagchat       |모임장 없음    |
+|511        |370             |626                 |326      |Spike     |random.jpg |Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.                                                                                                                                                       |5.0           |2024-07-08 09:41:17 |38        |Digitube      |모임장 없음    |
+|510        |226             |727                 |162      |Dino      |random.jpg |Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.                                 |5.0           |2024-07-08 09:41:17 |63        |Photospace    |모임장 없음    |
+|-----------|----------------|--------------------|---------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|----------|--------------|----------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 526
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|feca2cb1-d735-406f-9099-22b00f345a4d.png |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 524
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|review_pic_file                          |
+|-----------------------------------------|
+|8b26204c-45e8-4819-a936-5d0848c13868.gif |
+|-----------------------------------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 517
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 516
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 515
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 514
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 513
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 512
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 511
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT review_pic_file as reviewPicFile
+        FROM review_pic
+        WHERE review_pic_review_seq = 510
+        ORDER BY review_pic_review_seq desc
+ {executed in 0 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|review_pic_file |
+|----------------|
+|----------------|
+[0;39m 
+[2024-07-18 17:01:22 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 6 msec}[0;39m 
+[2024-07-18 17:01:22 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:02:26 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:02:26 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','안녕','%') 
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 2 msec}[0;39m 
+[2024-07-18 17:02:26 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic |review_contents |review_rating |input_dt |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 17:02:26 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','안녕','%')
+ {executed in 2 msec}[0;39m 
+[2024-07-18 17:02:26 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+[0;39m 
+[2024-07-18 17:31:34 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-18 17:31:34 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-18 17:31:36 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-18 17:31:36 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 9100 (D:\Students\2024_01\backEnd\1\Project2nd\build\classes\java\main started by Administrator in D:\Students\2024_01\backEnd\1\Project2nd)[0;39m 
+[2024-07-18 17:31:36 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-18 17:31:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-18 17:31:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-18 17:31:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-18 17:31:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-18 17:31:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1333 ms[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2f20c041[0;39m 
+[2024-07-18 17:31:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-18 17:31:38 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: f57417a8-c339-4cf7-80e2-b528e54ccf38
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e4c47d6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@91712c6, org.springframework.security.web.context.SecurityContextHolderFilter@562e1e28, org.springframework.security.web.header.HeaderWriterFilter@f8ac03b, org.springframework.web.filter.CorsFilter@d9837fb, org.springframework.security.web.authentication.logout.LogoutFilter@223c8192, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1c0b6aec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c929a5e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@452d5dbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45aacfe2, org.springframework.security.web.session.SessionManagementFilter@2fee3b0b, org.springframework.security.web.access.ExceptionTranslationFilter@610297c3, org.springframework.security.web.access.intercept.AuthorizationFilter@b5d9c2d][0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.119 seconds (process running for 3.508)[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-18 17:31:39 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.108] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-18 17:31:42 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:31:42 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','안녕','%') 
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 3 msec}[0;39m 
+[2024-07-18 17:31:42 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic |review_contents |review_rating |input_dt |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 17:31:42 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','안녕','%')
+ {executed in 2 msec}[0;39m 
+[2024-07-18 17:31:42 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+[0;39m 
+[2024-07-18 17:31:45 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:31:45 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','안녕','%')
+                || F.USER_NAME LIKE concat('%','안녕','%')
+                || D.user_name LIKE concat('%','안녕','%') 
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 6 msec}[0;39m 
+[2024-07-18 17:31:45 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic |review_contents |review_rating |input_dt |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 17:31:45 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 7 msec}[0;39m 
+[2024-07-18 17:31:45 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:31:47 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-18 17:31:47 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT A.review_seq as reviewSeq
+        , A.review_plan_seq as reviewPlanSeq
+        , A.review_plmember_seq as reviewPlmemberSeq
+        , D.user_seq as userSeq
+        , D.user_name as userName
+        , D.user_pic as userPic
+        , A.review_contents as reviewContents
+        , A.review_rating as reviewRating
+        , A.input_dt as inputDt
+        , E.party_seq as partySeq
+        , E.party_name as partyName
+        , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+         WHERE TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%','ㅁ','%')
+                || F.USER_NAME LIKE concat('%','ㅁ','%')
+                || D.user_name LIKE concat('%','ㅁ','%') 
+        ORDER BY review_seq DESC
+
+            LIMIT 0, 10
+ {executed in 7 msec}[0;39m 
+[2024-07-18 17:31:47 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|review_seq |review_plan_seq |review_plmember_seq |user_seq |user_name |user_pic |review_contents |review_rating |input_dt |party_seq |party_name |president |
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+|-----------|----------------|--------------------|---------|----------|---------|----------------|--------------|---------|----------|-----------|----------|
+[0;39m 
+[2024-07-18 17:31:47 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(*)
+        FROM review_master A
+        JOIN plan_member B
+        ON A.review_plmember_seq = B.plmember_seq
+        JOIN party_member C
+        ON B.plmember_member_seq = C.member_seq
+        JOIN user_master D
+        ON C.member_user_seq = D.user_seq
+        JOIN party_master E
+        ON C.member_party_seq = E.party_seq
+        LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
+        FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
+        ON F.member_party_seq = E.party_seq
+ {executed in 6 msec}[0;39m 
+[2024-07-18 17:31:47 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|519      |
+|---------|
+[0;39m 
+[2024-07-18 17:32:15 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-18 17:32:15 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
