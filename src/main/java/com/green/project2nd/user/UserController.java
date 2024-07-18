@@ -75,14 +75,6 @@ public class UserController {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(PASSWORD_CHECK_MESSAGE)
                     .build();   // 비밀번호 확인 불일치
-//        } catch (EmailRegexException ee) {
-//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-//                    .resultMsg(EMAIL_REGEX_MESSAGE)
-//                    .build();   // 이메일 형식
-//        } catch (NicknameRegexException ne) {
-//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-//                    .resultMsg(NICKNAME_REGEX_MESSAGE)
-//                    .build();   // 닉네임 형식
         } catch (DuplicationException de) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(EMAIL_DUPLICATION_MESSAGE)
@@ -95,6 +87,10 @@ public class UserController {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(FILE_ERROR_MESSAGE)
                     .build();   // 파일 에러
+        } catch (NumberDuplicationException ne) {
+            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(NUMBER_DUPLICATION_MESSAGE)
+                    .build();   // 번호 중복
         } catch (RuntimeException r) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(NICKNAME_DUPLICATION_MESSAGE)
@@ -103,6 +99,14 @@ public class UserController {
             return ResultDto.<Long>builder().status(HttpStatus.INTERNAL_SERVER_ERROR).code(ERROR)
                     .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
+//        } catch (EmailRegexException ee) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(EMAIL_REGEX_MESSAGE)
+//                    .build();   // 이메일 형식
+//        } catch (NicknameRegexException ne) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(NICKNAME_REGEX_MESSAGE)
+//                    .build();   // 닉네임 형식
     }
 
     @PostMapping("/sign_in")

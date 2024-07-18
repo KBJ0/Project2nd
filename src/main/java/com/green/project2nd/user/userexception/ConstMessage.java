@@ -8,14 +8,7 @@ public class ConstMessage {
     public static final String TRY_AGAIN_MESSAGE = "나중에 다시 시도";
     public static final String ADMIN_CONTACT_MESSAGE = "관리자에게 문의하세요";
     public static final String FILE_ERROR_MESSAGE = "파일을 첨부하지 않았거나 처리 도중 오류발생";
-    public static final String ID_INPUT_MESSAGE = "이메일은 필수값.";
-    public static final String PW_INPUT_MESSAGE = "비밀번호는 필수값";
-    public static final String NAME_INPUT_MESSAGE = "이름은 필수값";
-    public static final String NICKNAME_INPUT_MESSAGE = "닉네임은 필수값";
-    public static final String ADDRESS_INPUT_MESSAGE = "주소는 필수값";
-    public static final String BIRTH_INPUT_MESSAGE = "생년월일은 필수값";
-    public static final String GENDER_INPUT_MESSAGE = "성별은 필수값";
-    public static final String PHONE_INPUT_MESSAGE = "휴대폰 번호는 필수값";
+    public static final String NUMBER_DUPLICATION_MESSAGE = "이미 가입되어 있는 번호";
     public static final String PIC_INPUT_MESSAGE = "프로필 사진은 필수값";
     public static final String NOT_FOUND_MESSAGE = "존재하지 않는 유저";
     public static final String LOGIN_MESSAGE = "아이디 또는 비밀번호 확인";
@@ -37,5 +30,13 @@ public class ConstMessage {
     public static final int SUCCESS = 1;
     public static final int FAILURE = 2;
     public static final int ERROR = 3;
+
+    public static final String PW_INPUT_MESSAGE = "비밀번호는 필수값";
+    public static final String NAME_INPUT_MESSAGE = "이름은 필수값";
+    public static final String NICKNAME_INPUT_MESSAGE = "닉네임은 필수값";
+    public static final String ADDRESS_INPUT_MESSAGE = "주소는 필수값";
+    public static final String BIRTH_INPUT_MESSAGE = "생년월일은 필수값";
+    public static final String GENDER_INPUT_MESSAGE = "성별은 필수값";
+    public static final String PHONE_INPUT_MESSAGE = "휴대폰 번호는 필수값";
 
 }

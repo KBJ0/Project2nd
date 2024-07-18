@@ -65,18 +65,21 @@ public class UserService {
         } else {
             Const.convertToDate(p.getUserBirth());
         }
+        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
+            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNumber(p.getUserPhone()) == 1) {
+            throw new NumberDuplicationException(NUMBER_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
+            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
+        }
 //        if(!isValidEmail(p.getUserEmail())) {
 //            throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
 //        }
 //        if(!isValidNickname(p.getUserNickname())) {
 //            throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
 //        }
-        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
-            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
-        }
-        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
-            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
-        }
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);

@@ -135,6 +135,12 @@
         WHERE user_nickname = #{userNickname}
     </select>
 
+    <select id="duplicatedCheckNumber">
+        SELECT COUNT(user_phone)
+        FROM user_master
+        WHERE user_phone = #{userPhone};
+    </select>
+
     <select id="findUserId">
         SELECT user_email
         FROM user_master

@@ -19,6 +19,7 @@ public interface UserMapper {
 
     int duplicatedCheckEmail(String userEmail);
     int duplicatedCheckNickname(String userNickname);
+    int duplicatedCheckNumber(String userPhone);
     int checkEmail(String userEmail);
 
     void updateUserPic(UpdateUserPicReq p);
