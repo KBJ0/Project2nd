@@ -127,7 +127,7 @@
         GROUP BY member_party_seq
         ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
         WHERE B.member_role = 1
-        AND A.user_seq = 1
+        AND A.user_seq = #{userSeq}
         ORDER BY C.input_dt DESC
         LIMIT #{startIdx}, #{size}
     </select>
