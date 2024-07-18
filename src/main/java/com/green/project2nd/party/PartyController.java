@@ -143,7 +143,7 @@ public class PartyController {
     }
 
     //관리자가 모임 등록을 승인해주는 코드,관리자가 누군지 추가하고 권한줘야함. 현재는 모임장이 모임 생성 승인가능ㅋㅋ
-    @PatchMapping("/authGb")
+    @PatchMapping("/authGb1")
     @Operation(summary = "모임 생성 승인" , description =
             "<strong>  사이트 관리자가 모임 생성을 승인함 (현재는 모임장이 승인) <strong><p></p>" +
             "<p><strong> partySeq      </strong> : 모임PK (long) </p>" +
@@ -152,9 +152,9 @@ public class PartyController {
             "<p> ResponseCode 응답 코드 </p>" +
                     "<p> 1 : 성공 </p>" +
                     "<p> 2 : 실패 </p>")
-    public ResultDto<Integer> updatePartyAuthGb(@RequestParam(name = "partySeq") Long partySeq,
+    public ResultDto<Integer> updatePartyAuthGb1(@RequestParam(name = "partySeq") Long partySeq,
                                                 @RequestParam(name = "userSeq") Long userSeq) {
-        return service.updatePartyAuthGb(partySeq, userSeq);
+        return service.updatePartyAuthGb1(partySeq, userSeq);
     }
 
     @PatchMapping("/authGb2")
@@ -166,9 +166,9 @@ public class PartyController {
             "<p> ResponseCode 응답 코드 </p>" +
                     "<p> 1 : 성공 </p>" +
                     "<p> 2 : 실패 </p>")
-    public ResultDto<Integer> updatePartyForGb2(@RequestParam(name ="partySeq") Long partySeq
+    public ResultDto<Integer> updatePartyAuthGb2(@RequestParam(name ="partySeq") Long partySeq
             , @RequestParam(name = "userSeq") Long userSeq){
-        return service.updatePartyForGb2(partySeq,userSeq);
+        return service.updatePartyAuthGb2(partySeq,userSeq);
     }
 
 //    // 모임안의 정보를 순서대로 다 지워야함. 아직 미추가함.

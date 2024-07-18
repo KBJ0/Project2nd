@@ -156,13 +156,17 @@
         , party_pic = #{partyPic}
         WHERE party_seq = #{partySeq}
     </update>
-    <update id="updatePartyAuthGb">
+    <update id="updatePartyAuthGb1">
         UPDATE party_master
-        SET party_auth_gb = CASE
-        WHEN party_auth_gb = 1 THEN 0
-        ELSE 1
-        END
+        SET party_auth_gb = 1
         WHERE party_seq = #{partySeq}
+
+<!--        UPDATE party_master-->
+<!--        SET party_auth_gb = CASE-->
+<!--        WHEN party_auth_gb = 1 THEN 0-->
+<!--        ELSE 1-->
+<!--        END-->
+<!--        WHERE party_seq = #{partySeq}-->
     </update>
     <select id="getPartyAuthGb">
         SELECT party_auth_gb
@@ -170,9 +174,9 @@
         WHERE party_seq = #{partySeq}
     </select>
 
-    <update id="updatePartyForGb2">
+    <update id="updatePartyAuthGb2">
         UPDATE party_master
-        SET party_auth_gb = 3
+        SET party_auth_gb = 2
         WHERE party_seq = #{partySeq}
     </update>
 
