@@ -24,6 +24,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -60,6 +61,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
