@@ -2,12 +2,16 @@ package com.green.project2nd.review.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
 
 @Getter
 @Setter
+@ToString
+@Slf4j
 public class GetReviewAllPageRes {
     private long totalElements;
     private long totalPages;
