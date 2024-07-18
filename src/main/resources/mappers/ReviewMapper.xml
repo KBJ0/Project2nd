@@ -24,6 +24,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -48,7 +49,7 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        <if test="startIdx != 0 and size != 0">
+        <if test="size != 0">
             LIMIT #{startIdx}, #{size}
         </if>
     </select>
@@ -60,6 +61,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -85,7 +87,7 @@
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
         </where>
         ORDER BY review_seq DESC
-        <if test="startIdx != 0 and size != 0">
+        <if test="size != 0">
             LIMIT #{startIdx}, #{size}
         </if>
     </select>

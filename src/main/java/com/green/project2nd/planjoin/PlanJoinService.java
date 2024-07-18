@@ -1,4 +1,5 @@
 package com.green.project2nd.planjoin;
+
 import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.planjoin.model.*;
@@ -16,8 +17,13 @@ public class PlanJoinService {
     private final PlanJoinMapper mapper;
     private final CheckMapper checkMapper;
 
-    public ResultDto<Integer> postPlanJoin(TogglePlanJoinReq p){
-        if(checkMapper.checkPlanJoin(p) != null){
+    public ResultDto<Integer> postPlanJoin(TogglePlanJoinReq p) {
+        if (mapper.getMemberSeq(p.getMemberSeq()) != null) {
+            p.setPlmemberMemberSeq(mapper.getMemberSeq(p.getMemberSeq()).getPlmemberMemberSeq());
+        }
+        if (mapper.getMemberSeq(p.getMemberSeq()) == null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_MEMBER);
+        } else if (checkMapper.checkPlanJoin(p) != null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, ERROR_MESSAGE_1);
         } else {
             mapper.postPlanJoin(p);
@@ -25,12 +31,18 @@ public class PlanJoinService {
         }
     }
 
-    public ResultDto<Integer> deletePlanJoin(TogglePlanJoinReq p){
-        if(checkMapper.checkPlanJoin(p) == null){
+    public ResultDto<Integer> deletePlanJoin(TogglePlanJoinReq p) {
+        if (mapper.getMemberSeq(p.getMemberSeq()) != null) {
+            p.setPlmemberMemberSeq(mapper.getMemberSeq(p.getMemberSeq()).getPlmemberMemberSeq());
+        }
+        if (mapper.getMemberSeq(p.getMemberSeq()) == null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_MEMBER);
+        } else if (checkMapper.checkPlanJoin(p) == null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NULL_ERROR_MESSAGE);
         } else {
             mapper.deletePlanJoin(p);
             return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
+
         }
     }
 }
