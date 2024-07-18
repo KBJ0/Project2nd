@@ -21,7 +21,7 @@ public class PlanJoinController {
     @Operation(summary = "모임 일정 참가 신청", description =
             "<strong> 등록되어 있는 일정에 참가 신청 (모임장 or 모임 멤버)<p></p>\n" +
             "<p><strong> plmemberPlanSeq</strong> : 모임 일정 마스터 PK 값 (long) </p>\n" +
-            "<p><strong> plmemberMemberSeq</strong> : 모임 멤버 PK 값 (long) </p>\n")
+            "<p><strong> memberSeq</strong> : 모임 멤버 PK 값 (long) </p>\n")
     @ApiResponse(description =
             "<p> ResponseCode 응답 코드 </p> " +
                     "<p>  1 : 성공 </p> " +
@@ -35,7 +35,7 @@ public class PlanJoinController {
     @Operation(summary = "모임 일정 참가 신청 취소", description =
             "<strong> 등록되어 있는 일정에 참가 취소 신청 (모임장 or 모임 멤버)<p></p>\n" +
                     "<p><strong> plmemberPlanSeq</strong> : 모임 일정 마스터 PK 값 (long) </p>\n" +
-                    "<p><strong> plmemberMemberSeq</strong> : 모임 멤버 PK 값 (long) </p>\n")
+                    "<p><strong> memberSeq</strong> : 모임 멤버 PK 값 (long) </p>\n")
     @ApiResponse(description =
             "<p> ResponseCode 응답 코드 </p> " +
                     "<p>  1 : 성공 </p> " +
