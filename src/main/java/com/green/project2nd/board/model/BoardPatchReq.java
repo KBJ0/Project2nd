@@ -10,9 +10,9 @@ import java.util.List;
 
 public class BoardPatchReq {
     private long boardSeq;
+    private long boardMemberSeq;
     private String boardTitle;
     private String boardContents;
     private List<String> nowFileNames;
     private List<String> deleteFileNames;
-    private int result;
 }
