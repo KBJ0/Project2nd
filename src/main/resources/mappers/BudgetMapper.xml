@@ -84,8 +84,10 @@
     </select>
 
     <select id="getMemberList">
-        SELECT member_seq AS memberSeq
-        FROM party_member
+        SELECT A.member_seq AS memberSeq, B.user_name AS userName, B.user_nickname AS userNickname
+        FROM party_member A
+        JOIN user_master B
+        ON A.member_user_seq = B.user_seq
         WHERE member_party_seq = #{memberPartySeq}
         AND member_gb = 1
     </select>

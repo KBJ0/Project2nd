@@ -10,6 +10,7 @@ public class GetReviewUserRes {
     private long reviewPlanSeq;
     private long reviewPlmemberSeq;
     private long userSeq;
+    private String userPic;
     private String userName;
     private String reviewContents;
     private String reviewRating;

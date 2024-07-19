@@ -8,11 +8,12 @@ import lombok.Setter;
 @Setter
 
 public class CommentGetReq extends Paging {
-    private long commentBoardSeq;
-    private Integer page;
+    private long boardSeq;
 
-    public CommentGetReq(long commentBoardSeq, Integer page, Integer size) {
-        super(page,size);
-        this.commentBoardSeq = commentBoardSeq;
+    public CommentGetReq(long boardSeq, Integer page, Integer size) {
+        super(page, size);
+        this.boardSeq = boardSeq;
     }
 }
+
+

@@ -3,17 +3,21 @@ package com.green.project2nd.board.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Getter
 @Setter
 
 public class BoardGetRes {
+    private long boardSeq;
     private long boardPartySeq;
     private long boardMemberSeq;
     private String boardTitle;
     private String boardContents;
     private long boardHit;
-    private String inputDt;
-    private String updateDt;
-
+    private LocalDateTime inputDt;
+    private LocalDateTime updateDt;
+    private List<String> pics;
 
 }

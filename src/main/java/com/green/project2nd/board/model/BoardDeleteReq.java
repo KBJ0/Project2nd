@@ -8,4 +8,5 @@ import lombok.Setter;
 
 public class BoardDeleteReq {
     private long boardSeq;
+    private long boardMemberSeq;
 }
