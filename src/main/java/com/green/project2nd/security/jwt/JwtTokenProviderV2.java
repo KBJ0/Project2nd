@@ -99,7 +99,7 @@ public class JwtTokenProviderV2 {
 
 
     public Authentication getAuthentication(String token) {
-        UserDetails userDetails = getUserDetailsFromToken(token);   // MyUserDetails 객체 주소값
+        UserDetails userDetails = getUserDetailsFromToken(token);
         return userDetails == null ? null : new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
     }
@@ -127,18 +127,13 @@ public class JwtTokenProviderV2 {
         }
 
 
-        if(!(jwt.startsWith(appProperties.getJwt().getTokenType()))) {        // if(auth.startsWith("Bearer")) -> yaml 파일에서 token-type: Bearer
-            return null;                                                      // 프론트와 약속을 만들어야 함.
+        if(!(jwt.startsWith(appProperties.getJwt().getTokenType()))) {
+            return null;
         }
 
-        // Bearer JWT 문자열 에서 순수한 JWT 문자열만 뽑아내기 위한 문자열 자르기
-        return jwt.substring(appProperties.getJwt().getTokenType().length()).trim();   // .trim : 문자열 앞뒤 공백제거 메서드
-                                    // (빈칸) + JWT
-                                    // appProperties.getJwt().getTokenType() 까지 Bearer 문자열 (Bearer 은 6개 문자 index:0~5)
-                                    // Jwt() 객체 주소값
-                                    // jwt.substring(6).trim()
-//        return jwt.substring(appProperties.getJwt().getTokenType().length() + 1);
-//                  .trim() 대신 문자열 + 1로 해서 빈칸을 제외할 수도 있다. but 프론트가 앞뒤로 공백을 보낼 경우 .trim()을 써야 함
+
+        return jwt.substring(appProperties.getJwt().getTokenType().length()).trim();
+
 
 
 

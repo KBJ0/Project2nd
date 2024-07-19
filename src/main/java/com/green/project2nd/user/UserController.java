@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,33 +67,29 @@ public class UserController {
             return ResultDto.<Long>builder()
                     .status(HttpStatus.OK)
                     .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
+                    .resultMsg(SUCCESS_MESSAGE)
                     .resultData(result)
                     .build();
         } catch (PwCheckException pe) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(PASSWORD_CHECK_MESSAGE)
                     .build();   // 비밀번호 확인 불일치
-//        } catch (EmailRegexException ee) {
-//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-//                    .resultMsg(EMAIL_REGEX_MESSAGE)
-//                    .build();   // 이메일 형식
-//        } catch (NicknameRegexException ne) {
-//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-//                    .resultMsg(NICKNAME_REGEX_MESSAGE)
-//                    .build();   // 닉네임 형식
         } catch (DuplicationException de) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(EMAIL_DUPLICATION_MESSAGE)
                     .build();   // 이메일 중복
         } catch (BirthDateException be) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
-                    .resultMsg(BIRTHDATE_MESSAGE)
+                    .resultMsg(BIRTHDATE_REGEX_MESSAGE)
                     .build();   // 생년월일 형식
         } catch (FileException fe) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(FILE_ERROR_MESSAGE)
                     .build();   // 파일 에러
+        } catch (NumberDuplicationException ne) {
+            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+                    .resultMsg(NUMBER_DUPLICATION_MESSAGE)
+                    .build();   // 번호 중복
         } catch (RuntimeException r) {
             return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
                     .resultMsg(NICKNAME_DUPLICATION_MESSAGE)
@@ -103,6 +98,14 @@ public class UserController {
             return ResultDto.<Long>builder().status(HttpStatus.INTERNAL_SERVER_ERROR).code(ERROR)
                     .resultMsg(ADMIN_CONTACT_MESSAGE).build();
         }
+//        } catch (EmailRegexException ee) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(EMAIL_REGEX_MESSAGE)
+//                    .build();   // 이메일 형식
+//        } catch (NicknameRegexException ne) {
+//            return ResultDto.<Long>builder().status(HttpStatus.BAD_REQUEST).code(FAILURE)
+//                    .resultMsg(NICKNAME_REGEX_MESSAGE)
+//                    .build();   // 닉네임 형식
     }
 
     @PostMapping("/sign_in")
@@ -124,7 +127,7 @@ public class UserController {
 
             return ResultDto.<SignInRes>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result).build();
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
         } catch (LoginException le) {      // 아이디 or 비번 확인 or 비회원가입
             return ResultDto.<SignInRes>builder().status(HttpStatus.NOT_FOUND).code(FAILURE)
                     .resultMsg(le.getMessage()).build();
@@ -166,11 +169,7 @@ public class UserController {
             int result = service.patchPassword(p);
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result).build();
-        } catch (IdCheckException re) {
-            return ResultDto.<Integer>builder()
-                    .status(HttpStatus.BAD_REQUEST).code(FAILURE)
-                    .resultMsg(re.getMessage()).build();
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
         } catch (PwCheckException pe) {
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.BAD_REQUEST).code(FAILURE)
@@ -202,7 +201,7 @@ public class UserController {
             int result = service.deleteUser(userSeq);
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result).build();
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
         } catch (NotFoundException ne) {
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.BAD_REQUEST).code(FAILURE)
@@ -246,11 +245,11 @@ public class UserController {
             UserEntity result = service.getDetailUserInfo(userSeq);
             return ResultDto.<UserEntity>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result).build();
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
         } catch (RuntimeException re) {
             return ResultDto.<UserEntity>builder()
                     .status(HttpStatus.NOT_FOUND).code(FAILURE)
-                    .resultMsg(FAILURE_Message).build();
+                    .resultMsg(FAILURE_MESSAGE).build();
         } catch (Exception e) {
             return ResultDto.<UserEntity>builder()
                     .status(HttpStatus.BAD_REQUEST).code(ERROR)
@@ -307,7 +306,7 @@ public class UserController {
             String result = service.updateUserPic(p);
             return ResultDto.<String>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result).build();
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
         } catch (FileException e) {
             return ResultDto.<String>builder().status(HttpStatus.INTERNAL_SERVER_ERROR).code(FAILURE)
                     .resultMsg(e.getMessage()).build();
@@ -333,12 +332,12 @@ public class UserController {
                             "<p>  2 : 실패 </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<Integer> updateUserInfo(@RequestBody UpdateUserInfoReq p) {
+    public ResultDto<Integer> updateUserInfo(@Valid @RequestBody UpdateUserInfoReq p) {
         try {
             int result = service.updateUserInfo(p);
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result)
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result)
                     .build();
         } catch (RuntimeException re) {
             return ResultDto.<Integer>builder()
@@ -370,7 +369,7 @@ public class UserController {
             String result = service.findUserId(p);
             return ResultDto.<String>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
-                    .resultMsg(SUCCESS_Message).resultData(result)
+                    .resultMsg(SUCCESS_MESSAGE).resultData(result)
                     .build();
         } catch (RuntimeException re) {
             return ResultDto.<String>builder()

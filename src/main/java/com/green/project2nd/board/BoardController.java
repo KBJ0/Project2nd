@@ -1,10 +1,8 @@
 package com.green.project2nd.board;
 
 
-import com.green.project2nd.board.model.BoardDeleteReq;
-import com.green.project2nd.board.model.BoardPatchReq;
-import com.green.project2nd.board.model.BoardPostReq;
-import com.green.project2nd.board.model.BoardPostRes;
+import com.green.project2nd.board.model.*;
+import com.green.project2nd.common.GlobalConst;
 import com.green.project2nd.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -28,29 +26,57 @@ public class BoardController {
     public ResultDto<BoardPostRes> postBoard(@RequestPart List<MultipartFile> pics, @RequestPart BoardPostReq p) {
         BoardPostRes result = service.postBoard(pics, p);
 
-        return ResultDto.resultDto(HttpStatus.OK,1,HttpStatus.OK.toString(),result);
+        return ResultDto.<BoardPostRes>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg(HttpStatus.OK.toString())
+                .resultData(result)
+                .build();
     }
     @DeleteMapping
     @Operation(summary = "게시글 삭제")
     public ResultDto<Integer> deleteBoard(@RequestBody BoardDeleteReq p ) {
         int result = service.deleteBoard(p);
 
-        return ResultDto.resultDto(HttpStatus.OK,1,result == 1 ? "정상처리" : "실패",result);
-
+        return ResultDto.<Integer>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg(result == 1 ? "정상처리" : "실패")
+                .resultData(result)
+                .build();
     }
+
     @PatchMapping
     @Operation(summary = "게시글 수정")
-    public ResultDto<BoardPatchReq> patchBoard(@RequestBody BoardPatchReq p) {
-        return null;
+    public ResultDto<BoardPatchReq> patchBoard(@RequestParam List<MultipartFile> newPics, @RequestBody BoardPatchReq p) {
+        boolean result = service.boardPatch(newPics, p);
+        return ResultDto.<BoardPatchReq>builder()
+                .status(HttpStatus.OK)
+                .resultMsg(result ? "정상처리" : "실패")
+                .resultData(p)
+                .build();
     }
-
-
-//  @GetMapping
-  //  @Operation(summary = "게시글 조회")
- //   public ResultDto<List<BoardGetRes>> getBoard(@ModelAttribute@ParameterObject BoardGetReq p) {
-  //      List<BoardGetRes> result = service.getBoard(p);
-  //  }
-
-
-
+    @GetMapping
+    @Operation(summary = "게시글 조회")
+    public ResultDto<BoardGetPage> getBoards(@RequestParam(name = "page", defaultValue = "0") int page) {
+        BoardGetReq data = new BoardGetReq(0, page, GlobalConst.PAGING_SIZE);
+        BoardGetPage list = service.getBoardList(data);
+        return ResultDto.<BoardGetPage>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg("정상처리 되었습니다")
+                .resultData(list)
+                .build();
+    }
+    @GetMapping("/{boardSeq}")
+    @Operation(summary = "게시글 상세 조회")
+    public ResultDto<BoardGetRes> getBoard(@PathVariable long boardSeq) {
+        BoardGetRes board = service.getBoard(boardSeq);
+        return ResultDto.<BoardGetRes>builder()
+                .status(HttpStatus.OK)
+                .code(1)
+                .resultMsg("정상처리 되었습니다")
+                .resultData(board)
+                .build();
+    }
 }

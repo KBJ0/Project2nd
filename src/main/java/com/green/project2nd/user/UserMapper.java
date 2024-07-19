@@ -11,6 +11,7 @@ public interface UserMapper {
     SimpleInfo getSimpleUserInfo(String userEmail);
 
     UserEntity getDetailUserInfo(long userSeq);
+    GetUserPw getUserPw(long userSeq);
 
     int patchPassword(UpdatePasswordReq p);
 
@@ -19,6 +20,7 @@ public interface UserMapper {
 
     int duplicatedCheckEmail(String userEmail);
     int duplicatedCheckNickname(String userNickname);
+    int duplicatedCheckNumber(String userPhone);
     int checkEmail(String userEmail);
 
     void updateUserPic(UpdateUserPicReq p);

@@ -23,7 +23,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,8 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.green.project2nd.user.datacheck.Const.isValidEmail;
-import static com.green.project2nd.user.datacheck.Const.isValidNickname;
 import static com.green.project2nd.user.userexception.ConstMessage.*;
 
 
@@ -61,9 +58,18 @@ public class UserService {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
         if(Const.isValidDate(p.getUserBirth())) {
-            throw new BirthDateException(BIRTHDATE_MESSAGE);
+            throw new BirthDateException(BIRTHDATE_REGEX_MESSAGE);
         } else {
             Const.convertToDate(p.getUserBirth());
+        }
+        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
+            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNumber(p.getUserPhone()) == 1) {
+            throw new NumberDuplicationException(NUMBER_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
+            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
         }
 //        if(!isValidEmail(p.getUserEmail())) {
 //            throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
@@ -71,12 +77,6 @@ public class UserService {
 //        if(!isValidNickname(p.getUserNickname())) {
 //            throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
 //        }
-        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
-            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
-        }
-        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
-            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
-        }
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);
@@ -104,8 +104,6 @@ public class UserService {
         if(user == null || !(p.getUserEmail().equals(user.getUserEmail())) || !(passwordEncoder.matches(p.getUserPw(), user.getUserPw()))) {
             throw new LoginException(LOGIN_MESSAGE);
         }
-
-
 
         MyUser myUser = MyUser.builder()
                 .userId(user.getUserSeq())
@@ -156,16 +154,17 @@ public class UserService {
     }
 
     public int patchPassword(UpdatePasswordReq p) {
-        SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
+        p.setUserSeq(authenticationFacade.getLoginUserId());
+//        UserEntity user = mapper.getDetailUserInfo(p.getUserSeq());
+        GetUserPw userPw = mapper.getUserPw(p.getUserSeq());
 
-        if(user == null) {
-            throw new IdCheckException(ID_CHECK_MESSAGE);
-        } else if (!(passwordEncoder.matches(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
+
+        if (!(passwordEncoder.matches(p.getUserPw(), userPw.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
         String newPassword = passwordEncoder.encode(p.getUserNewPw());
         p.setUserNewPw(newPassword);
-        p.setUserSeq(user.getUserSeq());
+//        p.setUserSeq(user.getUserSeq());
         return mapper.patchPassword(p);
     }
 
@@ -189,7 +188,7 @@ public class UserService {
     public UserEntity getDetailUserInfo(long userSeq) {
         UserEntity userEntity = mapper.getDetailUserInfo(userSeq);
         if(userEntity == null) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(FAILURE_MESSAGE);
         }
         return userEntity;
     }
@@ -205,12 +204,7 @@ public class UserService {
 
     @Transactional
     public String updateUserPic(UpdateUserPicReq p) throws Exception {
-        try {
-//            p.setUserSeq(authenticationFacade.getLoginUserId());
-        } catch (Exception e) {
-            throw new RuntimeException("비회원입니다");
-        }
-//
+
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);
@@ -231,11 +225,10 @@ public class UserService {
     }
 
     public int updateUserInfo(UpdateUserInfoReq p) {
-//        p.setUserSeq(authenticationFacade.getLoginUserId());
 
         int result = mapper.updateUserInfo(p);
         if(result == 0) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(FAILURE_MESSAGE);
         }
         return result;
     }
@@ -243,7 +236,7 @@ public class UserService {
     public String findUserId(FindUserReq p) {
         String userEmail = mapper.findUserId(p);
         if(userEmail == null) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(FAILURE_MESSAGE);
         }
         return userEmail;
     }

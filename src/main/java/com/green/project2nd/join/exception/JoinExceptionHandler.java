@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice(basePackages = "com.green.project2nd.join")
 public class JoinExceptionHandler {
     private final CheckMapper mapper;
-    private final MemberMapper memberMapper;
     private final JoinMapper joinMapper;
 
     //C
@@ -38,7 +37,7 @@ public class JoinExceptionHandler {
     // U2
     public void exceptionMember(Long partySeq, Long userSeq) {
         if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
-            memberMapper.updateMemberGb(partySeq,userSeq);
+            joinMapper.updateSuspendedMember(partySeq,userSeq);
             throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
     }
     //U2
