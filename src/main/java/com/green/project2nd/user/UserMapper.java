@@ -11,6 +11,7 @@ public interface UserMapper {
     SimpleInfo getSimpleUserInfo(String userEmail);
 
     UserEntity getDetailUserInfo(long userSeq);
+    GetUserPw getUserPw(long userSeq);
 
     int patchPassword(UpdatePasswordReq p);
 

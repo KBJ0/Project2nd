@@ -55,6 +55,12 @@
         WHERE user_seq = #{userSeq};
     </select>
 
+    <select id="getUserPw">
+        SELECT user_pw AS userPw
+        FROM user_master
+        WHERE user_seq = #{userSeq}
+    </select>
+
 
     <update id="updateUserInfo">
         UPDATE user_master
