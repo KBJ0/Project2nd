@@ -22,11 +22,7 @@ public interface PartyMapper {
 
     int updateParty(UpdatePartyReq p);
     int updatePartyAuthGb1(Long partySeq, Long userSeq);
-    int getPartyAuthGb(Long partySeq);
     void updatePartyAuthGb2(Long partySeq);
-
-//    void deletePartyMember(Long partySeq);
-//    void deleteParty(Long partySeq);
 
 
 

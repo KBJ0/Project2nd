@@ -28,18 +28,19 @@ public class JoinExceptionHandler {
     public void exception(Long partySeq,PostJoinReq p) {
         exceptionParty(partySeq);
         exceptionUser(p.getJoinUserSeq());
-        // 탈퇴된 유저인 경우 그 전에 신청한 신청서를 지움.(이유:유니크, 고민요소:휴먼된 신청서가 필요한가?, 탈퇴된 기록을 남겨야하나?)
+        if (mapper.checkPartyLeader(partySeq, p.getJoinUserSeq()) != 0){
+            throw new MsgException("2,권한이 없는 유저입니다.");}
         if (mapper.checkMemberForPartySeqAndUserSeq(partySeq,p.getJoinUserSeq()) != 0) {
             joinMapper.deleteJoin(partySeq,p.getJoinUserSeq());}
         if (mapper.checkJoinApplicationOfUser(partySeq,p.getJoinUserSeq()) != 0) {
             throw new ReturnDto("2,이미 신청한 모임입니다.");}
     }
-    // U2
-    public void exceptionMember(Long partySeq, Long userSeq) {
-        if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
-            joinMapper.updateSuspendedMember(partySeq,userSeq);
-            throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
-    }
+//    // U2(updateJoinGb 추방당한 유저인지 확인용이였는데 옮김.)
+//    public void exceptionMember(Long partySeq, Long userSeq) {
+//        if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
+//            joinMapper.updateSuspendedMember(partySeq,userSeq);
+//            throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
+//    }
     //U2
     public void exception(Long partySeq, UpdateJoinGbReq p) {
         exception(partySeq, p.getJoinUserSeq());

@@ -50,12 +50,6 @@ public class MemberExceptionHandler {
         if (mapper.checkUserSeq(memberUserSeq) == 0) {throw new MsgExceptionNull("2,존재하지 않는 유저입니다.");}
     }
 
-    // C1
-//    public void exception(PostMemberReq p) {
-//        exception(p.getMemberPartySeq(), p.getMemberUserSeq());
-//    }
-
-
 
     //-2.메세지 출력용(커스텀)
     @ExceptionHandler(MsgException.class)
