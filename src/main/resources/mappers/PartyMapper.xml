@@ -32,11 +32,13 @@
         FROM common_cd
         WHERE cd_sub = #{cdSub}
         AND cd_gb = #{cdGb}
+        AND cd_main = 'LO'
     </select>
     <select id="getPartyLocationAll">
         SELECT cd_sub AS cdSub, cd_gb AS cdGb, cd_gb_nm AS cdGbNm
         FROM common_cd
         WHERE cd_sub = #{cdSub}
+        AND cd_main = 'LO'
     </select>
 
     <select id="getParty">

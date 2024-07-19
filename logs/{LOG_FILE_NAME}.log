@@ -3853,3 +3853,531 @@ This generated password is for development use only. Your security configuration
 [2024-07-19 09:51:34 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
 [2024-07-19 09:51:38 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-19 09:51:38 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-19 10:06:31 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-19 10:06:31 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 4016 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:06:31 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:06:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-19 10:06:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1321 ms[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1201eef3[0;39m 
+[2024-07-19 10:06:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-19 10:06:33 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: f65f6eef-6c09-41a7-8998-10473ec02f27
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@688930d5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@411b25a2, org.springframework.security.web.context.SecurityContextHolderFilter@22c26556, org.springframework.security.web.header.HeaderWriterFilter@4543d316, org.springframework.web.filter.CorsFilter@ae31712, org.springframework.security.web.authentication.logout.LogoutFilter@771810a3, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1eba4882, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ce20398, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ea18984, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ceaabb, org.springframework.security.web.session.SessionManagementFilter@369a8965, org.springframework.security.web.access.ExceptionTranslationFilter@3af2405, org.springframework.security.web.access.intercept.AuthorizationFilter@25e19b55][0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:06:33 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.027 seconds (process running for 3.481)[0;39m 
+[2024-07-19 10:06:34 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:06:34 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:06:34 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-19 10:06:34 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:06:35 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:06:35 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:06:35 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:06:35 [32mINFO [0;39m http-nio-8080-exec-4] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 616 ms[0;39m 
+[2024-07-19 10:06:59 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:06:59 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+        A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+        A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+        A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = A.party_seq AND B.member_role = 1
+        GROUP BY
+        A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+        A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        ORDER BY A.input_dt DESC
+ {executed in 3 msec}[0;39m 
+[2024-07-19 10:06:59 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|party_seq |party_name |party_genre |party_location |partylocation1 |partylocation2 |party_min_age |party_max_age |party_gender |partynowmem |party_maximum |party_join_gb |party_intro |party_join_form |party_auth_gb |party_pic                                |input_dt            |update_dt |user_seq |user_name |user_pic                                 |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|10        |방금만듬3      |1           |101            |서울             |강남구            |1901          |2155          |1            |1           |2             |1             |소개          |가입양식            |0             |824efa76-2e86-481d-991c-b92da81a335d.png |2024-07-19 09:09:30 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|9         |방금만듬2      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |1cc68548-f91e-435f-aedf-c87ac6c0cfac.png |2024-07-19 09:09:27 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|8         |방금만듬1      |1           |101            |서울             |강남구            |1901          |2155          |1            |1           |2             |1             |소개          |가입양식            |0             |c700cee6-46bd-4428-94dd-ed865813bbdd.png |2024-07-19 09:09:23 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+[0;39m 
+[2024-07-19 10:07:18 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:07:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 8
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:07:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:07:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:07:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 8
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:07:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 8
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:07:18 [33mWARN [0;39m http-nio-8080-exec-6] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.ReturnDto: 2,이미 신청한 모임입니다.][0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 8
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 8
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 8
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 8
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT CASE
+        WHEN (SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_gb = 1 AND member_party_seq = A.party_seq) = A.party_maximum
+        THEN 1
+        ELSE 0
+        END AS isEqual
+        FROM party_master A
+        WHERE A.party_seq = 8
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|--------|
+|isequal |
+|--------|
+|0       |
+|--------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE party_join
+        SET join_gb = 1
+        WHERE join_party_seq = 8
+        AND join_user_seq = 2
+ {executed in 6 msec}[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 8
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:07:30 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:07:30 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO party_member
+        SET member_party_seq = 8
+        , member_user_seq = 2
+        , member_role = 2
+        , member_gb = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:07:35 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:07:35 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+        A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+        A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+        A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = A.party_seq AND B.member_role = 1
+        GROUP BY
+        A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+        A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        ORDER BY A.input_dt DESC
+ {executed in 8 msec}[0;39m 
+[2024-07-19 10:07:35 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|party_seq |party_name |party_genre |party_location |partylocation1 |partylocation2 |party_min_age |party_max_age |party_gender |partynowmem |party_maximum |party_join_gb |party_intro |party_join_form |party_auth_gb |party_pic                                |input_dt            |update_dt |user_seq |user_name |user_pic                                 |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|10        |방금만듬3      |1           |101            |서울             |강남구            |1901          |2155          |1            |1           |2             |1             |소개          |가입양식            |0             |824efa76-2e86-481d-991c-b92da81a335d.png |2024-07-19 09:09:30 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|9         |방금만듬2      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |1cc68548-f91e-435f-aedf-c87ac6c0cfac.png |2024-07-19 09:09:27 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|8         |방금만듬1      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |c700cee6-46bd-4428-94dd-ed865813bbdd.png |2024-07-19 09:09:23 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+[0;39m 
+[2024-07-19 10:12:13 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-19 10:12:13 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-19 10:37:34 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-19 10:37:34 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 4052 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:37:34 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:37:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-19 10:37:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-19 10:37:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:37:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:37:35 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1372 ms[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3820702d[0;39m 
+[2024-07-19 10:37:36 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-19 10:37:37 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 64d597bc-a6fc-41bc-9f4e-7da457f6d47d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62c06b93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@244d2156, org.springframework.security.web.context.SecurityContextHolderFilter@59fcb5fe, org.springframework.security.web.header.HeaderWriterFilter@8a4c695, org.springframework.web.filter.CorsFilter@340b8d22, org.springframework.security.web.authentication.logout.LogoutFilter@6bc494dc, com.green.project2nd.security.jwt.JwtAuthenticationFilter@220d1ac9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1172af30, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52a35b39, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@227d428a, org.springframework.security.web.session.SessionManagementFilter@33a393d, org.springframework.security.web.access.ExceptionTranslationFilter@4c0cad31, org.springframework.security.web.access.intercept.AuthorizationFilter@5ea30d10][0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:37:37 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.114 seconds (process running for 3.653)[0;39m 
+[2024-07-19 10:37:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:37:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:37:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-19 10:38:46 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:38:46 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:38:46 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:38:46 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:38:46 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:38:46 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:38:46 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 10:38:46 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+        join_seq AS joinSeq, join_user_seq AS joinUserSeq
+        , join_msg AS joinMsg, join_gb AS joinGb
+        FROM party_join
+        WHERE join_party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:38:46 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|--------------|--------------|--------|
+|join_seq |join_user_seq |join_msg      |join_gb |
+|---------|--------------|--------------|--------|
+|8        |1             |00년생, 홍길동입니다. |1       |
+|---------|--------------|--------------|--------|
+[0;39m 
+[2024-07-19 10:39:21 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:21 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:21 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:39:21 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:21 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:39:21 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:21 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:39:21 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. DELETE from party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 1
+ {executed in 6 msec}[0;39m 
+[2024-07-19 10:39:23 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:23 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:23 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:23 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:24 [32mINFO [0;39m http-nio-8080-exec-6] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 575 ms[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|0          |
+|-----------|
+[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|0               |
+|----------------|
+[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 2
+        , join_msg = '00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:39:36 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 2
+        , join_msg = '00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:39:36 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|11        |
+|----------|
+[0;39m 
+[2024-07-19 10:39:41 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:39:41 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:41 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:39:41 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:41 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:39:41 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:39:41 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 10:39:41 [33mWARN [0;39m http-nio-8080-exec-8] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.MsgException: 2,권한이 없는 유저입니다.][0;39m 
+[2024-07-19 10:39:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-19 10:39:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 

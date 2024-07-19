@@ -28,7 +28,8 @@ public class JoinExceptionHandler {
     public void exception(Long partySeq,PostJoinReq p) {
         exceptionParty(partySeq);
         exceptionUser(p.getJoinUserSeq());
-        // 탈퇴된 유저인 경우 그 전에 신청한 신청서를 지움.(이유:유니크, 고민요소:휴먼된 신청서가 필요한가?, 탈퇴된 기록을 남겨야하나?)
+        if (mapper.checkPartyLeader(partySeq, p.getJoinUserSeq()) != 0){
+            throw new MsgException("2,권한이 없는 유저입니다.");}
         if (mapper.checkMemberForPartySeqAndUserSeq(partySeq,p.getJoinUserSeq()) != 0) {
             joinMapper.deleteJoin(partySeq,p.getJoinUserSeq());}
         if (mapper.checkJoinApplicationOfUser(partySeq,p.getJoinUserSeq()) != 0) {
