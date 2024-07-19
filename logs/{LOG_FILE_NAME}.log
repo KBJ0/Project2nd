@@ -6279,3 +6279,5 @@ This generated password is for development use only. Your security configuration
 |8         |방금만듬1      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |c700cee6-46bd-4428-94dd-ed865813bbdd.png |2024-07-19 09:09:23 |null                |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
 |----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|--------------------|---------|----------|-----------------------------------------|
 [0;39m 
+[2024-07-19 16:02:19 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-19 16:02:19 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
