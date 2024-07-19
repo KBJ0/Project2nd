@@ -18,6 +18,7 @@ public class GetReviewUserRes {
     private long partySeq;
     private String partyName;
     private String president;
+    private int favCnt;
 
     private List<String> pics;
 }

@@ -105,4 +105,15 @@ public class ReviewService {
 
         return ppic;
     }
+
+    public int toggleReviewFav(GetReviewFavToggleReq p) {
+        int result = mapper.deleteReviewFav(p);
+
+        if (result == 1) {
+            return 1;
+        } else {
+            result = mapper.insertReviewFav(p);
+            return result == 1 ? 2 : 3;
+        }
+    }
 }
