@@ -7,7 +7,7 @@ import com.green.project2nd.security.AuthenticationFacade;
 import com.green.project2nd.security.MyUser;
 import com.green.project2nd.security.MyUserDetails;
 import com.green.project2nd.security.jwt.JwtTokenProviderV2;
-import com.green.project2nd.user.datacheck.Const;
+import com.green.project2nd.user.datacheck.CommonUser;
 import com.green.project2nd.user.model.*;
 import com.green.project2nd.user.userexception.*;
 import com.green.project2nd.common.model.CustomFileUtils;
@@ -57,10 +57,10 @@ public class UserService {
         if(!p.getUserPw().equals(p.getUserPwCheck())) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
-        if(Const.isValidDate(p.getUserBirth())) {
-            throw new BirthDateException(BIRTHDATE_REGEX_MESSAGE);
+        if(CommonUser.isValidDate(p.getUserBirth())) {
+            CommonUser.convertToDate(p.getUserBirth());
         } else {
-            Const.convertToDate(p.getUserBirth());
+            throw new BirthDateException(BIRTHDATE_REGEX_MESSAGE);
         }
         if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
             throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
@@ -236,8 +236,8 @@ public class UserService {
     public String findUserId(FindUserReq p) {
         String userEmail = mapper.findUserId(p);
         if(userEmail == null) {
-            throw new RuntimeException(FAILURE_MESSAGE);
+            throw new RuntimeException(NOT_FOUND_MESSAGE);
         }
-        return userEmail;
+        return CommonUser.maskEmail(userEmail);
     }
 }
