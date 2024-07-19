@@ -41,38 +41,38 @@
 
     <select id="getParty">
         SELECT
-            A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
-            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
-            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
-            A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
-            (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
-            A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
-            A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+        A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+        A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
         FROM party_master A
         JOIN party_member B ON A.party_seq = B.member_party_seq
         JOIN user_master C ON B.member_user_seq = C.user_seq
         WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = A.party_seq AND B.member_role = 1
         GROUP BY
-            A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
-            A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+        A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
         ORDER BY A.input_dt DESC
     </select>
     <select id="getPartyDetail">
         SELECT
-            A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
-            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
-            F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
-            A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
-            (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
-            A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
-            A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+        A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+        A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
         FROM party_master A
         JOIN party_member B ON A.party_seq = B.member_party_seq
         JOIN user_master C ON B.member_user_seq = C.user_seq
         WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = #{partySeq} AND B.member_role = 1
         GROUP BY
-            A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
-            A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+        A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
         ORDER BY A.input_dt DESC
     </select>
     <select id="getPartyMine">
@@ -92,6 +92,7 @@
         member_party_seq,
         COUNT(*) AS partyNowMem
         FROM party_member
+        WHERE member_gb = 1
         GROUP BY member_party_seq
         ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
         WHERE B.member_role = 2
@@ -124,10 +125,11 @@
         member_party_seq,
         COUNT(*) AS partyNowMem
         FROM party_member
+        WHERE member_gb = 1
         GROUP BY member_party_seq
         ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
         WHERE B.member_role = 1
-        AND A.user_seq = 1
+        AND A.user_seq = #{userSeq}
         ORDER BY C.input_dt DESC
         LIMIT #{startIdx}, #{size}
     </select>
@@ -156,13 +158,17 @@
         , party_pic = #{partyPic}
         WHERE party_seq = #{partySeq}
     </update>
-    <update id="updatePartyAuthGb">
+    <update id="updatePartyAuthGb1">
         UPDATE party_master
-        SET party_auth_gb = CASE
-        WHEN party_auth_gb = 1 THEN 0
-        ELSE 1
-        END
+        SET party_auth_gb = 1
         WHERE party_seq = #{partySeq}
+
+<!--        UPDATE party_master-->
+<!--        SET party_auth_gb = CASE-->
+<!--        WHEN party_auth_gb = 1 THEN 0-->
+<!--        ELSE 1-->
+<!--        END-->
+<!--        WHERE party_seq = #{partySeq}-->
     </update>
     <select id="getPartyAuthGb">
         SELECT party_auth_gb
@@ -170,19 +176,19 @@
         WHERE party_seq = #{partySeq}
     </select>
 
-    <update id="updatePartyForGb2">
+    <update id="updatePartyAuthGb2">
         UPDATE party_master
-        SET party_auth_gb = 3
+        SET party_auth_gb = 2
         WHERE party_seq = #{partySeq}
     </update>
 
-<!--    <select id="getPartyMemberRole">-->
-<!--        SELECT COALESCE(B.member_role, 0) AS memberRole-->
-<!--        FROM user_master A-->
-<!--        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = #{partySeq}-->
-<!--        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq-->
-<!--        WHERE A.user_seq = #{userSeq}-->
-<!--    </select>-->
+    <!--    <select id="getPartyMemberRole">-->
+    <!--        SELECT COALESCE(B.member_role, 0) AS memberRole-->
+    <!--        FROM user_master A-->
+    <!--        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = #{partySeq}-->
+    <!--        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq-->
+    <!--        WHERE A.user_seq = #{userSeq}-->
+    <!--    </select>-->
     <delete id ="deletePartyMember">
         DELETE FROM party_member
         WHERE member_party_seq = #{partySeq}

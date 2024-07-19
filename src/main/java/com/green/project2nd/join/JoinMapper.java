@@ -17,7 +17,10 @@ public interface JoinMapper {
 
     int updateJoin(UpdateJoinReq p);
     int updateJoinGb(UpdateJoinGbReq p);
+    void updateSuspendedMember(Long joinPartySeq, Long joinUserSeq);
     void postMember(Long joinPartySeq, Long joinUserSeq);
 
     int deleteJoin(Long joinPartySeq, Long joinUserSeq);
+
+
 }

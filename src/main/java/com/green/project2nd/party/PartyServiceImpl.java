@@ -1,6 +1,5 @@
 package com.green.project2nd.party;
 
-
 import com.green.project2nd.common.model.CustomFileUtils;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.party.exception.PartyExceptionHandler;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-public class PartyServiceImpl  implements PartyService{
+public class PartyServiceImpl implements PartyService{
     private final PartyMapper mapper;
     private final CustomFileUtils customFileUtils;
     private final PartyExceptionHandler check;
@@ -95,17 +94,17 @@ public class PartyServiceImpl  implements PartyService{
     }
 
     //partyAuthGb 설정 했으면 해당주석들 지우기.(+코드)
-    public ResultDto<Integer> updatePartyAuthGb(Long partySeq, Long userSeq) {
+    public ResultDto<Integer> updatePartyAuthGb1(Long partySeq, Long userSeq) {
         check.exception(partySeq, userSeq);
         int result = mapper.getPartyAuthGb(partySeq);
-        mapper.updatePartyAuthGb(partySeq, userSeq);
+        mapper.updatePartyAuthGb1(partySeq, userSeq);
         if (result == 1){return ResultDto.resultDto(HttpStatus.OK,1,"모임 생성 승인을 취소 하였습니다");}
         return ResultDto.resultDto(HttpStatus.OK,1,"모임 생성을 승인 하였습니다.");
     }
 
-    public ResultDto<Integer> updatePartyForGb2(Long partySeq, Long userSeq) {
+    public ResultDto<Integer> updatePartyAuthGb2(Long partySeq, Long userSeq) {
         check.exception(partySeq, userSeq);
-        mapper.updatePartyForGb2(partySeq);
+        mapper.updatePartyAuthGb2(partySeq);
         return ResultDto.resultDto(HttpStatus.OK,1,"모임을 삭제(휴먼) 하였습니다.");
     }
 
@@ -116,6 +115,7 @@ public class PartyServiceImpl  implements PartyService{
 //        customFileUtils.deleteFolder("party/" + partySeq);
 //        return ResultDto.resultDto(1,"모임을 삭제하였습니다.");
 //    }
+
 
 
 
