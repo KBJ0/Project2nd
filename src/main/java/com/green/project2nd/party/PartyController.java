@@ -171,12 +171,6 @@ public class PartyController {
         return service.updatePartyAuthGb2(partySeq,userSeq);
     }
 
-//    // 모임안의 정보를 순서대로 다 지워야함. 아직 미추가함.
-//    @DeleteMapping
-//    @Operation(summary = "모임 삭제" , description = "모임 삭제")
-//    public ResultDto<Integer> deleteParty(@RequestParam(name ="party_seq") Long partySeq
-//            , @RequestParam(name = "user_seq") Long userSeq){
-//        return service.deleteParty(partySeq,userSeq);
-//    }
+
 
 }

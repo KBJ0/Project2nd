@@ -15,7 +15,7 @@ public interface JoinMapper {
     List<GetJoinRes> getJoin(Long joinPartySeq);
     GetJoinRes getJoinDetail(Long joinPartySeq, Long joinUserSeq);
 
-    int updateJoin(UpdateJoinReq p);
+    void updateJoin(UpdateJoinReq p);
     int updateJoinGb(UpdateJoinGbReq p);
     void updateSuspendedMember(Long joinPartySeq, Long joinUserSeq);
     void postMember(Long joinPartySeq, Long joinUserSeq);

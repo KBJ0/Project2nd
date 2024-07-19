@@ -165,12 +165,6 @@
         SET party_auth_gb = 1
         WHERE party_seq = #{partySeq}
 
-<!--        UPDATE party_master-->
-<!--        SET party_auth_gb = CASE-->
-<!--        WHEN party_auth_gb = 1 THEN 0-->
-<!--        ELSE 1-->
-<!--        END-->
-<!--        WHERE party_seq = #{partySeq}-->
     </update>
     <select id="getPartyAuthGb">
         SELECT party_auth_gb
@@ -184,21 +178,7 @@
         WHERE party_seq = #{partySeq}
     </update>
 
-    <!--    <select id="getPartyMemberRole">-->
-    <!--        SELECT COALESCE(B.member_role, 0) AS memberRole-->
-    <!--        FROM user_master A-->
-    <!--        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = #{partySeq}-->
-    <!--        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq-->
-    <!--        WHERE A.user_seq = #{userSeq}-->
-    <!--    </select>-->
-    <delete id ="deletePartyMember">
-        DELETE FROM party_member
-        WHERE member_party_seq = #{partySeq}
-    </delete>
-    <delete id ="deleteParty">
-        DELETE FROM party_master
-        WHERE party_seq = #{partySeq}
-    </delete>
+
 
 
 

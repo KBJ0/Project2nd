@@ -35,12 +35,12 @@ public class JoinExceptionHandler {
         if (mapper.checkJoinApplicationOfUser(partySeq,p.getJoinUserSeq()) != 0) {
             throw new ReturnDto("2,이미 신청한 모임입니다.");}
     }
-    // U2
-    public void exceptionMember(Long partySeq, Long userSeq) {
-        if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
-            joinMapper.updateSuspendedMember(partySeq,userSeq);
-            throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
-    }
+//    // U2(updateJoinGb 추방당한 유저인지 확인용이였는데 옮김.)
+//    public void exceptionMember(Long partySeq, Long userSeq) {
+//        if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
+//            joinMapper.updateSuspendedMember(partySeq,userSeq);
+//            throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
+//    }
     //U2
     public void exception(Long partySeq, UpdateJoinGbReq p) {
         exception(partySeq, p.getJoinUserSeq());

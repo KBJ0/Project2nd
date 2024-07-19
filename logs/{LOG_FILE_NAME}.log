@@ -4381,3 +4381,1745 @@ This generated password is for development use only. Your security configuration
 [2024-07-19 10:39:41 [33mWARN [0;39m http-nio-8080-exec-8] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.MsgException: 2,권한이 없는 유저입니다.][0;39m 
 [2024-07-19 10:39:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-19 10:39:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-19 10:49:56 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-19 10:49:56 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:49:56 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:49:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-19 10:49:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:49:57 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1352 ms[0;39m 
+[2024-07-19 10:49:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-19 10:49:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@52ebd8a2[0;39m 
+[2024-07-19 10:49:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-19 10:49:58 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: bd0003e0-a956-4b7c-b636-6cf437f74c0b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:49:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:49:58 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@75814cda, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3422665e, org.springframework.security.web.context.SecurityContextHolderFilter@55a836fb, org.springframework.security.web.header.HeaderWriterFilter@2d802f85, org.springframework.web.filter.CorsFilter@471b782a, org.springframework.security.web.authentication.logout.LogoutFilter@1b4e56f4, com.green.project2nd.security.jwt.JwtAuthenticationFilter@6c6c2c4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5dde13cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5fe6c944, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@505025cb, org.springframework.security.web.session.SessionManagementFilter@5348a74, org.springframework.security.web.access.ExceptionTranslationFilter@223c8192, org.springframework.security.web.access.intercept.AuthorizationFilter@4fd1d672][0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.025 seconds (process running for 3.5)[0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 10:49:59 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.161] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-19 10:50:36 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:50:36 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+        A.party_seq AS partySeq, A.party_name AS partyName, A.party_genre AS partyGenre, A.party_location AS partyLocation,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), 'LO-00') AS partyLocation1,
+        F_COMMON_CD(LPAD(FLOOR(A.party_location / 100), 2, '0'), CONCAT('LO-', LPAD(A.party_location % 100, 2, '0'))) AS partyLocation2,
+        A.party_min_age AS partyMinAge, A.party_max_age AS partyMaxAge, A.party_gender AS partyGender,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem, A.party_maximum AS partyMaximum, A.party_join_gb AS partyJoinGb,
+        A.party_intro AS partyIntro, A.party_join_form AS partyJoinForm, A.party_auth_gb AS partyAuthGb, A.party_pic AS partyPic,
+        A.input_dt AS inputDt, A.update_dt AS updateDt, C.user_seq AS userSeq, C.user_name AS userName, C.user_pic AS userPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_user_seq = C.user_seq AND B.member_party_seq = A.party_seq AND B.member_role = 1
+        GROUP BY
+        A.party_seq, A.party_name, A.party_genre, A.party_min_age, A.party_max_age, A.party_gender, A.party_maximum,
+        A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb, A.party_pic, A.input_dt, C.user_seq
+        ORDER BY A.input_dt DESC
+ {executed in 8 msec}[0;39m 
+[2024-07-19 10:50:36 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|party_seq |party_name |party_genre |party_location |partylocation1 |partylocation2 |party_min_age |party_max_age |party_gender |partynowmem |party_maximum |party_join_gb |party_intro |party_join_form |party_auth_gb |party_pic                                |input_dt            |update_dt |user_seq |user_name |user_pic                                 |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+|10        |방금만듬3      |1           |101            |서울             |강남구            |1901          |2155          |1            |1           |2             |1             |소개          |가입양식            |0             |824efa76-2e86-481d-991c-b92da81a335d.png |2024-07-19 09:09:30 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|9         |방금만듬2      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |1cc68548-f91e-435f-aedf-c87ac6c0cfac.png |2024-07-19 09:09:27 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|8         |방금만듬1      |1           |101            |서울             |강남구            |1901          |2155          |1            |2           |2             |1             |소개          |가입양식            |0             |c700cee6-46bd-4428-94dd-ed865813bbdd.png |2024-07-19 09:09:23 |null      |1        |test      |3c7227d1-eaa1-4088-8173-1855a1d8599b.jpg |
+|----------|-----------|------------|---------------|---------------|---------------|--------------|--------------|-------------|------------|--------------|--------------|------------|----------------|--------------|-----------------------------------------|--------------------|----------|---------|----------|-----------------------------------------|
+[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 3
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|0          |
+|-----------|
+[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|0               |
+|----------------|
+[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 3
+        , join_msg = '00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:50:50 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 3
+        , join_msg = '00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:50 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|12        |
+|----------|
+[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:50:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:50:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:50:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|0          |
+|-----------|
+[0;39m 
+[2024-07-19 10:50:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:50:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:50:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:50:52 [33mWARN [0;39m http-nio-8080-exec-7] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.ReturnDto: 2,이미 신청한 모임입니다.][0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT CASE
+        WHEN (SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_gb = 1 AND member_party_seq = A.party_seq) = A.party_maximum
+        THEN 1
+        ELSE 0
+        END AS isEqual
+        FROM party_master A
+        WHERE A.party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|--------|
+|isequal |
+|--------|
+|0       |
+|--------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE party_join
+        SET join_gb = 1
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 6 msec}[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:01 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|0                       |
+|------------------------|
+[0;39m 
+[2024-07-19 10:51:01 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO party_member
+        SET member_party_seq = 10
+        , member_user_seq = 2
+        , member_role = 2
+        , member_gb = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:51:37 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 10:51:37 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 10:51:37 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 10:51:37 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:37 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 10:51:37 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 10:51:37 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|2          |
+|-----------|
+[0;39m 
+[2024-07-19 10:51:37 [33mWARN [0;39m http-nio-8080-exec-5] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.MsgException: 2,권한이 없는 유저입니다.][0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:53:25 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 422 ms[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Starting...[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4fe32fa7[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Start completed.[0;39m 
+[2024-07-19 10:53:26 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: fdca523b-3607-4f2a-a43b-869e61bb791c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62b84047, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@320e0d04, org.springframework.security.web.context.SecurityContextHolderFilter@37cf0fd2, org.springframework.security.web.header.HeaderWriterFilter@62784a35, org.springframework.web.filter.CorsFilter@1bdd5381, org.springframework.security.web.authentication.logout.LogoutFilter@47723d88, com.green.project2nd.security.jwt.JwtAuthenticationFilter@7a13a194, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@546a6d3d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7463ac67, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2309354d, org.springframework.security.web.session.SessionManagementFilter@220bd31c, org.springframework.security.web.access.ExceptionTranslationFilter@5bd71224, org.springframework.security.web.access.intercept.AuthorizationFilter@17a5e92e][0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.911 seconds (process running for 211.105)[0;39m 
+[2024-07-19 10:53:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 10:55:52 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 10:55:52 [32mINFO [0;39m Thread-8] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m Thread-8] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown initiated...[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m Thread-8] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 384 ms[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Starting...[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-3 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5be204e9[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Start completed.[0;39m 
+[2024-07-19 10:55:53 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 70b83f1c-3641-4105-929e-d805e383497c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7885b2c5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c0ab0a9, org.springframework.security.web.context.SecurityContextHolderFilter@1badea57, org.springframework.security.web.header.HeaderWriterFilter@65bcfdee, org.springframework.web.filter.CorsFilter@732349dd, org.springframework.security.web.authentication.logout.LogoutFilter@29cbb61a, com.green.project2nd.security.jwt.JwtAuthenticationFilter@5f51391e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7861b777, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a307618, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3caa02d3, org.springframework.security.web.session.SessionManagementFilter@2b6186d7, org.springframework.security.web.access.ExceptionTranslationFilter@51a65124, org.springframework.security.web.access.intercept.AuthorizationFilter@251d4b69][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.778 seconds (process running for 358.179)[0;39m 
+[2024-07-19 10:55:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m Thread-12] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m Thread-12] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Shutdown initiated...[0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m Thread-12] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Shutdown completed.[0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:57:25 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 385 ms[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-4 - Starting...[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-4 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6f7623a2[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-4 - Start completed.[0;39m 
+[2024-07-19 10:57:26 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 7399f1c5-1e08-4038-9094-af4ab96bf561
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ca292bf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50262479, org.springframework.security.web.context.SecurityContextHolderFilter@5cafa075, org.springframework.security.web.header.HeaderWriterFilter@152db466, org.springframework.web.filter.CorsFilter@49470dbf, org.springframework.security.web.authentication.logout.LogoutFilter@5461172d, com.green.project2nd.security.jwt.JwtAuthenticationFilter@37bccacb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@395a865e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41ac9b97, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f58c259, org.springframework.security.web.session.SessionManagementFilter@33e0e285, org.springframework.security.web.access.ExceptionTranslationFilter@43c2583, org.springframework.security.web.access.intercept.AuthorizationFilter@1cb15711][0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.79 seconds (process running for 451.006)[0;39m 
+[2024-07-19 10:57:26 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m Thread-16] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m Thread-16] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-4 - Shutdown initiated...[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m Thread-16] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-4 - Shutdown completed.[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 397 ms[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-5 - Starting...[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-5 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4a8654eb[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-5 - Start completed.[0;39m 
+[2024-07-19 10:59:51 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: bb8093ea-6d33-4e09-8760-096f033aa28d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 10:59:51 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a71a81d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@468dfe8f, org.springframework.security.web.context.SecurityContextHolderFilter@304cb951, org.springframework.security.web.header.HeaderWriterFilter@3b9cb696, org.springframework.web.filter.CorsFilter@7413306e, org.springframework.security.web.authentication.logout.LogoutFilter@614fa5f1, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1ed48c41, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b33a496, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65459d60, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36427c75, org.springframework.security.web.session.SessionManagementFilter@60a625c7, org.springframework.security.web.access.ExceptionTranslationFilter@44c9f7b1, org.springframework.security.web.access.intercept.AuthorizationFilter@e199148][0;39m 
+[2024-07-19 10:59:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 10:59:52 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 10:59:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 10:59:52 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.791 seconds (process running for 596.393)[0;39m 
+[2024-07-19 10:59:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:00:07 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:07 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|2          |
+|-----------|
+[0;39m 
+[2024-07-19 11:00:07 [33mWARN [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.MsgException: 2,권한이 없는 유저입니다.][0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. UPDATE party_member
+        SET member_gb = 0
+        WHERE member_party_seq = 10
+        AND  member_user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:00:10 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT member_gb
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:10 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------|
+|member_gb |
+|----------|
+|0         |
+|----------|
+[0;39m 
+[2024-07-19 11:00:24 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:00:24 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:00:24 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:00:24 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:24 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:00:24 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:00:24 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|2          |
+|-----------|
+[0;39m 
+[2024-07-19 11:00:24 [33mWARN [0;39m http-nio-8080-exec-3] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.project2nd.common.myexception.MsgException: 2,권한이 없는 유저입니다.][0;39m 
+[2024-07-19 11:00:49 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 16 class path changes (0 additions, 0 deletions, 16 modifications)[0;39m 
+[2024-07-19 11:00:49 [32mINFO [0;39m Thread-20] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m Thread-20] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-5 - Shutdown initiated...[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m Thread-20] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-5 - Shutdown completed.[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 380 ms[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-6 - Starting...[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-6 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@495f714f[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-6 - Start completed.[0;39m 
+[2024-07-19 11:00:50 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: bc0aa9c4-0c2d-4adc-b028-c976a5c97e35
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d496a24, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27bf6aa, org.springframework.security.web.context.SecurityContextHolderFilter@6969b436, org.springframework.security.web.header.HeaderWriterFilter@5051894d, org.springframework.web.filter.CorsFilter@35a7f15d, org.springframework.security.web.authentication.logout.LogoutFilter@237f925d, com.green.project2nd.security.jwt.JwtAuthenticationFilter@5a7f03f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d1ce610, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@615b0b1f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c51a30b, org.springframework.security.web.session.SessionManagementFilter@661007ce, org.springframework.security.web.access.ExceptionTranslationFilter@46124665, org.springframework.security.web.access.intercept.AuthorizationFilter@40332389][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.761 seconds (process running for 655.184)[0;39m 
+[2024-07-19 11:00:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 16 class path changes (0 additions, 0 deletions, 16 modifications)[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m Thread-24] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m Thread-24] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-6 - Shutdown initiated...[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m Thread-24] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-6 - Shutdown completed.[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:00:57 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 387 ms[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-7 - Starting...[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-7 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@75d5b8f8[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-7 - Start completed.[0;39m 
+[2024-07-19 11:00:58 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 7d6d026a-932e-493a-a590-6ea90bb677d1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@658faf72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1bb0737, org.springframework.security.web.context.SecurityContextHolderFilter@4e4131f3, org.springframework.security.web.header.HeaderWriterFilter@8bf9718, org.springframework.web.filter.CorsFilter@23124617, org.springframework.security.web.authentication.logout.LogoutFilter@63f0f400, com.green.project2nd.security.jwt.JwtAuthenticationFilter@3b65bf5c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f3cef2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bcfa684, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c8871ff, org.springframework.security.web.session.SessionManagementFilter@1e102727, org.springframework.security.web.access.ExceptionTranslationFilter@fa1dbac, org.springframework.security.web.access.intercept.AuthorizationFilter@d2046ac][0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.766 seconds (process running for 662.707)[0;39m 
+[2024-07-19 11:00:58 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. UPDATE party_member
+        SET member_gb = 0
+        , member_role = 0
+        WHERE member_party_seq = 10
+        AND  member_user_seq = 2
+ {executed in 6 msec}[0;39m 
+[2024-07-19 11:01:12 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT member_gb
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:12 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|
+|member_gb |
+|----------|
+|0         |
+|----------|
+[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|0          |
+|-----------|
+[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_party_seq = 10
+        AND member_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|------------------------|
+|count(member_party_seq) |
+|------------------------|
+|1                       |
+|------------------------|
+[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. DELETE from party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 2 msec}[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|0               |
+|----------------|
+[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 2
+        , join_msg = '리리 00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:01:20 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+61. getGeneratedKeys on query: INSERT INTO party_join
+        SET join_party_seq = 10
+        , join_user_seq = 2
+        , join_msg = '리리 00년생, 홍길동입니다.'
+        , join_gb = 0
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:01:20 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|13        |
+|----------|
+[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m Thread-28] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m Thread-28] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-7 - Shutdown initiated...[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m Thread-28] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-7 - Shutdown completed.[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:05:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 405 ms[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-8 - Starting...[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7d64e381[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-8 - Start completed.[0;39m 
+[2024-07-19 11:05:33 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: b89f54fa-786f-44c1-91a0-c4077c53e9e5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53a1d5c4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@122b4d15, org.springframework.security.web.context.SecurityContextHolderFilter@a83c5b2, org.springframework.security.web.header.HeaderWriterFilter@69259fc, org.springframework.web.filter.CorsFilter@3603cfc4, org.springframework.security.web.authentication.logout.LogoutFilter@1f8bd176, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1ea627e9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b74f723, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f3d0408, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@586e7ff3, org.springframework.security.web.session.SessionManagementFilter@6238c21a, org.springframework.security.web.access.ExceptionTranslationFilter@4fefc524, org.springframework.security.web.access.intercept.AuthorizationFilter@7ad25c2][0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.84 seconds (process running for 937.752)[0;39m 
+[2024-07-19 11:05:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:06:05 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:06:05 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:06:05 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:06:05 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+        join_seq AS joinSeq, join_user_seq AS joinUserSeq
+        , join_msg AS joinMsg, join_gb AS joinGb
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:05 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|--------------|-----------------|--------|
+|join_seq |join_user_seq |join_msg         |join_gb |
+|---------|--------------|-----------------|--------|
+|13       |2             |리리 00년생, 홍길동입니다. |0       |
+|---------|--------------|-----------------|--------|
+[0;39m 
+[2024-07-19 11:06:39 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:06:39 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:06:39 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:06:39 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:39 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:06:39 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:39 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:06:39 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. UPDATE party_join
+        SET join_msg = '다시 받아줘 01년생,홍길동입니다.'
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 6 msec}[0;39m 
+[2024-07-19 11:06:50 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:06:50 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:50 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:06:50 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:50 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:06:50 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT COALESCE(B.member_role, 0) AS memberRole
+        FROM user_master A
+        LEFT JOIN party_member B ON A.user_seq = B.member_user_seq AND B.member_party_seq = 10
+        LEFT JOIN party_master C ON B.member_party_seq = C.party_seq
+        WHERE A.user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:06:50 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------|
+|memberrole |
+|-----------|
+|1          |
+|-----------|
+[0;39m 
+[2024-07-19 11:06:50 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+        join_seq AS joinSeq, join_user_seq AS joinUserSeq
+        , join_msg AS joinMsg, join_gb AS joinGb
+        FROM party_join
+        WHERE join_party_seq = 10
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:06:50 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|---------|--------------|--------------------|--------|
+|join_seq |join_user_seq |join_msg            |join_gb |
+|---------|--------------|--------------------|--------|
+|13       |2             |다시 받아줘 01년생,홍길동입니다. |0       |
+|12       |3             |00년생, 홍길동입니다.       |0       |
+|---------|--------------|--------------------|--------|
+[0;39m 
+[2024-07-19 11:08:03 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 11:08:03 [32mINFO [0;39m Thread-32] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m Thread-32] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-8 - Shutdown initiated...[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m Thread-32] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-8 - Shutdown completed.[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 381 ms[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-9 - Starting...[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-9 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@82798f1[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-9 - Start completed.[0;39m 
+[2024-07-19 11:08:04 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 281ff49b-0627-43c7-b2fe-f1d79001ebc1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78cc0f49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@226d74d5, org.springframework.security.web.context.SecurityContextHolderFilter@374a2e89, org.springframework.security.web.header.HeaderWriterFilter@306776a3, org.springframework.web.filter.CorsFilter@60367980, org.springframework.security.web.authentication.logout.LogoutFilter@40834f1a, com.green.project2nd.security.jwt.JwtAuthenticationFilter@8ad8c88, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a18c9c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@141744d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67b71d32, org.springframework.security.web.session.SessionManagementFilter@4d2d4201, org.springframework.security.web.access.ExceptionTranslationFilter@4a5ee62d, org.springframework.security.web.access.intercept.AuthorizationFilter@6702eca][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.762 seconds (process running for 1089.175)[0;39m 
+[2024-07-19 11:08:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:08:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. SELECT COUNT(party_seq)
+        FROM party_master
+        WHERE party_seq = 10
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|-----------------|
+|count(party_seq) |
+|-----------------|
+|1                |
+|-----------------|
+[0;39m 
+[2024-07-19 11:08:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:08:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. SELECT COUNT(join_seq)
+        FROM party_join
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:08:44 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(join_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:08:44 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. UPDATE party_join
+        SET join_msg = '다시 받아줘 01년생,홍길동입니다.'
+        WHERE join_party_seq = 10
+        AND join_user_seq = 2
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:23:20 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 5 class path changes (0 additions, 0 deletions, 5 modifications)[0;39m 
+[2024-07-19 11:23:20 [32mINFO [0;39m Thread-36] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m Thread-36] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-9 - Shutdown initiated...[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m Thread-36] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-9 - Shutdown completed.[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 414 ms[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-10 - Starting...[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-10 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@59932aec[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-10 - Start completed.[0;39m 
+[2024-07-19 11:23:21 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: a85ba394-190e-4fc3-b259-8ed8f8dd685c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11224ce8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@755ffdb7, org.springframework.security.web.context.SecurityContextHolderFilter@2826c0c8, org.springframework.security.web.header.HeaderWriterFilter@12677b25, org.springframework.web.filter.CorsFilter@530828fc, org.springframework.security.web.authentication.logout.LogoutFilter@2bc89daf, com.green.project2nd.security.jwt.JwtAuthenticationFilter@4950819a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29bf6252, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@289a13, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c17bf34, org.springframework.security.web.session.SessionManagementFilter@4eff7295, org.springframework.security.web.access.ExceptionTranslationFilter@ca1b721, org.springframework.security.web.access.intercept.AuthorizationFilter@56e93d34][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.86 seconds (process running for 2006.269)[0;39m 
+[2024-07-19 11:23:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m Thread-40] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m Thread-40] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-10 - Shutdown initiated...[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m Thread-40] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-10 - Shutdown completed.[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 379 ms[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-11 - Starting...[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-11 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@337948cf[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-11 - Start completed.[0;39m 
+[2024-07-19 11:24:16 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 51b2d791-0ce0-416a-8e02-99c42f15138a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:24:16 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f233f6e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c5a476b, org.springframework.security.web.context.SecurityContextHolderFilter@46e60180, org.springframework.security.web.header.HeaderWriterFilter@696687d9, org.springframework.web.filter.CorsFilter@184439ea, org.springframework.security.web.authentication.logout.LogoutFilter@18916f7e, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1bde1c19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@385e8cb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@655b9c24, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d180440, org.springframework.security.web.session.SessionManagementFilter@5c3aecf5, org.springframework.security.web.access.ExceptionTranslationFilter@255b73a6, org.springframework.security.web.access.intercept.AuthorizationFilter@6d650f85][0;39m 
+[2024-07-19 11:24:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:24:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:24:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:24:17 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.798 seconds (process running for 2061.372)[0;39m 
+[2024-07-19 11:24:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:25:10 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 11:25:10 [32mINFO [0;39m Thread-44] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m Thread-44] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-11 - Shutdown initiated...[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m Thread-44] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-11 - Shutdown completed.[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 375 ms[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-12 - Starting...[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-12 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@e5c482d[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-12 - Start completed.[0;39m 
+[2024-07-19 11:25:11 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: a3c2e0de-9e9a-48bf-84cf-c7f49a68d364
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11563b32, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@318cf4d0, org.springframework.security.web.context.SecurityContextHolderFilter@4b3eba48, org.springframework.security.web.header.HeaderWriterFilter@36467e38, org.springframework.web.filter.CorsFilter@6735033b, org.springframework.security.web.authentication.logout.LogoutFilter@a055fef, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1d8210f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f61cd86, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ad3d7ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73e75fa7, org.springframework.security.web.session.SessionManagementFilter@2b20b150, org.springframework.security.web.access.ExceptionTranslationFilter@5c21155c, org.springframework.security.web.access.intercept.AuthorizationFilter@1ff166fc][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.745 seconds (process running for 2116.166)[0;39m 
+[2024-07-19 11:25:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m Thread-48] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m Thread-48] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-12 - Shutdown initiated...[0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m Thread-48] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-12 - Shutdown completed.[0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:25:45 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 521 ms[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-13 - Starting...[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-13 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@163970b4[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-13 - Start completed.[0;39m 
+[2024-07-19 11:25:46 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: d94b2e3c-916e-4442-bf98-1de6a47abf31
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2619eb51, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d40777a, org.springframework.security.web.context.SecurityContextHolderFilter@d83a95a, org.springframework.security.web.header.HeaderWriterFilter@5749a787, org.springframework.web.filter.CorsFilter@35d9ea70, org.springframework.security.web.authentication.logout.LogoutFilter@593da22, com.green.project2nd.security.jwt.JwtAuthenticationFilter@33944fb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@191e4d44, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@371a47f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53eda698, org.springframework.security.web.session.SessionManagementFilter@fa321c8, org.springframework.security.web.access.ExceptionTranslationFilter@4f6b6c52, org.springframework.security.web.access.intercept.AuthorizationFilter@60d0d05b][0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 1.006 seconds (process running for 2151.046)[0;39m 
+[2024-07-19 11:25:46 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m Thread-52] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m Thread-52] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-13 - Shutdown initiated...[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m Thread-52] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-13 - Shutdown completed.[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 378 ms[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-14 - Starting...[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-14 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@11326cb[0;39m 
+[2024-07-19 11:25:53 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-14 - Start completed.[0;39m 
+[2024-07-19 11:25:54 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: ddf84ba5-9ba8-452f-ad20-7ee13620826b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@295e2095, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2af55699, org.springframework.security.web.context.SecurityContextHolderFilter@716c1f83, org.springframework.security.web.header.HeaderWriterFilter@5ad00c89, org.springframework.web.filter.CorsFilter@2df0763b, org.springframework.security.web.authentication.logout.LogoutFilter@1a732b6c, com.green.project2nd.security.jwt.JwtAuthenticationFilter@50ae28e9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6886da7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32e827a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f470b7d, org.springframework.security.web.session.SessionManagementFilter@70d92f42, org.springframework.security.web.access.ExceptionTranslationFilter@1b70407d, org.springframework.security.web.access.intercept.AuthorizationFilter@375eb565][0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.751 seconds (process running for 2158.545)[0;39m 
+[2024-07-19 11:25:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m Thread-56] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m Thread-56] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-14 - Shutdown initiated...[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m Thread-56] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-14 - Shutdown completed.[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 404 ms[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-15 - Starting...[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-15 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1eac63e7[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-15 - Start completed.[0;39m 
+[2024-07-19 11:26:38 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: eea51926-270b-4644-ba29-014618dccee1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:26:38 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@608717bb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a168075, org.springframework.security.web.context.SecurityContextHolderFilter@17dd70ea, org.springframework.security.web.header.HeaderWriterFilter@762b0db6, org.springframework.web.filter.CorsFilter@8f89228, org.springframework.security.web.authentication.logout.LogoutFilter@6c38c06e, com.green.project2nd.security.jwt.JwtAuthenticationFilter@6d193418, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58df2af3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76b7dae3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@47ef5f08, org.springframework.security.web.session.SessionManagementFilter@57962b31, org.springframework.security.web.access.ExceptionTranslationFilter@7a26bd67, org.springframework.security.web.access.intercept.AuthorizationFilter@5b94c2b][0;39m 
+[2024-07-19 11:26:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:26:39 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:26:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:26:39 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.807 seconds (process running for 2203.44)[0;39m 
+[2024-07-19 11:26:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-19 11:26:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. SELECT COUNT(party_name)
+        FROM party_master
+        WHERE party_name = '방금만듬4'
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------------|
+|count(party_name) |
+|------------------|
+|0                 |
+|------------------|
+[0;39m 
+[2024-07-19 11:26:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. SELECT COUNT(user_seq)
+        FROM user_master
+        WHERE user_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------------|
+|count(user_seq) |
+|----------------|
+|1               |
+|----------------|
+[0;39m 
+[2024-07-19 11:26:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. INSERT INTO party_master
+        SET party_name = '방금만듬4'
+        , party_genre = 1
+        , party_location = 101
+        , party_min_age = 1901
+        , party_max_age = 2155
+        , party_gender = 1
+        , party_maximum = 2
+        , party_join_gb = 1
+        , party_intro = '소개'
+        , party_join_form = '가입양식'
+        , party_pic = '6965d478-dbfc-4fe3-9ce3-427d0902fa28.png'
+        , party_auth_gb = 0
+ {executed in 2 msec}[0;39m 
+[2024-07-19 11:26:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+141. getGeneratedKeys on query: INSERT INTO party_master
+        SET party_name = '방금만듬4'
+        , party_genre = 1
+        , party_location = 101
+        , party_min_age = 1901
+        , party_max_age = 2155
+        , party_gender = 1
+        , party_maximum = 2
+        , party_join_gb = 1
+        , party_intro = '소개'
+        , party_join_form = '가입양식'
+        , party_pic = '6965d478-dbfc-4fe3-9ce3-427d0902fa28.png'
+        , party_auth_gb = 0
+ {executed in 0 msec}[0;39m 
+[2024-07-19 11:26:43 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|11        |
+|----------|
+[0;39m 
+[2024-07-19 11:26:43 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. INSERT INTO party_member
+        SET member_party_seq = 11
+        , member_user_seq = 1
+        , member_role = 1
+        , member_gb = 1
+ {executed in 1 msec}[0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)[0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m Thread-60] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m Thread-60] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-15 - Shutdown initiated...[0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m Thread-60] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-15 - Shutdown completed.[0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:34:14 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 391 ms[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-16 - Starting...[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-16 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@14c906d6[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-16 - Start completed.[0;39m 
+[2024-07-19 11:34:15 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 5cb373b8-36d3-4ac3-90f5-d804dbb5b8bf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5ab17594, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6905ff0d, org.springframework.security.web.context.SecurityContextHolderFilter@400f8103, org.springframework.security.web.header.HeaderWriterFilter@39454cc1, org.springframework.web.filter.CorsFilter@305a4303, org.springframework.security.web.authentication.logout.LogoutFilter@19f55e59, com.green.project2nd.security.jwt.JwtAuthenticationFilter@33c28516, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@666ebe40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75dec508, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@414e6506, org.springframework.security.web.session.SessionManagementFilter@333c6f86, org.springframework.security.web.access.ExceptionTranslationFilter@15c67022, org.springframework.security.web.access.intercept.AuthorizationFilter@98f1d4b][0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.783 seconds (process running for 2660.075)[0;39m 
+[2024-07-19 11:34:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m Thread-64] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m Thread-64] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-16 - Shutdown initiated...[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m Thread-64] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-16 - Shutdown completed.[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 388 ms[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-17 - Starting...[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-17 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@76a2b617[0;39m 
+[2024-07-19 11:41:27 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-17 - Start completed.[0;39m 
+[2024-07-19 11:41:27 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 64d6c055-0446-43cd-bbd4-a59af9bbcf5c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7ace2ab, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d47ec3d, org.springframework.security.web.context.SecurityContextHolderFilter@35711cdb, org.springframework.security.web.header.HeaderWriterFilter@2f30f536, org.springframework.web.filter.CorsFilter@1afa6d, org.springframework.security.web.authentication.logout.LogoutFilter@3b0eb9f1, com.green.project2nd.security.jwt.JwtAuthenticationFilter@3dbae899, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4446e1b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cf5b2e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cc38b1c, org.springframework.security.web.session.SessionManagementFilter@6bc83662, org.springframework.security.web.access.ExceptionTranslationFilter@3500908e, org.springframework.security.web.access.intercept.AuthorizationFilter@72a5d416][0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.794 seconds (process running for 3092.515)[0;39m 
+[2024-07-19 11:41:28 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)[0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m Thread-68] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m Thread-68] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-17 - Shutdown initiated...[0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m Thread-68] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-17 - Shutdown completed.[0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 11:55:18 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 389 ms[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-18 - Starting...[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-18 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@65e4c739[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-18 - Start completed.[0;39m 
+[2024-07-19 11:55:19 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: cf3aebc8-43ee-4ac8-879e-39d92ae69469
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5642abcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72e02637, org.springframework.security.web.context.SecurityContextHolderFilter@584510c4, org.springframework.security.web.header.HeaderWriterFilter@5a863797, org.springframework.web.filter.CorsFilter@2dd51976, org.springframework.security.web.authentication.logout.LogoutFilter@3efe28f1, com.green.project2nd.security.jwt.JwtAuthenticationFilter@33b93c90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e13ae6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45421eb5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d5b57b8, org.springframework.security.web.session.SessionManagementFilter@9c04881, org.springframework.security.web.access.ExceptionTranslationFilter@1f0d35a6, org.springframework.security.web.access.intercept.AuthorizationFilter@3742fd81][0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.798 seconds (process running for 3924.082)[0;39m 
+[2024-07-19 11:55:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)[0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m Thread-72] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m Thread-72] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-18 - Shutdown initiated...[0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m Thread-72] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-18 - Shutdown completed.[0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 12:17:51 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 406 ms[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-19 - Starting...[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-19 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2bb0a5eb[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-19 - Start completed.[0;39m 
+[2024-07-19 12:17:52 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 0c405e8c-bae1-40c3-b2b5-fc64cdd3f975
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3485cfbb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c601c18, org.springframework.security.web.context.SecurityContextHolderFilter@7594c760, org.springframework.security.web.header.HeaderWriterFilter@2c3d70a7, org.springframework.web.filter.CorsFilter@2a6b98f7, org.springframework.security.web.authentication.logout.LogoutFilter@2da33c7c, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1437c3b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@483cf447, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fc30daf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c7020ea, org.springframework.security.web.session.SessionManagementFilter@237a52fd, org.springframework.security.web.access.ExceptionTranslationFilter@3f9050ad, org.springframework.security.web.access.intercept.AuthorizationFilter@255c7020][0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.824 seconds (process running for 5277.046)[0;39m 
+[2024-07-19 12:17:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m Thread-76] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m Thread-76] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-19 - Shutdown initiated...[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m Thread-76] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-19 - Shutdown completed.[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 393 ms[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-20 - Starting...[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-20 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@8ca0c1b[0;39m 
+[2024-07-19 12:20:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-20 - Start completed.[0;39m 
+[2024-07-19 12:20:37 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: bacfbdc0-201d-486d-b399-a83246f0850c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@659b4d68, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7176c35, org.springframework.security.web.context.SecurityContextHolderFilter@1434a4ad, org.springframework.security.web.header.HeaderWriterFilter@36f55956, org.springframework.web.filter.CorsFilter@5d4a413f, org.springframework.security.web.authentication.logout.LogoutFilter@5928c829, com.green.project2nd.security.jwt.JwtAuthenticationFilter@43c0755a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@bd84548, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17fb828c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ff7c0d2, org.springframework.security.web.session.SessionManagementFilter@14ad642e, org.springframework.security.web.access.ExceptionTranslationFilter@1f301863, org.springframework.security.web.access.intercept.AuthorizationFilter@6c23cd81][0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.8 seconds (process running for 5442.473)[0;39m 
+[2024-07-19 12:20:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 19 class path changes (0 additions, 0 deletions, 19 modifications)[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m Thread-80] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m Thread-80] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-20 - Shutdown initiated...[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m Thread-80] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-20 - Shutdown completed.[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 369 ms[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-21 - Starting...[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-21 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@44e1060a[0;39m 
+[2024-07-19 12:22:55 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-21 - Start completed.[0;39m 
+[2024-07-19 12:22:56 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 0a581af8-5c25-4cef-8f21-70634f984b3a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c3a1d1e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fcc8787, org.springframework.security.web.context.SecurityContextHolderFilter@dcc8480, org.springframework.security.web.header.HeaderWriterFilter@75393d30, org.springframework.web.filter.CorsFilter@675a65eb, org.springframework.security.web.authentication.logout.LogoutFilter@62d42c22, com.green.project2nd.security.jwt.JwtAuthenticationFilter@435bcee2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f02e3d1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@736e87bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79222377, org.springframework.security.web.session.SessionManagementFilter@211b2b16, org.springframework.security.web.access.ExceptionTranslationFilter@558ea92, org.springframework.security.web.access.intercept.AuthorizationFilter@3d44644b][0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.73 seconds (process running for 5580.52)[0;39m 
+[2024-07-19 12:22:56 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 12:23:31 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)[0;39m 
+[2024-07-19 12:23:31 [32mINFO [0;39m Thread-84] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m Thread-84] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-21 - Shutdown initiated...[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m Thread-84] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-21 - Shutdown completed.[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5980 (D:\KBJ\BackEnd\Project2nd\build\classes\java\main started by Administrator in D:\KBJ\BackEnd\Project2nd)[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 370 ms[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-22 - Starting...[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-22 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3a8d44a8[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-22 - Start completed.[0;39m 
+[2024-07-19 12:23:32 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 0ded1d5c-7204-407d-9917-9726c99f5282
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ae33573, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42791daa, org.springframework.security.web.context.SecurityContextHolderFilter@9869522, org.springframework.security.web.header.HeaderWriterFilter@4f38af4e, org.springframework.web.filter.CorsFilter@cfe2037, org.springframework.security.web.authentication.logout.LogoutFilter@240d8bfe, com.green.project2nd.security.jwt.JwtAuthenticationFilter@1fd3ecf4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@688cc46d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62c454ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18541994, org.springframework.security.web.session.SessionManagementFilter@58b47285, org.springframework.security.web.access.ExceptionTranslationFilter@49b50bd4, org.springframework.security.web.access.intercept.AuthorizationFilter@6a8fd63a][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 0.742 seconds (process running for 5617.164)[0;39m 
+[2024-07-19 12:23:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m 
+[2024-07-19 12:25:41 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-22 - Shutdown initiated...[0;39m 
+[2024-07-19 12:25:41 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-22 - Shutdown completed.[0;39m 
