@@ -48,16 +48,13 @@ public class BoardController {
 
     @PatchMapping
     @Operation(summary = "게시글 수정")
-    public ResultDto<BoardPatchReq> patchBoard(@RequestPart List<MultipartFile> newPics, @RequestPart BoardPatchReq p) {
-        int result = service.patchBoard(newPics, p);
-        p.setResult(result);
+    public ResultDto<BoardPatchReq> patchBoard(@RequestParam List<MultipartFile> newPics, @RequestBody BoardPatchReq p) {
+        boolean result = service.boardPatch(newPics, p);
         return ResultDto.<BoardPatchReq>builder()
                 .status(HttpStatus.OK)
-                .code(1)
-                .resultMsg(result == 1 ? "정상처리" : "실패")
+                .resultMsg(result ? "정상처리" : "실패")
                 .resultData(p)
                 .build();
-
     }
     @GetMapping
     @Operation(summary = "게시글 조회")
