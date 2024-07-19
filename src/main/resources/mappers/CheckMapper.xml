@@ -93,9 +93,11 @@
         WHERE party_seq = #{planPartySeq}
     </select>
     <select id="checkPlanJoin">
-        SELECT plmember_seq
-        FROM plan_member
-        WHERE plmember_plan_seq = #{plmemberPlanSeq}
-        AND plmember_member_seq = #{plmemberMemberSeq}
+        SELECT A.plmember_seq
+        FROM plan_member A
+        JOIN party_member B
+        ON A.plmember_member_seq = B.member_seq
+        WHERE A.plmember_plan_seq = #{plmemberPlanSeq}
+        AND B.member_seq = #{plmemberMemberSeq}
     </select>
 </mapper>
