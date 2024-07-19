@@ -24,6 +24,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -43,6 +44,11 @@
         FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
         ON F.member_party_seq = E.party_seq
         <where>
+            <if test="search == 1">
+                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+                || F.USER_NAME LIKE concat('%',#{searchData},'%')
+                || D.user_name LIKE concat('%',#{searchData},'%')
+            </if>
             <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
@@ -60,6 +66,7 @@
         , A.review_plmember_seq as reviewPlmemberSeq
         , D.user_seq as userSeq
         , D.user_name as userName
+        , D.user_pic as userPic
         , A.review_contents as reviewContents
         , A.review_rating as reviewRating
         , A.input_dt as inputDt
@@ -80,6 +87,11 @@
         ON F.member_party_seq = E.party_seq
         <where>
             <if test="1==1">D.user_seq = #{userSeq}</if>
+            <if test="search == 1">
+                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+                || F.USER_NAME LIKE concat('%',#{searchData},'%')
+                || D.user_name LIKE concat('%',#{searchData},'%')
+            </if>
             <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
@@ -121,6 +133,11 @@
         ON F.member_party_seq = E.party_seq
         <where>
             <if test="userSeq != 0">D.user_seq = #{userSeq}</if>
+            <if test="search == 1">
+                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+                || F.USER_NAME LIKE concat('%',#{searchData},'%')
+                || D.user_name LIKE concat('%',#{searchData},'%')
+            </if>
             <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
             <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
