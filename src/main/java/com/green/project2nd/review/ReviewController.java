@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -202,6 +203,37 @@ public class ReviewController {
         } catch (Exception e){
             log.info("e : {}", e);
             return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "파일 업로드 중 오류가 발생했습니다.");
+        }
+    }
+
+    @GetMapping("/fav")
+    @Operation(summary = "도움돼요!", description =
+            "<strong> 도움돼요 토글 (PostMan으로 테스트)</strong><p></p>" +
+                    "<p><strong> reviewFavUserSeq   </strong> : 유저PK (long) </p>" +
+                    "<p><strong> reviewFavReviewSeq </strong> : 리뷰PK (String) </p>"
+    )
+    @ApiResponse(
+            description =
+                    "<p> ResponseCode 응답 코드 </p>" +
+                            "<p> 1 : 성공, ResultMsg</p>" +
+                            "<p> 2 : 실패, ResultMsg</p>"
+    )
+    public ResultDto<Integer> getReviewFavToggle(@ModelAttribute @ParameterObject GetReviewFavToggleReq p) {
+
+        int result = service.toggleReviewFav(p); //== 1 ? "취소" : "등록";
+        String msg;
+
+        if (result == 1) {
+            msg = "취소";
+        } else if (result == 2) {
+            msg = "등록";
+        } else {
+            msg = "등록/취소에 실패했습니다.";
+        }
+        if(result == 1 || result == 2) {
+            return ResultDto.resultDto(HttpStatus.OK, 1, "도움돼요 " + msg + "완료");
+        } else {
+            return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR, 2, msg);
         }
     }
 }
