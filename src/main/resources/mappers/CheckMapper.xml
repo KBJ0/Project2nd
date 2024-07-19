@@ -98,6 +98,6 @@
         JOIN party_member B
         ON A.plmember_member_seq = B.member_seq
         WHERE A.plmember_plan_seq = #{plmemberPlanSeq}
-        AND B.member_seq = #{plmemberMemberSeq}
+        AND B.member_seq = #{memberSeq}
     </select>
 </mapper>
