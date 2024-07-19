@@ -80,8 +80,8 @@
             <if test="userIntro != null and userIntro !=''">
                 user_intro = #{userIntro}
             </if>
-            WHERE user_seq = #{userSeq}
         </set>
+        WHERE user_seq = #{userSeq}
     </update>
     
     <update id="patchPassword">
