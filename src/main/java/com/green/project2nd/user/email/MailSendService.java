@@ -11,6 +11,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -34,6 +35,7 @@ public class MailSendService {
     private JavaMailSender mailSender;
     @Autowired
     private RedisUtil redisUtil;
+    private final PasswordEncoder passwordEncoder;
     private int authNumber;
 
 
@@ -58,7 +60,7 @@ public class MailSendService {
             return AUTH_CODE_EXPIRED;
         }
         mapper.checkAuthNum(email);
-        return SUCCESS_Message;
+        return SUCCESS_MESSAGE;
     }
 
     //임의의 6자리 양수
@@ -94,14 +96,14 @@ public class MailSendService {
     }
 
 
-    public int setPassword(FindPasswordReq p) {
-        SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
-        if(user == null) {
-            return 0;
-        }
+    public String setPassword(FindPasswordReq p) {
+//        SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
+//        if(user == null) {
+//            return 0;
+//        }
         String temp = tempPassword(10);
 
-        String hashPw = BCrypt.hashpw(temp, BCrypt.gensalt());
+        String hashPw = passwordEncoder.encode(temp);
         p.setUserSetPw(hashPw);
 
         String setFrom = "hajju0617@naver.com"; // email-config에 설정한 자신의 이메일 주소를 입력
@@ -114,7 +116,8 @@ public class MailSendService {
                         "<br>" +
                         "로그인 후 비밀번호 변경을 꼭 해주세요"; //이메일 내용 삽입
         mailSend(setFrom, toMail, title, content);
-        return mapper.setPassword(p);
+        mapper.setPassword(p);
+        return temp;
     }
 
     //이메일을 전송합니다.

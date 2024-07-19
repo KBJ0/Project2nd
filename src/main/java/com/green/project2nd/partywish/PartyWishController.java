@@ -63,15 +63,13 @@ public class PartyWishController {
             return ResultDto.<List<PartyWishGetListRes>>builder()
                     .status(HttpStatus.OK)
                     .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
+                    .resultMsg(SUCCESS_MESSAGE)
                     .resultData(result)
                     .build();
         } catch (RuntimeException re) {
             return ResultDto.<List<PartyWishGetListRes>>builder()
                     .status(HttpStatus.INTERNAL_SERVER_ERROR).code(ERROR)
-                    .resultMsg(ERROR_Message).build();
+                    .resultMsg(ERROR_MESSAGE).build();
         }
-
-
     }
 }
