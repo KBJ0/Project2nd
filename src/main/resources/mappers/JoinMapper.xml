@@ -14,18 +14,56 @@
 
     <select id="getJoin">
         SELECT
-        join_seq AS joinSeq, join_user_seq AS joinUserSeq
-        , join_msg AS joinMsg, join_gb AS joinGb
-        FROM party_join
+        A.member_seq AS memberSeq
+        ,B.user_name AS userName
+        ,B.user_pic AS userPic
+        ,B.user_gender AS userGender
+        , A.member_user_seq AS memberUserSeq
+        , A.member_role AS memberRole
+        , A.member_gb AS memberGb
+        FROM party_member A
+        JOIN user_master B ON A.member_seq = B.user_seq
         WHERE join_party_seq = #{joinPartySeq}
+
+
+<!--        SELECT-->
+<!--        A.join_seq AS joinSeq-->
+<!--        ,B.user_name AS userName-->
+<!--        ,B.user_pic AS userPic-->
+<!--        ,B.user_gender AS userGender-->
+<!--        ,A.join_user_seq AS joinUserSeq-->
+<!--        , A.join_msg AS joinMsg-->
+<!--        , A.join_gb AS joinGb-->
+<!--        FROM party_join A-->
+<!--        JOIN user_master B ON A.join_user_seq = B.user_seq-->
+<!--        WHERE join_party_seq = #{joinPartySeq}-->
     </select>
     <select id="getJoinDetail">
         SELECT
-        join_seq AS joinSeq, join_user_seq AS joinUserSeq
-        , join_msg AS joinMsg, join_gb AS joinGb
-        FROM party_join
+        A.member_seq AS memberSeq
+        ,B.user_name AS userName
+        ,B.user_pic AS userPic
+        ,B.user_gender AS userGender
+        , A.member_user_seq AS memberUserSeq
+        , A.member_role AS memberRole
+        , A.member_gb AS memberGb
+        FROM party_member A
+        JOIN user_master B ON A.member_seq = B.user_seq
         WHERE join_party_seq = #{joinPartySeq}
         AND join_user_seq = #{joinUserSeq}
+
+<!--        SELECT-->
+<!--        A.join_seq AS joinSeq-->
+<!--        ,B.user_name AS userName-->
+<!--        ,B.user_pic AS userPic-->
+<!--        ,B.user_gender AS userGender-->
+<!--        ,A.join_user_seq AS joinUserSeq-->
+<!--        , A.join_msg AS joinMsg-->
+<!--        , A.join_gb AS joinGb-->
+<!--        FROM party_join A-->
+<!--        JOIN user_master B ON A.join_user_seq = B.user_seq-->
+<!--        WHERE join_party_seq = #{joinPartySeq}-->
+<!--        AND join_user_seq = #{joinUserSeq}-->
     </select>
 
     <update id="updateJoin">
