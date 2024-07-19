@@ -40,6 +40,13 @@
         WHERE join_party_seq = #{joinPartySeq}
         AND join_user_seq = #{joinUserSeq}
     </update>
+    <update id="updateSuspendedMember">
+        UPDATE party_member
+        SET member_role = 2
+            , member_gb = 1
+        WHERE member_party_seq = #{joinPartySeq}
+        AND member_user_seq = #{joinUserSeq}
+    </update>
     <insert id="postMember">
         INSERT INTO party_member
         SET member_party_seq = #{joinPartySeq}
