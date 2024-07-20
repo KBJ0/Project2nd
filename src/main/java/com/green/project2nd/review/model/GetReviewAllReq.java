@@ -1,6 +1,5 @@
 package com.green.project2nd.review.model;
 
-import com.green.project2nd.common.GlobalConst;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

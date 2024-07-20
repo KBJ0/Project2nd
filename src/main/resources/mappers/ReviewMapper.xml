@@ -31,6 +31,7 @@
         , E.party_seq as partySeq
         , E.party_name as partyName
         , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        , IFNULL(G.favCnt, 0) AS favCnt
         FROM review_master A
         JOIN plan_member B
         ON A.review_plmember_seq = B.plmember_seq
@@ -43,22 +44,22 @@
         LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
         FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
         ON F.member_party_seq = E.party_seq
-        <where>
-            <if test="search == 1">
-                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
-                || F.USER_NAME LIKE concat('%',#{searchData},'%')
-                || D.user_name LIKE concat('%',#{searchData},'%')
-            </if>
-            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
-        </where>
+        LEFT JOIN (SELECT COUNT(*) AS favCnt, review_fav_review_seq from review_fav GROUP BY review_fav_review_seq) G
+        ON A.review_seq = G.review_fav_review_seq
+        WHERE
+        <if test="search == 1">
+            (TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+            || F.USER_NAME LIKE concat('%',#{searchData},'%')
+            || D.user_name LIKE concat('%',#{searchData},'%'))
+        </if>
+        <if test="search == 2"> TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 3"> F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 4"> D.user_name LIKE concat('%',#{searchData},'%')</if>
         ORDER BY review_seq DESC
         <if test="size != 0">
             LIMIT #{startIdx}, #{size}
         </if>
     </select>
-
 
     <select id="getReviewUser">
         SELECT A.review_seq as reviewSeq
@@ -73,6 +74,7 @@
         , E.party_seq as partySeq
         , E.party_name as partyName
         , IF(F.user_name IS null, "모임장 없음", F.user_name) AS president
+        , IFNULL(G.favCnt, 0) AS favCnt
         FROM review_master A
         JOIN plan_member B
         ON A.review_plmember_seq = B.plmember_seq
@@ -85,17 +87,17 @@
         LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
         FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
         ON F.member_party_seq = E.party_seq
-        <where>
-            <if test="1==1">D.user_seq = #{userSeq}</if>
-            <if test="search == 1">
-                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
-                || F.USER_NAME LIKE concat('%',#{searchData},'%')
-                || D.user_name LIKE concat('%',#{searchData},'%')
-            </if>
-            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
-        </where>
+        LEFT JOIN (SELECT COUNT(*) AS favCnt, review_fav_review_seq from review_fav GROUP BY review_fav_review_seq) G
+        ON A.review_seq = G.review_fav_review_seq
+        WHERE D.user_seq = #{userSeq}
+        <if test="search == 1">
+            AND (TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+            || F.USER_NAME LIKE concat('%',#{searchData},'%')
+            || D.user_name LIKE concat('%',#{searchData},'%'))
+        </if>
+        <if test="search == 2"> AND TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 3"> AND F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 4"> AND D.user_name LIKE concat('%',#{searchData},'%')</if>
         ORDER BY review_seq DESC
         <if test="size != 0">
             LIMIT #{startIdx}, #{size}
@@ -131,17 +133,16 @@
         LEFT JOIN (SELECT A.member_seq, B.USER_NAME, A.member_party_seq
         FROM party_member A JOIN user_master B ON A.member_user_seq = b.user_seq WHERE A.member_role = '1') F
         ON F.member_party_seq = E.party_seq
-        <where>
-            <if test="userSeq != 0">D.user_seq = #{userSeq}</if>
-            <if test="search == 1">
-                TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
-                || F.USER_NAME LIKE concat('%',#{searchData},'%')
-                || D.user_name LIKE concat('%',#{searchData},'%')
-            </if>
-            <if test="search == 2">TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 3">F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
-            <if test="search == 4">D.user_name LIKE concat('%',#{searchData},'%')</if>
-        </where>
+        WHERE 1 = 1
+        <if test="userSeq != 0"> AND D.user_seq = #{userSeq}</if>
+        <if test="search == 1">
+            AND (TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')
+            || F.USER_NAME LIKE concat('%',#{searchData},'%')
+            || D.user_name LIKE concat('%',#{searchData},'%'))
+        </if>
+        <if test="search == 2"> AND TRIM(REPLACE(E.party_name,' ','')) LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 3"> AND F.USER_NAME LIKE concat('%',#{searchData},'%')</if>
+        <if test="search == 4"> AND D.user_name LIKE concat('%',#{searchData},'%')</if>
     </select>
 
     <update id="patchReview">
@@ -163,7 +164,19 @@
 
     <delete id="deleteReviewFavs">
         DELETE FROM review_fav
-        WHERE review_fav_review_seq = #{reviewSeq}
+        WHERE review_fav_review_seq = #{reviewFavReviewSeq}
     </delete>
 
+    <delete id="deleteReviewFav">
+        DELETE FROM review_fav
+        WHERE review_fav_review_seq = #{reviewFavReviewSeq}
+        AND review_fav_user_seq = #{reviewFavUserSeq}
+    </delete>
+
+    <insert id="insertReviewFav">
+        INSERT INTO review_fav
+        (review_fav_review_seq, review_fav_user_seq)
+        VALUES
+        (#{reviewFavReviewSeq}, #{reviewFavUserSeq})
+    </insert>
 </mapper>

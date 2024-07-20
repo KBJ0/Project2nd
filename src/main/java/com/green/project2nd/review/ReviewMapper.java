@@ -11,11 +11,13 @@ public interface ReviewMapper {
     void postReviewPics(PostReviewPicDto p);
     int deleteReview(long reviewSeq);
     void deleteReviewPics(long reviewSeq);
-    void deleteReviewFavs(long reviewSeq);
     List<GetReviewAllRes> getReviewAll(GetReviewAllReq p);
     List<GetReviewUserRes> getReviewUser(GetReviewUserReq p);
     long getTotalElements(int search, String searchData, long userSeq);
     void patchReview(PatchReviewReq p);
     List<GetReviewPicDto> getPic(long reviewSeq);
     List<String> getPicFiles(long reviewSeq);
+    void deleteReviewFavs(long reviewSeq);
+    int deleteReviewFav(GetReviewFavToggleReq p);
+    int insertReviewFav(GetReviewFavToggleReq p);
 }

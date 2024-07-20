@@ -4,10 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.green.project2nd.user.UserMapper;
 import com.green.project2nd.user.model.FindPasswordReq;
-import com.green.project2nd.user.model.SimpleInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -21,7 +19,7 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Random;
 
-import static com.green.project2nd.user.datacheck.Const.tempPassword;
+import static com.green.project2nd.user.datacheck.CommonUser.tempPassword;
 import static com.green.project2nd.user.userexception.ConstMessage.*;
 
 
