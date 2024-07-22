@@ -143,28 +143,53 @@
     </select>
     <select id="getPartyMine">
         SELECT
-        C.party_seq AS partySeq,
-        A.user_name AS userName,
-        C.party_name AS partyName,
-        C.party_auth_gb AS partyAuthGb,
-        partyNowMem.partyNowMem,
-        C.party_maximum AS partyMaximum,
-        C.party_pic AS partyPic
-        FROM user_master A
-        JOIN party_member B ON A.user_seq = B.member_user_seq
-        JOIN party_master C ON B.member_party_seq = C.party_seq
-        JOIN (
-        SELECT
-        member_party_seq,
-        COUNT(*) AS partyNowMem
-        FROM party_member
-        WHERE member_gb = 1
-        GROUP BY member_party_seq
-        ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq
-        WHERE B.member_role = 2
-        AND A.user_seq = #{userSeq}
-        ORDER BY C.input_dt DESC
+        A.party_seq AS partySeq,
+        (SELECT C.user_name FROM party_member B
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE B.member_party_seq = A.party_seq AND B.member_role = 1) AS userName,
+        A.party_name AS partyName,
+        A.party_auth_gb AS partyAuthGb,
+        (SELECT COUNT(*) FROM party_member WHERE member_party_seq = A.party_seq) AS partyNowMem,
+        A.party_maximum AS partyMaximum,
+        A.party_pic AS partyPic
+        FROM party_master A
+        JOIN party_member B ON A.party_seq = B.member_party_seq
+        JOIN user_master C ON B.member_user_seq = C.user_seq
+        WHERE
+        C.user_seq = 1022
+        AND B.member_role = 2
+        GROUP BY
+        A.party_seq, A.party_name, A.party_gender,
+        A.party_maximum, A.party_pic
+        ORDER BY A.input_dt DESC
         LIMIT #{startIdx}, #{size}
+
+
+
+
+<!--        SELECT-->
+<!--        C.party_seq AS partySeq,-->
+<!--        A.user_name AS userName,-->
+<!--        C.party_name AS partyName,-->
+<!--        C.party_auth_gb AS partyAuthGb,-->
+<!--        partyNowMem.partyNowMem,-->
+<!--        C.party_maximum AS partyMaximum,-->
+<!--        C.party_pic AS partyPic-->
+<!--        FROM user_master A-->
+<!--        JOIN party_member B ON A.user_seq = B.member_user_seq-->
+<!--        JOIN party_master C ON B.member_party_seq = C.party_seq-->
+<!--        JOIN (-->
+<!--        SELECT-->
+<!--        member_party_seq,-->
+<!--        COUNT(*) AS partyNowMem-->
+<!--        FROM party_member-->
+<!--        WHERE member_gb = 1-->
+<!--        GROUP BY member_party_seq-->
+<!--        ) AS partyNowMem ON C.party_seq = partyNowMem.member_party_seq-->
+<!--        WHERE B.member_role = 2-->
+<!--        AND A.user_seq = #{userSeq}-->
+<!--        ORDER BY C.input_dt DESC-->
+<!--        LIMIT #{startIdx}, #{size}-->
     </select>
     <select id="getPartyMineCount">
         SELECT COUNT(C.party_seq)
