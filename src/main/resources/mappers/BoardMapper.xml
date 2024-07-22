@@ -27,12 +27,14 @@
     </update>
 
     <select id="getFileNamesByBoardSeq">
-        SELECT board_pic_file AS fileName FROM party_board_pic WHERE board_pic_board_seq = #{boardSeq}
+        SELECT board_pic_file AS fileName FROM party_board_pic
+        WHERE board_pic_board_seq = #{boardSeq}
     </select>
 
     <delete id="deleteBoard">
         DELETE FROM party_board_master WHERE board_seq = #{boardSeq}
         AND board_member_seq = #{boardMemberSeq}
+        AND board_party_seq = #{boardPartySeq}
     </delete>
 
     <delete id="deleteBoardPics">
@@ -44,6 +46,8 @@
         UPDATE party_board_master
         SET board_hit = board_hit + 1
         WHERE board_seq = #{boardSeq}
+        AND board_party_seq = #{boardPartySeq}
+        AND board_member_seq = #{boardMemberSeq}
     </update>
 
     <select id="getBoardList">
@@ -57,6 +61,9 @@
         input_dt AS inputDt,
         update_dt AS updateDt
         FROM party_board_master
+        <where>
+            board_party_seq = #{boardPartySeq}
+        </where>
         ORDER BY board_seq DESC
         LIMIT #{startIdx}, #{size}
     </select>
@@ -77,6 +84,8 @@
         update_dt AS updateDt
         FROM party_board_master
         WHERE board_seq = #{boardSeq}
+        AND board_party_seq = #{boardPartySeq}
+        AND board_member_seq = #{boardMemberSeq}
     </select>
 
 </mapper>

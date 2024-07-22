@@ -9,6 +9,8 @@ import lombok.Setter;
 
 public class BoardGetReq extends Paging {
     private long boardSeq;
+    private long boardMemberSeq;
+    private long boardPartySeq;
 
     public BoardGetReq(long boardSeq, Integer page, Integer size) {
         super(page, size);
