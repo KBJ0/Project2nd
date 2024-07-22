@@ -163,7 +163,7 @@ public class UserController {
                             "<p>  2 : 실패 (비밀번호 틀림) </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<Integer> patchPassword(@RequestBody UpdatePasswordReq p) {
+    public ResultDto<Integer> patchPassword(@Valid @RequestBody UpdatePasswordReq p) {
 
         try {
             int result = service.patchPassword(p);
