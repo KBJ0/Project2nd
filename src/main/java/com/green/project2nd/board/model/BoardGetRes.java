@@ -13,6 +13,7 @@ public class BoardGetRes {
     private long boardSeq;
     private long boardPartySeq;
     private long boardMemberSeq;
+    private String userName;
     private String boardTitle;
     private String boardContents;
     private long boardHit;
