@@ -6,18 +6,43 @@
 
     <select id="getMember">
         SELECT
-            member_seq AS memberSeq, member_user_seq AS memberUserSeq
-            , member_role AS memberRole, member_gb AS memberGb
-        FROM party_member
+        A.member_seq AS memberSeq
+        ,B.user_name AS userName
+        ,B.user_pic AS userPic
+        ,B.user_gender AS userGender
+        , A.member_user_seq AS memberUserSeq
+        , A.member_role AS memberRole
+        , A.member_gb AS memberGb
+        FROM party_member A
+        JOIN user_master B ON A.member_user_seq = B.user_seq
         WHERE member_party_seq = #{memberPartySeq}
+
+<!--        SELECT-->
+<!--            member_seq AS memberSeq, member_user_seq AS memberUserSeq-->
+<!--            , member_role AS memberRole, member_gb AS memberGb-->
+<!--        FROM party_member-->
+<!--        WHERE member_party_seq = #{memberPartySeq}-->
     </select>
     <select id="getMemberDetail">
         SELECT
-            member_seq AS memberSeq, member_user_seq AS memberUserSeq
-            , member_role AS memberRole, member_gb AS memberGb
-        FROM party_member
+        A.member_seq AS memberSeq
+        ,B.user_name AS userName
+        ,B.user_pic AS userPic
+        ,B.user_gender AS userGender
+        , A.member_user_seq AS memberUserSeq
+        , A.member_role AS memberRole
+        , A.member_gb AS memberGb
+        FROM party_member A
+        JOIN user_master B ON A.member_user_seq = B.user_seq
         WHERE member_party_seq = #{memberPartySeq}
         AND member_user_seq = #{memberUserSeq}
+
+<!--        SELECT-->
+<!--            member_seq AS memberSeq, member_user_seq AS memberUserSeq-->
+<!--            , member_role AS memberRole, member_gb AS memberGb-->
+<!--        FROM party_member-->
+<!--        WHERE member_party_seq = #{memberPartySeq}-->
+<!--        AND member_user_seq = #{memberUserSeq}-->
     </select>
 
     <update id="updateMember">
