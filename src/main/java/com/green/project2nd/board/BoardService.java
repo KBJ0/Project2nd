@@ -54,7 +54,7 @@ public class BoardService {
         for (String fileName : fileNames) {
             mapper.deleteBoardPics(p.getBoardSeq(), fileName);
         }
-        return mapper.deleteBoard(p.getBoardSeq(), p.getBoardMemberSeq());
+        return mapper.deleteBoard(p.getBoardSeq(), p.getBoardMemberSeq(), p.getBoardPartySeq());
     }
 
 
@@ -102,10 +102,10 @@ public class BoardService {
         }
         return true;
     }
-    public BoardGetRes getBoard(long boardSeq) {
-        mapper.incrementBoardHit(boardSeq);
-        BoardGetRes board = mapper.getBoard(boardSeq);
-        List<String> pics = mapper.getFileNamesByBoardSeq(boardSeq);
+    public BoardGetRes getBoard(BoardGetReq p) {
+        mapper.incrementBoardHit(p.getBoardSeq(), p.getBoardPartySeq(), p.getBoardMemberSeq());
+        BoardGetRes board = mapper.getBoard(p.getBoardSeq(), p.getBoardPartySeq(), p.getBoardMemberSeq());
+        List<String> pics = mapper.getFileNamesByBoardSeq(p.getBoardSeq());
         board.setPics(pics);
         return board;
     }
