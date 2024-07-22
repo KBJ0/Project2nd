@@ -156,7 +156,7 @@
         JOIN party_member B ON A.party_seq = B.member_party_seq
         JOIN user_master C ON B.member_user_seq = C.user_seq
         WHERE
-        C.user_seq = 1022
+        C.user_seq = #{userSeq}
         AND B.member_role = 2
         GROUP BY
         A.party_seq, A.party_name, A.party_gender,
