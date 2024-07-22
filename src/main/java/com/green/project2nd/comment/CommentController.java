@@ -24,7 +24,12 @@ public class CommentController {
     private final CommentService service;
 
     @PostMapping
-    @Operation(summary = "댓글 등록")
+    @Operation(summary = "댓글 등록" , description =
+    "<strong> 커뮤니티 댓글 등록    </strong><p></p>" +
+    "<p><strong> commentBoardSeq  </strong> : 게시글PK (long) </p>" +
+    "<p><strong> commentMemberSeq </strong> : 댓글 유저PK (long) </p>" +
+    "<p><strong> commentContents  </strong> : 댓글 내용 (strong) </p>"
+    )
     public ResultDto<Long> postComment(@RequestBody CommentPostReq p) {
         long result = service.postBoardComment(p);
         return ResultDto.<Long>builder()
@@ -36,7 +41,10 @@ public class CommentController {
     }
 
     @DeleteMapping
-    @Operation(summary = "댓글 삭제")
+    @Operation(summary = "댓글 삭제" ,description =
+    "<strong> 커뮤니티 댓글 삭제 </strong><p></p>" +
+    "<p><strong> commentSeq </strong> : 댓글PK (long) </p>" +
+    "<p><strong> commentMemberSeq </strong> : 댓글 유저PK (long) </p>")
     public ResultDto<Integer> deleteComment(@RequestBody CommentDeleteReq p) {
         int result = service.deleteBoardComment(p);
         return ResultDto.<Integer>builder()
@@ -48,7 +56,11 @@ public class CommentController {
     }
 
     @PatchMapping
-    @Operation(summary = "댓글 수정")
+    @Operation(summary = "댓글 수정", description =
+    "<strong> 커뮤니티 댓글 수정 </strong><p></p>" +
+    "<p><strong> commentSeq </strong> : 댓글PK (long) </p>" +
+    "<p><strong> commentMemberSeq </strong> : 댓글 유저PK (long) </p>" +
+    "<p><strong> commentContents </strong> : 댓글 내용 (String) </p>")
     public ResultDto<Integer> patchComment(@ModelAttribute @ParameterObject CommentPatchReq p) {
         int result = service.patchBoardComment(p);
         return ResultDto.<Integer>builder()
@@ -60,7 +72,10 @@ public class CommentController {
     }
 
     @GetMapping
-    @Operation(summary = "댓글 조회")
+    @Operation(summary = "댓글 조회", description =
+    "<strong> 커뮤니티 댓글 조회(페이징처리) </strong><p></p>" +
+    "<p><strong> boardSeq </strong> : 게시글PK (long) </p>" +
+    "<p><strong> page </strong> : 페이지 입력 (Integer) </p>")
     public ResultDto<CommentGetPage> getComment(@RequestParam(name = "boardSeq") long boardSeq, Integer page) {
         CommentGetReq data = new CommentGetReq(boardSeq, page, COMMENT_PAGING_SIZE);
         CommentGetPage list = service.getBoardComment(data);
