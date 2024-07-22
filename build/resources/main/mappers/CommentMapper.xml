@@ -5,10 +5,18 @@
 <mapper namespace="com.green.project2nd.comment.CommentMapper">
 
     <select id="getBoardComment">
-        SELECT comment_seq AS commentSeq, comment_board_seq AS commentBoardSeq,
-        comment_member_seq AS commentMemberSeq, comment_contents AS commentContents,
-        input_dt AS inputDt, update_dt AS updateDt
-        FROM party_board_comment
+        SELECT comment_seq AS commentSeq,
+        A.comment_board_seq AS commentBoardSeq,
+        A.comment_member_seq AS commentMemberSeq,
+        C.user_name AS userName,
+        A.comment_contents AS commentContents,
+        A.input_dt AS inputDt,
+        A.update_dt AS updateDt
+        FROM party_board_comment A
+        INNER JOIN party_member B
+        ON A.comment_member_seq = B.member_seq
+        INNER JOIN user_master C
+        ON B.member_seq = C.user_seq
         WHERE comment_board_seq = #{boardSeq}
         limit #{startIdx}, #{size}
     </select>

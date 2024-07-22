@@ -2810,3 +2810,117 @@ java.sql.SQLSyntaxErrorException: (conn=305) You have an error in your SQL synta
 [2024-07-22 16:49:12 [33mWARN [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=305) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'A.SELECT comment_seq AS commentSeq,<EOL>        A.comment_board_seq AS commentBoa...' at line 1<EOL><EOL>### The error may exist in file [D:\2024-03 moon\backEnd\Project2nd\build\resources\main\mappers\CommentMapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: A.SELECT comment_seq AS commentSeq,         A.comment_board_seq AS commentBoardSeq,         A.comment_member_seq AS commentMemberSeq,         C.user_name AS userName,         A.comment_contents AS commentContents,         A.input_dt AS inputDt,         A.update_dt AS updateDt         FROM party_board_comment A         INNER JOIN party_member B         ON A.comment_member_seq = B.member_seq         INNER JOIN user_master C         ON B.member_seq = C.user_seq         WHERE comment_board_seq = ?         limit ?, ?<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: (conn=305) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'A.SELECT comment_seq AS commentSeq,<EOL>        A.comment_board_seq AS commentBoa...' at line 1<EOL>; bad SQL grammar []][0;39m 
 [2024-07-22 16:49:34 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m 
 [2024-07-22 16:49:34 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m 
+[2024-07-22 16:49:35 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m 
+[2024-07-22 16:49:35 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarting Project2ndApplication using Java 17.0.10 with PID 5768 (D:\2024-03 moon\backEnd\Project2nd\build\classes\java\main started by Administrator in D:\2024-03 moon\backEnd\Project2nd)[0;39m 
+[2024-07-22 16:49:35 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m 
+[2024-07-22 16:49:35 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m 
+[2024-07-22 16:49:35 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m 
+[2024-07-22 16:49:36 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m 
+[2024-07-22 16:49:36 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m 
+[2024-07-22 16:49:36 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1362 ms[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@78b23729[0;39m 
+[2024-07-22 16:49:37 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m 
+[2024-07-22 16:49:38 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: d46cd4ff-d442-4443-bc52-aeba4cdab368
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 13 endpoint(s) beneath base path '/actuator'[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ba4b64f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@435d8bc0, org.springframework.security.web.context.SecurityContextHolderFilter@6d6ed7a9, org.springframework.security.web.header.HeaderWriterFilter@11072e9c, org.springframework.web.filter.CorsFilter@43f1644b, org.springframework.security.web.authentication.logout.LogoutFilter@714aee0, com.green.project2nd.security.jwt.JwtAuthenticationFilter@35177031, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7437d6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68c77ba9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69f484e2, org.springframework.security.web.session.SessionManagementFilter@54848e2f, org.springframework.security.web.access.ExceptionTranslationFilter@5bd1eca, org.springframework.security.web.access.intercept.AuthorizationFilter@15dfb9d2][0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m restartedMain] [com.green.project2nd.Project2ndApplication] [36mStarted Project2ndApplication in 3.041 seconds (process running for 3.433)[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.121] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.121] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m 
+[2024-07-22 16:49:38 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.121] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m 
+[2024-07-22 16:49:42 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-22 16:49:42 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT comment_seq AS commentSeq,
+        A.comment_board_seq AS commentBoardSeq,
+        A.comment_member_seq AS commentMemberSeq,
+        C.user_name AS userName,
+        A.comment_contents AS commentContents,
+        A.input_dt AS inputDt,
+        A.update_dt AS updateDt
+        FROM party_board_comment A
+        INNER JOIN party_member B
+        ON A.comment_member_seq = B.member_seq
+        INNER JOIN user_master C
+        ON B.member_seq = C.user_seq
+        WHERE comment_board_seq = 1
+        limit 0, 15
+ {executed in 1 msec}[0;39m 
+[2024-07-22 16:49:42 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+|comment_seq |comment_board_seq |comment_member_seq |user_name |comment_contents   |input_dt            |update_dt |
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+|723         |1                 |47                 |Lyon      |leo odio porttitor |2024-07-08 09:31:39 |null      |
+|1002        |1                 |47                 |Lyon      |test               |2024-07-11 15:51:50 |null      |
+|1003        |1                 |47                 |Lyon      |test               |2024-07-11 15:53:05 |null      |
+|1004        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:38 |null      |
+|1005        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:41 |null      |
+|1006        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:42 |null      |
+|1007        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:42 |null      |
+|1008        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:43 |null      |
+|1009        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:44 |null      |
+|1010        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:44 |null      |
+|1011        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:40:45 |null      |
+|1012        |1                 |26                 |Judah     |ㅅㄷㄴㅅ               |2024-07-22 16:41:47 |null      |
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+[0;39m 
+[2024-07-22 16:49:42 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT count(*) from party_board_comment
+        WHERE comment_board_seq = 1
+ {executed in 0 msec}[0;39m 
+[2024-07-22 16:49:42 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|12       |
+|---------|
+[0;39m 
+[2024-07-22 16:50:02 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.project2nd.security.jwt.JwtAuthenticationFilter] [36mJwtAuthenticationFilter-Token : null[0;39m 
+[2024-07-22 16:50:02 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT comment_seq AS commentSeq,
+        A.comment_board_seq AS commentBoardSeq,
+        A.comment_member_seq AS commentMemberSeq,
+        C.user_name AS userName,
+        A.comment_contents AS commentContents,
+        A.input_dt AS inputDt,
+        A.update_dt AS updateDt
+        FROM party_board_comment A
+        INNER JOIN party_member B
+        ON A.comment_member_seq = B.member_seq
+        INNER JOIN user_master C
+        ON B.member_seq = C.user_seq
+        WHERE comment_board_seq = 3
+        limit 0, 15
+ {executed in 0 msec}[0;39m 
+[2024-07-22 16:50:02 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+|comment_seq |comment_board_seq |comment_member_seq |user_name |comment_contents   |input_dt            |update_dt |
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+|158         |3                 |270                |Barde     |bibendum imperdiet |2024-07-08 09:31:37 |null      |
+|719         |3                 |385                |Vlad      |id                 |2024-07-08 09:31:39 |null      |
+|------------|------------------|-------------------|----------|-------------------|--------------------|----------|
+[0;39m 
+[2024-07-22 16:50:02 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT count(*) from party_board_comment
+        WHERE comment_board_seq = 3
+ {executed in 0 msec}[0;39m 
+[2024-07-22 16:50:02 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|---------|
+|count(*) |
+|---------|
+|2        |
+|---------|
+[0;39m 
