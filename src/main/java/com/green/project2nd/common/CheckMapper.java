@@ -25,5 +25,6 @@ public interface CheckMapper {
     Integer checkPlanPartySeq(Long planPartySeq);
     Integer checkPlanJoin(TogglePlanJoinReq p);
 
-
+    //영록
+    int checkReviewSeq(long reviewSeq);
 }

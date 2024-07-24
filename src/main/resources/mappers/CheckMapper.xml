@@ -102,4 +102,10 @@
         WHERE plmember_plan_seq = #{plmemberPlanSeq}
         AND plmember_member_seq = #{plmemberMemberSeq}
     </select>
+
+    <select id="checkReviewSeq">
+        SELECT 1
+        FROM review_master
+        WHERE review_seq = #{reviewSeq}
+    </select>
 </mapper>
