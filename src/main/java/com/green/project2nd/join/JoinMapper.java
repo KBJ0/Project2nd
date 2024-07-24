@@ -1,9 +1,6 @@
 package com.green.project2nd.join;
 
-import com.green.project2nd.join.model.GetJoinRes;
-import com.green.project2nd.join.model.PostJoinReq;
-import com.green.project2nd.join.model.UpdateJoinGbReq;
-import com.green.project2nd.join.model.UpdateJoinReq;
+import com.green.project2nd.join.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -22,5 +19,6 @@ public interface JoinMapper {
 
     int deleteJoin(Long joinPartySeq, Long joinUserSeq);
 
+    List<GetMyJoinRes> getMyJoin(long userSeq);
 
 }

@@ -92,12 +92,17 @@
         FROM party_master
         WHERE party_seq = #{planPartySeq}
     </select>
-    <select id="checkPlanJoin">
+    <select id="checkPlanJoin" >
         SELECT A.plmember_seq
         FROM plan_member A
         JOIN party_member B
         ON A.plmember_member_seq = B.member_seq
         WHERE A.plmember_plan_seq = #{plmemberPlanSeq}
         AND B.member_seq = #{memberSeq}
+    </select>
+    <select id="checkPlanCompleted">
+        SELECT plan_completed AS planCompleted
+        FROM plan_master
+        WHERE plan_seq = #{planSeq}
     </select>
 </mapper>

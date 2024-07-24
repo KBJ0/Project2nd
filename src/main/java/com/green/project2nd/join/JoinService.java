@@ -5,16 +5,15 @@ import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.common.myexception.ReturnDto;
 import com.green.project2nd.join.exception.JoinExceptionHandler;
-import com.green.project2nd.join.model.GetJoinRes;
-import com.green.project2nd.join.model.PostJoinReq;
-import com.green.project2nd.join.model.UpdateJoinGbReq;
-import com.green.project2nd.join.model.UpdateJoinReq;
+import com.green.project2nd.join.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.green.project2nd.plan.exception.ConstMessage.NOT_FOUND_PLAN;
 
 @RequiredArgsConstructor
 @Service
@@ -95,5 +94,11 @@ public class JoinService {
         return ResultDto.resultDto(HttpStatus.OK,1, " 모임 신청서를 삭제합니다.", mapper.deleteJoin(joinPartySeq, joinUserSeq));
     }
 
+    public ResultDto<List<GetMyJoinRes>> getMyJoin(long userSeq){
+        if(checkMapper.checkUserSeq(userSeq) == 0){
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "존재하지 않는 유저입니다.");
+        }
+        return ResultDto.resultDto(HttpStatus.OK,1, " 자신의 모임 신청서를 모두 불러옵니다.", mapper.getMyJoin(userSeq));
+    }
 
 }

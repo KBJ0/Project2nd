@@ -96,6 +96,7 @@
         WHERE board_seq = #{boardSeq}
         AND board_party_seq = #{boardPartySeq}
         AND board_member_seq = #{boardMemberSeq}
+        ORDER BY board_seq DESC
     </select>
 
 </mapper>

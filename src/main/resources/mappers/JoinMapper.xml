@@ -9,7 +9,6 @@
         SET join_party_seq = #{joinPartySeq}
         , join_user_seq = #{joinUserSeq}
         , join_msg = #{joinMsg}
-        , join_gb = 0
     </insert>
 
     <select id="getJoin">
@@ -72,4 +71,14 @@
         WHERE join_party_seq = #{joinPartySeq}
         AND join_user_seq = #{joinUserSeq}
     </delete>
+
+    <select id="getMyJoin">
+        SELECT A.join_seq AS joinSeq, A.join_party_seq AS joinPartySeq, A.join_msg AS joinMsg,
+            A.input_dt AS inputDt, B.party_seq AS partySeq, B.party_name AS partyName
+        FROM party_join A
+        JOIN party_master B
+        ON A.join_party_seq = B.party_seq
+        WHERE A.join_user_seq = #{userSeq}
+        AND A.join_gb = 0
+    </select>
 </mapper>

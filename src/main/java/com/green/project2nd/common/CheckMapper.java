@@ -24,4 +24,5 @@ public interface CheckMapper {
     Integer checkPlanSeq(Long planSeq);
     Integer checkPlanPartySeq(Long planPartySeq);
     Integer checkPlanJoin(TogglePlanJoinReq p);
+    Integer checkPlanCompleted(long planSeq);
 }

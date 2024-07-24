@@ -30,9 +30,13 @@ public class PlanJoinService {
         if (checkMapper.checkPlanJoin(p) == null) {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NULL_ERROR_MESSAGE);
         } else {
-            mapper.deletePlanJoin(p);
-            return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
+            if(checkMapper.checkPlanCompleted(checkMapper.checkPlanJoin(p)) == 2){
+                return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, COMPLETED_PLAN);
+            } else {
 
+                mapper.deletePlanJoin(p);
+                return ResultDto.resultDto(HttpStatus.OK, 1, DELETE_SUCCESS_MESSAGE);
+            }
         }
     }
 }

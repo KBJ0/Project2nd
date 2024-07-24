@@ -50,7 +50,7 @@ public class JoinExceptionHandler {
         }
     }
     //R2 U1
-    public void exception(Long partySeq,Long userSeq) {
+    public void  exception(Long partySeq,Long userSeq) {
         exceptionParty(partySeq);
         exceptionUser(userSeq);
         if (mapper.checkJoinApplicationOfUser(partySeq, userSeq) == 0) {throw new MsgExceptionNull("2,존재하지 않는 신청서입니다.");}
