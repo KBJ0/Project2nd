@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.green.project2nd.plan.exception.ConstMessage.NOT_FOUND_PLAN;
-
 @RequiredArgsConstructor
 @Service
 @Slf4j
@@ -108,6 +106,7 @@ public class JoinService {
         return ResultDto.resultDto(HttpStatus.OK,1, " 모임 신청서를 삭제합니다.", mapper.deleteJoin(joinPartySeq, joinUserSeq));
     }
 
+    /** (!!) GetMyJoinRes 빈값 채워야해요 */
     public ResultDto<List<GetMyJoinRes>> getMyJoin(long userSeq){
         if(checkMapper.checkUserSeq(userSeq) == 0){
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, "존재하지 않는 유저입니다.");
