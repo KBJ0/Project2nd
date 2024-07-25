@@ -54,8 +54,6 @@ public class JwtTokenProviderV2 {
 
                 .signWith(secretKey, Jwts.SIG.HS512)
                 .compact();
-
-
     }
 
     private Claims createClaims(MyUser myUser) {

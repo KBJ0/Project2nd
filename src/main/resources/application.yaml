@@ -100,6 +100,7 @@ file:
   directory: ${PROD.FILE_DIRECTORY}
 
 ---
+
 spring:
   config:
     activate:

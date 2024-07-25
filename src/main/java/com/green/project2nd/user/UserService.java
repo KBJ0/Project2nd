@@ -156,10 +156,10 @@ public class UserService {
     public int patchPassword(UpdatePasswordReq p) {
         p.setUserSeq(authenticationFacade.getLoginUserId());
 //        UserEntity user = mapper.getDetailUserInfo(p.getUserSeq());
-        GetUserPw userPw = mapper.getUserPw(p.getUserSeq());
+        String userPw = mapper.getUserPw(p.getUserSeq());
 
 
-        if (!(passwordEncoder.matches(p.getUserPw(), userPw.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
+        if (!(passwordEncoder.matches(p.getUserPw(), userPw)) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
         String newPassword = passwordEncoder.encode(p.getUserNewPw());
@@ -169,24 +169,26 @@ public class UserService {
     }
 
     @Transactional
-    public int deleteUser(long userSeq) {
-        int result = mapper.userExists(userSeq);
+    public int deleteUser() {
+        long userPk = authenticationFacade.getLoginUserId();
+        int result = mapper.userExists(userPk);
         if(result == 0) {
             throw new NotFoundException(NOT_FOUND_MESSAGE);
         }
         try {
-            String midPath = String.format("user/%d", userSeq);
+            String midPath = String.format("user/%d", userPk);
             String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, midPath);
             customFileUtils.deleteFolder(delAbsoluteFolderPath);
 
         } catch (FileException fe) {
             throw new FileException(FILE_ERROR_MESSAGE);
         }
-        return mapper.deleteUser(userSeq);
+        return mapper.deleteUser(userPk);
     }
 
-    public UserEntity getDetailUserInfo(long userSeq) {
-        UserEntity userEntity = mapper.getDetailUserInfo(userSeq);
+    public UserEntity getDetailUserInfo() {
+        long userPk = authenticationFacade.getLoginUserId();
+        UserEntity userEntity = mapper.getDetailUserInfo(userPk);
         if(userEntity == null) {
             throw new RuntimeException(FAILURE_MESSAGE);
         }
@@ -204,13 +206,14 @@ public class UserService {
 
     @Transactional
     public String updateUserPic(UpdateUserPicReq p) throws Exception {
+        long userPk = authenticationFacade.getLoginUserId();
 
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);
 
         try {
-            String Path = String.format("user/%d", p.getUserSeq());
+            String Path = String.format("user/%d", userPk);
             String delAbsoluteFolderPath = String.format("%s%s", customFileUtils.uploadPath, Path);
             customFileUtils.deleteFolder(delAbsoluteFolderPath);
 
@@ -225,8 +228,9 @@ public class UserService {
     }
 
     public int updateUserInfo(UpdateUserInfoReq p) {
+        long userPk = authenticationFacade.getLoginUserId();
 
-        int result = mapper.updateUserInfo(p);
+        int result = mapper.updateUserInfo(p.getUserNickname(), p.getUserAddr(), p.getUserFav(), p.getUserPhone(), p.getUserIntro(), userPk);
         if(result == 0) {
             throw new RuntimeException(FAILURE_MESSAGE);
         }

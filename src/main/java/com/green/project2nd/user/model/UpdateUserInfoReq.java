@@ -28,6 +28,4 @@ public class UpdateUserInfoReq {
 
     @Schema(example = "안녕하세요 가지가지 나뭇가지", description = "유저 자기소개")
     private String userIntro;
-
-    private long userSeq;
 }

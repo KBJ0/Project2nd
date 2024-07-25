@@ -50,10 +50,13 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(   // 로그인이 안 되어 있을때 접근 할 수 없는 곳
-                                "/api/feed"
-                                , "/api/feed/*"
-                                , "/api/user/pic"
-                                , "/api/user/follow"
+                                "/api/party/wish/**"
+                                ,"/api/board/**"
+                                ,"/api/join/**"
+                                ,"/api/plan/**"
+                                ,"/api/review/**"
+                                ,"/api/member/**"
+                                ,"/api/budget/**"
                         )
                                 .authenticated()
                                 .anyRequest().permitAll()

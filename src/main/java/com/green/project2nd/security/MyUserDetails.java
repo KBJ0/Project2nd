@@ -20,10 +20,6 @@ public class MyUserDetails implements UserDetails { // , OAuth2User
     private MyUser myUser;
 
 
-
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
@@ -37,9 +33,7 @@ public class MyUserDetails implements UserDetails { // , OAuth2User
 
     @Override
     public String getUsername() {
-        return
-
-                String.valueOf(myUser.getUserId());
+        return String.valueOf(myUser.getUserId());
     }
 
     @Override

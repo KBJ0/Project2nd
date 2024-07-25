@@ -181,7 +181,7 @@ public class UserController {
         }
     }
 
-    @PatchMapping("{userSeq}")
+    @PatchMapping()
     @Operation(summary = "유저 탈퇴" , description =
             "<strong > 유저 탈퇴 </strong> <p></p>" +
             "<p><strong> userEmail</strong> : 유저 이메일 (long) </p>" +
@@ -196,9 +196,9 @@ public class UserController {
                             "<p>  2 : 실패 </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<Integer> deleteUser(@PathVariable("userSeq") long userSeq) {
+    public ResultDto<Integer> deleteUser() {
         try {
-            int result = service.deleteUser(userSeq);
+            int result = service.deleteUser();
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
                     .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
@@ -217,7 +217,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("{userSeq}")
+    @GetMapping()
     @Operation(summary = "마이페이지" , description =
             "<strong > 유저 마이페이지 </strong> <p></p>" +
             "<p><strong> userSeq</strong> : 유저 PK (long) </p>" +
@@ -240,9 +240,9 @@ public class UserController {
                             "<p>  2 : 실패 </p> " +
                             "<p>  3 : 에러 </p> "
     )
-    public ResultDto<UserEntity> getDetailUserInfo(@PathVariable("userSeq") long userSeq) {
+    public ResultDto<UserEntity> getDetailUserInfo() {
         try {
-            UserEntity result = service.getDetailUserInfo(userSeq);
+            UserEntity result = service.getDetailUserInfo();
             return ResultDto.<UserEntity>builder()
                     .status(HttpStatus.OK).code(SUCCESS)
                     .resultMsg(SUCCESS_MESSAGE).resultData(result).build();
@@ -340,6 +340,7 @@ public class UserController {
                     .resultMsg(SUCCESS_MESSAGE).resultData(result)
                     .build();
         } catch (RuntimeException re) {
+            re.printStackTrace();
             return ResultDto.<Integer>builder()
                     .status(HttpStatus.NOT_FOUND).code(FAILURE)
                     .resultMsg(re.getMessage()).build();
