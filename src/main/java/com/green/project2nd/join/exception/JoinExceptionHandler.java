@@ -24,7 +24,24 @@ public class JoinExceptionHandler {
     private final CheckMapper mapper;
     private final JoinMapper joinMapper;
 
-    //C
+    /** C(postJoin) <br>
+     * 커스텀 에러가 발생하는 경우는 아래와 같다.
+     * @param partySeq 존재하지 않는 모임
+     * @param p 존재하지 않는 유저, 권한이 없는 유저(멤버장은 신청 불가) <br>
+     *          , 이미 신청한 경우 <br><br>
+     *   1-1.존재하지 않는 모임 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   1-2.존재하지 않는 모임 : <br>
+     *    없는 PK - MsgExceptionNull("2,존재하지 않는 모임입니다."); <br><br>
+     *   2-1.존재하지 않는 유저 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   2-2.존재하지 않는 유저 : <br>
+     *    없는 PK값 - MsgExceptionNull("2,존재하지 않는 유저입니다."); <br><br>
+     *   3.모임장이 자신의 모임에 신청 : <br>
+     *    - MsgException("2,권한이 없는 유저입니다."); <br><br>
+     *   4.이미 신청한 모임 : <br>
+     *    - MsgException("2,이미 신청한 모임입니다."); <br><br>
+     */
     public void exception(Long partySeq,PostJoinReq p) {
         exceptionParty(partySeq);
         exceptionUser(p.getJoinUserSeq());
@@ -33,15 +50,30 @@ public class JoinExceptionHandler {
         if (mapper.checkMemberForPartySeqAndUserSeq(partySeq,p.getJoinUserSeq()) != 0) {
             joinMapper.deleteJoin(partySeq,p.getJoinUserSeq());}
         if (mapper.checkJoinApplicationOfUser(partySeq,p.getJoinUserSeq()) != 0) {
-            throw new ReturnDto("2,이미 신청한 모임입니다.");}
+            throw new MsgException("2,이미 신청한 모임입니다.");}
     }
-//    // U2(updateJoinGb 추방당한 유저인지 확인용이였는데 옮김.)
-//    public void exceptionMember(Long partySeq, Long userSeq) {
-//        if (mapper.checkMemberForPartySeqAndUserSeq(partySeq, userSeq) == 1){
-//            joinMapper.updateSuspendedMember(partySeq,userSeq);
-//            throw new ReturnDto("1,신청서를 승인하였습니다. (1: 멤버등록)");}
-//    }
-    //U2
+
+
+    /** U2(updateJoinGb)
+     * 커스텀 에러가 발생하는 경우는 아래와 같다.
+     * @param partySeq 존재하지 않는 모임, 모임 인원수가 최대인 경우
+     * @param p 존재하지 않는 유저, 존재하지 않는 유저의 신청서<br>
+     *          , 권한이 없는 유저 <br><br>
+     *   1-1.존재하지 않는 모임 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   1-2.존재하지 않는 모임 : <br>
+     *    없는 PK - MsgExceptionNull("2,존재하지 않는 모임입니다."); <br><br>
+     *   2-1.존재하지 않는 유저 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   2-2.존재하지 않는 유저 : <br>
+     *    없는 PK값 - MsgExceptionNull("2,존재하지 않는 유저입니다."); <br><br>
+     *   3.존재하지 않는 신청서 : <br>
+     *    - MsgExceptionNull("2,존재하지 않는 신청서입니다."); <br><br>
+     *   4.모임장이 아닌 유저(권한자 X) : <br>
+     *    !모임장 - MsgException("2,권한이 없는 유저입니다."); <br><br>
+     *   5.모임인원수가 최대인 경우 : <br>
+     *    - MsgException("2,승인이 실패되었습니다. (모임인원수가 최대입니다)");
+     */
     public void exception(Long partySeq, UpdateJoinGbReq p) {
         exception(partySeq, p.getJoinUserSeq());
         exceptionLeader(partySeq, p.getLeaderUserSeq());
@@ -49,8 +81,23 @@ public class JoinExceptionHandler {
             throw new MsgException("2,승인이 실패되었습니다. (모임인원수가 최대입니다)");
         }
     }
-    //R2 U1
-    public void  exception(Long partySeq,Long userSeq) {
+
+    /** R2(getJoinDetail) U1(updateJoin) <br>
+     * 커스텀 에러가 발생하는 경우는 아래와 같다.
+     * @param partySeq 존재하지 않는 모임
+     * @param userSeq 존재하지 않는 유저, 존재하지 않는 유저의 신청서 <br><br>
+     *   1-1.존재하지 않는 모임 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   1-2.존재하지 않는 모임 : <br>
+     *    없는 PK - MsgExceptionNull("2,존재하지 않는 모임입니다."); <br><br>
+     *   2-1.존재하지 않는 유저 : <br>
+     *    null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *   2-2.존재하지 않는 유저 : <br>
+     *    없는 PK값 - MsgExceptionNull("2,존재하지 않는 유저입니다."); <br><br>
+     *   3.존재하지 않는 신청서 : <br>
+     *    - MsgExceptionNull("2,존재하지 않는 신청서입니다."); <br><br>
+     */
+    public void exception(Long partySeq,Long userSeq) {
         exceptionParty(partySeq);
         exceptionUser(userSeq);
         if (mapper.checkJoinApplicationOfUser(partySeq, userSeq) == 0) {throw new MsgExceptionNull("2,존재하지 않는 신청서입니다.");}
@@ -64,7 +111,22 @@ public class JoinExceptionHandler {
         if (userSeq == null || userSeq == 0) {throw new NullReqValue();}
         if (mapper.checkUserSeq(userSeq) == 0) {throw new MsgExceptionNull("2,존재하지 않는 유저입니다.");}
     }
-    // R1
+
+    /** R1(getJoin) <br>
+     * 커스텀 에러가 발생하는 경우는 아래와 같다.
+     * @param partySeq 존재하지 않는 모임
+     * @param userSeq 존재하지 않는 유저, 권한이 없는 유저 <br> <br>
+     *  1-1.존재하지 않는 모임 : <br>
+     *   null - ResultDto.resultDto (HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *  1-2.존재하지 않는 모임 : <br>
+     *   없는 PK - MsgExceptionNull("2,존재하지 않는 모임입니다."); <br><br>
+     *  2-1.존재하지 않는 유저 : <br>
+     *   null - ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "정보를 제대로 입력해주세요."); <br><br>
+     *  2-2.존재하지 않는 유저 : <br>
+     *   없는 PK - MsgExceptionNull("2,존재하지 않는 유저입니다."); <br><br>
+     *  3.모임장이 아닌 유저(권한자 X) : <br>
+     *   !모임장 - MsgException("2,권한이 없는 유저입니다."); <br><br>
+     */
     public void exceptionLeader(Long partySeq, Long userSeq) {
         exceptionParty(partySeq);
         exceptionUser(userSeq);
@@ -85,7 +147,7 @@ public class JoinExceptionHandler {
     }
     //-1.메세지 출력용(커스텀)
     @ExceptionHandler(MsgExceptionNull.class)
-    public ResultDto<String> handleMsgException2(MsgExceptionNull ex) {
+    public ResultDto<String> handleMsgExceptionNull(MsgExceptionNull ex) {
         ex.printStackTrace();
         String msg = ex.getMessage();
         String[] parts = msg.split(",", 2);

@@ -14,6 +14,7 @@ import java.util.List;
 
 
 public interface PartyService {
+
     ResultDto<PostPartyRes> postParty(@Nullable MultipartFile partyPic, PostPartyReq p) throws Exception;
     ResultDto<List<GetPartyLocationRes>> getPartyLocation(int cdSub, int cdGb);
     ResultDto<List<GetPartyRes>> getParty();
