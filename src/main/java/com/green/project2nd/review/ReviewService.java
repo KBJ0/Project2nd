@@ -1,5 +1,6 @@
 package com.green.project2nd.review;
 
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.CustomFileUtils;
 import com.green.project2nd.review.exception.CustomException;
 import com.green.project2nd.review.exception.ReviewErrorCode;

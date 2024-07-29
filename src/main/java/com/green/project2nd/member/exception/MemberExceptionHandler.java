@@ -1,5 +1,6 @@
 package com.green.project2nd.member.exception;
 
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.common.myexception.MsgException;
 import com.green.project2nd.common.myexception.MsgExceptionNull;
