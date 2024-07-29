@@ -1,5 +1,6 @@
 package com.green.project2nd.planjoin;
 
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.planjoin.model.*;
 import lombok.RequiredArgsConstructor;

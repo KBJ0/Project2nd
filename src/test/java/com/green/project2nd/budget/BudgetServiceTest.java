@@ -1,6 +1,7 @@
 package com.green.project2nd.budget;
 
 import com.green.project2nd.budget.model.PostBudgetReq;
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.CustomFileUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +15,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(SpringExtension.class)

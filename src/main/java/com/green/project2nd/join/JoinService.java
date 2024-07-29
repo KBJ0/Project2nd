@@ -1,6 +1,7 @@
 package com.green.project2nd.join;
 
 
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.ResultDto;
 import com.green.project2nd.common.myexception.ReturnDto;
 import com.green.project2nd.join.exception.JoinExceptionHandler;
