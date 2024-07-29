@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.rmi.AccessException;
 import java.util.List;
 
 @Slf4j
@@ -37,7 +38,7 @@ public class ReviewController {
                             "<p> 1 : 성공 (유저PK, 사진 리턴)</p>" +
                             "<p> 2 : 실패, ResultMsg</p>"
     )
-    public ResultDto<PostReviewRes> postReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics, @RequestPart PostReviewReq p) {
+    public ResultDto<PostReviewRes> postReview(@RequestPart(value = "pics", required = false) List<MultipartFile> pics, @RequestPart PostReviewReq p) throws Exception{
 
         if(p.getReviewContents() == null) { // 내용 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "내용을 입력해주세요.");
@@ -45,16 +46,19 @@ public class ReviewController {
         if(p.getReviewRating() < 1 || p.getReviewRating() > 5) {   // 별점 예외처리
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST,2, "별점은 1~5점이어야 합니다.");
         }
-        try {
+//        try {
             PostReviewRes result = service.postReview(pics, p);
 
             if(result == null) {
                 return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "리뷰 등록 실패 (리턴값 : NULL)");
             }
             return ResultDto.resultDto(HttpStatus.OK, 1,"리뷰 등록 완료" ,result);
-        } catch (Exception e) {
-            return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "파일 업로드 중 오류가 발생했습니다.");
-        }
+//        } catch (AccessException e) {
+//            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, e.getMessage());
+//        }
+//        catch (Exception e) {
+//            return ResultDto.resultDto(HttpStatus.INTERNAL_SERVER_ERROR,2, "파일 업로드 중 오류가 발생했습니다.");
+//        }
     }
 
     @DeleteMapping

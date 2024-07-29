@@ -1,6 +1,9 @@
 package com.green.project2nd.review;
 
+import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.CustomFileUtils;
+import com.green.project2nd.review.exception.CustomException;
+import com.green.project2nd.review.exception.ReviewErrorCode;
 import com.green.project2nd.review.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.rmi.AccessException;
 import java.util.List;
 
 @Service
@@ -15,25 +19,35 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReviewService {
     private final ReviewMapper mapper;
+    private final CheckMapper chkMapper;
     private final CustomFileUtils customFileUtils;
     private String path = "review/";
 
     @Transactional
     public PostReviewRes postReview(List<MultipartFile> pics, PostReviewReq p) throws Exception{
-        mapper.postReview(p);
-
-        if(pics == null) {
-            return PostReviewRes.builder()
-                    .reviewSeq(p.getReviewSeq())
-                    .build();
+        if(chkMapper.checkPostedReview(p.getReviewPlanSeq(), p.getReviewPlmemberSeq()) == 1) {
+            System.out.println("들어왔음");
+            throw new CustomException(ReviewErrorCode.DUPLICATED_REVIEW);
         }
 
-       PostReviewPicDto ppic = postPics(p.getReviewSeq(), pics, path+p.getReviewSeq());
+        try {
+            mapper.postReview(p);
 
-        return PostReviewRes.builder()
-                .reviewSeq(ppic.getReviewSeq())
-                .pics(ppic.getFileNames())
-                .build();
+            if (pics == null) {
+                return PostReviewRes.builder()
+                        .reviewSeq(p.getReviewSeq())
+                        .build();
+            }
+
+            PostReviewPicDto ppic = postPics(p.getReviewSeq(), pics, path + p.getReviewSeq());
+
+            return PostReviewRes.builder()
+                    .reviewSeq(ppic.getReviewSeq())
+                    .pics(ppic.getFileNames())
+                    .build();
+        } catch (Exception e) {
+            throw new Exception();
+        }
     }
 
     @Transactional
