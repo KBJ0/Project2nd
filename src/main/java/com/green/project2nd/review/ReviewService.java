@@ -1,6 +1,5 @@
 package com.green.project2nd.review;
 
-import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.CustomFileUtils;
 import com.green.project2nd.review.exception.CustomException;
 import com.green.project2nd.review.exception.ReviewErrorCode;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.rmi.AccessException;
 import java.util.List;
 
 @Service

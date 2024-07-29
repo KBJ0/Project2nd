@@ -66,8 +66,8 @@
     </delete>
 
     <select id="getBudgetMember">
-        SELECT COUNT(B.member_seq) AS memberSum, COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
-        (COUNT(B.member_seq) - COUNT(CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
+        SELECT COUNT(DISTINCT B.member_seq) AS memberSum, COUNT(DISTINCT CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END) AS depositedMember,
+        (COUNT(DISTINCT B.member_seq) - COUNT(DISTINCT CASE WHEN A.budget_gb = 1 THEN A.budget_member_seq END)) AS unDepositedMember
         FROM party_budget A
         JOIN party_member B
         ON A.budget_party_seq = B.member_party_seq
@@ -83,4 +83,13 @@
         AND budget_dt LIKE '2024-${month}%'
     </select>
 
+    <select id="getMemberList">
+        SELECT A.member_seq AS memberSeq, B.user_name AS userName, B.user_nickname AS userNickname
+        FROM party_member A
+        JOIN user_master B
+        ON A.member_user_seq = B.user_seq
+        WHERE member_party_seq = #{memberPartySeq}
+        AND member_gb = 1
+    </select>
+    
 </mapper>

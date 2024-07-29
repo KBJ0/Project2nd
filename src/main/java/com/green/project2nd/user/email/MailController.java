@@ -38,7 +38,7 @@ public class MailController {
                             "<p>  2 : 실패  </p> " +
                             "<p>  3 : 에러 "
     )
-    public ResultDto<String> mailSend(@RequestBody @Valid EmailRequestDto emailDto) {
+    public ResultDto<String> mailSend(@RequestBody @Valid EmailRequestReq emailDto) {
         log.info("이메일 인증 이메일 : {}", emailDto.getUserEmail());
         try {
             String str = mailService.joinEmail(emailDto.getUserEmail());
@@ -73,16 +73,16 @@ public class MailController {
                             "<p>  2 : 실패  </p> " +
                             "<p>  3 : 에러 "
     )
-    public ResultDto<Integer> AuthCheck(@RequestBody @Valid EmailCheckDto p){   // 이메일이랑 임의 코드
+    public ResultDto<Integer> AuthCheck(@RequestBody @Valid EmailCheckReq p){   // 이메일이랑 임의 코드
         String Checked = mailService.CheckAuthNum(p.getUserEmail(),p.getAuthNum());
         log.info("Check : {}", Checked);
         log.info("p.getUserEmail() : {}", p.getUserEmail());
         log.info("p.getAuthNum() : {}", p.getAuthNum());
         switch (Checked) {
-            case SUCCESS_Message -> {
+            case SUCCESS_MESSAGE -> {
                 return ResultDto.<Integer>builder()
                         .status(HttpStatus.OK).code(SUCCESS)
-                        .resultMsg(SUCCESS_Message).build();
+                        .resultMsg(SUCCESS_MESSAGE).build();
             }
             case AUTH_CODE_INCORRECT -> {
                 return ResultDto.<Integer>builder()
@@ -119,26 +119,25 @@ public class MailController {
                             "<p>  2 : 실패  </p> " +
                             "<p>  3 : 에러 "
     )
-    public ResultDto<Integer> setPassword(@RequestBody FindPasswordReq p) {
+    public ResultDto<String> setPassword(@RequestBody FindPasswordReq p) {
 
         try {
-            int result = mailService.setPassword(p);
-            if(result == 0) {
-                return ResultDto.<Integer>builder()
+            String result = mailService.setPassword(p);
+            if(result == null || result.isEmpty()) {
+                return ResultDto.<String>builder()
                         .status(HttpStatus.BAD_REQUEST)
                         .code(FAILURE)
                         .resultMsg(UNREGISTERED_EMAIL_MESSAGE)
-                        .resultData(result)
                         .build();
             }
-            return ResultDto.<Integer>builder()
+            return ResultDto.<String>builder()
                     .status(HttpStatus.OK)
                     .code(SUCCESS)
-                    .resultMsg(SUCCESS_Message)
+                    .resultMsg(SUCCESS_MESSAGE)
                     .resultData(result)
                     .build();
         } catch (RuntimeException e) {
-            return ResultDto.<Integer>builder()
+            return ResultDto.<String>builder()
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .code(ERROR)
                     .resultMsg(TRY_AGAIN_MESSAGE)

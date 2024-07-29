@@ -1,6 +1,7 @@
 package com.green.project2nd.budget;
 
 import com.green.project2nd.budget.model.*;
+import com.green.project2nd.member.model.GetMemberRes;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface BudgetMapper {
     long deleteBudget(long budgetSeq);
     GetBudgetMemberRes getBudgetMember(long budgetPartySeq, String month);
     GetBudgetMonthlyRes getBudgetMonthly(long budgetPartySeq, String month);
+    List<GetMemberListRes> getMemberList(long memberPartySeq);
 }

@@ -40,15 +40,15 @@
         AND member_user_seq = #{userSeq}
     </select>
     <select id="checkPartyNowMem">
-        SELECT CASE WHEN COUNT(B.member_party_seq) = A.party_maximum THEN 1
-        ELSE 0 END AS isEqual
+        SELECT CASE
+        WHEN (SELECT COUNT(member_party_seq)
+        FROM party_member
+        WHERE member_gb = 1 AND member_party_seq = A.party_seq) = A.party_maximum
+        THEN 1
+        ELSE 0
+        END AS isEqual
         FROM party_master A
-        JOIN party_member B ON A.party_seq = B.member_party_seq
         WHERE A.party_seq = #{partySeq}
-        GROUP BY
-        A.party_seq, A.party_name, A.party_genre, A.party_location, A.party_min_age, A.party_max_age,
-        A.party_gender, A.party_maximum, A.party_join_gb, A.party_intro, A.party_join_form, A.party_auth_gb,
-        A.party_pic, A.input_dt
     </select>
 
     <select id="checkMemberUserSeq">
@@ -67,10 +67,9 @@
         WHERE join_user_seq = #{joinUserSeq}
     </select>
     <select id="checkBudgetPartySeq">
-        SELECT budget_party_seq
-        FROM party_budget
-        GROUP BY budget_party_seq
-        HAVING budget_party_seq = #{budgetPartySeq}
+        SELECT party_seq
+        FROM party_master
+        WHERE party_seq = #{budgetPartySeq}
     </select>
     <select id="checkBudgetMemberSeq">
         SELECT member_seq
@@ -81,32 +80,29 @@
     <select id="checkBudgetSeq">
         SELECT budget_seq
         FROM party_budget
-        GROUP BY budget_seq
-        HAVING budget_seq = #{budgetSeq}
+        WHERE budget_seq = #{budgetSeq}
     </select>
     <select id="checkPlanSeq">
         SELECT plan_seq
         FROM plan_master
-        GROUP BY plan_seq
-        HAVING plan_seq = #{planSeq}
+        WHERE plan_seq = #{planSeq}
     </select>
     <select id="checkPlanPartySeq">
-        SELECT plan_party_seq
+        SELECT party_seq
+        FROM party_master
+        WHERE party_seq = #{planPartySeq}
+    </select>
+    <select id="checkPlanJoin" >
+        SELECT A.plmember_seq
+        FROM plan_member A
+        JOIN party_member B
+        ON A.plmember_member_seq = B.member_seq
+        WHERE A.plmember_plan_seq = #{plmemberPlanSeq}
+        AND B.member_seq = #{memberSeq}
+    </select>
+    <select id="checkPlanCompleted">
+        SELECT plan_completed AS planCompleted
         FROM plan_master
-        GROUP BY plan_party_seq
-        HAVING plan_party_seq = #{planPartySeq}
-    </select>
-    <select id="checkPlanJoin">
-        SELECT plmember_seq
-        FROM plan_member
-        WHERE plmember_plan_seq = #{plmemberPlanSeq}
-        AND plmember_member_seq = #{plmemberMemberSeq}
-    </select>
-
-    <select id="checkPostedReview">
-        SELECT 1
-        FROM review_master
-        WHERE review_plan_seq = #{reviewPlanSeq}
-        AND review_plmember_seq = #{reviewPlmemberSeq}
+        WHERE plan_seq = #{planSeq}
     </select>
 </mapper>

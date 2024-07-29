@@ -24,12 +24,7 @@ import java.util.List;
 public class MemberController {
     private final MemberService service;
 
-//    @PostMapping("/{party_seq}")
-//    @Operation(summary = "멤버 등록" , description = "모임 등록" )
-//    public ResultDto<Integer> postMember(@PathVariable("party_seq") Long memberPartySeq,
-//                                         @RequestParam(name = "member_user_seq") Long memberUserSeq) {
-//        return service.postMember(memberPartySeq, memberUserSeq);
-//    }
+
 
     @GetMapping("/{partySeq}")
     @Operation(summary = "멤버들 정보 불러오기", description =
@@ -72,15 +67,9 @@ public class MemberController {
         return service.updateMember(memberPartySeq, p);
     }
 
-//    @PatchMapping("/gb/{party_seq}")
-//    @Operation(summary = "멤버 권한 수정" , description = "0:미승인, 1:승인")
-//    public ResultDto<UpdateMemberRes> updateMemberGb(@PathVariable(name = "party_seq") Long memberPartySeq,
-//                                                     @RequestParam(name = "member_user_seq") Long memberUserSeq){
-//        return service.updateMemberGb(memberPartySeq, memberUserSeq);
-//    }
     @PatchMapping("/gb/{partySeq}")
-    @Operation(summary = "멤버 권한 수정" , description =
-                "<strong> 멤버 권한을 수정합니다. (수정시 모임에서 비활성화 됨.)</strong><p></p>" +
+    @Operation(summary = "멤버 차단 기능" , description =
+                "<strong> 멤버를 모임에서 차단합니다. (수정시 모임에서 비활성화 됨.)</strong><p></p>" +
                         "<p><strong> memberPartySeq      </strong> : 모임 PK (long) </p>" +
                         "<p><strong> memberUserSeq      </strong> : 수정할 멤버 PK (long) </p>" +
                         "<p><strong> memberLeaderUserSeq      </strong> : 멤버장 PK (long) </p>" )
@@ -95,12 +84,5 @@ public class MemberController {
     }
 
 
-
-//    @DeleteMapping("/{party_seq}")
-//    @Operation(summary = "모든 멤버 삭제" , description = "모임 삭제")
-//    public ResultDto<Integer> deleteMember(@PathVariable(name = "party_seq") Long memberPartySeq,
-//                                           @RequestParam(name = "member_user_seq") Long memberUserSeq){
-//        return service.deleteMember(memberPartySeq, memberUserSeq);
-//    }
 
 }

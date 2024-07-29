@@ -21,12 +21,8 @@ public interface PartyMapper {
     int getPartyLeaderCount(long userSeq);
 
     int updateParty(UpdatePartyReq p);
-    int updatePartyAuthGb(Long partySeq, Long userSeq);
-    int getPartyAuthGb(Long partySeq);
-    void updatePartyForGb2(Long partySeq);
-
-//    void deletePartyMember(Long partySeq);
-//    void deleteParty(Long partySeq);
+    int updatePartyAuthGb1(Long partySeq, Long userSeq);
+    void updatePartyAuthGb2(Long partySeq);
 
 
 

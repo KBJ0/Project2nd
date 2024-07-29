@@ -7,7 +7,7 @@ import com.green.project2nd.security.AuthenticationFacade;
 import com.green.project2nd.security.MyUser;
 import com.green.project2nd.security.MyUserDetails;
 import com.green.project2nd.security.jwt.JwtTokenProviderV2;
-import com.green.project2nd.user.datacheck.Const;
+import com.green.project2nd.user.datacheck.CommonUser;
 import com.green.project2nd.user.model.*;
 import com.green.project2nd.user.userexception.*;
 import com.green.project2nd.common.model.CustomFileUtils;
@@ -23,8 +23,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,8 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.green.project2nd.user.datacheck.Const.isValidEmail;
-import static com.green.project2nd.user.datacheck.Const.isValidNickname;
 import static com.green.project2nd.user.userexception.ConstMessage.*;
 
 
@@ -48,6 +46,7 @@ public class UserService {
     private final CookieUtils cookieUtils;
     private final AuthenticationFacade authenticationFacade;
     private final AppProperties appProperties;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Transactional
@@ -58,10 +57,19 @@ public class UserService {
         if(!p.getUserPw().equals(p.getUserPwCheck())) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
-        if(Const.isValidDate(p.getUserBirth())) {
-            throw new BirthDateException(BIRTHDATE_MESSAGE);
+        if(CommonUser.isValidDate(p.getUserBirth())) {
+            CommonUser.convertToDate(p.getUserBirth());
         } else {
-            Const.convertToDate(p.getUserBirth());
+            throw new BirthDateException(BIRTHDATE_REGEX_MESSAGE);
+        }
+        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
+            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNumber(p.getUserPhone()) == 1) {
+            throw new NumberDuplicationException(NUMBER_DUPLICATION_MESSAGE);
+        }
+        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
+            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
         }
 //        if(!isValidEmail(p.getUserEmail())) {
 //            throw new EmailRegexException(EMAIL_REGEX_MESSAGE);
@@ -69,16 +77,10 @@ public class UserService {
 //        if(!isValidNickname(p.getUserNickname())) {
 //            throw new NicknameRegexException(NICKNAME_REGEX_MESSAGE);
 //        }
-        if(mapper.duplicatedCheckEmail(p.getUserEmail()) == 1) {
-            throw new DuplicationException(EMAIL_DUPLICATION_MESSAGE);
-        }
-        if(mapper.duplicatedCheckNickname(p.getUserNickname()) == 1) {
-            throw new RuntimeException(NICKNAME_DUPLICATION_MESSAGE);
-        }
 
         String saveFileName = customFileUtils.makeRandomFileName(userPic);
         p.setUserPic(saveFileName);
-        String hashPw = BCrypt.hashpw(p.getUserPw(), BCrypt.gensalt());
+        String hashPw = passwordEncoder.encode(p.getUserPw());
         p.setUserPw(hashPw);
 
         int result = mapper.postSignUp(p);
@@ -99,10 +101,10 @@ public class UserService {
     public SignInRes postSignIn(HttpServletResponse res, SignInReq p) {
         SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
 
-        if(user == null || !(p.getUserEmail().equals(user.getUserEmail()))
-                || !(BCrypt.checkpw(p.getUserPw(), user.getUserPw()))) {
+        if(user == null || !(p.getUserEmail().equals(user.getUserEmail())) || !(passwordEncoder.matches(p.getUserPw(), user.getUserPw()))) {
             throw new LoginException(LOGIN_MESSAGE);
         }
+
         MyUser myUser = MyUser.builder()
                 .userId(user.getUserSeq())
                 .role("ROLE_USER")
@@ -120,6 +122,13 @@ public class UserService {
                 .userNickname(user.getUserNickname())
                 .userPic(user.getUserPic())
                 .userSeq(user.getUserSeq())
+                .userBirth(user.getUserBirth())
+                .userName(user.getUserName())
+                .userGender(user.getUserGender())
+                .userEmail(user.getUserEmail())
+                .userAddr(user.getUserAddr())
+                .userPhone(user.getUserPhone())
+                .userGenderNm(user.getUserGenderNm())
                 .accessToken(accessToken)
                 .build();
     }
@@ -145,16 +154,17 @@ public class UserService {
     }
 
     public int patchPassword(UpdatePasswordReq p) {
-        SimpleInfo user = mapper.getSimpleUserInfo(p.getUserEmail());
+        p.setUserSeq(authenticationFacade.getLoginUserId());
+//        UserEntity user = mapper.getDetailUserInfo(p.getUserSeq());
+        GetUserPw userPw = mapper.getUserPw(p.getUserSeq());
 
-        if(user == null) {
-            throw new IdCheckException(ID_CHECK_MESSAGE);
-        } else if (!(BCrypt.checkpw(p.getUserPw(), user.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
+
+        if (!(passwordEncoder.matches(p.getUserPw(), userPw.getUserPw())) || !(p.getUserNewPw().equals(p.getUserPwCheck()))) {
             throw new PwCheckException(PASSWORD_CHECK_MESSAGE);
         }
-        String newPassword = BCrypt.hashpw(p.getUserNewPw(), BCrypt.gensalt());
+        String newPassword = passwordEncoder.encode(p.getUserNewPw());
         p.setUserNewPw(newPassword);
-        p.setUserSeq(user.getUserSeq());
+//        p.setUserSeq(user.getUserSeq());
         return mapper.patchPassword(p);
     }
 
@@ -178,7 +188,7 @@ public class UserService {
     public UserEntity getDetailUserInfo(long userSeq) {
         UserEntity userEntity = mapper.getDetailUserInfo(userSeq);
         if(userEntity == null) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(FAILURE_MESSAGE);
         }
         return userEntity;
     }
@@ -194,7 +204,7 @@ public class UserService {
 
     @Transactional
     public String updateUserPic(UpdateUserPicReq p) throws Exception {
-//        p.setUserSeq(authenticationFacade.getLoginUserId());
+
         String fileName = customFileUtils.makeRandomFileName(p.getPic());
         p.setPicName(fileName);
         mapper.updateUserPic(p);
@@ -215,11 +225,10 @@ public class UserService {
     }
 
     public int updateUserInfo(UpdateUserInfoReq p) {
-//        p.setUserSeq(authenticationFacade.getLoginUserId());
 
         int result = mapper.updateUserInfo(p);
         if(result == 0) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(FAILURE_MESSAGE);
         }
         return result;
     }
@@ -227,8 +236,8 @@ public class UserService {
     public String findUserId(FindUserReq p) {
         String userEmail = mapper.findUserId(p);
         if(userEmail == null) {
-            throw new RuntimeException(FAILURE_Message);
+            throw new RuntimeException(NOT_FOUND_MESSAGE);
         }
-        return userEmail;
+        return CommonUser.maskEmail(userEmail);
     }
 }

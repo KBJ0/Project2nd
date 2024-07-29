@@ -2,10 +2,7 @@ package com.green.project2nd.join;
 
 
 import com.green.project2nd.common.model.ResultDto;
-import com.green.project2nd.join.model.GetJoinRes;
-import com.green.project2nd.join.model.PostJoinReq;
-import com.green.project2nd.join.model.UpdateJoinGbReq;
-import com.green.project2nd.join.model.UpdateJoinReq;
+import com.green.project2nd.join.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -112,4 +109,15 @@ public class JoinController {
         return service.deleteJoin(joinPartySeq, joinUserSeq);
     }
 
+    @GetMapping
+    @Operation(summary = "신청서 조회" , description =
+            "<strong> 자신의 모임 신청서를 모두 불러옵니다. </strong><p></p>" +
+                    "<p><strong> userSeq      </strong> : 유저 PK (long) </p>")
+    @ApiResponse(description =
+            "<p> ResponseCode 응답 코드 </p>" +
+                    "<p> 1 : 성공 </p>" +
+                    "<p> 2 : 실패 </p>")
+    public ResultDto<List<GetMyJoinRes>> getMyJoin(long userSeq){
+        return service.getMyJoin(userSeq);
+    }
 }

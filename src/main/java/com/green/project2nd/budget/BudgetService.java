@@ -1,7 +1,6 @@
 package com.green.project2nd.budget;
 
 import com.green.project2nd.budget.model.*;
-import com.green.project2nd.common.CheckMapper;
 import com.green.project2nd.common.model.CustomFileUtils;
 import com.green.project2nd.common.model.ResultDto;
 import lombok.RequiredArgsConstructor;
@@ -40,16 +39,15 @@ public class BudgetService {
         } else {
             String saveFileName = customFileUtils.makeRandomFileName(budgetPic);
             p.setBudgetPic(saveFileName);
+            mapper.postBudget(p);
             String path = String.format("budget/%d", p.getBudgetSeq());
             customFileUtils.makeFolders(path);
-
             String target = String.format("%s/%s", path, saveFileName);
             try {
                 customFileUtils.transferTo(budgetPic, target);
             } catch (Exception e) {
                 throw new RuntimeException(PIC_SAVE_ERROR);
             }
-            mapper.postBudget(p);
             return ResultDto.resultDto(HttpStatus.OK, 1, POST_SUCCESS_MESSAGE);
         }
     }
@@ -126,6 +124,14 @@ public class BudgetService {
             return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PARTY);
         } else {
             return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getBudgetMonthly(budgetPartySeq, month));
+        }
+    }
+
+    public ResultDto<List<GetMemberListRes>> getMemberList(long memberPartySeq){
+        if (checkMapper.checkBudgetPartySeq(memberPartySeq) == null) {
+            return ResultDto.resultDto(HttpStatus.BAD_REQUEST, 2, NOT_FOUND_PARTY);
+        } else {
+            return ResultDto.resultDto(HttpStatus.OK, 1, GET_SUCCESS_MESSAGE, mapper.getMemberList(memberPartySeq));
         }
     }
 }
